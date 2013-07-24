@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "page.js",
+  "sourceRoot": "",
+  "sources": [
+    "page.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;;;CAAA;CAAA,GAAA;kSAAA;;AAIA,CAJA,CAImB,CAAsB,GAAzC,CAAyC,CAAlC,CAAA;CACL,KAAA,cAAA;CAAA,CAAA,CAAW,IAAA,CAAX,cAAW;CAEJ,EAAgB,GAAjB,CAAN,EAAA;CAEE;;CAAA;;;;CAAA;;CAWA;;;;CAXA;;;;;CAAA;;CAAA;;CAFkC;CAHG"
+}

@@ -5,7 +5,7 @@ module.exports = class Routes
 
     # main route
     '/pages':
-      to: "pages/container"
+      to: "pages/index"
       at: null
       el: "body"
 
@@ -14,13 +14,8 @@ module.exports = class Routes
       at: "/pages"
       el: "#container"
 
-    '/pages/index':
-      to: "pages/index"
-      at: "/pages"
-      el: "#container"
-
   # default route
-  @root = '/pages/index'
+  @root = '/pages'
 
   # not found route
   @notfound = '/404'

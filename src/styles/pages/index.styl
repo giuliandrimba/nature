@@ -1,4 +1,40 @@
-.index
-  background-color cyan
-  border-radius    15px
-  text-align       center
+@import "../shared/_reset.styl"
+@import "../shared/_fonts.styl"
+@import "../shared/_global.styl"
+
+.wrapper
+	width 1150px
+	position relative
+	margin 0 auto
+
+.pages
+
+	.logo
+		width 77px
+		height 77px
+		position: absolute
+		top 20px
+		left 50%
+		margin-left -(@width / 2)
+
+	.bold_line, .thin_line
+		width 50px
+		height 4px
+		position absolute
+		top 117px
+		left 50%
+		margin-left -(@width / 2)
+		background-color main_color
+
+	.thin_line
+		height 1px
+		top 165px
+
+	.title
+		font-family font_cond_book
+		color main_color
+		text-transform uppercase
+		top 135px
+		position absolute
+		display block
+		left 50%
