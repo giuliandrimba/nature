@@ -1,0 +1,20 @@
+{
+  "name": "labs",
+  "author": "<your-name-here>",
+  "version": "0.1.0",
+  "description": "<app-descrioption-here>",
+  "keywords": ["theoricus", "mvc", "framework", "app", "another", "tag"],
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<gh-user>/<repo-name>"
+  },
+
+  "dependencies": {
+    
+  }
+}
