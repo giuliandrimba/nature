@@ -22,7 +22,7 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
 
     Menu.prototype.on_resize = function() {
       this.el.css({
-        top: this.window.height() - this.el.height() - 25
+        top: this.window.height() - this.el.height()
       });
       return this.menu.css({
         left: this.wrapper.width() / 2 - this.menu.width() / 2
@@ -35,7 +35,19 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
       this.arrow = this.el.find(".arrow");
       this.menu = this.el.find(".nav");
       this.on_resize();
-      return this.events();
+      this.events();
+      return this.arrow.css({
+        top: 100
+      });
+    };
+
+    Menu.prototype["in"] = function() {
+      return TweenLite.to(this.arrow, 0.5, {
+        css: {
+          top: 10
+        },
+        ease: Back.easeOut
+      });
     };
 
     Menu.prototype.events = function() {
@@ -98,7 +110,7 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
         li = $(li);
         TweenLite.to(li, 0.4, {
           css: {
-            top: 100
+            top: 150
           },
           ease: Back.easeIn,
           delay: i * delay
@@ -107,7 +119,7 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
       }
       return TweenLite.to(this.arrow, 0.5, {
         css: {
-          top: 10
+          top: 20
         },
         ease: Back.easeOut,
         delay: last_delay
@@ -118,7 +130,7 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
       var delay, i, li, _i, _len, _ref, _results;
       TweenLite.to(this.arrow, 0.5, {
         css: {
-          top: 60
+          top: 150
         },
         ease: Expo.easeOut
       });
@@ -130,7 +142,7 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
         li = $(li);
         TweenLite.to(li, 0.4, {
           css: {
-            top: 10
+            top: 20
           },
           ease: Back.easeOut,
           delay: i * delay

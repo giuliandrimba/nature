@@ -1,0 +1,1 @@
+jQuerySpritefy = require 'jquery.spritefy'

@@ -5,9 +5,10 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('app/views/app_view', ['require', 'exports', 'module', 'theoricus/mvc/view'], function(require, exports, module) {
-  var AppView, View, _ref;
+define('app/views/app_view', ['require', 'exports', 'module', 'app/config/vendors', 'theoricus/mvc/view'], function(require, exports, module) {
+  var AppView, Vendors, View, _ref;
   View = require('theoricus/mvc/view');
+  Vendors = require('app/config/vendors');
   return exports.module = AppView = (function(_super) {
     __extends(AppView, _super);
 

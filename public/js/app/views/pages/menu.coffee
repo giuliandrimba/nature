@@ -15,7 +15,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 			on_resize:()=>
 				@el.css
-					top: @window.height() - @el.height() - 25
+					top: @window.height() - @el.height()
 		
 				@menu.css
 		
@@ -29,6 +29,12 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 				@on_resize()
 				@events()
+		
+				@arrow.css 
+					top:100
+		
+			in:()->
+				TweenLite.to @arrow, 0.5, {css:{top:10}, ease:Back.easeOut}
 		
 			events:()->
 				@window.bind "resize", @on_resize
@@ -55,16 +61,16 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 				last_delay = 0.4
 				for li, i in @menu.find "li a"
 					li = $(li)
-					TweenLite.to li, 0.4, {css:{top:100}, ease:Back.easeIn, delay:i * delay}
+					TweenLite.to li, 0.4, {css:{top:150}, ease:Back.easeIn, delay:i * delay}
 					delay -= 0.005
 		
-				TweenLite.to @arrow, 0.5, {css:{top:10}, ease:Back.easeOut, delay:last_delay}
+				TweenLite.to @arrow, 0.5, {css:{top:20}, ease:Back.easeOut, delay:last_delay}
 		
 			show:()=>
-				TweenLite.to @arrow, 0.5, {css:{top:60}, ease:Expo.easeOut}
+				TweenLite.to @arrow, 0.5, {css:{top:150}, ease:Expo.easeOut}
 		
 				delay = 0.07
 				for li, i in @menu.find "li a"
 					li = $(li)
-					TweenLite.to li, 0.4, {css:{top:10}, ease:Back.easeOut, delay:i * delay}
+					TweenLite.to li, 0.4, {css:{top:20}, ease:Back.easeOut, delay:i * delay}
 					delay -= 0.005

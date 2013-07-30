@@ -4,6 +4,7 @@
 
 define ['require', 'exports', 'module'], (require, exports, module)->
   View = require 'theoricus/mvc/view'
+  Vendors = require 'app/config/vendors'
   
   exports.module = class AppView extends View
   

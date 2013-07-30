@@ -1,0 +1,293 @@
+@-webkit-keyframes logo-labs
+{	
+	
+	0%
+	{
+		background-position: 0px;
+	}	
+	
+	4%
+	{
+		background-position: -78px;
+	}	
+	
+	8%
+	{
+		background-position: -156px;
+	}	
+	
+	12%
+	{
+		background-position: -234px;
+	}	
+	
+	16%
+	{
+		background-position: -312px;
+	}	
+	
+	20%
+	{
+		background-position: -390px;
+	}	
+	
+	24%
+	{
+		background-position: -468px;
+	}	
+	
+	28%
+	{
+		background-position: -546px;
+	}	
+	
+	32%
+	{
+		background-position: -624px;
+	}	
+	
+	36%
+	{
+		background-position: -702px;
+	}	
+	
+	40%
+	{
+		background-position: -780px;
+	}	
+	
+	44%
+	{
+		background-position: -858px;
+	}	
+	
+	48%
+	{
+		background-position: -936px;
+	}	
+	
+	52%
+	{
+		background-position: -1014px;
+	}	
+	
+	56%
+	{
+		background-position: -1092px;
+	}	
+	
+	60%
+	{
+		background-position: -1170px;
+	}	
+	
+	64%
+	{
+		background-position: -1248px;
+	}	
+	
+	68%
+	{
+		background-position: -1326px;
+	}	
+	
+	72%
+	{
+		background-position: -1404px;
+	}	
+	
+	76%
+	{
+		background-position: -1482px;
+	}	
+	
+	80%
+	{
+		background-position: -1560px;
+	}	
+	
+	84%
+	{
+		background-position: -1638px;
+	}	
+	
+	88%
+	{
+		background-position: -1716px;
+	}	
+	
+	92%
+	{
+		background-position: -1794px;
+	}	
+	
+	96%
+	{
+		background-position: -1872px;
+	}	
+	
+	100%
+	{
+		background-position: -1872px;
+	}
+}
+@-moz-keyframes logo-labs
+{	
+	
+	0%
+	{
+		background-position: 0px;
+	}	
+	
+	4%
+	{
+		background-position: -78px;
+	}	
+	
+	8%
+	{
+		background-position: -156px;
+	}	
+	
+	12%
+	{
+		background-position: -234px;
+	}	
+	
+	16%
+	{
+		background-position: -312px;
+	}	
+	
+	20%
+	{
+		background-position: -390px;
+	}	
+	
+	24%
+	{
+		background-position: -468px;
+	}	
+	
+	28%
+	{
+		background-position: -546px;
+	}	
+	
+	32%
+	{
+		background-position: -624px;
+	}	
+	
+	36%
+	{
+		background-position: -702px;
+	}	
+	
+	40%
+	{
+		background-position: -780px;
+	}	
+	
+	44%
+	{
+		background-position: -858px;
+	}	
+	
+	48%
+	{
+		background-position: -936px;
+	}	
+	
+	52%
+	{
+		background-position: -1014px;
+	}	
+	
+	56%
+	{
+		background-position: -1092px;
+	}	
+	
+	60%
+	{
+		background-position: -1170px;
+	}	
+	
+	64%
+	{
+		background-position: -1248px;
+	}	
+	
+	68%
+	{
+		background-position: -1326px;
+	}	
+	
+	72%
+	{
+		background-position: -1404px;
+	}	
+	
+	76%
+	{
+		background-position: -1482px;
+	}	
+	
+	80%
+	{
+		background-position: -1560px;
+	}	
+	
+	84%
+	{
+		background-position: -1638px;
+	}	
+	
+	88%
+	{
+		background-position: -1716px;
+	}	
+	
+	92%
+	{
+		background-position: -1794px;
+	}	
+	
+	96%
+	{
+		background-position: -1872px;
+	}	
+	
+	100%
+	{
+		background-position: -1872px;
+	}
+}
+
+
+.logo-labs
+{
+	background-image:url('logo-labs.png');
+	display: block;
+	width:78px;
+	height:78px;
+}
+
+.logo-labs-animation
+{
+	background-image:url('logo-labs.png');
+	display: block;
+	width:78px;
+	height:78px;
+	-moz-animation-duration: 0.8333333333333334s;
+	-moz-animation-name: logo-labs;
+	-moz-animation-timing-function: step-end;
+	-moz-animation-iteration-count:infinite;
+	-moz-animation-fill-mode: backwards;
+	-webkit-animation-duration: 0.8333333333333334s;
+	-webkit-animation-name: logo-labs;
+	-webkit-animation-timing-function: step-end;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-fill-mode: backwards;
+}

@@ -56,6 +56,7 @@ setup
       'inflection': "#{theoricus}/vendors/inflection.js"
       'jquery': "#{theoricus}/vendors/jquery.js"
       'lodash': "#{theoricus}/vendors/lodash.js"
+      'jquery.spritefy': "vendors/jquery/jquery.spritefy.js"
 
       # app
       # 'app_vendor_name': 'vendors/app_vendor_name.js'
@@ -63,7 +64,7 @@ setup
       # vendors that doesn't implements AMD
       incompatible: [
           # theoricus
-          'history', 'inflection', 'jquery', 'json'
+          'history', 'inflection', 'jquery', 'json','jquery.spritefy'
 
           # app
           # 'app_vendor'
