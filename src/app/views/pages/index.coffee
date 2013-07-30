@@ -6,7 +6,7 @@ module.exports = class Index extends AppView
 
 	title: "Codeman _Labs"
 
-	before_render:()->
-		@menu = new Menu
+	after_render:()->
+		@menu = new Menu ".footer"
 
 	constructor:()->

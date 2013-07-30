@@ -2,7 +2,27 @@
 	
 	height 50px
 	position absolute
-	bottom 50px
+	overflow hidden
+	width 1150px
+
+	.open
+		position absolute
+		width 100%
+
+	.open .arrow
+		width 22px
+		height 15px
+		background url("img/arrow-down.png") no-repeat top left
+		left 50%
+		margin-left -(@width / 2)
+		position absolute
+		top 10px
+		cursor pointer
+
+	ul.nav
+		display block
+		position absolute
+
 
 	ul li
 		float left
@@ -13,7 +33,7 @@
 		font-weight bold
 		font-size 12px
 		height 19px
-		background-color main_color
+		background-color #fff
 		border-radius 20px
 		text-align center
 		padding-top 6px
@@ -22,6 +42,7 @@
 		width 25px
 		display block
 		position relative
+		top 100px
 
 	ul li a .dot
 		width 1px

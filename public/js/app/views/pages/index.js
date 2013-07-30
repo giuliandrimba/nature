@@ -15,8 +15,8 @@ define('app/views/pages/index', ['require', 'exports', 'module', 'app/views/page
 
     Index.prototype.title = "Codeman _Labs";
 
-    Index.prototype.before_render = function() {
-      return this.menu = new Menu;
+    Index.prototype.after_render = function() {
+      return this.menu = new Menu(".footer");
     };
 
     function Index() {}
