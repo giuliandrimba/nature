@@ -12,6 +12,8 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
     function Menu(at) {
       this.show = __bind(this.show, this);
       this.hide = __bind(this.hide, this);
+      this.out = __bind(this.out, this);
+      this.over = __bind(this.over, this);
       this.on_resize = __bind(this.on_resize, this);
       this.el = $(Template());
       $(at).append(this.el);
@@ -39,7 +41,51 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
     Menu.prototype.events = function() {
       this.window.bind("resize", this.on_resize);
       this.el.bind("mouseenter", this.show);
-      return this.el.bind("mouseleave", this.hide);
+      this.el.bind("mouseleave", this.hide);
+      this.menu.find("a").bind("mouseenter", this.over);
+      return this.menu.find("a").bind("mouseleave", this.out);
+    };
+
+    Menu.prototype.over = function(e) {
+      var bt;
+      bt = $(e.currentTarget);
+      if (bt.hasClass("active")) {
+        return;
+      }
+      TweenLite.to(bt.find(".white_dot"), 0.15, {
+        css: {
+          width: 1,
+          height: 1,
+          marginLeft: -1,
+          marginTop: -1
+        }
+      });
+      return TweenLite.to(bt.find(".dot"), 0.15, {
+        css: {
+          opacity: 0
+        }
+      });
+    };
+
+    Menu.prototype.out = function(e) {
+      var bt;
+      bt = $(e.currentTarget);
+      if (bt.hasClass("active")) {
+        return;
+      }
+      TweenLite.to(bt.find(".white_dot"), 0.15, {
+        css: {
+          width: 25,
+          height: 25,
+          marginLeft: -(26 / 2),
+          marginTop: -(26 / 2)
+        }
+      });
+      return TweenLite.to(bt.find(".dot"), 0.15, {
+        css: {
+          opacity: 1
+        }
+      });
     };
 
     Menu.prototype.hide = function() {

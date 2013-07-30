@@ -27,13 +27,14 @@
 	ul li
 		float left
 		margin-right 10px
+		width 25px
+		height 25px
 
 	ul li a
 		font-family Arial
 		font-weight bold
 		font-size 12px
 		height 19px
-		background-color #fff
 		border-radius 20px
 		text-align center
 		padding-top 6px
@@ -47,8 +48,36 @@
 	ul li a .dot
 		width 1px
 		height 1px
+		border-radius 25px
 		background-color #000
 		position absolute
 		top 50%
 		left 50%
+		margin-left -(@width / 2)
+		margin-top -(@height / 2)
+
+	ul li a .white_dot
+		width 25px
+		height 25px
+		border-radius 25px
+		background-color #fff
+		position absolute
+		top 50%
+		left 50%
+		margin-left -(@width / 2)
+		margin-top -(@height / 2)
+
+	ul li a.active .white_dot
+		width 1px
+		height 1px
+		border-radius 25px
+		background-color #fff
+		position absolute
+		top 50%
+		left 50%
 		margin-left -1px
+		margin-top -1px
+
+	ul li a.active .dot
+		opacity 0
+

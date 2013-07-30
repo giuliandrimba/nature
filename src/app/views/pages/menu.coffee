@@ -29,6 +29,21 @@ module.exports = class Menu
 		@window.bind "resize", @on_resize
 		@el.bind "mouseenter", @show
 		@el.bind "mouseleave", @hide
+		@menu.find("a").bind "mouseenter", @over
+		@menu.find("a").bind "mouseleave", @out
+
+	over:(e)=>
+		bt = $(e.currentTarget)
+
+		return if bt.hasClass "active"
+		TweenLite.to bt.find(".white_dot"), 0.15, {css:{width:1, height:1, marginLeft:-1, marginTop:-1}}
+		TweenLite.to bt.find(".dot"), 0.15, {css:{opacity:0}}
+
+	out:(e)=>
+		bt = $(e.currentTarget)
+		return if bt.hasClass "active"
+		TweenLite.to bt.find(".white_dot"), 0.15, {css:{width:25, height:25, marginLeft:-(26 / 2), marginTop:-(26/2)}}
+		TweenLite.to bt.find(".dot"), 0.15, {css:{opacity:1}}
 
 	hide:()=>
 		delay = 0.07
