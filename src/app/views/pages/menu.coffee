@@ -3,9 +3,6 @@ Style = require 'styles/pages/menu'
 
 module.exports = class Menu
 
-	delay_spring: 0.7
-	delay_v:1
-
 	constructor:(at)->
 		@el = $(Template())
 		$(at).append @el
@@ -60,13 +57,13 @@ module.exports = class Menu
 		amount = @menu.find("li").length
 		total_delay = amount / 2
 		delay = 0
-		spring = 0
+		distance = 0
 		@delay_v = 0
 
 		for li, i in @menu.find "li a"
-			spring = total_delay - Math.abs(total_delay - @delay_v)
+			distance = total_delay - Math.abs(total_delay - @delay_v)
 			@delay_v += 1
-			delay = spring / 500
+			delay = distance / 500
 			li = $(li)
 			TweenLite.to li, 0.4, {css:{top:150}, ease:Back.easeIn, delay:i * delay}
 
@@ -77,12 +74,12 @@ module.exports = class Menu
 		amount = @menu.find("li").length
 		total_delay = amount / 2
 		delay = 0
-		spring = 0
+		distance = 0
 		@delay_v = 0
 
 		for li, i in @menu.find "li a"
-			spring = total_delay - Math.abs(total_delay - @delay_v)
+			distance = total_delay - Math.abs(total_delay - @delay_v)
 			@delay_v += 1
-			delay = spring / 500
+			delay = distance / 500
 			li = $(li)
 			TweenLite.to li, 0.4, {css:{top:20}, ease:Back.easeOut, delay:i * delay}

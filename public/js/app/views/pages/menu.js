@@ -9,10 +9,6 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
   Template = require('templates/pages/menu');
   Style = require('styles/pages/menu');
   return module.exports = Menu = (function() {
-    Menu.prototype.delay_spring = 0.7;
-
-    Menu.prototype.delay_v = 1;
-
     function Menu(at) {
       this.show = __bind(this.show, this);
       this.hide = __bind(this.hide, this);
@@ -105,7 +101,7 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
     };
 
     Menu.prototype.hide = function() {
-      var amount, delay, i, li, spring, total_delay, _i, _len, _ref, _results;
+      var amount, delay, distance, i, li, total_delay, _i, _len, _ref, _results;
       TweenLite.to(this.arrow, 0.5, {
         css: {
           top: 20
@@ -116,15 +112,15 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
       amount = this.menu.find("li").length;
       total_delay = amount / 2;
       delay = 0;
-      spring = 0;
+      distance = 0;
       this.delay_v = 0;
       _ref = this.menu.find("li a");
       _results = [];
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         li = _ref[i];
-        spring = total_delay - Math.abs(total_delay - this.delay_v);
+        distance = total_delay - Math.abs(total_delay - this.delay_v);
         this.delay_v += 1;
-        delay = spring / 500;
+        delay = distance / 500;
         li = $(li);
         _results.push(TweenLite.to(li, 0.4, {
           css: {
@@ -138,7 +134,7 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
     };
 
     Menu.prototype.show = function() {
-      var amount, delay, i, li, spring, total_delay, _i, _len, _ref, _results;
+      var amount, delay, distance, i, li, total_delay, _i, _len, _ref, _results;
       TweenLite.to(this.arrow, 0.5, {
         css: {
           top: 150
@@ -148,15 +144,15 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
       amount = this.menu.find("li").length;
       total_delay = amount / 2;
       delay = 0;
-      spring = 0;
+      distance = 0;
       this.delay_v = 0;
       _ref = this.menu.find("li a");
       _results = [];
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         li = _ref[i];
-        spring = total_delay - Math.abs(total_delay - this.delay_v);
+        distance = total_delay - Math.abs(total_delay - this.delay_v);
         this.delay_v += 1;
-        delay = spring / 500;
+        delay = distance / 500;
         li = $(li);
         _results.push(TweenLite.to(li, 0.4, {
           css: {

@@ -13,6 +13,11 @@ define('app/config/routes', ['require', 'exports', 'module'], function(require, 
         at: null,
         el: "body"
       },
+      '/circles': {
+        to: "pages/circles",
+        at: "/pages",
+        el: "#container"
+      },
       '/404': {
         to: "pages/notfound",
         at: "/pages",

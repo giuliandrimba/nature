@@ -28,3 +28,6 @@ define ['require', 'exports', 'module'], (require, exports, module)->
   
     # create:()->
     #   @render "pages/create", null
+  
+    circles:()->
+      @render "circles/index"

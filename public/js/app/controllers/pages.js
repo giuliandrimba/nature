@@ -12,6 +12,11 @@ define('app/controllers/pages', ['require', 'exports', 'module', 'app/models/pag
   return module.exports = Pages = (function(_super) {
     __extends(Pages, _super);
 
+    function Pages() {
+      _ref = Pages.__super__.constructor.apply(this, arguments);
+      return _ref;
+    }
+
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       DEFAULT ACTION BEHAVIOR
       Override it to take control and customize as you wish
@@ -25,10 +30,9 @@ define('app/controllers/pages', ['require', 'exports', 'module', 'app/models/pag
     */
 
 
-    function Pages() {
-      _ref = Pages.__super__.constructor.apply(this, arguments);
-      return _ref;
-    }
+    Pages.prototype.circles = function() {
+      return this.render("circles/index");
+    };
 
     return Pages;
 

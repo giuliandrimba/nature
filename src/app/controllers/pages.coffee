@@ -23,3 +23,6 @@ module.exports = class Pages extends AppController
 
   # create:()->
   #   @render "pages/create", null
+
+  circles:()->
+    @render "circles/index"

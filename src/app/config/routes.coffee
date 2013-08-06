@@ -9,6 +9,11 @@ module.exports = class Routes
       at: null
       el: "body"
 
+    '/circles':
+      to: "pages/circles"
+      at: "/pages"
+      el: "#container"
+
     '/404':
       to: "pages/notfound"
       at: "/pages"
