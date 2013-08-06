@@ -1,3 +1,6 @@
+[submodule "theoricus"]
+	path = theoricus
+	url = git://github.com/giuliandrimba/theoricus.git
 [submodule "vendors/theoricus"]
 	path = vendors/theoricus
-	url = git@github.com:giuliandrimba/theoricus.git
+	url = git://github.com/giuliandrimba/theoricus.git
