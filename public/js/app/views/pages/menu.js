@@ -9,6 +9,10 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
   Template = require('templates/pages/menu');
   Style = require('styles/pages/menu');
   return module.exports = Menu = (function() {
+    Menu.prototype.delay_spring = 0.7;
+
+    Menu.prototype.delay_v = 1;
+
     function Menu(at) {
       this.show = __bind(this.show, this);
       this.hide = __bind(this.hide, this);
@@ -101,53 +105,66 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
     };
 
     Menu.prototype.hide = function() {
-      var delay, i, last_delay, li, _i, _len, _ref;
-      delay = 0.07;
-      last_delay = 0.4;
+      var amount, delay, i, li, spring, total_delay, _i, _len, _ref, _results;
+      TweenLite.to(this.arrow, 0.5, {
+        css: {
+          top: 20
+        },
+        ease: Expo.easeOut,
+        delay: 0.4
+      });
+      amount = this.menu.find("li").length;
+      total_delay = amount / 2;
+      delay = 0;
+      spring = 0;
+      this.delay_v = 0;
       _ref = this.menu.find("li a");
+      _results = [];
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         li = _ref[i];
+        spring = total_delay - Math.abs(total_delay - this.delay_v);
+        this.delay_v += 1;
+        delay = spring / 500;
         li = $(li);
-        TweenLite.to(li, 0.4, {
+        _results.push(TweenLite.to(li, 0.4, {
           css: {
             top: 150
           },
           ease: Back.easeIn,
           delay: i * delay
-        });
-        delay -= 0.005;
+        }));
       }
-      return TweenLite.to(this.arrow, 0.5, {
-        css: {
-          top: 20
-        },
-        ease: Back.easeOut,
-        delay: last_delay
-      });
+      return _results;
     };
 
     Menu.prototype.show = function() {
-      var delay, i, li, _i, _len, _ref, _results;
+      var amount, delay, i, li, spring, total_delay, _i, _len, _ref, _results;
       TweenLite.to(this.arrow, 0.5, {
         css: {
           top: 150
         },
         ease: Expo.easeOut
       });
-      delay = 0.07;
+      amount = this.menu.find("li").length;
+      total_delay = amount / 2;
+      delay = 0;
+      spring = 0;
+      this.delay_v = 0;
       _ref = this.menu.find("li a");
       _results = [];
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         li = _ref[i];
+        spring = total_delay - Math.abs(total_delay - this.delay_v);
+        this.delay_v += 1;
+        delay = spring / 500;
         li = $(li);
-        TweenLite.to(li, 0.4, {
+        _results.push(TweenLite.to(li, 0.4, {
           css: {
             top: 20
           },
           ease: Back.easeOut,
           delay: i * delay
-        });
-        _results.push(delay -= 0.005);
+        }));
       }
       return _results;
     };

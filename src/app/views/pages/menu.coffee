@@ -3,6 +3,9 @@ Style = require 'styles/pages/menu'
 
 module.exports = class Menu
 
+	delay_spring: 0.7
+	delay_v:1
+
 	constructor:(at)->
 		@el = $(Template())
 		$(at).append @el
@@ -52,20 +55,34 @@ module.exports = class Menu
 		TweenLite.to bt.find(".dot"), 0.15, {css:{opacity:1}}
 
 	hide:()=>
-		delay = 0.07
-		last_delay = 0.4
+		TweenLite.to @arrow, 0.5, {css:{top:20}, ease:Expo.easeOut, delay:0.4}
+
+		amount = @menu.find("li").length
+		total_delay = amount / 2
+		delay = 0
+		spring = 0
+		@delay_v = 0
+
 		for li, i in @menu.find "li a"
+			spring = total_delay - Math.abs(total_delay - @delay_v)
+			@delay_v += 1
+			delay = spring / 500
 			li = $(li)
 			TweenLite.to li, 0.4, {css:{top:150}, ease:Back.easeIn, delay:i * delay}
-			delay -= 0.005
-
-		TweenLite.to @arrow, 0.5, {css:{top:20}, ease:Back.easeOut, delay:last_delay}
 
 	show:()=>
+
 		TweenLite.to @arrow, 0.5, {css:{top:150}, ease:Expo.easeOut}
 
-		delay = 0.07
+		amount = @menu.find("li").length
+		total_delay = amount / 2
+		delay = 0
+		spring = 0
+		@delay_v = 0
+
 		for li, i in @menu.find "li a"
+			spring = total_delay - Math.abs(total_delay - @delay_v)
+			@delay_v += 1
+			delay = spring / 500
 			li = $(li)
 			TweenLite.to li, 0.4, {css:{top:20}, ease:Back.easeOut, delay:i * delay}
-			delay -= 0.005
