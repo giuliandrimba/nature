@@ -2,7 +2,8 @@
   Compiled by Polvo, using CoffeeScript
 */
 
-var __hasProp = {}.hasOwnProperty,
+var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define('app/views/pages/index', ['require', 'exports', 'module', 'app/views/pages/menu', 'styles/pages/index', 'app/views/app_view'], function(require, exports, module) {
@@ -20,6 +21,8 @@ define('app/views/pages/index', ['require', 'exports', 'module', 'app/views/page
     };
 
     Index.prototype.setup = function() {
+      this.wrapper = $(this.el).find(".wrapper");
+      this.window = $(window);
       this.menu = new Menu(".footer");
       return this.logo = this.el.find(".logo-labs");
     };
@@ -28,6 +31,14 @@ define('app/views/pages/index', ['require', 'exports', 'module', 'app/views/page
       return this.logo.css({
         opacity: 0
       });
+    };
+
+    Index.prototype.on_resize = function() {
+      this.wrapper.css({
+        width: this.window.width(),
+        height: this.window.height()
+      });
+      return this.menu.on_resize();
     };
 
     Index.prototype["in"] = function() {
@@ -49,7 +60,9 @@ define('app/views/pages/index', ['require', 'exports', 'module', 'app/views/page
       return this.logo.animation.play();
     };
 
-    function Index() {}
+    function Index() {
+      this.on_resize = __bind(this.on_resize, this);
+    }
 
     return Index;
 

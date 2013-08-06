@@ -22,7 +22,8 @@ define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/me
 
     Menu.prototype.on_resize = function() {
       this.el.css({
-        top: this.window.height() - this.el.height()
+        top: this.window.height() - this.el.height(),
+        width: this.window.width()
       });
       return this.menu.css({
         left: this.wrapper.width() / 2 - this.menu.width() / 2

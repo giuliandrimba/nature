@@ -11,6 +11,7 @@ module.exports = class Menu
 	on_resize:()=>
 		@el.css
 			top: @window.height() - @el.height()
+			width: @window.width()
 
 		@menu.css
 

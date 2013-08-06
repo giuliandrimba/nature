@@ -3,7 +3,7 @@ define('styles/circles/index', ['require', 'exports', 'module'], function(requir
 
   var head = document.getElementsByTagName('head')[0];
   var style = module.exports = document.createElement('style');
-  var content = ''
+  var content = '.circles canvas {  position: absolute;  top: 0;  left: 0;}'
 
   style.setAttribute('id', 'styles/circles/index');
   style.setAttribute('type', 'text/css');

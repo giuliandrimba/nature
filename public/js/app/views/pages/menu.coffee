@@ -16,6 +16,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 			on_resize:()=>
 				@el.css
 					top: @window.height() - @el.height()
+					width: @window.width()
 		
 				@menu.css
 		

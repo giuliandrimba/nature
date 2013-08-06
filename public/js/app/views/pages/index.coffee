@@ -15,11 +15,21 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 				@setup()
 		
 			setup:()->
+				@wrapper = $(@el).find ".wrapper"
+				@window = $ window
 				@menu = new Menu ".footer"
 				@logo = @el.find ".logo-labs"
 		
 			before_in:()->
 				@logo.css {opacity:0}
+		
+			on_resize:()=>
+				@wrapper.css
+					width: @window.width()
+					height: @window.height()
+		
+				@menu.on_resize()
+		
 		
 			in:()->
 				super

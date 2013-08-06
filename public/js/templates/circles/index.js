@@ -5,20 +5,21 @@ jade.debug = [{ lineno: 1, filename: "/Users/giuliandrimba/work/codeman/developm
 try {
 var buf = [];
 jade.debug.unshift({ lineno: 1, filename: jade.debug[0].filename });
-jade.debug.unshift({ lineno: 2, filename: jade.debug[0].filename });
-jade.debug.shift();
-jade.debug.unshift({ lineno: 2, filename: jade.debug[0].filename });
-buf.push("<p>");
+jade.debug.unshift({ lineno: 1, filename: jade.debug[0].filename });
+buf.push("<div class=\"circles\">");
 jade.debug.unshift({ lineno: undefined, filename: jade.debug[0].filename });
 jade.debug.unshift({ lineno: 2, filename: jade.debug[0].filename });
-buf.push("CIRCLES");
+buf.push("<canvas id=\"canvas\" width=\"500\" height=\"500\">");
+jade.debug.unshift({ lineno: undefined, filename: jade.debug[0].filename });
+jade.debug.shift();
+buf.push("</canvas>");
 jade.debug.shift();
 jade.debug.shift();
-buf.push("</p>");
+buf.push("</div>");
 jade.debug.shift();
 jade.debug.shift();;return buf.join("");
 } catch (err) {
-  jade.rethrow(err, jade.debug[0].filename, jade.debug[0].lineno,"//- JADE HERE\np CIRCLES");
+  jade.rethrow(err, jade.debug[0].filename, jade.debug[0].lineno,".circles\n\tcanvas(id=\"canvas\", width=\"500\", height=\"500\")");
 }
 }
 });
