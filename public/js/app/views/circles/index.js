@@ -35,14 +35,14 @@ define('app/views/circles/index', ['require', 'exports', 'module', 'app/libs/boa
       this.canvas = $("#canvas");
       this.scene = new Scene("canvas", "#000");
       this.scene.on("tick", this.on_tick);
-      this.red = new Circle(40, "#ff0000", 100, 100);
-      this.red.speed = 5;
+      this.red = new Circle(40, "#ff0000", 50, 50);
+      this.red.speed = 10;
+      this.red.angle = 30;
       return this.scene.add(this.red);
     };
 
     Index.prototype.on_tick = function() {
-      this.red.x += 1;
-      return this.red.y += 1;
+      return this.red.forward();
     };
 
     Index.prototype.add_target = function(e) {

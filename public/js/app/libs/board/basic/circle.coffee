@@ -4,10 +4,12 @@
 
 define ['require', 'exports', 'module'], (require, exports, module)->
 		MicroEvent = require 'app/libs/board/utils/microevent'
+		Calc = require 'app/libs/board/utils/calc'
 		
 		module.exports = class Circle extends MicroEvent
 		
-			angle:10
+			_angle:10
+			_radians:0
 			speed:5
 		
 			path:[]
@@ -17,7 +19,10 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 			next_y:0
 		
 			_radius:0
-			color:"#000"
+			_color:"#000"
+		
+			x_vel:0
+			y_vel:0
 		
 			_x:0
 			_y:0
@@ -44,6 +49,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 						set:(value)->
 							@_radius = value
 							@scene.update()
+							@bounds()
 		
 					"color":
 						get:()->
@@ -51,30 +57,28 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 						set:(value)->
 							@_color = value
 							@scene.update()
+					"angle":
+						get:()->
+							@_angle
+						set:(value)->
+							@_angle = value
+							@_radians = Calc.ang2rad @_angle
+							@x_vel = Math.cos(@_radians) * @speed
+							@y_vel = Math.sin(@_radians) * @speed
+		
+			forward:()->
+				@x += @x_vel
+				@y += @y_vel
+				@bounds()
 		
 		
 			draw:->
-				@context.fillStyle = @_color
+				@context.fillStyle = @color
 				@context.beginPath()
-				@context.arc @_x, @_y, @_radius, 0, Math.PI*2, true
+				@context.arc @x, @y, @radius, 0, Math.PI*2, true
 				@context.closePath()
 				@context.fill()
 		
-			update:()=>
-			    radians = @angle * Math.PI / 180
-			    @vx = Math.cos(radians) * @speed
-			    @vy = Math.sin(radians) * @speed
-			    @next_x = @x + @vx
-			    @next_y = @y + @vy
-			    @boundaries()
-		
-			move:()->
-			    @x = @next_x
-			    @y = @next_y
-		
-			destroy:()->
-				console.log @scene
-		
-		  	boundaries:()->
-		    	@angle = 180 - @angle if (@next_x >= (@canvas.width - @radius) || @next_x < (0 + @radius))
-		    	@angle = 360 - @angle if (@next_y >= (@canvas.height - @radius) || @next_y < (0 + @radius))
+			bounds:()->
+				@angle = 180 - @angle if (@x >= (@canvas.width - @radius) || @x < (0 + @radius))
+				@angle = 360 - @angle if (@y >= (@canvas.height - @radius) || @y < (0 + @radius))

@@ -168,10 +168,10 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
       var process;
       if (this.dead_processes.length) {
         process = this.dead_processes.pop();
-        process.destroy(this._destroy_dead_processes);
-        return this.active_processes = _.reject(this.active_processes, function(p) {
+        this.active_processes = _.reject(this.active_processes, function(p) {
           return p.route.match === process.route.match;
         });
+        return process.destroy(this._destroy_dead_processes);
       } else {
         return this._run_pending_processes();
       }
@@ -203,7 +203,7 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
         }
       } else {
         this.locked = false;
-        window.crawler.is_rendered = true;
+        this.the.crawler.is_rendered = true;
         if (this.disable_transitions != null) {
           this.the.config.disable_transitions = this.disable_transitions;
           this.disable_transitions = null;

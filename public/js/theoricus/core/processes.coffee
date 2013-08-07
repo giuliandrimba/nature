@@ -162,10 +162,11 @@ define ['require', 'exports', 'module'], (require, exports, module)->
     _destroy_dead_processes:()=>
       if @dead_processes.length
         process = @dead_processes.pop()
-        process.destroy @_destroy_dead_processes
   
         @active_processes = _.reject @active_processes, (p)->
           p.route.match is process.route.match
+  
+        process.destroy @_destroy_dead_processes
   
       else
         @_run_pending_processes()
@@ -189,7 +190,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
           @_run_pending_processes()
       else
         @locked = false
-        window.crawler.is_rendered = true
+        @the.crawler.is_rendered = true
   
         if @disable_transitions?
           @the.config.disable_transitions = @disable_transitions

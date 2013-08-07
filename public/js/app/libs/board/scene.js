@@ -6,9 +6,10 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/utils/microevent'], function(require, exports, module) {
-  var MicroEvent, Scene;
+define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/utils/calc', 'app/libs/board/utils/microevent'], function(require, exports, module) {
+  var Calc, MicroEvent, Scene;
   MicroEvent = require('app/libs/board/utils/microevent');
+  Calc = require('app/libs/board/utils/calc');
   return module.exports = Scene = (function(_super) {
     __extends(Scene, _super);
 

@@ -18,13 +18,13 @@ module.exports = class Index extends AppView
 
 		@scene.on "tick", @on_tick
 
-		@red = new Circle 40, "#ff0000", 100, 100
-		@red.speed = 5
+		@red = new Circle 40, "#ff0000", 50, 50
+		@red.speed = 10
+		@red.angle = 30
 		@scene.add @red
 
 	on_tick:()=>
-		@red.x += 1
-		@red.y += 1
+		@red.forward()
 
 	add_target:(e)=>
 		@mouse_x = e.pageX

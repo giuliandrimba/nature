@@ -1,4 +1,5 @@
 MicroEvent = require 'app/libs/board/utils/microevent'
+Calc = require 'app/libs/board/utils/calc'
 
 module.exports = class Scene extends MicroEvent
 

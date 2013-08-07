@@ -104,6 +104,10 @@ define ['require', 'exports', 'module'], (require, exports, module)->
       @trigger = true
   
     navigate:( url, trigger = true, replace = false )->
+  
+      if not window.history.pushState
+        return window.location = url
+  
       @trigger = trigger
   
       action   = if replace then "replaceState" else "pushState"

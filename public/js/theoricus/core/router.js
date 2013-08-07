@@ -123,6 +123,9 @@ define('theoricus/core/router', ['require', 'exports', 'module', 'theoricus/core
       if (replace == null) {
         replace = false;
       }
+      if (!window.history.pushState) {
+        return window.location = url;
+      }
       this.trigger = trigger;
       action = replace ? "replaceState" : "pushState";
       return History[action](null, null, url);
