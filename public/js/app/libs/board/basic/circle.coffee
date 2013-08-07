@@ -10,6 +10,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 			_angle:10
 			_radians:0
+			hit:false
 			speed:5
 		
 			path:[]
@@ -27,7 +28,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 			_x:0
 			_y:0
 		
-			constructor:(@_radius, @_color, @_x = 0, @_y = 0)->
+			constructor:(@_radius, @_color, @_x, @_y)->
 				@mass = @radius
 		
 				Object.defineProperties @,
@@ -36,19 +37,16 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 							@_x
 						set:(value)->
 							@_x = value
-							@scene.update()
 					"y":
 						get:()->
 							@_y
 						set:(value)->
 							@_y = value
-							@scene.update()
 					"radius":
 						get:()->
 							@_radius
 						set:(value)->
 							@_radius = value
-							@scene.update()
 							@bounds()
 		
 					"color":
@@ -56,7 +54,6 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 							@_color
 						set:(value)->
 							@_color = value
-							@scene.update()
 					"angle":
 						get:()->
 							@_angle
@@ -73,6 +70,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 		
 			draw:->
+		
 				@context.fillStyle = @color
 				@context.beginPath()
 				@context.arc @x, @y, @radius, 0, Math.PI*2, true

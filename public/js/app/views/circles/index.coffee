@@ -18,18 +18,23 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 			after_render:()->
 				@window = $ window
+		
 				@canvas = $ "#canvas"
-				@scene = new Scene "canvas", "#000"
+				@scene = new Scene "canvas", "#ff0000"
 		
 				@scene.on "tick", @on_tick
 		
-				@red = new Circle 40, "#ff0000", 50, 50
-				@red.speed = 10
-				@red.angle = 30
-				@scene.add @red
+				for i in [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0]
+					ball = new Circle 10, "#fff"
+					ball.speed = 4
+					ball.angle = Math.floor(Math.random() * 360)
+					ball.hit = true
+					@scene.add ball
+		
+		
 		
 			on_tick:()=>
-				@red.forward()
+				ball.forward() for ball in @scene.elements
 		
 			add_target:(e)=>
 				@mouse_x = e.pageX

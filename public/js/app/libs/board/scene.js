@@ -22,18 +22,29 @@ define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/
     Scene.prototype.background_color = null;
 
     function Scene(canvas_id, background_color) {
+      var _this = this;
       this.background_color = background_color;
       this.destroy = __bind(this.destroy, this);
       this.update = __bind(this.update, this);
       this.tick = __bind(this.tick, this);
+      this.stats = new Stats;
+      this.stats.setMode(0);
+      this.stats.domElement.style.position = 'absolute';
+      this.stats.domElement.style.left = '0px';
+      this.stats.domElement.style.top = '0px';
+      document.body.appendChild(this.stats.domElement);
+      setInterval((function() {
+        _this.stats.begin();
+        return _this.stats.end();
+      }), 1000 / 60);
       this.canvas = document.getElementById(canvas_id);
       this.context = this.canvas.getContext("2d");
       this.ticker = window.requestAnimationFrame(this.tick);
-      this.update();
     }
 
     Scene.prototype.tick = function() {
       this.emit("tick");
+      this.update();
       return window.requestAnimationFrame(this.tick);
     };
 
@@ -52,11 +63,10 @@ define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/
     };
 
     Scene.prototype.add = function(element) {
-      this.elements.push(element);
+      this.elements.push(this.at(element));
       element.context = this.context;
       element.canvas = this.canvas;
-      element.scene = this;
-      return element.draw();
+      return element.scene = this;
     };
 
     Scene.prototype.destroy = function(element) {
@@ -72,6 +82,37 @@ define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/
         }
       }
       return _results;
+    };
+
+    Scene.prototype.at = function(element) {
+      var ball, pos_ok, _i, _len, _ref;
+      if (element.x || element.y || !this.elements.length) {
+        return element;
+      }
+      element.x = Math.random() * this.canvas.width;
+      element.y = Math.random() * this.canvas.height;
+      pos_ok = false;
+      while (pos_ok === false) {
+        _ref = this.elements;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          ball = _ref[_i];
+          if (!this.hit_circle(element, ball)) {
+            pos_ok = true;
+          }
+        }
+      }
+      return element;
+    };
+
+    Scene.prototype.hit_circle = function(el0, el1) {
+      var dist, dx, dy;
+      dx = el1.x - el0.x;
+      dy = el1.y - el0.y;
+      dist = dx * dx + dy * dy;
+      if (dist <= (el0.radius + el1.radius) * (el0.radius + el1.radius)) {
+        return true;
+      }
+      return false;
     };
 
     return Scene;

@@ -5,6 +5,7 @@ module.exports = class Circle extends MicroEvent
 
 	_angle:10
 	_radians:0
+	hit:false
 	speed:5
 
 	path:[]
@@ -22,7 +23,7 @@ module.exports = class Circle extends MicroEvent
 	_x:0
 	_y:0
 
-	constructor:(@_radius, @_color, @_x = 0, @_y = 0)->
+	constructor:(@_radius, @_color, @_x, @_y)->
 		@mass = @radius
 
 		Object.defineProperties @,
@@ -31,19 +32,16 @@ module.exports = class Circle extends MicroEvent
 					@_x
 				set:(value)->
 					@_x = value
-					@scene.update()
 			"y":
 				get:()->
 					@_y
 				set:(value)->
 					@_y = value
-					@scene.update()
 			"radius":
 				get:()->
 					@_radius
 				set:(value)->
 					@_radius = value
-					@scene.update()
 					@bounds()
 
 			"color":
@@ -51,7 +49,6 @@ module.exports = class Circle extends MicroEvent
 					@_color
 				set:(value)->
 					@_color = value
-					@scene.update()
 			"angle":
 				get:()->
 					@_angle
@@ -68,6 +65,7 @@ module.exports = class Circle extends MicroEvent
 
 
 	draw:->
+
 		@context.fillStyle = @color
 		@context.beginPath()
 		@context.arc @x, @y, @radius, 0, Math.PI*2, true

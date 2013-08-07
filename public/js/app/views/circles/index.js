@@ -31,18 +31,33 @@ define('app/views/circles/index', ['require', 'exports', 'module', 'app/libs/boa
     Index.prototype.mouse_y = 0;
 
     Index.prototype.after_render = function() {
+      var ball, i, _i, _len, _ref1, _results;
       this.window = $(window);
       this.canvas = $("#canvas");
-      this.scene = new Scene("canvas", "#000");
+      this.scene = new Scene("canvas", "#ff0000");
       this.scene.on("tick", this.on_tick);
-      this.red = new Circle(40, "#ff0000", 50, 50);
-      this.red.speed = 10;
-      this.red.angle = 30;
-      return this.scene.add(this.red);
+      _ref1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+      _results = [];
+      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+        i = _ref1[_i];
+        ball = new Circle(10, "#fff");
+        ball.speed = 4;
+        ball.angle = Math.floor(Math.random() * 360);
+        ball.hit = true;
+        _results.push(this.scene.add(ball));
+      }
+      return _results;
     };
 
     Index.prototype.on_tick = function() {
-      return this.red.forward();
+      var ball, _i, _len, _ref1, _results;
+      _ref1 = this.scene.elements;
+      _results = [];
+      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+        ball = _ref1[_i];
+        _results.push(ball.forward());
+      }
+      return _results;
     };
 
     Index.prototype.add_target = function(e) {

@@ -6188,7 +6188,7 @@ var requirejs, require, define;
 
 require.config({
   baseUrl: '/js',
-  paths: {json:'vendors/json',history:'vendors/history',inflection:'vendors/inflection',jquery:'vendors/jquery',lodash:'vendors/lodash','jquery.spritefy':'vendors/jquery.spritefy'}
+  paths: {json:'vendors/json',history:'vendors/history',inflection:'vendors/inflection',jquery:'vendors/jquery',lodash:'vendors/lodash','jquery.spritefy':'vendors/jquery.spritefy',stats:'vendors/stats'}
 });
 require( ['app/app'] );
 

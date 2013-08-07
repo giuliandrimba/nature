@@ -3,4 +3,5 @@
 ###
 
 define ['require', 'exports', 'module'], (require, exports, module)->
-  jQuerySpritefy = require 'jquery.spritefy'
+  require 'jquery.spritefy'
+  require 'stats'

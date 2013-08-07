@@ -1,1 +1,2 @@
-jQuerySpritefy = require 'jquery.spritefy'
+require 'jquery.spritefy'
+require 'stats'

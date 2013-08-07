@@ -16,6 +16,8 @@ define('app/libs/board/basic/circle', ['require', 'exports', 'module', 'app/libs
 
     Circle.prototype._radians = 0;
 
+    Circle.prototype.hit = false;
+
     Circle.prototype.speed = 5;
 
     Circle.prototype.path = [];
@@ -43,8 +45,8 @@ define('app/libs/board/basic/circle', ['require', 'exports', 'module', 'app/libs
     function Circle(_radius, _color, _x, _y) {
       this._radius = _radius;
       this._color = _color;
-      this._x = _x != null ? _x : 0;
-      this._y = _y != null ? _y : 0;
+      this._x = _x;
+      this._y = _y;
       this.mass = this.radius;
       Object.defineProperties(this, {
         "x": {
@@ -52,8 +54,7 @@ define('app/libs/board/basic/circle', ['require', 'exports', 'module', 'app/libs
             return this._x;
           },
           set: function(value) {
-            this._x = value;
-            return this.scene.update();
+            return this._x = value;
           }
         },
         "y": {
@@ -61,8 +62,7 @@ define('app/libs/board/basic/circle', ['require', 'exports', 'module', 'app/libs
             return this._y;
           },
           set: function(value) {
-            this._y = value;
-            return this.scene.update();
+            return this._y = value;
           }
         },
         "radius": {
@@ -71,7 +71,6 @@ define('app/libs/board/basic/circle', ['require', 'exports', 'module', 'app/libs
           },
           set: function(value) {
             this._radius = value;
-            this.scene.update();
             return this.bounds();
           }
         },
@@ -80,8 +79,7 @@ define('app/libs/board/basic/circle', ['require', 'exports', 'module', 'app/libs
             return this._color;
           },
           set: function(value) {
-            this._color = value;
-            return this.scene.update();
+            return this._color = value;
           }
         },
         "angle": {
