@@ -42,36 +42,28 @@ define('app/libs/board/basic/circle', ['require', 'exports', 'module', 'app/libs
 
     Circle.prototype._y = 0;
 
-    function Circle(_radius, _color, _x, _y) {
+    Circle.prototype.changed = false;
+
+    function Circle(_radius, _color, x, y) {
       this._radius = _radius;
       this._color = _color;
-      this._x = _x;
-      this._y = _y;
-      this.mass = this.radius;
+      this.x = x;
+      this.y = y;
+      this.mass = this._radius;
+      if (this.x) {
+        this._x = this.x;
+      }
+      if (this.y) {
+        this._y = this.y;
+      }
       Object.defineProperties(this, {
-        "x": {
-          get: function() {
-            return this._x;
-          },
-          set: function(value) {
-            return this._x = value;
-          }
-        },
-        "y": {
-          get: function() {
-            return this._y;
-          },
-          set: function(value) {
-            return this._y = value;
-          }
-        },
         "radius": {
           get: function() {
             return this._radius;
           },
           set: function(value) {
             this._radius = value;
-            return this.bounds();
+            return this.changed = true;
           }
         },
         "color": {
@@ -90,32 +82,39 @@ define('app/libs/board/basic/circle', ['require', 'exports', 'module', 'app/libs
             this._angle = value;
             this._radians = Calc.ang2rad(this._angle);
             this.x_vel = Math.cos(this._radians) * this.speed;
-            return this.y_vel = Math.sin(this._radians) * this.speed;
+            this.y_vel = Math.sin(this._radians) * this.speed;
+            return this.changed = true;
           }
         }
       });
     }
 
     Circle.prototype.forward = function() {
-      this.x += this.x_vel;
-      this.y += this.y_vel;
-      return this.bounds();
+      this.x = this._x + this.x_vel;
+      this.y = this._y + this.y_vel;
+      this.bounds();
+      this._x = this.x;
+      this._y = this.y;
+      return this.changed = true;
     };
 
     Circle.prototype.draw = function() {
-      this.context.fillStyle = this.color;
-      this.context.beginPath();
-      this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-      this.context.closePath();
-      return this.context.fill();
+      if (this.changed !== false) {
+        this.context.fillStyle = this.color;
+        this.context.beginPath();
+        this.context.arc(this._x, this._y, this.radius, 0, Math.PI * 2, true);
+        this.context.closePath();
+        this.context.fill();
+        return this.changed = false;
+      }
     };
 
     Circle.prototype.bounds = function() {
       if (this.x >= (this.canvas.width - this.radius) || this.x < (0 + this.radius)) {
-        this.angle = 180 - this.angle;
+        this.x_vel *= -1;
       }
       if (this.y >= (this.canvas.height - this.radius) || this.y < (0 + this.radius)) {
-        return this.angle = 360 - this.angle;
+        return this.y_vel *= -1;
       }
     };
 

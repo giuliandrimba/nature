@@ -28,26 +28,21 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 			_x:0
 			_y:0
 		
-			constructor:(@_radius, @_color, @_x, @_y)->
-				@mass = @radius
+			changed:false
+		
+			constructor:(@_radius, @_color, @x, @y)->
+				@mass = @_radius
+		
+				@_x = @x if @x
+				@_y = @y if @y
 		
 				Object.defineProperties @,
-					"x":
-						get:()->
-							@_x
-						set:(value)->
-							@_x = value
-					"y":
-						get:()->
-							@_y
-						set:(value)->
-							@_y = value
 					"radius":
 						get:()->
 							@_radius
 						set:(value)->
 							@_radius = value
-							@bounds()
+							@changed = true
 		
 					"color":
 						get:()->
@@ -62,21 +57,26 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 							@_radians = Calc.ang2rad @_angle
 							@x_vel = Math.cos(@_radians) * @speed
 							@y_vel = Math.sin(@_radians) * @speed
+							@changed = true
 		
 			forward:()->
-				@x += @x_vel
-				@y += @y_vel
+				@x = @_x + @x_vel
+				@y = @_y + @y_vel
 				@bounds()
+				@_x = @x
+				@_y = @y
+				@changed = true
 		
 		
 			draw:->
-		
-				@context.fillStyle = @color
-				@context.beginPath()
-				@context.arc @x, @y, @radius, 0, Math.PI*2, true
-				@context.closePath()
-				@context.fill()
+				unless @changed is false
+					@context.fillStyle = @color
+					@context.beginPath()
+					@context.arc @_x, @_y, @radius, 0, Math.PI*2, true
+					@context.closePath()
+					@context.fill()
+					@changed = false
 		
 			bounds:()->
-				@angle = 180 - @angle if (@x >= (@canvas.width - @radius) || @x < (0 + @radius))
-				@angle = 360 - @angle if (@y >= (@canvas.height - @radius) || @y < (0 + @radius))
+				@x_vel *= -1 if (@x >= (@canvas.width - @radius) || @x < (0 + @radius))
+				@y_vel *= -1 if (@y >= (@canvas.height - @radius) || @y < (0 + @radius))

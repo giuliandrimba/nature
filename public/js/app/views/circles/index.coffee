@@ -24,7 +24,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 				@scene.on "tick", @on_tick
 		
-				for i in [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0]
+				for i in [1,2,3,4,5,6,7,8,9,0]
 					ball = new Circle 10, "#fff"
 					ball.speed = 4
 					ball.angle = Math.floor(Math.random() * 360)

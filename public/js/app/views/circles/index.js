@@ -36,7 +36,7 @@ define('app/views/circles/index', ['require', 'exports', 'module', 'app/libs/boa
       this.canvas = $("#canvas");
       this.scene = new Scene("canvas", "#ff0000");
       this.scene.on("tick", this.on_tick);
-      _ref1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+      _ref1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
       _results = [];
       for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
         i = _ref1[_i];
