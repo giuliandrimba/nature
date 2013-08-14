@@ -2,6 +2,7 @@ AppView = require 'app/views/app_view'
 Style = require 'styles/circles/collisions'
 Scene = require 'app/libs/board/scene'
 Ball = require 'app/libs/board/physic/ball'
+Path = require 'app/libs/board/geometry/path'
 
 module.exports = class Index extends AppView
 
@@ -36,10 +37,9 @@ module.exports = class Index extends AppView
 		@mouse_x = e.pageX
 		@mouse_y = e.pageY
 
-		@target = new Circle  3 + (Math.random() * 9), "#ffffff", @mouse_x, @mouse_y
+		@target = new Ball  3 + (Math.random() * 9), "#ffffff", @mouse_x, @mouse_y
 		@target.speed = 4
 		@target.angle = Math.floor(Math.random() * 360)
-		@target.hit = true
 		@scene.add @target
 
 

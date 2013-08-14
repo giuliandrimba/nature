@@ -6,12 +6,13 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('app/views/circles/collisions', ['require', 'exports', 'module', 'app/libs/board/physic/ball', 'app/libs/board/scene', 'styles/circles/collisions', 'app/views/app_view'], function(require, exports, module) {
-  var AppView, Ball, Index, Scene, Style, _ref;
+define('app/views/circles/collisions', ['require', 'exports', 'module', 'app/libs/board/geometry/path', 'app/libs/board/physic/ball', 'app/libs/board/scene', 'styles/circles/collisions', 'app/views/app_view'], function(require, exports, module) {
+  var AppView, Ball, Index, Path, Scene, Style, _ref;
   AppView = require('app/views/app_view');
   Style = require('styles/circles/collisions');
   Scene = require('app/libs/board/scene');
   Ball = require('app/libs/board/physic/ball');
+  Path = require('app/libs/board/geometry/path');
   return module.exports = Index = (function(_super) {
     __extends(Index, _super);
 
@@ -63,10 +64,9 @@ define('app/views/circles/collisions', ['require', 'exports', 'module', 'app/lib
     Index.prototype.add_target = function(e) {
       this.mouse_x = e.pageX;
       this.mouse_y = e.pageY;
-      this.target = new Circle(3 + (Math.random() * 9), "#ffffff", this.mouse_x, this.mouse_y);
+      this.target = new Ball(3 + (Math.random() * 9), "#ffffff", this.mouse_x, this.mouse_y);
       this.target.speed = 4;
       this.target.angle = Math.floor(Math.random() * 360);
-      this.target.hit = true;
       return this.scene.add(this.target);
     };
 

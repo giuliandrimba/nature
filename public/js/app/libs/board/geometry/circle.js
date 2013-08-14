@@ -105,6 +105,10 @@ define('app/libs/board/geometry/circle', ['require', 'exports', 'module', 'app/l
 
     Circle.prototype.draw = function() {
       if (this.changed !== false) {
+        if (!this.hit) {
+          this._x = this.next_x;
+          this._y = this.next_y;
+        }
         this.context.fillStyle = this.color;
         this.context.beginPath();
         this.context.arc(this._x, this._y, this.radius, 0, Math.PI * 2, true);

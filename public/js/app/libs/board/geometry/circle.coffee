@@ -69,9 +69,13 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 							@vy = Math.sin(@_radians) * @speed
 							@changed = true
 		
-		
 			draw:->
 				unless @changed is false
+		
+					unless @hit
+						@_x = @next_x
+						@_y = @next_y
+		
 					@context.fillStyle = @color
 					@context.beginPath()
 					@context.arc @_x, @_y, @radius, 0, Math.PI*2, true
