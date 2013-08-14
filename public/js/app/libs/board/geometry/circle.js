@@ -16,15 +16,11 @@ define('app/libs/board/geometry/circle', ['require', 'exports', 'module', 'app/l
 
     Circle.prototype._radians = 0;
 
-    Circle.prototype.hit = false;
-
     Circle.prototype.speed = 5;
 
     Circle.prototype.path = [];
 
     Circle.prototype.counter = 0;
-
-    Circle.prototype.mass = 0;
 
     Circle.prototype.next_x = 0;
 
@@ -34,9 +30,9 @@ define('app/libs/board/geometry/circle', ['require', 'exports', 'module', 'app/l
 
     Circle.prototype._color = "#000";
 
-    Circle.prototype.x_vel = 0;
+    Circle.prototype.vx = 0;
 
-    Circle.prototype.y_vel = 0;
+    Circle.prototype.vy = 0;
 
     Circle.prototype._x = 0;
 
@@ -99,40 +95,22 @@ define('app/libs/board/geometry/circle', ['require', 'exports', 'module', 'app/l
           set: function(value) {
             this._angle = value;
             this._radians = Calc.ang2rad(this._angle);
-            this.x_vel = Math.cos(this._radians) * this.speed;
-            this.y_vel = Math.sin(this._radians) * this.speed;
+            this.vx = Math.cos(this._radians) * this.speed;
+            this.vy = Math.sin(this._radians) * this.speed;
             return this.changed = true;
           }
         }
       });
     }
 
-    Circle.prototype.forward = function() {
-      this.x_vel = this.x_vel - (this.x_vel * this.scene.friction);
-      this.y_vel = this.y_vel - (this.y_vel * this.scene.friction);
-      this.next_x = this._x + this.x_vel;
-      this.next_y = this._y + this.y_vel;
-      this.bounds();
-      this._x = this.next_x;
-      this._y = this.next_y;
-      return this.changed = true;
-    };
-
     Circle.prototype.draw = function() {
-      this.context.fillStyle = this.color;
-      this.context.beginPath();
-      this.context.arc(this._x, this._y, this.radius, 0, Math.PI * 2, true);
-      this.context.closePath();
-      this.context.fill();
-      return this.changed = false;
-    };
-
-    Circle.prototype.bounds = function() {
-      if (this.next_x >= (this.canvas.width - this.radius) || this.next_x < (0 + this.radius)) {
-        this.x_vel *= -1;
-      }
-      if (this.next_y >= (this.canvas.height - this.radius) || this.next_y < (0 + this.radius)) {
-        return this.y_vel *= -1;
+      if (this.changed !== false) {
+        this.context.fillStyle = this.color;
+        this.context.beginPath();
+        this.context.arc(this._x, this._y, this.radius, 0, Math.PI * 2, true);
+        this.context.closePath();
+        this.context.fill();
+        return this.changed = false;
       }
     };
 

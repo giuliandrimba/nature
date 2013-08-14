@@ -3,29 +3,29 @@ Page = require 'app/models/page'
 
 module.exports = class Pages extends AppController
 
-  ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    DEFAULT ACTION BEHAVIOR
-    Override it to take control and customize as you wish
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
+	### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		DEFAULT ACTION BEHAVIOR
+		Override it to take control and customize as you wish
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 
-  # <action-name>:()->
-  #   if Page.all?
-  #     @render "pages/<action-name>", Page.all()
-  #   else
-  #     @render "pages/<action-name>", null
+	# <action-name>:()->
+	#   if Page.all?
+	#     @render "pages/<action-name>", Page.all()
+	#   else
+	#     @render "pages/<action-name>", null
 
-  ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    EXAMPLES
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
+	### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		EXAMPLES
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 
-  # list:()->
-  #   @render "pages/list", Page.all()
+	# list:()->
+	#   @render "pages/list", Page.all()
 
-  # create:()->
-  #   @render "pages/create", null
+	# create:()->
+	#   @render "pages/create", null
 
-  collisions:()->
-    @render "circles/collisions"
+	collisions:()->
+		@render "circles/collisions"
 
-  circular_motion:()->
-    @render "circles/circular_motion"
+	circular_motion:()->
+		@render "circles/circular_motion"

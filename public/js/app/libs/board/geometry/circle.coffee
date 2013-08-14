@@ -10,20 +10,18 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 			_angle:10
 			_radians:0
-			hit:false
 			speed:5
 		
 			path:[]
 			counter:0
-			mass:0
 			next_x:0
 			next_y:0
 		
 			_radius:0
 			_color:"#000"
 		
-			x_vel:0
-			y_vel:0
+			vx:0
+			vy:0
 		
 			_x:0
 			_y:0
@@ -67,30 +65,16 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 						set:(value)->
 							@_angle = value
 							@_radians = Calc.ang2rad @_angle
-							@x_vel = Math.cos(@_radians) * @speed
-							@y_vel = Math.sin(@_radians) * @speed
+							@vx = Math.cos(@_radians) * @speed
+							@vy = Math.sin(@_radians) * @speed
 							@changed = true
-		
-			forward:()->
-				@x_vel = @x_vel - (@x_vel * @scene.friction)
-				@y_vel = @y_vel - (@y_vel * @scene.friction)
-				@next_x = @_x + @x_vel
-				@next_y = @_y + @y_vel
-				@bounds()
-				@_x = @next_x
-				@_y = @next_y
-				@changed = true
 		
 		
 			draw:->
-				# unless @changed is false
-				@context.fillStyle = @color
-				@context.beginPath()
-				@context.arc @_x, @_y, @radius, 0, Math.PI*2, true
-				@context.closePath()
-				@context.fill()
-				@changed = false
-		
-			bounds:()->
-				@x_vel *= -1 if (@next_x >= (@canvas.width - @radius) || @next_x < (0 + @radius))
-				@y_vel *= -1 if (@next_y >= (@canvas.height - @radius) || @next_y < (0 + @radius))
+				unless @changed is false
+					@context.fillStyle = @color
+					@context.beginPath()
+					@context.arc @_x, @_y, @radius, 0, Math.PI*2, true
+					@context.closePath()
+					@context.fill()
+					@changed = false

@@ -91,6 +91,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 			collisions:()->
 				for circle,i in @elements
+					return if circle.hit is false
 					for test_circle, j in @elements
 						if circle.hit and test_circle.hit and circle isnt test_circle
 							if @hit_circle(circle, test_circle)
@@ -100,27 +101,27 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 				dx = el0.x - el1.x
 				dy = el0.y - el1.y
 				collisionAngle = Math.atan2(dy, dx)
-				speed1 = Math.sqrt(el0.x_vel * el0.x_vel + el0.y_vel * el0.y_vel)
-				speed2 = Math.sqrt(el1.x_vel * el1.x_vel + el1.y_vel * el1.y_vel)
-				direction1 = Math.atan2(el0.y_vel, el0.x_vel)
-				direction2 = Math.atan2(el1.y_vel, el1.x_vel)
-				x_vel_1 = speed1 * Math.cos(direction1 - collisionAngle)
-				y_vel_1 = speed1 * Math.sin(direction1 - collisionAngle)
-				x_vel_2 = speed2 * Math.cos(direction2 - collisionAngle)
-				y_vel_2 = speed2 * Math.sin(direction2 - collisionAngle)
-				final_x_vel_1 = ((el0.mass - el1.mass) * x_vel_1 + (el1.mass + el1.mass) * x_vel_2) / (el0.mass + el1.mass)
-				final_x_vel_2 = ((el0.mass + el0.mass) * x_vel_1 + (el1.mass - el0.mass) * x_vel_2) / (el0.mass + el1.mass)
-				final_y_vel_1 = y_vel_1
-				final_y_vel_2 = y_vel_2
-				el0.x_vel = Math.cos(collisionAngle) * final_x_vel_1 + Math.cos(collisionAngle + Math.PI / 2) * final_y_vel_1
-				el0.y_vel = Math.sin(collisionAngle) * final_x_vel_1 + Math.sin(collisionAngle + Math.PI / 2) * final_y_vel_1
-				el1.x_vel = Math.cos(collisionAngle) * final_x_vel_2 + Math.cos(collisionAngle + Math.PI / 2) * final_y_vel_2
-				el1.y_vel = Math.sin(collisionAngle) * final_x_vel_2 + Math.sin(collisionAngle + Math.PI / 2) * final_y_vel_2
+				speed1 = Math.sqrt(el0.vx * el0.vx + el0.vy * el0.vy)
+				speed2 = Math.sqrt(el1.vx * el1.vx + el1.vy * el1.vy)
+				direction1 = Math.atan2(el0.vy, el0.vx)
+				direction2 = Math.atan2(el1.vy, el1.vx)
+				vx_1 = speed1 * Math.cos(direction1 - collisionAngle)
+				vy_1 = speed1 * Math.sin(direction1 - collisionAngle)
+				vx_2 = speed2 * Math.cos(direction2 - collisionAngle)
+				vy_2 = speed2 * Math.sin(direction2 - collisionAngle)
+				final_vx_1 = ((el0.mass - el1.mass) * vx_1 + (el1.mass + el1.mass) * vx_2) / (el0.mass + el1.mass)
+				final_vx_2 = ((el0.mass + el0.mass) * vx_1 + (el1.mass - el0.mass) * vx_2) / (el0.mass + el1.mass)
+				final_vy_1 = vy_1
+				final_vy_2 = vy_2
+				el0.vx = Math.cos(collisionAngle) * final_vx_1 + Math.cos(collisionAngle + Math.PI / 2) * final_vy_1
+				el0.vy = Math.sin(collisionAngle) * final_vx_1 + Math.sin(collisionAngle + Math.PI / 2) * final_vy_1
+				el1.vx = Math.cos(collisionAngle) * final_vx_2 + Math.cos(collisionAngle + Math.PI / 2) * final_vy_2
+				el1.vy = Math.sin(collisionAngle) * final_vx_2 + Math.sin(collisionAngle + Math.PI / 2) * final_vy_2
 		
-				el0.x = (el0.x += el0.x_vel);
-				el0.y = (el0.y += el0.y_vel);
-				el0.x = (el1.x += el1.x_vel);
-				el0.y = (el1.y += el1.y_vel);
+				el0.x = (el0.x += el0.vx);
+				el0.y = (el0.y += el0.vy);
+				el0.x = (el1.x += el1.vx);
+				el0.y = (el1.y += el1.vy);
 		
 		
 		

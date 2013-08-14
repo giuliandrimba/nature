@@ -16,6 +16,30 @@ define('app/libs/board/physic/ball', ['require', 'exports', 'module', 'app/libs/
       return _ref;
     }
 
+    Ball.prototype.hit = true;
+
+    Ball.prototype.mass = 0;
+
+    Ball.prototype.move = function() {
+      this.vx = this.vx - (this.vx * this.scene.friction);
+      this.vy = this.vy - (this.vy * this.scene.friction);
+      this.next_x = this._x + this.vx;
+      this.next_y = this._y + this.vy;
+      this.bounds();
+      this._x = this.next_x;
+      this._y = this.next_y;
+      return this.changed = true;
+    };
+
+    Ball.prototype.bounds = function() {
+      if (this.next_x >= (this.canvas.width - this.radius) || this.next_x < (0 + this.radius)) {
+        this.vx *= -1;
+      }
+      if (this.next_y >= (this.canvas.height - this.radius) || this.next_y < (0 + this.radius)) {
+        return this.vy *= -1;
+      }
+    };
+
     return Ball;
 
   })(Circle);

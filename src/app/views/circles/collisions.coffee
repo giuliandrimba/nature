@@ -1,7 +1,7 @@
 AppView = require 'app/views/app_view'
 Style = require 'styles/circles/collisions'
 Scene = require 'app/libs/board/scene'
-Circle = require 'app/libs/board/geometry/circle'
+Ball = require 'app/libs/board/physic/ball'
 
 module.exports = class Index extends AppView
 
@@ -21,7 +21,7 @@ module.exports = class Index extends AppView
 
 		i = 0
 		while i < 10
-			ball = new Circle 3 + (Math.random() * 9), "#fff"
+			ball = new Ball 3 + (Math.random() * 9), "#fff"
 			ball.speed = 4
 			ball.angle = Math.floor(Math.random() * 360)
 			ball.hit = true
@@ -30,7 +30,7 @@ module.exports = class Index extends AppView
 
 
 	on_tick:()=>
-		ball.forward() for ball in @scene.elements
+		ball.move() for ball in @scene.elements
 
 	add_target:(e)=>
 		@mouse_x = e.pageX
