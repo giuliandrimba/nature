@@ -1,7 +1,7 @@
 AppView = require 'app/views/app_view'
-Style = require 'styles/circles/index'
+Style = require 'styles/circles/collisions'
 Scene = require 'app/libs/board/scene'
-Circle = require 'app/libs/board/basic/circle'
+Circle = require 'app/libs/board/geometry/circle'
 
 module.exports = class Index extends AppView
 
@@ -19,13 +19,14 @@ module.exports = class Index extends AppView
 
 		@scene.on "tick", @on_tick
 
-		for i in [1,2,3,4,5,6,7,8,9,0]
-			ball = new Circle 10, "#fff"
+		i = 0
+		while i < 10
+			ball = new Circle 3 + (Math.random() * 9), "#fff"
 			ball.speed = 4
 			ball.angle = Math.floor(Math.random() * 360)
 			ball.hit = true
 			@scene.add ball
-
+			i++
 
 
 	on_tick:()=>
@@ -35,7 +36,10 @@ module.exports = class Index extends AppView
 		@mouse_x = e.pageX
 		@mouse_y = e.pageY
 
-		@target = new Circle 10, "#ff0000", @mouse_x, @mouse_y
+		@target = new Circle  3 + (Math.random() * 9), "#ffffff", @mouse_x, @mouse_y
+		@target.speed = 4
+		@target.angle = Math.floor(Math.random() * 360)
+		@target.hit = true
 		@scene.add @target
 
 

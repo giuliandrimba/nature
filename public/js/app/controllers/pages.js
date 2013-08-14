@@ -30,8 +30,12 @@ define('app/controllers/pages', ['require', 'exports', 'module', 'app/models/pag
     */
 
 
-    Pages.prototype.circles = function() {
-      return this.render("circles/index");
+    Pages.prototype.collisions = function() {
+      return this.render("circles/collisions");
+    };
+
+    Pages.prototype.circular_motion = function() {
+      return this.render("circles/circular_motion");
     };
 
     return Pages;

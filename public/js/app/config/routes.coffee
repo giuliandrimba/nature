@@ -14,8 +14,13 @@ define ['require', 'exports', 'module'], (require, exports, module)->
         at: null
         el: "body"
   
-      '/circles':
-        to: "pages/circles"
+      '/collisions':
+        to: "pages/collisions"
+        at: "/pages"
+        el: "#container"
+  
+      '/circular_motion':
+        to: "pages/circular_motion"
         at: "/pages"
         el: "#container"
   

@@ -30,13 +30,25 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 			changed:false
 		
-			constructor:(@_radius, @_color, @x, @y)->
+			constructor:(@_radius, @_color, @next_x, @next_y)->
 				@mass = @_radius
 		
-				@_x = @x if @x
-				@_y = @y if @y
+				@_x = @next_x if @next_x
+				@_y = @next_y if @next_y
 		
 				Object.defineProperties @,
+					"x":
+						get:()->
+							@next_x
+						set:(value)->
+							@next_x = value
+							@changed = true
+					"y":
+						get:()->
+							@next_y
+						set:(value)->
+							@next_y = value
+							@changed = true
 					"radius":
 						get:()->
 							@_radius
@@ -60,23 +72,25 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 							@changed = true
 		
 			forward:()->
-				@x = @_x + @x_vel
-				@y = @_y + @y_vel
+				@x_vel = @x_vel - (@x_vel * @scene.friction)
+				@y_vel = @y_vel - (@y_vel * @scene.friction)
+				@next_x = @_x + @x_vel
+				@next_y = @_y + @y_vel
 				@bounds()
-				@_x = @x
-				@_y = @y
+				@_x = @next_x
+				@_y = @next_y
 				@changed = true
 		
 		
 			draw:->
-				unless @changed is false
-					@context.fillStyle = @color
-					@context.beginPath()
-					@context.arc @_x, @_y, @radius, 0, Math.PI*2, true
-					@context.closePath()
-					@context.fill()
-					@changed = false
+				# unless @changed is false
+				@context.fillStyle = @color
+				@context.beginPath()
+				@context.arc @_x, @_y, @radius, 0, Math.PI*2, true
+				@context.closePath()
+				@context.fill()
+				@changed = false
 		
 			bounds:()->
-				@x_vel *= -1 if (@x >= (@canvas.width - @radius) || @x < (0 + @radius))
-				@y_vel *= -1 if (@y >= (@canvas.height - @radius) || @y < (0 + @radius))
+				@x_vel *= -1 if (@next_x >= (@canvas.width - @radius) || @next_x < (0 + @radius))
+				@y_vel *= -1 if (@next_y >= (@canvas.height - @radius) || @next_y < (0 + @radius))

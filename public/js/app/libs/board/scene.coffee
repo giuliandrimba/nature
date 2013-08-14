@@ -12,6 +12,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 			canvas:null
 			elements:[]
 			background_color:null
+			friction:0
 		
 			constructor:(canvas_id, @background_color)->
 				@stats = new Stats
@@ -37,14 +38,15 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 				window.requestAnimationFrame @tick
 		
 			update:()=>
-				@emit "update"
 				@context.fillStyle = @background_color
 				@context.fillRect 0, 0, @canvas.width, @canvas.height
+		
+				@collisions()
 		
 				for element in @elements
 					element.draw()
 		
-				@collisions()
+				@emit "update"
 		
 		
 			add:(element)->
@@ -52,6 +54,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 				element.context = @context
 				element.canvas = @canvas
 				element.scene = @
+				element.changed = true
 		
 			destroy:(element)=>
 				for item,i in @elements
@@ -83,7 +86,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 				dx = ball1.x - ball2.x
 				dy = ball1.y - ball2.y
 				distance = (dx * dx + dy * dy)
-				retval = true  if distance <= (ball1.radius + ball2.radius) * (ball1.radius + ball2.radius)
+				retval = true  if distance <= ((ball1.radius + ball2.radius) * (ball1.radius + ball2.radius))
 				return retval
 		
 			collisions:()->
@@ -114,8 +117,8 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 				el1.x_vel = Math.cos(collisionAngle) * final_x_vel_2 + Math.cos(collisionAngle + Math.PI / 2) * final_y_vel_2
 				el1.y_vel = Math.sin(collisionAngle) * final_x_vel_2 + Math.sin(collisionAngle + Math.PI / 2) * final_y_vel_2
 		
-				el0.x = (el1.x += el1.x_vel);
-				el0.y = (el1.y += el1.y_vel);
+				el0.x = (el0.x += el0.x_vel);
+				el0.y = (el0.y += el0.y_vel);
 				el0.x = (el1.x += el1.x_vel);
 				el0.y = (el1.y += el1.y_vel);
 		

@@ -29,5 +29,8 @@ define ['require', 'exports', 'module'], (require, exports, module)->
     # create:()->
     #   @render "pages/create", null
   
-    circles:()->
-      @render "circles/index"
+    collisions:()->
+      @render "circles/collisions"
+  
+    circular_motion:()->
+      @render "circles/circular_motion"

@@ -6,12 +6,12 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('app/views/circles/index', ['require', 'exports', 'module', 'app/libs/board/basic/circle', 'app/libs/board/scene', 'styles/circles/index', 'app/views/app_view'], function(require, exports, module) {
+define('app/views/circles/collisions', ['require', 'exports', 'module', 'app/libs/board/geometry/circle', 'app/libs/board/scene', 'styles/circles/collisions', 'app/views/app_view'], function(require, exports, module) {
   var AppView, Circle, Index, Scene, Style, _ref;
   AppView = require('app/views/app_view');
-  Style = require('styles/circles/index');
+  Style = require('styles/circles/collisions');
   Scene = require('app/libs/board/scene');
-  Circle = require('app/libs/board/basic/circle');
+  Circle = require('app/libs/board/geometry/circle');
   return module.exports = Index = (function(_super) {
     __extends(Index, _super);
 
@@ -31,20 +31,20 @@ define('app/views/circles/index', ['require', 'exports', 'module', 'app/libs/boa
     Index.prototype.mouse_y = 0;
 
     Index.prototype.after_render = function() {
-      var ball, i, _i, _len, _ref1, _results;
+      var ball, i, _results;
       this.window = $(window);
       this.canvas = $("#canvas");
       this.scene = new Scene("canvas", "#ff0000");
       this.scene.on("tick", this.on_tick);
-      _ref1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+      i = 0;
       _results = [];
-      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-        i = _ref1[_i];
-        ball = new Circle(10, "#fff");
+      while (i < 10) {
+        ball = new Circle(3 + (Math.random() * 9), "#fff");
         ball.speed = 4;
         ball.angle = Math.floor(Math.random() * 360);
         ball.hit = true;
-        _results.push(this.scene.add(ball));
+        this.scene.add(ball);
+        _results.push(i++);
       }
       return _results;
     };
@@ -63,7 +63,10 @@ define('app/views/circles/index', ['require', 'exports', 'module', 'app/libs/boa
     Index.prototype.add_target = function(e) {
       this.mouse_x = e.pageX;
       this.mouse_y = e.pageY;
-      this.target = new Circle(10, "#ff0000", this.mouse_x, this.mouse_y);
+      this.target = new Circle(3 + (Math.random() * 9), "#ffffff", this.mouse_x, this.mouse_y);
+      this.target.speed = 4;
+      this.target.angle = Math.floor(Math.random() * 360);
+      this.target.hit = true;
       return this.scene.add(this.target);
     };
 
@@ -77,5 +80,5 @@ define('app/views/circles/index', ['require', 'exports', 'module', 'app/libs/boa
   })(AppView);
 });
 /*
-//@ sourceMappingURL=index.map
+//@ sourceMappingURL=collisions.map
 */

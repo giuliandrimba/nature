@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ball.js",
+  "sourceRoot": "",
+  "sources": [
+    "ball.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA;;;CAAA;CAAA,GAAA;kSAAA;;AAIA,CAJA,CAImB,CAAsB,GAAzC,CAAyC,CAAlC,CAAA;CACL,KAAA,YAAA;CAAA,CAAA,CAAS,GAAT,CAAS,yBAAA;CAEF,EAAgB,GAAjB,CAAN,EAAA;CAAiB;;;;;CAAA;;CAAA;;CAAmB;CAHG"
+}

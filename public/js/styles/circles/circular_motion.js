@@ -1,11 +1,11 @@
 // Compiled by Polvo, using Stylus
-define('styles/circles/index', ['require', 'exports', 'module'], function(require, exports, module){
+define('styles/circles/circular_motion', ['require', 'exports', 'module'], function(require, exports, module){
 
   var head = document.getElementsByTagName('head')[0];
   var style = module.exports = document.createElement('style');
   var content = '.circles canvas {  position: absolute;  top: 0;  left: 0;}'
 
-  style.setAttribute('id', 'styles/circles/index');
+  style.setAttribute('id', 'styles/circles/circular_motion');
   style.setAttribute('type', 'text/css');
 
   // MODERN BROWSERS?

@@ -21,6 +21,8 @@ define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/
 
     Scene.prototype.background_color = null;
 
+    Scene.prototype.friction = 0;
+
     function Scene(canvas_id, background_color) {
       var _this = this;
       this.background_color = background_color;
@@ -50,22 +52,23 @@ define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/
 
     Scene.prototype.update = function() {
       var element, _i, _len, _ref;
-      this.emit("update");
       this.context.fillStyle = this.background_color;
       this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      this.collisions();
       _ref = this.elements;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         element = _ref[_i];
         element.draw();
       }
-      return this.collisions();
+      return this.emit("update");
     };
 
     Scene.prototype.add = function(element) {
       this.elements.push(this.at(element));
       element.context = this.context;
       element.canvas = this.canvas;
-      return element.scene = this;
+      element.scene = this;
+      return element.changed = true;
     };
 
     Scene.prototype.destroy = function(element) {
@@ -113,7 +116,7 @@ define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/
       dx = ball1.x - ball2.x;
       dy = ball1.y - ball2.y;
       distance = dx * dx + dy * dy;
-      if (distance <= (ball1.radius + ball2.radius) * (ball1.radius + ball2.radius)) {
+      if (distance <= ((ball1.radius + ball2.radius) * (ball1.radius + ball2.radius))) {
         retval = true;
       }
       return retval;
@@ -168,8 +171,8 @@ define('app/libs/board/scene', ['require', 'exports', 'module', 'app/libs/board/
       el0.y_vel = Math.sin(collisionAngle) * final_x_vel_1 + Math.sin(collisionAngle + Math.PI / 2) * final_y_vel_1;
       el1.x_vel = Math.cos(collisionAngle) * final_x_vel_2 + Math.cos(collisionAngle + Math.PI / 2) * final_y_vel_2;
       el1.y_vel = Math.sin(collisionAngle) * final_x_vel_2 + Math.sin(collisionAngle + Math.PI / 2) * final_y_vel_2;
-      el0.x = (el1.x += el1.x_vel);
-      el0.y = (el1.y += el1.y_vel);
+      el0.x = (el0.x += el0.x_vel);
+      el0.y = (el0.y += el0.y_vel);
       el0.x = (el1.x += el1.x_vel);
       return el0.y = (el1.y += el1.y_vel);
     };
