@@ -1,5 +1,5 @@
-MicroEvent = require 'app/libs/board/utils/microevent'
-Calc = require 'app/libs/board/utils/calc'
+MicroEvent = require '../utils/microevent'
+Calc = require '../utils/calc'
 
 module.exports = class Circle extends MicroEvent
 

@@ -1,4 +1,4 @@
-Circle = require 'app/libs/board/geometry/circle'
+Circle = require '../geometry/circle'
 
 module.exports = class Ball extends Circle
 
@@ -14,7 +14,7 @@ module.exports = class Ball extends Circle
 		@_x = @next_x
 		@_y = @next_y
 		@changed = true
-	
+
 	bounds:()->
 		@vx *= -1 if (@next_x >= (@canvas.width - @radius) || @next_x < (0 + @radius))
 		@vy *= -1 if (@next_y >= (@canvas.height - @radius) || @next_y < (0 + @radius))

@@ -1,7 +1,7 @@
 AppView = require 'app/views/app_view'
-Scene = require 'app/libs/board/scene'
-Ball = require 'app/libs/board/physic/ball'
-Path = require 'app/libs/board/geometry/path'
+Scene = require 'board/scene'
+Ball = require 'board/physic/ball'
+Path = require 'board/geometry/path'
 
 module.exports = class Index extends AppView
 

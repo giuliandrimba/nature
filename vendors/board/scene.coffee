@@ -1,5 +1,7 @@
-MicroEvent = require 'app/libs/board/utils/microevent'
-Calc = require 'app/libs/board/utils/calc'
+MicroEvent = require './utils/microevent'
+Calc = require './utils/calc'
+
+console.log MicroEvent
 
 module.exports = class Scene extends MicroEvent
 
@@ -10,18 +12,6 @@ module.exports = class Scene extends MicroEvent
 	friction:0
 
 	constructor:(canvas_id, @background_color)->
-		@stats = new Stats
-		@stats.setMode 0
-		@stats.domElement.style.position = 'absolute';
-		@stats.domElement.style.left = '0px';
-		@stats.domElement.style.top = '0px';
-
-		document.body.appendChild @stats.domElement
-		setInterval (=>
-		  @stats.begin()
-		  @stats.end()
-		), 1000 / 60
-
 
 		@canvas = document.getElementById canvas_id
 		@context = @canvas.getContext "2d"

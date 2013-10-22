@@ -1,2 +1,1 @@
-require 'jquery.spritefy'
-require 'stats'
+require 'jquery_spritefy'

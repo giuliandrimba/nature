@@ -1,3 +1,3 @@
 Controller = require 'theoricus/mvc/controller'
 
-exports.module = class AppController extends Controller
+module.exports = class AppController extends Controller

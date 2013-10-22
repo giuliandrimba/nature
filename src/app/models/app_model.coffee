@@ -1,3 +1,3 @@
 Model = require 'theoricus/mvc/model'
 
-exports.module = class AppModel extends Model
+module.exports = class AppModel extends Model

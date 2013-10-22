@@ -5,7 +5,7 @@ and a new 'once' method.
 Original project:
 https://github.com/jeromeetienne/microevent.js
 ###
-class MicroEvent
+module.exports = class MicroEvent
 	_init:-> @_listn or @_listn = {}
 	_create:(e)-> @_init()[e] or  @_init()[e] = []
 	on:(e, f)-> (@_create e).push f

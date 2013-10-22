@@ -1,16 +1,20 @@
 server:
-  port: 3000
+  port: 11235
   root: ./public
 
 input:
-  - src
+  - ./src
 
 output:
   js: ./public/app.js
   css: ./public/app.css
 
 alias:
+  theoricus: ./vendors/theoricus/www/src/theoricus
   app: ./src/app
+  templates: ./src/templates
+  jquery_spritefy: ./vendors/jquery/jquery.spritefy.js
+  board: ./vendors/board
 
 minify:
   js: false

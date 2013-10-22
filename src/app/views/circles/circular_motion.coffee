@@ -1,7 +1,7 @@
 AppView = require 'app/views/app_view'
-Scene = require 'app/libs/board/scene'
-Circle = require 'app/libs/board/geometry/circle'
-Path = require 'app/libs/board/geometry/path'
+Scene = require 'board/scene'
+Circle = require 'board/geometry/circle'
+Path = require 'board/geometry/path'
 
 module.exports = class CircularMotion extends AppView
 
