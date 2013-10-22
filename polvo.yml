@@ -1,0 +1,19 @@
+server:
+  port: 3000
+  root: ./public
+
+input:
+  - src
+
+output:
+  js: ./public/app.js
+  css: ./public/app.css
+
+alias:
+  app: ./src/app
+
+minify:
+  js: false
+  css: false
+
+boot: ./src/app/app

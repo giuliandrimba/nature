@@ -6,10 +6,9 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('app/views/circles/circular_motion', ['require', 'exports', 'module', 'app/libs/board/geometry/path', 'app/libs/board/geometry/circle', 'app/libs/board/scene', 'styles/circles/circular_motion', 'app/views/app_view'], function(require, exports, module) {
-  var AppView, Circle, CircularMotion, Path, Scene, Style, _ref;
+define('app/views/circles/circular_motion', ['require', 'exports', 'module', 'app/libs/board/geometry/path', 'app/libs/board/geometry/circle', 'app/libs/board/scene', 'app/views/app_view'], function(require, exports, module) {
+  var AppView, Circle, CircularMotion, Path, Scene, _ref;
   AppView = require('app/views/app_view');
-  Style = require('styles/circles/circular_motion');
   Scene = require('app/libs/board/scene');
   Circle = require('app/libs/board/geometry/circle');
   Path = require('app/libs/board/geometry/path');

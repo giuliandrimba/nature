@@ -6,10 +6,9 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('app/views/circles/collisions', ['require', 'exports', 'module', 'app/libs/board/geometry/path', 'app/libs/board/physic/ball', 'app/libs/board/scene', 'styles/circles/collisions', 'app/views/app_view'], function(require, exports, module) {
-  var AppView, Ball, Index, Path, Scene, Style, _ref;
+define('app/views/circles/collisions', ['require', 'exports', 'module', 'app/libs/board/geometry/path', 'app/libs/board/physic/ball', 'app/libs/board/scene', 'app/views/app_view'], function(require, exports, module) {
+  var AppView, Ball, Index, Path, Scene, _ref;
   AppView = require('app/views/app_view');
-  Style = require('styles/circles/collisions');
   Scene = require('app/libs/board/scene');
   Ball = require('app/libs/board/physic/ball');
   Path = require('app/libs/board/geometry/path');

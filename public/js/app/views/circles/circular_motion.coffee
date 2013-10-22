@@ -4,7 +4,6 @@
 
 define ['require', 'exports', 'module'], (require, exports, module)->
 		AppView = require 'app/views/app_view'
-		Style = require 'styles/circles/circular_motion'
 		Scene = require 'app/libs/board/scene'
 		Circle = require 'app/libs/board/geometry/circle'
 		Path = require 'app/libs/board/geometry/path'
@@ -24,7 +23,7 @@ define ['require', 'exports', 'module'], (require, exports, module)->
 		
 				@scene.on "tick", @on_tick
 				@scene.add @ball
-				
+		
 				new Path @ball
 		
 			on_tick:()=>

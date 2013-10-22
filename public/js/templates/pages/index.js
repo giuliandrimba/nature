@@ -1,7 +1,7 @@
 // Compiled by Polvo, using Jade
 define('templates/pages/index', ['require', 'exports', 'module'], function(require, exports, module){
   module.exports = function anonymous(locals) {
-jade.debug = [{ lineno: 1, filename: "/Users/giuliandrimba/work/codeman/development/labs/src/templates/pages/index.jade" }];
+jade.debug = [{ lineno: 1, filename: "/Users/giuliandrimba/labs/labs/src/templates/pages/index.jade" }];
 try {
 var buf = [];
 jade.debug.unshift({ lineno: 1, filename: jade.debug[0].filename });

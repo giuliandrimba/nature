@@ -3,15 +3,33 @@
 */
 
 define('theoricus/core/factory', ['require', 'exports', 'module', 'theoricus/mvc/controller', 'theoricus/mvc/view', 'theoricus/mvc/model'], function(require, exports, module) {
+  /**
+    Core module
+    @module core
+  */
+
   var Controller, Factory, Model, View;
   Model = require('theoricus/mvc/model');
   View = require('theoricus/mvc/view');
   Controller = require('theoricus/mvc/controller');
+  /**
+    Factory is responsible for loading/creating the MVC classes.
+  
+    @class Factory
+  */
+
   return module.exports = Factory = (function() {
+    /**
+      Store the loaded controllers.
+      @property controllers {Array}
+    */
+
     Factory.prototype.controllers = {};
 
-    /*
-    @param [theoricus.Theoricus] @the   Shortcut for app's instance
+    /**
+    @class Factory
+    @constructor
+    @param the {Theoricus} Shortcut for app's instance
     */
 
 
@@ -19,6 +37,16 @@ define('theoricus/core/factory', ['require', 'exports', 'module', 'theoricus/mvc
       this.the = the;
       Model.Factory = this;
     }
+
+    /**
+    Returns an instantiated Model.
+      
+    @method model
+    @param name {String} Model name.
+    @param init {Object} Default properties to be setted in the model instance.
+    @param fn {Function} Callback function returning the model instance.
+    */
+
 
     Factory.model = Factory.prototype.model = function(name, init, fn) {
       var classname, classpath,
@@ -47,10 +75,12 @@ define('theoricus/core/factory', ['require', 'exports', 'module', 'theoricus/mvc
       });
     };
 
-    /*
-    Returns an instantiated [theoricus.mvc.View] View
+    /**
+    Returns an instantiated View.
       
-    @param [String] path  path to the view file
+    @method view
+    @param path {String} Path to the view file.
+    @param fn {Function} Callback function returning the view instance.
     */
 
 
@@ -81,10 +111,12 @@ define('theoricus/core/factory', ['require', 'exports', 'module', 'theoricus/mvc
       });
     };
 
-    /*
-    Returns an instantiated [theoricus.mvc.Controller] Controller
+    /**
+    Returns an instantiated Controller.
       
-    @param [String] name  controller name
+    @method controller
+    @param name {String} Controller name.
+    @param fn {Function} Callback function returning the controller instance.
     */
 
 
@@ -115,10 +147,12 @@ define('theoricus/core/factory', ['require', 'exports', 'module', 'theoricus/mvc
       }
     };
 
-    /*
-    Returns an AMD compiled template
+    /**
+    Returns an AMD compiled template.
       
-    @param [String] path  path to the template
+    @method template
+    @param path {String} Path to the template.
+    @param fn {Function} Callback function returning the template string.
     */
 
 
@@ -131,9 +165,12 @@ define('theoricus/core/factory', ['require', 'exports', 'module', 'theoricus/mvc
       });
     };
 
-    /* Returns an AMD compiled style
-    
-    @param [String] path  path to the style
+    /**
+    Returns an AMD compiled style.
+      
+    @method style
+    @param path {String} Path to the style.
+    @param fn {Function} Callback function returning the style string.
     */
 
 

@@ -3,22 +3,42 @@
 ###
 
 define ['require', 'exports', 'module'], (require, exports, module)->
+  ###*
+    MVC module
+    @module mvc
+  ###
+  
   Model = require 'theoricus/mvc/model'
   View = require 'theoricus/mvc/view'
   Fetcher = require 'theoricus/mvc/lib/fetcher'
   
+  ###*
+    The controller is responsible for rendering the view.
+  
+    It receives the URL params, to be used for Model instantiation.
+  
+    The controller actions are mapped with the URL states (routes) in the app `routes` file.
+  
+    @class Controller
+  ###
   module.exports = class Controller
   
     ###
     @param [theoricus.Theoricus] @the   Shortcut for app's instance
     ###
+    ###*
+      This function is executed by the Factory. It saves a `@the` reference inside the controller.
+  
+      @method _boot
+      @param @the {Theoricus} Shortcut for app's instance
+    ###
     _boot: ( @the ) -> @
   
-    ###
-    Build a default action ( renders the view passing all model records as data)
-    in case the controller doesn't have an action for current process call
+    ###*
+      Build a default action ( renders the view passing all model records as data) in case the controller doesn't have an action implemented for the current `process` call.
   
-    @param [theoricus.core.Process] process path to view on the app tree
+      @method _build_action
+      @param process {Process} Current {{#crossLink "Process"}}{{/crossLink}} being executed.
     ###
     _build_action: ( process ) ->
       ( params, fn )=>
@@ -43,6 +63,20 @@ define ['require', 'exports', 'module'], (require, exports, module)->
     @param [String] path  Path to view on the app tree
     @param [String] data  data to be rendered on the template
     ###
+  
+    ###*
+      Responsible for rendering the View.
+  
+      Usually, this method is executed in the controller action mapped with the `route`.
+      
+      @method render
+      @param path {String} View's file path. 
+      @param data {Object} Data to be passed to the view. 
+  
+      @example
+          index:(id)-> # Controller action
+              render "app/views/index", Model.first()
+    ###
     render:( path, data )->
       @the.factory.view path, (view)=>
         
@@ -63,10 +97,13 @@ define ['require', 'exports', 'module'], (require, exports, module)->
   
     # ~> Shortcuts
   
-    ###
-    Shortcut for application navigate
+    ###*
+      Shortcut for application navigate.
   
-    @param [String] url URL to navigate
+      Navigate to the given URL.
+  
+      @method navigate
+      @param url {String} URL to navigate to.
     ###
     navigate:( url )->
   

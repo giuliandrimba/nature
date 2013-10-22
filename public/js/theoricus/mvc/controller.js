@@ -3,10 +3,25 @@
 */
 
 define('theoricus/mvc/controller', ['require', 'exports', 'module', 'theoricus/mvc/lib/fetcher', 'theoricus/mvc/view', 'theoricus/mvc/model'], function(require, exports, module) {
+  /**
+    MVC module
+    @module mvc
+  */
+
   var Controller, Fetcher, Model, View;
   Model = require('theoricus/mvc/model');
   View = require('theoricus/mvc/view');
   Fetcher = require('theoricus/mvc/lib/fetcher');
+  /**
+    The controller is responsible for rendering the view.
+  
+    It receives the URL params, to be used for Model instantiation.
+  
+    The controller actions are mapped with the URL states (routes) in the app `routes` file.
+  
+    @class Controller
+  */
+
   return module.exports = Controller = (function() {
     function Controller() {}
 
@@ -15,16 +30,24 @@ define('theoricus/mvc/controller', ['require', 'exports', 'module', 'theoricus/m
     */
 
 
+    /**
+      This function is executed by the Factory. It saves a `@the` reference inside the controller.
+      
+      @method _boot
+      @param @the {Theoricus} Shortcut for app's instance
+    */
+
+
     Controller.prototype._boot = function(the) {
       this.the = the;
       return this;
     };
 
-    /*
-    Build a default action ( renders the view passing all model records as data)
-    in case the controller doesn't have an action for current process call
+    /**
+      Build a default action ( renders the view passing all model records as data) in case the controller doesn't have an action implemented for the current `process` call.
       
-    @param [theoricus.core.Process] process path to view on the app tree
+      @method _build_action
+      @param process {Process} Current {{#crossLink "Process"}}{{/crossLink}} being executed.
     */
 
 
@@ -59,6 +82,21 @@ define('theoricus/mvc/controller', ['require', 'exports', 'module', 'theoricus/m
     */
 
 
+    /**
+      Responsible for rendering the View.
+      
+      Usually, this method is executed in the controller action mapped with the `route`.
+      
+      @method render
+      @param path {String} View's file path. 
+      @param data {Object} Data to be passed to the view. 
+      
+      @example
+          index:(id)-> # Controller action
+              render "app/views/index", Model.first()
+    */
+
+
     Controller.prototype.render = function(path, data) {
       var _this = this;
       return this.the.factory.view(path, function(view) {
@@ -79,10 +117,13 @@ define('theoricus/mvc/controller', ['require', 'exports', 'module', 'theoricus/m
       });
     };
 
-    /*
-    Shortcut for application navigate
+    /**
+      Shortcut for application navigate.
       
-    @param [String] url URL to navigate
+      Navigate to the given URL.
+      
+      @method navigate
+      @param url {String} URL to navigate to.
     */
 
 

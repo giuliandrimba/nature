@@ -5,9 +5,20 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/model'], function(require, exports, module) {
+  /**
+    MVC module
+    @module mvc
+  */
+
   var Factory, Model, View;
   Model = require('theoricus/mvc/model');
   Factory = null;
+  /**
+    The View class is responsible for manipulating the templates (DOM).
+  
+    @class View
+  */
+
   return module.exports = View = (function() {
     function View() {
       this.set_triggers = __bind(this.set_triggers, this);
@@ -15,20 +26,86 @@ define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/mod
       this._render = __bind(this._render, this);
     }
 
+    /**
+      Sets the title of the document.
+      
+      @property title {String}
+    */
+
+
     View.prototype.title = null;
+
+    /**
+      Stores template's html as jQuery object.
+      
+      @property el {Object}
+    */
+
 
     View.prototype.el = null;
 
+    /**
+     File's path relative to the app's folder.
+      
+     @property classpath {String}
+    */
+
+
     View.prototype.classpath = null;
+
+    /**
+      Stores the class name
+      
+      @property classname {String}
+    */
+
 
     View.prototype.classname = null;
 
+    /**
+      Namespace is the folder path relative to the `views` folder.
+      
+      @property namespace {String}
+    */
+
+
     View.prototype.namespace = null;
+
+    /**
+      {{#crossLink "Process"}}{{/crossLink}} responsible for running the controller's action that rendered this view.
+      
+      @property process {Process}
+    */
+
 
     View.prototype.process = null;
 
-    /*
-    @param [theoricus.Theoricus] @the   Shortcut for app's instance
+    /**
+      Object responsible for binding the DOM events on the view. Use the format `selector event: handler` to define an event. It is called after the `template` was rendered in the document.
+      
+      @property events {Object}
+      @example
+          events:  
+              ".bt-alert click":"on_alert"
+    */
+
+
+    View.prototype.events = null;
+
+    /**
+      Responsible for storing the template's data and the URL params.
+      
+      @property data {Object}
+    */
+
+
+    View.prototype.data = null;
+
+    /**
+      This function is executed by the Factory. It saves a `@the.factory` reference inside the view.
+      
+      @method _boot
+      @param @the {Theoricus} Shortcut for app's instance
     */
 
 
@@ -38,9 +115,12 @@ define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/mod
       return this;
     };
 
-    /*
-    @param [Object] @data   Data to be passed to the template
-    @param [Object] @el     Element where the view will be "attached/appended"
+    /**
+      Responsible for rendering the view, passing the data to the `template`.
+      
+      @method _render
+      @param data {Object} Data object to be passed to the template, usually it is and instance of the {{#crossLink "Model"}}{{/crossLink}}
+      @param [template=null] {String} The path of the template to be rendered.
     */
 
 
@@ -75,6 +155,22 @@ define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/mod
       return this.render_template(template);
     };
 
+    /**
+      If there is a `before_render` method implemented, it will be executed before the view's template is appended to the document.
+      
+      @method before_render
+      @param data {Object} Reference to the `@data`
+    */
+
+
+    /**
+      Responsible for loading the given template, and appending it to view's `el` element.
+      
+      @method render_template
+      @param template {String} Path to the template to be rendered.
+    */
+
+
     View.prototype.render_template = function(template) {
       var _this = this;
       return this.the.factory.template(template, function(template) {
@@ -99,12 +195,31 @@ define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/mod
       });
     };
 
+    /**
+      If there is an `after_render` method implemented, it will be executed after the view's template is appended to the document. 
+      
+      Useful for caching DOM elements as jQuery objects.
+      
+      @method after_render
+      @param data {Object} Reference to the `@data`
+    */
+
+
+    /**
+      If there is an `@on_resize` method implemented, it will be executed whenever the window triggers the `scroll` event.
+      
+      @method on_resize
+    */
+
+
     View.prototype._on_resize = function() {
-      return this.on_resize();
+      return typeof this.on_resize === "function" ? this.on_resize() : void 0;
     };
 
-    /*
-    In case you defined @events in your view they will be automatically binded
+    /**
+      Process the `@events`, automatically binding them.
+      
+      @method set_triggers
     */
 
 
@@ -124,8 +239,21 @@ define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/mod
       return _results;
     };
 
-    /*
-    Triggers view "animation in", "@after_in" must be called in the end
+    /**
+      If there is a `@before_in` method implemented, it will be called before the view execute its intro animations. 
+      
+      Useful to setting up the DOM elements properties before animating them.
+      
+      @method before_in
+    */
+
+
+    /**
+      The `in` method is where the view intro animations are defined. It is executed after the `@after_render` method.
+      
+      The `@after_in` method must be called at the end of the animations, so Theoricus knows that the View finished animating.
+      
+      @method in
     */
 
 
@@ -149,9 +277,29 @@ define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/mod
       }
     };
 
-    /*
-    Triggers view "animation out", "after_out" must be called in the end
-     @param [Function] after_out Callback function to be triggered in the end
+    /**
+      If there is an`@after_in` method implemented, it will be called after the view finish its intro animations.
+      
+      Will only be executed if the {{#crossLink "Config"}}{{/crossLink}} property `disable_transitions` is `false`.
+      
+      @method after_in
+    */
+
+
+    /**
+      If there is an`@before_out` method implemented, it will be called before the view executes its exit animations.
+      
+      @method before_out
+    */
+
+
+    /**
+      The `@out` method is responsible for the view's exit animations. 
+      
+      At the end of the animations, the `after_out` callback must be called.
+      
+      @method out
+      @param after_out {Function} Callback to be called when the animation ends.
     */
 
 
@@ -171,11 +319,21 @@ define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/mod
       }
     };
 
-    /*
-    Destroy the view after the 'out' animation, the default behavior is to just
-    empty it's container element.
+    /**
+      If there is an`@before_destroy` method implemented, it will be called before removing the view's template from the document.
       
-    before_destroy will be called just before emptying it.
+      @method before_destroy
+    */
+
+
+    /**
+      Destroy the view after executing the `@out` method, the default behaviour empties its `el` element and unbind the `window.resize` event.
+      
+      If overwritten, the `super` method must be called.
+      
+      Useful for removing variables assignments that needs to be removed from memory by the Garbage Collector, avoiding Memory Leaks.
+      
+      @method destroy
     */
 
 
@@ -189,10 +347,13 @@ define('theoricus/mvc/view', ['require', 'exports', 'module', 'theoricus/mvc/mod
       return this.el.empty();
     };
 
-    /*
-    Shortcut for application navigate
+    /**
+      Shortcut for application navigate.
       
-    @param [String] url URL to navigate
+      Navigate to the given URL.
+      
+      @method navigate
+      @param url {String} URL to navigate to.
     */
 
 

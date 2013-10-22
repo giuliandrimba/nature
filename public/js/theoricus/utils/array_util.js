@@ -3,14 +3,32 @@
 */
 
 define('theoricus/utils/array_util', ['require', 'exports', 'module', 'theoricus/utils/object_util'], function(require, exports, module) {
+  /**
+    utils module
+    @module utils
+  */
+
   var ArrayUtil, ObjectUtil;
   ObjectUtil = require('theoricus/utils/object_util');
+  /**
+    ArrayUtil class.
+    @class ArrayUtil
+  */
+
   return module.exports = ArrayUtil = (function() {
     function ArrayUtil() {}
 
-    /*
-    @param [] src
-    @param [] search
+    /**
+    
+    Search for a record within the given source array that contains the `search` filter.
+      
+    @method find
+    @static
+    @param src {Array} Source array.
+    @param search {Object} Object to be found within the source array.
+    @example
+      fruits = {name: "orange", id:0}, {name: "banana", id:1}, {name: "watermelon", id:2}
+      ArrayUtil.find fruits, {name: "orange"} # returns {name: "orange", id:0}
     */
 
 
@@ -37,9 +55,18 @@ define('theoricus/utils/array_util', ['require', 'exports', 'module', 'theoricus
       return null;
     };
 
-    /*
-    @param [] src
-    @param [] search
+    /**
+      
+    Delete a record within the given source array that contains the `search` filter.
+      
+    @method delete
+    @static
+    @param src {Array} Source array.
+    @param search {Object} Object to be found within the source array.
+    @example
+      fruits = [{name: "orange", id:0}, {name: "banana", id:1}, {name: "watermelon", id:2}]
+      ArrayUtil.delete fruits, {name: "banana"}
+      console.log fruits #[{name: "orange", id:0}, {name: "watermelon", id:2}]
     */
 
 

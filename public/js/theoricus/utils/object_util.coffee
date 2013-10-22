@@ -3,12 +3,29 @@
 ###
 
 define ['require', 'exports', 'module'], (require, exports, module)->
+  ###*
+    utils module
+    @module utils
+  ###
+  
+  ###*
+    ObjectUtil class.
+    @class ObjectUtil
+  ###
   module.exports = class ObjectUtil
   
-    ###
-    @param [] str
-    @param [] search
-    @param [Boolean] strong_typing
+    ###*
+  
+    Check if source object has given `search` properties.
+    
+    @method find
+    @static
+    @param src {Object} Source object.
+    @param search {Object} Object to be found within the source object.
+    @param [strong_typing=false] {Boolean}
+    @example
+      obj = {name:"Drimba", age:22, skills:{language:"coffeescript", editor:"sublime"}}
+      ObjectUtil.find obj, {age:22} #returns {name:"Drimba", age:22, skills:{language:"coffeescript", editor:"sublime"}}
     ###
     @find:( src, search, strong_typing = false )->
   

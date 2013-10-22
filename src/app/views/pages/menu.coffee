@@ -1,5 +1,4 @@
 Template = require 'templates/pages/menu'
-Style = require 'styles/pages/menu'
 
 module.exports = class Menu
 
@@ -26,7 +25,7 @@ module.exports = class Menu
 		@on_resize()
 		@events()
 
-		@arrow.css 
+		@arrow.css
 			top:100
 
 	in:()->

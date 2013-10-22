@@ -5,12 +5,23 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 'theoricus/core/process', 'theoricus/core/router'], function(require, exports, module) {
+  /**
+    Core module
+    @module core
+  */
+
   var Factory, Process, Processes, Router, _;
   Router = require('theoricus/core/router');
   Process = require('theoricus/core/process');
   _ = require('lodash');
   Factory = null;
   return module.exports = Processes = (function() {
+    /**
+    Block the url state to be changed. Useful if there is a current {{#crossLink "Process"}}{{/crossLink}} being executed.
+      
+    @property {Boolean} locked
+    */
+
     Processes.prototype.locked = false;
 
     Processes.prototype.disable_transitions = null;
@@ -21,8 +32,25 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
 
     Processes.prototype.pending_processes = [];
 
-    /*
-    @param [theoricus.Theoricus] @the   Shortcut for app's instance
+    /**
+    Responsible for handling the page/url change. It removes last Process, runs new Process dependencies, and then add the required Process. 
+      
+    __Execution order__
+      
+    1. `_on_router_change`
+      
+    2. `_filter_pending_processes`
+      
+    3. `_filter_dead_processes`
+      
+    4. `_destroy_dead_processes` - one by one, waiting or not for callback (timing can be sync/async)
+      
+    6. `_run_pending_process` - one by one, waiting or not for callback (timing can be sync/async)
+      
+    @class Processes
+    @constructor
+    @param @the {Theoricus} Shortcut for app's instance.
+    @param @Routes {Object} App Routes
     */
 
 
@@ -43,12 +71,12 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
       });
     }
 
-    /*
-    1st
-      
-    Triggered on router chance
-      
-    @param [theoricus.core.Router] route
+    /**
+    Executed when the route changes, it creates a {{#crossLink "Process"}}{{/crossLink}} to manipulate the route, removes the current process, and run the new process alongside its dependencies.
+    
+    @method _on_router_change
+    @param route {Route} Route containing the controller and url state information.
+    @param url {String} Current url state.
     */
 
 
@@ -80,6 +108,10 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
     */
 
 
+    /**
+    */
+
+
     Processes.prototype._filter_pending_processes = function(process, after_filter) {
       var _this = this;
       this.pending_processes.push(process);
@@ -99,6 +131,15 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
         return after_filter();
       }
     };
+
+    /**
+    Finds the dependency of the given {{#crossLink "Process"}}{{/crossLink}}
+      
+    @method _find_dependency
+    @param process {Process} Processto find the dependency.
+    @param after_find {Function} Callback to be called after the dependency has been found.
+    */
+
 
     Processes.prototype._find_dependency = function(process, after_find) {
       var at, dep, dependency, params,
@@ -123,12 +164,11 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
       return after_find(null);
     };
 
-    /*
-    3th
+    /**
+    Check which of the processes needs to stay active in order to render current process.
+    The ones that doesn't, are pushed to dead_processes.
       
-    Check which of the routes needs to stay active in order to render
-    current process.
-    The ones that doesn't, are pushed to dead_processes
+    @method _filter_dead_processes
     */
 
 
@@ -156,11 +196,10 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
       return _results;
     };
 
-    /*
-    4th
+    /**
+    Destroy the dead processes (doesn't need to be active) one by one, then run the pending process.
       
-    Destroy dead processes one by one ( passing the next destroy as callback )
-    then run the pending proccess
+    @method _destroy_dead_processes
     */
 
 
@@ -177,21 +216,17 @@ define('theoricus/core/processes', ['require', 'exports', 'module', 'lodash', 't
       }
     };
 
-    /*
-    5th
-    Execute run method of pending processes that are not active
+    /**
+    Run the processes that are not active yet.
+      
+    @method _run_pending_processes
     */
 
 
     Processes.prototype._run_pending_processes = function() {
-      var found, process, search, _base;
+      var found, process, _base;
       if (this.pending_processes.length) {
         process = this.pending_processes.pop();
-        search = {
-          route: {
-            match: process.route.match
-          }
-        };
         found = _.find(this.active_processes, function(found_process) {
           return found_process.route.match === process.route.match;
         });

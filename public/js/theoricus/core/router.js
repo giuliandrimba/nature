@@ -5,25 +5,44 @@
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 define('theoricus/core/router', ['require', 'exports', 'module', 'theoricus/core/route', 'theoricus/utils/string_util', 'history'], function(require, exports, module) {
+  /**
+    Core module
+    @module core
+  */
+
   var Factory, Route, Router, StringUril;
   StringUril = require('theoricus/utils/string_util');
   Route = require('theoricus/core/route');
   require('history');
   Factory = null;
-  /*
-  Proxies browser's History API, routing request to and from the aplication
+  /**
+    Proxies browser's History API, routing request to and from the aplication.
+    @class Router
   */
 
   return module.exports = Router = (function() {
+    /**
+      Array storing all the routes defined in the application's route file.
+      
+      @property {Array} routes
+    */
+
     Router.prototype.routes = [];
 
-    Router.prototype.listeners = [];
+    /**
+      If false, doesn't handle the url route.
+      
+      @property {Boolean} trigger
+    */
+
 
     Router.prototype.trigger = true;
 
-    /*
-    @param [theoricus.Theoricus] @the   Shortcut for app's instance
-    @param [Function] @on_change  state/url change handler
+    /**
+    @class Router
+    @constructor
+    @param @the {Theoricus} Shortcut for app's instance.
+    @param @on_change {Function} state/url change handler.
     */
 
 
@@ -53,13 +72,13 @@ define('theoricus/core/router', ['require', 'exports', 'module', 'theoricus/core
       }, 1);
     }
 
-    /*
-    Creates and store a route
-    
-    @param [String] route
-    @param [String] to
-    @param [String] at
-    @param [String] el
+    /**
+      Create and store a route within `routes` array.
+      @method map
+      @param route {String} Url state.
+      @param to {String} Controller '/' action to which the route will be sent.
+      @param at {String} Route to be called as a dependency.
+      @param el {String} CSS selector to define where the template will be rendered.
     */
 
 
@@ -67,6 +86,13 @@ define('theoricus/core/router', ['require', 'exports', 'module', 'theoricus/core
       this.routes.push(route = new Route(route, to, at, el, this));
       return route;
     };
+
+    /**
+      Handle the url state.
+      @method route
+      @param state {Object} HTML5 pushstate state
+    */
+
 
     Router.prototype.route = function(state) {
       var action_name, controller_name, route, url, url_parts, _i, _len, _ref,
@@ -115,6 +141,16 @@ define('theoricus/core/router', ['require', 'exports', 'module', 'theoricus/core
       return this.trigger = true;
     };
 
+    /**
+      Change the url state.
+      
+      @method navigate
+      @param url {String} New url state.
+      @param [trigger=true] {String} If false,
+      @param [replace=false] {String} If true, pushes a new state to the browser.
+    */
+
+
     Router.prototype.navigate = function(url, trigger, replace) {
       var action;
       if (trigger == null) {
@@ -131,6 +167,15 @@ define('theoricus/core/router', ['require', 'exports', 'module', 'theoricus/core
       return History[action](null, null, url);
     };
 
+    /**
+      Set the url if the browser doesn't support HTML5 pushstate.
+      
+      @method run
+      @param url {String} New url state.
+      @param [trigger=true] {String} If false, doesn't handle the url's state.
+    */
+
+
     Router.prototype.run = function(url, trigger) {
       if (trigger == null) {
         trigger = true;
@@ -145,13 +190,35 @@ define('theoricus/core/router', ['require', 'exports', 'module', 'theoricus/core
       });
     };
 
+    /**
+      If `index` is negative go back through browser history `index` times, if `index` is positive go forward through browser history `index` times.
+      
+      @method go
+      @param index {Number}
+    */
+
+
     Router.prototype.go = function(index) {
       return History.go(index);
     };
 
+    /**
+      Go back once through browser history.
+      
+      @method back
+    */
+
+
     Router.prototype.back = function() {
       return History.back();
     };
+
+    /**
+      Go forward once through browser history.
+      
+      @method forward
+    */
+
 
     Router.prototype.forward = function() {
       return History.forward();

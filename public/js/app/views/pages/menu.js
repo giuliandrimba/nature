@@ -4,10 +4,9 @@
 
 var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-define('app/views/pages/menu', ['require', 'exports', 'module', 'styles/pages/menu', 'templates/pages/menu'], function(require, exports, module) {
-  var Menu, Style, Template;
+define('app/views/pages/menu', ['require', 'exports', 'module', 'templates/pages/menu'], function(require, exports, module) {
+  var Menu, Template;
   Template = require('templates/pages/menu');
-  Style = require('styles/pages/menu');
   return module.exports = Menu = (function() {
     function Menu(at) {
       this.show = __bind(this.show, this);

@@ -1,5 +1,4 @@
 AppView = require 'app/views/app_view'
-Style = require 'styles/circles/collisions'
 Scene = require 'app/libs/board/scene'
 Ball = require 'app/libs/board/physic/ball'
 Path = require 'app/libs/board/geometry/path'
