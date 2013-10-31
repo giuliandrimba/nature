@@ -9,13 +9,8 @@ module.exports = class Routes
       at: null
       el: "body"
 
-    '/collisions':
-      to: "pages/collisions"
-      at: "/pages"
-      el: "#container"
-
-    '/circular_motion':
-      to: "pages/circular_motion"
+    '/vectors':
+      to: "labs/vectors"
       at: "/pages"
       el: "#container"
 

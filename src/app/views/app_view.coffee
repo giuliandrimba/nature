@@ -1,5 +1,5 @@
 View = require 'theoricus/mvc/view'
-Vendors = require 'app/config/vendors'
+require 'app/config/vendors'
 
 module.exports = class AppView extends View
 

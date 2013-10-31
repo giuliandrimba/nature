@@ -1,2 +1,2 @@
 require 'jquery_spritefy'
-require 'processing'
+require "sketch"

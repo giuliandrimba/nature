@@ -15,7 +15,7 @@ alias:
   templates: ./src/templates
   jquery_spritefy: ./vendors/jquery/jquery.spritefy.js
   board: ./vendors/board
-  processing: ./vendors/processing/processing.js
+  sketch: ./vendors/sketch/sketch.js
 
 minify:
   js: false
