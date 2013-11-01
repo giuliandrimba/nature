@@ -1,7 +1,7 @@
 AppController = require 'app/controllers/app_controller'
-Lab = require 'app/models/lab'
+Vector = require 'app/models/vector'
 
-module.exports = class Labs extends AppController
+module.exports = class Vectors extends AppController
 
   ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     DEFAULT ACTION BEHAVIOR
@@ -9,17 +9,17 @@ module.exports = class Labs extends AppController
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 
   # <action-name>:()->
-  #   if Lab.all?
-  #     @render "labs/<action-name>", Lab.all()
+  #   if Vector.all?
+  #     @render "vectors/<action-name>", Vector.all()
   #   else
-  #     @render "labs/<action-name>", null
+  #     @render "vectors/<action-name>", null
 
   ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     EXAMPLES
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 
   # list:()->
-  #   @render "labs/list", Lab.all()
+  #   @render "vectors/list", Vector.all()
 
   # create:()->
-  #   @render "labs/create", null
+  #   @render "vectors/create", null

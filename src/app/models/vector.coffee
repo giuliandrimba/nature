@@ -1,6 +1,6 @@
 AppModel = require 'app/models/app_model'
 
-module.exports = class Lab extends AppModel
+module.exports = class Vector extends AppModel
 
   ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     MODEL PROPERTIES
@@ -18,8 +18,8 @@ module.exports = class Lab extends AppModel
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ###
 
   # @rest
-  #   'all'    : ['GET', '/labs.json']
-  #   'create' : ['POST','/labs.json']
-  #   'read'   : ['GET', '/labs/:id.json']
-  #   'update' : ['PUT', '/labs/:id.json']
-  #   'delete' : ['DELETE', '/labs/:id.json']
+  #   'all'    : ['GET', '/vectors.json']
+  #   'create' : ['POST','/vectors.json']
+  #   'read'   : ['GET', '/vectors/:id.json']
+  #   'update' : ['PUT', '/vectors/:id.json']
+  #   'delete' : ['DELETE', '/vectors/:id.json']

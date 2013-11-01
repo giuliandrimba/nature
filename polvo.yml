@@ -16,6 +16,7 @@ alias:
   jquery_spritefy: ./vendors/jquery/jquery.spritefy.js
   board: ./vendors/board
   sketch: ./vendors/sketch/sketch.js
+  draw: ./src/app/lib/draw
 
 minify:
   js: false
