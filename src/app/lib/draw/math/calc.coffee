@@ -6,3 +6,17 @@ module.exports = class Calc
     y = Math.random()
 
     x:x,y:y
+
+  @dist:(x1,y1,x2,y2)->
+    dx = x1 - x2
+    dy = y1 - y2
+    Math.sqrt(dx * dx + dy * dy)
+
+  @ang:(x1,y1,x2,y2)->
+    angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
+
+  @deg2rad:(deg)->
+    deg * Math.PI / 180
+
+  @rad2deg:(rad)->
+    rad * 180 / Math.PI;
