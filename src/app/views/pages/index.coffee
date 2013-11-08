@@ -25,14 +25,15 @@ module.exports = class Index extends AppView
 		@menu.on_resize()
 
 
-	in:()->
-		super
+	in:(done)->
+		@before_in()
 		TweenLite.to @logo, 0, {css:{opacity:1}, delay:0.1}
 		@logo.spritefy "logo-labs",
 			duration:1
 			count:1
 			onComplete:()=>
 				@menu.in()
+				@after_in?()
 
 		@logo.animation.play()
 
