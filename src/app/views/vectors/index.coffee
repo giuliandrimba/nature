@@ -19,14 +19,14 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
-        @target = new Target 40, "#ffffff"
+        @target = new Target 20, "#ffffff"
         @target.set_target @mouse.x, @mouse.y
 
         @balls = []
         i = 0
 
         while i < NUM_BALLS
-          ball = new Ball 2, "#ffffff"
+          ball = new Ball 1, "#ffffff"
           # ball.x = @width - 10
           ball.x = Math.random() * @width
           # ball.y = @height - 10

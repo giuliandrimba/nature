@@ -12,7 +12,7 @@ module.exports = class Target extends Circle
   spring:0.2
   ax:0
   ay:0
-  friction:0.5
+  friction:0.7
 
   constructor:()->
     super
