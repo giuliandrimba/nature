@@ -59,7 +59,7 @@ module.exports = class Ball extends Circle
       @target_y = @iddle_y
       @target_x = @iddle_x
 
-    if @mouse_dist > 180
+    if @mouse_dist > 200
       @speed = @init_speed
 
     @opacity = 1 - ((@mouse_dist) / @ctx.canvas.width)
