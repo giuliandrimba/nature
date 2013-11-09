@@ -1,6 +1,7 @@
 AppView = require 'app/views/app_view'
 Draw = require("draw/draw")
 Ball = require "./ball"
+Target = require "./target"
 
 module.exports = class Index extends AppView
 
@@ -18,19 +19,30 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
+        @target = new Target 40, "#ffffff"
+        @target.set_target @mouse.x, @mouse.y
+
         @balls = []
         i = 0
 
         while i < NUM_BALLS
           ball = new Ball 2, "#ffffff"
+          # ball.x = @width - 10
           ball.x = Math.random() * @width
+          # ball.y = @height - 10
           ball.y = Math.random() * @height
-          ball.setup()
+          ball.setup(Draw.CTX)
           @balls.push ball
           i++
 
+      mousedown:()->
+        @target.set_target @mouse.x, @mouse.y
+
       update:()->
-        ball.update(@mouse.x, @mouse.y) for ball in @balls
+        if @dragging
+          @target.set_target @mouse.x, @mouse.y
+        @target.update()
+        ball.update(@target.x, @target.y) for ball in @balls
 
       draw:()->
         # Draw.CTX.strokeStyle = "#ffffff";
@@ -40,4 +52,5 @@ module.exports = class Index extends AppView
         # Draw.CTX.stroke();
         # Draw.CTX.closePath()
         ball.draw() for ball in @balls
+        @target.draw()
 

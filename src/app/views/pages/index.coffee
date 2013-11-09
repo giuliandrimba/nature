@@ -32,8 +32,8 @@ module.exports = class Index extends AppView
 			duration:1
 			count:1
 			onComplete:()=>
-				@menu.in()
-				@after_in?()
+				@menu.in ()=>
+					@after_in?()
 
 		@logo.animation.play()
 

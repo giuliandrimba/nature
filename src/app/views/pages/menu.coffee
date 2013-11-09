@@ -28,8 +28,8 @@ module.exports = class Menu
 		@arrow.css
 			top:100
 
-	in:()->
-		TweenLite.to @arrow, 0.5, {css:{top:10}, ease:Back.easeOut}
+	in:(cb)->
+		TweenLite.to @arrow, 0.5, {css:{top:10}, ease:Back.easeOut, onComplete:cb}
 
 	events:()->
 		@window.bind "resize", @on_resize

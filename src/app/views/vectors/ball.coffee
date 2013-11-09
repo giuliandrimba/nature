@@ -21,12 +21,13 @@ module.exports = class Ball extends Circle
   init_speed:0
   line_x:0
   line_y:0
+  opacity:1
 
   constructor:()->
     super
     @speed = @init_speed = Math.random() * 0.1
 
-  setup:()->
+  setup:(@ctx)->
     @init_x = @x
     @init_y = @y
     @iddle_x = @init_x + Math.random() * 10
@@ -61,7 +62,10 @@ module.exports = class Ball extends Circle
     if @mouse_dist > 180
       @speed = @init_speed
 
+    @opacity = 1 - ((@mouse_dist) / @ctx.canvas.width)
 
+    if @opacity < 0
+      @opacity = 0
 
 
     @dx = @target_x - @x
@@ -82,20 +86,6 @@ module.exports = class Ball extends Circle
 
   draw:()->
     super
-    if @mouse_dist < 150
-      # Draw.CTX.strokeStyle = "rgba(255, 255, 255, 0.2)";
-      # Draw.CTX.beginPath()
-      # Draw.CTX.moveTo @mouseX, @mouseY
-      # Draw.CTX.lineTo @line_x, @line_y
-      # Draw.CTX.stroke();
-      # Draw.CTX.closePath()
-
-      @ctx = Draw.CTX unless @ctx
-      @ctx.fillStyle = @fill
-      @ctx.beginPath()
-      @ctx.arc @mouseX, @mouseY, 50, 0, Math.PI*2,true
-      @ctx.closePath()
-      @ctx.fill()
 
 
 
