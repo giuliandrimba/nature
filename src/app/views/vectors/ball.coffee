@@ -34,6 +34,7 @@ module.exports = class Ball extends Circle
     @iddle_y = @init_y + Math.random() * 10
     @target_x = @iddle_x
     @target_y = @iddle_y
+    @max_rad = 15 + Math.random() * 40
     # @angle = Calc.ang @x,@y,@iddle_x,@iddle_y
 
   update:(@mouseX, @mouseY)->
@@ -62,10 +63,14 @@ module.exports = class Ball extends Circle
     if @mouse_dist > 200
       @speed = @init_speed
 
-    @opacity = 1 - ((@mouse_dist) / @ctx.canvas.width)
+    if @mouse_dist < 230
+      @radius = (@mouse_dist * 100) / 230
+      @radius = @max_rad - (@radius * @max_rad) / 100
+    else
+      @radius = 1
 
-    if @opacity < 0
-      @opacity = 0
+    if @radius < 1
+      @radius = 1
 
 
     @dx = @target_x - @x
@@ -86,6 +91,19 @@ module.exports = class Ball extends Circle
 
   draw:()->
     super
+
+    if @radius > 5
+      @ctx.strokeStyle = "#000000"
+      @ctx.strokeWidth = 1
+      @ctx.moveTo @x,  @y
+      @ctx.lineTo Math.round(@x - 3), Math.round(@y - 3)
+      @ctx.moveTo @x,  @y
+      @ctx.lineTo Math.round(@x + 3), Math.round(@y + 3)
+      @ctx.moveTo @x,  @y
+      @ctx.lineTo Math.round(@x + 3), Math.round(@y - 3)
+      @ctx.moveTo @x,  @y
+      @ctx.lineTo Math.round(@x - 3), Math.round(@y + 3)
+      @ctx.stroke()
 
 
 

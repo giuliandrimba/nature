@@ -9,7 +9,7 @@ module.exports = class Index extends AppView
 
   after_render:()->
 
-    NUM_BALLS = ($(window).width() + $(window).height())
+    NUM_BALLS = ($(window).width() + $(window).height()) / 2
 
     ctx = window.Sketch.create
 
@@ -19,8 +19,8 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
-        @target = new Target 20, "#ffffff"
-        @target.set_target @mouse.x, @mouse.y
+        # @target = new Target 20, "#ffffff"
+        # @target.set_target @mouse.x, @mouse.y
 
         @balls = []
         i = 0
@@ -36,13 +36,13 @@ module.exports = class Index extends AppView
           i++
 
       mousedown:()->
-        @target.set_target @mouse.x, @mouse.y
+        # @target.set_target @mouse.x, @mouse.y
 
       update:()->
-        if @dragging
-          @target.set_target @mouse.x, @mouse.y
-        @target.update()
-        ball.update(@target.x, @target.y) for ball in @balls
+        # if @dragging
+          # @target.set_target @mouse.x, @mouse.y
+        # @target.update()
+        ball.update(@mouse.x, @mouse.y) for ball in @balls
 
       draw:()->
         # Draw.CTX.strokeStyle = "#ffffff";
@@ -52,5 +52,5 @@ module.exports = class Index extends AppView
         # Draw.CTX.stroke();
         # Draw.CTX.closePath()
         ball.draw() for ball in @balls
-        @target.draw()
+        # @target.draw()
 
