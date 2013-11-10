@@ -1,9 +1,12 @@
 Template = require 'templates/pages/menu'
+Routes = require 'app/config/routes'
 
 module.exports = class Menu
 
+	labs:[]
 	constructor:(at)->
-		@el = $(Template())
+		@labs.push route if route.lab for route of Routes.routes
+		@el = $(Template({labs:@labs}))
 		$(at).append @el
 		@setup()
 
