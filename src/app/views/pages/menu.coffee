@@ -5,7 +5,8 @@ module.exports = class Menu
 
 	labs:[]
 	constructor:(at)->
-		@labs.push route if route.lab for route of Routes.routes
+		for route of Routes.routes
+			@labs.push route.toString() if Routes.routes[route].lab
 		@el = $(Template({labs:@labs}))
 		$(at).append @el
 		@setup()

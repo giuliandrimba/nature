@@ -10,6 +10,7 @@ module.exports = class Routes
       el: "body"
 
     '/vectors':
+      lab:true
       to: "vectors/index"
       at: "/pages"
       el: "#container"

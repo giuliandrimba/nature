@@ -3,10 +3,9 @@ Menu = require 'app/views/pages/menu'
 
 module.exports = class Index extends AppView
 
-	title: "Codeman _Labs"
-
 	after_render:()->
 		@setup()
+		@set_triggers()
 
 	setup:()->
 		@wrapper = $(@el).find ".wrapper"
@@ -37,5 +36,8 @@ module.exports = class Index extends AppView
 
 		@logo.animation.play()
 
-
-	constructor:()->
+	goto:(e)->
+		e.preventDefault()
+		route = $(e.currentTarget).attr "href"
+		console.log route
+		# @navigate route
