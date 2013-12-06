@@ -46,3 +46,6 @@ the -h
 ````
 
 For more help, please drop a msg at the [project group](https://groups.google.com/group/theoricus)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/giuliandrimba/labs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
