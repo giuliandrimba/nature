@@ -14,7 +14,7 @@ alias:
   app: ./src/app
   templates: ./src/templates
   jquery_spritefy: ./vendors/jquery/jquery.spritefy.js
-  board: ./vendors/board
+  pixi: ./vendors/pixi.js
   sketch: ./vendors/sketch/sketch.js
   draw: ./src/app/lib/draw
 

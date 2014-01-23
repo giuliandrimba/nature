@@ -1,5 +1,5 @@
 AppController = require 'app/controllers/app_controller'
-Vector = require 'app/models/vector'
+Vector = require 'app/models/repulse'
 
 module.exports = class Vectors extends AppController
 
