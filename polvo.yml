@@ -16,6 +16,7 @@ alias:
   jquery_spritefy: ./vendors/jquery/jquery.spritefy.js
   pixi: ./vendors/pixi.js
   sketch: ./vendors/sketch/sketch.js
+  requestAnim: ./vendors/utils/requestAnim.js
   draw: ./src/app/lib/draw
 
 minify:

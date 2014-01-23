@@ -15,6 +15,12 @@ module.exports = class Routes
       at: "/pages"
       el: "#container"
 
+    '/attract':
+      lab:true
+      to: "attract/index"
+      at: "/pages"
+      el: "#container"
+
     '/404':
       to: "pages/notfound"
       at: "/pages"
