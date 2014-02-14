@@ -10,6 +10,7 @@ module.exports = class Index extends AppView
 
   ball: null
   target: null
+  
 
   after_render:()=>
 
@@ -19,16 +20,17 @@ module.exports = class Index extends AppView
     ctx = window.Sketch.create
 
       container: @el.get(0)
+      autoclear: false
 
       setup:()->
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
-        s.target = new Target 10, "#fff"
+        s.target = new Target 50, "#fff"
         s.target.x = @width / 2
         s.target.y = @height / 2
 
-        s.ball = new Target 1, "#ff0000"
+        s.ball = new Target 10, "#fff"
         s.ball.speed = 1
         s.ball.x = Math.random() * @width
         s.ball.y = Math.random() * @height
@@ -52,7 +54,8 @@ module.exports = class Index extends AppView
         s.target.update()
 
       draw:()->
-
+        Draw.CTX.fillStyle = "rgba(0, 0, 0, 1)"
+        Draw.CTX.fillRect 0, 0, @width, @height
         s.target.draw()
         s.ball.draw()
 
