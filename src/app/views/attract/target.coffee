@@ -8,8 +8,6 @@ module.exports = class Target extends Ball
     angle = Calc.ang @x, @y, b.x, b.y
     rad = Calc.deg2rad angle
 
-    # console.log rad
-
     f = {}
 
     f.x = Math.cos rad
@@ -17,11 +15,11 @@ module.exports = class Target extends Ball
 
     dist = Calc.dist @x, @y, b.x, b.y
 
-    if dist > 500
-      dist = 500
+    if dist > 25
+      dist = 25
 
-    if dist < 10
-      dist = 10
+    if dist < 5
+      dist = 5
 
     g = (@mass * b.mass) / (dist * dist)
 

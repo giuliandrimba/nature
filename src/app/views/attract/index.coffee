@@ -24,11 +24,11 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
-        s.target = new Target 100, "#fff"
+        s.target = new Target 10, "#fff"
         s.target.x = @width / 2
         s.target.y = @height / 2
 
-        s.ball = new Ball 20, "#ff0000"
+        s.ball = new Target 1, "#ff0000"
         s.ball.speed = 1
         s.ball.x = Math.random() * @width
         s.ball.y = Math.random() * @height
@@ -37,12 +37,19 @@ module.exports = class Index extends AppView
       update:()->
 
         force = s.target.attract(s.ball)
+        force2 = s.ball.attract(s.target)
 
         force.x *= -1
         force.y *= -1
 
+        force2.x *= -1
+        force2.y *= -1
+
+
         s.ball.apply_force force
+        s.target.apply_force force2
         s.ball.update()
+        s.target.update()
 
       draw:()->
 

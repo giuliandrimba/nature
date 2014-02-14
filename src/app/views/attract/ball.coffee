@@ -19,6 +19,9 @@ module.exports = class Ball extends Circle
 
   apply_force:(@force)->
 
+    @force.x /= @mass
+    @force.y /= @mass
+
     @ax += @force.x
     @ay += @force.y
 
@@ -29,6 +32,9 @@ module.exports = class Ball extends Circle
 
     @x += @vx * @speed
     @y += @vy * @speed
+
+    @ax = 0
+    @ay = 0
 
   draw:->
     super
