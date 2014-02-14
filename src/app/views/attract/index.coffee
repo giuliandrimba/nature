@@ -56,21 +56,16 @@ module.exports = class Index extends AppView
         Draw.CTX.fillStyle = "rgba(0, 0, 0, 0.1)"
         Draw.CTX.fillRect 0, 0, @width, @height
         for ball, i in s.balls
-          ball.draw()
+          if i is 0
+            # Draw.CTX.globalCompositeOperation = "lighter"
+            ball.draw()
+            # Draw.CTX.globalCompositeOperation = "source-over"
+          else
+            ball.draw()
 
   attract_all:(balls)=>
 
     for b, i in balls
-
-      dist = Calc.dist(b.x, b.y, @.center.x, @.center.y)
-
-      opacity = dist / 100
-
-      if opacity > 1
-        opacity = 1
-
-      if i > 0
-        b.opacity = opacity
 
       if i > 0
 
