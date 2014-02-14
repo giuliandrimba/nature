@@ -6,11 +6,13 @@ Target = require "./target"
 
 module.exports = class Index extends AppView
 
-  NUM_BALLS = 1
+  NUM_BALLS = 200
 
   ball: null
   target: null
-  
+
+  balls: []
+  center: null
 
   after_render:()=>
 
@@ -26,38 +28,60 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
-        s.target = new Target 50, "#fff"
-        s.target.x = @width / 2
-        s.target.y = @height / 2
+        i = 0
 
-        s.ball = new Target 10, "#fff"
-        s.ball.speed = 1
-        s.ball.x = Math.random() * @width
-        s.ball.y = Math.random() * @height
+        s.center = new Target 100, "#000"
+        s.center.mass = 500
+        s.center.x = @width / 2
+        s.center.y = @height / 2
+
+        s.balls.push s.center
+
+        while i < NUM_BALLS
+
+          radius = Math.random() * 15
+          ball = new Target radius, "#fff"
+          ball.speed = 0.01
+          ball.x = Math.random() * @width
+          ball.y = Math.random() * @height
+          s.balls.push ball
+          i++
 
 
       update:()->
 
-        force = s.target.attract(s.ball)
-        force2 = s.ball.attract(s.target)
-
-        force.x *= -1
-        force.y *= -1
-
-        force2.x *= -1
-        force2.y *= -1
-
-
-        s.ball.apply_force force
-        s.target.apply_force force2
-        s.ball.update()
-        s.target.update()
+        s.attract_all(s.balls)
 
       draw:()->
-        Draw.CTX.fillStyle = "rgba(0, 0, 0, 1)"
+        Draw.CTX.fillStyle = "rgba(0, 0, 0, 0.1)"
         Draw.CTX.fillRect 0, 0, @width, @height
-        s.target.draw()
-        s.ball.draw()
+        for ball, i in s.balls
+          ball.draw()
+
+  attract_all:(balls)=>
+
+    for b, i in balls
+
+      dist = Calc.dist(b.x, b.y, @.center.x, @.center.y)
+
+      opacity = dist / 100
+
+      if opacity > 1
+        opacity = 1
+
+      if i > 0
+        b.opacity = opacity
+
+      if i > 0
+
+        for b2 in balls
+
+          unless b is b2
+
+            f = b2.attract b
+            b.apply_force f
+
+        b.update()
 
 
 

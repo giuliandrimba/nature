@@ -26,5 +26,8 @@ module.exports = class Target extends Ball
     f.x *= g
     f.y *= g
 
+    f.x *= -1
+    f.y *= -1
+
     return f
 
