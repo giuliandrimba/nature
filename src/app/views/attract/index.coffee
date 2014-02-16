@@ -69,6 +69,12 @@ module.exports = class Index extends AppView
         s.center.x = @mouse.x
         s.center.y = @mouse.y
 
+      mousedown:->
+        s.down = true
+
+      mouseup:->
+        s.down = false
+
   attract_all:(balls)=>
 
     for b, i in balls
@@ -85,6 +91,14 @@ module.exports = class Index extends AppView
         f.z = (Math.sin rad) * 10
 
         # b.radius = dist / 100
+
+        if @down
+
+          @center.fill = "#ff0000"
+          f.x *= -1
+          f.y *= -1
+        else
+          @center.fill = "#000"
 
 
         if Math.abs(b.vx) > 50
