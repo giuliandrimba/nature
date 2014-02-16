@@ -5,6 +5,7 @@ module.exports = class Ball extends Circle
 
   x: 0
   y: 0
+  z: 0
   force: 0
   mass: 0
   vx: 0
@@ -12,6 +13,8 @@ module.exports = class Ball extends Circle
   ax: 0
   ay: 0
   speed: 1
+  spring: 0.9
+  MAX_SPEED : 50
 
   constructor:->
     super
@@ -32,6 +35,7 @@ module.exports = class Ball extends Circle
 
     @x += @vx * @speed
     @y += @vy * @speed
+    @z += @vy * @speed
 
     @ax = 0
     @ay = 0

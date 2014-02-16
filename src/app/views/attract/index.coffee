@@ -6,7 +6,7 @@ Target = require "./target"
 
 module.exports = class Index extends AppView
 
-  NUM_BALLS = 200
+  NUM_BALLS = 100
 
   ball: null
   target: null
@@ -31,9 +31,10 @@ module.exports = class Index extends AppView
         i = 0
 
         s.center = new Target 100, "#000"
-        s.center.mass = 500
+        s.center.mass = 1000
         s.center.x = @width / 2
         s.center.y = @height / 2
+        s.center.z = Math.random() * 100
 
         s.balls.push s.center
 
@@ -41,9 +42,10 @@ module.exports = class Index extends AppView
 
           radius = Math.random() * 15
           ball = new Target radius, "#fff"
-          ball.speed = 0.01
-          ball.x = Math.random() * @width
-          ball.y = Math.random() * @height
+          ball.speed = 0.1
+          ball.x = (@width / 2) + (-(Math.random() * @width) + (Math.random() * @width))
+          ball.y = (@height / 2) + (-(Math.random() * @height) + (Math.random() * @height))
+          ball.z = Math.random() * radius
           s.balls.push ball
           i++
 
@@ -63,18 +65,34 @@ module.exports = class Index extends AppView
           else
             ball.draw()
 
+      mousemove:->
+        s.center.x = @mouse.x
+        s.center.y = @mouse.y
+
   attract_all:(balls)=>
 
     for b, i in balls
 
       if i > 0
 
-        for b2 in balls
+        ang = Calc.ang b.x, b.y, @center.x, @center.y
+        rad = Calc.deg2rad ang
+        dist = Calc.dist b.x, b.y, @center.x, @center.y
 
-          unless b is b2
+        f = {}
+        f.x = (Math.cos rad) * 10
+        f.y = (Math.sin rad) * 10
+        f.z = (Math.sin rad) * 10
 
-            f = b2.attract b
-            b.apply_force f
+        # b.radius = dist / 100
+
+
+        if Math.abs(b.vx) > 50
+          b.vx *= 0.9
+        if Math.abs(b.vy) > 50
+          b.vy *= 0.9
+
+        b.apply_force f
 
         b.update()
 

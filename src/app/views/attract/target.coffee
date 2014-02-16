@@ -18,8 +18,9 @@ module.exports = class Target extends Ball
     if dist > 25
       dist = 25
 
-    if dist < 5
-      dist = 5
+    if dist < 15
+      b.collided = true
+      dist = 15
 
     g = (@mass * b.mass) / (dist * dist)
 
