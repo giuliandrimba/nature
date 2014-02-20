@@ -3,10 +3,9 @@ Menu = require 'app/views/pages/menu'
 
 module.exports = class Index extends AppView
 
-	title: "Codeman _Labs"
-
 	after_render:()->
 		@setup()
+		@set_triggers()
 
 	setup:()->
 		@wrapper = $(@el).find ".wrapper"
@@ -25,16 +24,20 @@ module.exports = class Index extends AppView
 		@menu.on_resize()
 
 
-	in:()->
-		super
+	in:(done)->
+		@before_in()
 		TweenLite.to @logo, 0, {css:{opacity:1}, delay:0.1}
 		@logo.spritefy "logo-labs",
 			duration:1
 			count:1
 			onComplete:()=>
-				@menu.in()
+				@menu.in ()=>
+					@after_in?()
 
 		@logo.animation.play()
 
-
-	constructor:()->
+	goto:(e)->
+		e.preventDefault()
+		route = $(e.currentTarget).attr "href"
+		console.log route
+		# @navigate route

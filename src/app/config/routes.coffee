@@ -9,8 +9,15 @@ module.exports = class Routes
       at: null
       el: "body"
 
-    '/vectors':
-      to: "vectors/index"
+    '/repulse':
+      lab:true
+      to: "repulse/index"
+      at: "/pages"
+      el: "#container"
+
+    '/attract':
+      lab:true
+      to: "attract/index"
       at: "/pages"
       el: "#container"
 

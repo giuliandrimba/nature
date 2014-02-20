@@ -1,9 +1,13 @@
 Template = require 'templates/pages/menu'
+Routes = require 'app/config/routes'
 
 module.exports = class Menu
 
+	labs:[]
 	constructor:(at)->
-		@el = $(Template())
+		for route of Routes.routes
+			@labs.push route.toString() if Routes.routes[route].lab
+		@el = $(Template({labs:@labs}))
 		$(at).append @el
 		@setup()
 
@@ -28,8 +32,8 @@ module.exports = class Menu
 		@arrow.css
 			top:100
 
-	in:()->
-		TweenLite.to @arrow, 0.5, {css:{top:10}, ease:Back.easeOut}
+	in:(cb)->
+		TweenLite.to @arrow, 0.5, {css:{top:10}, ease:Back.easeOut, onComplete:cb}
 
 	events:()->
 		@window.bind "resize", @on_resize
@@ -52,6 +56,10 @@ module.exports = class Menu
 		TweenLite.to bt.find(".dot"), 0.15, {css:{opacity:1}}
 
 	hide:()=>
+
+		# $("canvas").get(0).style.webkitFilter = "blur(0px)";
+		$("canvas").removeClass "blur"
+
 		TweenLite.to @arrow, 0.5, {css:{top:20}, ease:Expo.easeOut, delay:0.4}
 
 		amount = @menu.find("li").length
@@ -68,6 +76,9 @@ module.exports = class Menu
 			TweenLite.to li, 0.4, {css:{top:150}, ease:Back.easeIn, delay:i * delay}
 
 	show:()=>
+
+		# $("canvas").get(0).style.webkitFilter = "blur(3px)";
+		$("canvas").addClass "blur"
 
 		TweenLite.to @arrow, 0.5, {css:{top:150}, ease:Expo.easeOut}
 
