@@ -479,6 +479,20 @@ h2 {
   filter: alpha(opacity=0);
 }
 
+/* line 85 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/menu.styl */
+.blur {
+  -webkit-transition: filter 1s ease-in-out;
+  -moz-transition: filter 1s ease-in-out;
+  -o-transition: filter 1s ease-in-out;
+  -ms-transition: filter 1s ease-in-out;
+  -webkit-transition: filter 1s ease-in-out;
+  -moz-transition: filter 1s ease-in-out;
+  -o-transition: filter 1s ease-in-out;
+  -ms-transition: filter 1s ease-in-out;
+  transition: filter 1s ease-in-out;
+  -webkit-filter: blur(3px);
+}
+
 
 /* line 1 : /Users/giuliandrimba/work/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
 
