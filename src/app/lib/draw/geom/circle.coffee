@@ -16,10 +16,13 @@ module.exports = class Circle
     @ctx = Draw.CTX unless @ctx
     @ctx.globalAlpha = @opacity
     @ctx.fillStyle = @fill
+    @ctx.lineWidth = "1" if @stroke
+    @ctx.strokeStyle = @stroke if @stroke
     @ctx.beginPath()
     @ctx.arc @x, @y, @radius, 0, Math.PI*2,true
     @ctx.closePath()
     @ctx.fill()
+    @ctx.stroke() if @stroke
     @ctx.globalAlpha = 1
 
 

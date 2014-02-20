@@ -6,7 +6,6 @@ module.exports = class Ball extends Circle
   x: 0
   y: 0
   z: 0
-  force: 0
   mass: 0
   vx: 0
   vy: 0
@@ -20,13 +19,13 @@ module.exports = class Ball extends Circle
     super
     @mass = @radius
 
-  apply_force:(@force)->
+  apply_force:(fx, fy)->
 
-    @force.x /= @mass
-    @force.y /= @mass
+    fx /= @mass
+    fy /= @mass
 
-    @ax += @force.x
-    @ay += @force.y
+    @ax += fx
+    @ay += fy
 
   update:()->
 
