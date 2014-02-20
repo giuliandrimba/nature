@@ -41,11 +41,6 @@
 
 /* line 12 : /Users/giuliandrimba/work/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
 
-/* line 2 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/attract/index.styl */
-body {
-  background-color: #000;
-}
-
 
 /* line 1 : /Users/giuliandrimba/work/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -269,7 +264,7 @@ table {
 
 /* line 3 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/shared/_global.styl */
 body {
-  background-color: #121212;
+  background-color: #070707;
   overflow: hidden;
 }
 

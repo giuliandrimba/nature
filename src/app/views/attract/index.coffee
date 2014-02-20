@@ -13,12 +13,22 @@ module.exports = class Index extends AppView
   balls: []
   center: null
 
+  destroy:=>
+    @ctx.clear()
+    @ctx.destroy()
+    super
+
   after_render:()=>
 
     s = @
     dir = {}
+    @balls = []
 
-    ctx = window.Sketch.create
+    if @ctx
+      @ctx.clear()
+      @ctx.destroy()
+
+    @ctx = window.Sketch.create
 
       container: @el.get(0)
       autoclear: false
@@ -26,6 +36,9 @@ module.exports = class Index extends AppView
       setup:()->
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
+
+        Draw.CTX.fillStyle = "rgba(0,0,0,1)";
+        Draw.CTX.fillRect(0, 0, @width, @height);
 
         i = 0
 
@@ -78,10 +91,8 @@ module.exports = class Index extends AppView
 
 
       draw:()->
-        Draw.CTX.globalCompositeOperation = "multiply"
-        Draw.CTX.fillStyle = "rgba(0,0,0,0.07)"
+        Draw.CTX.fillStyle = "rgba(0,0,0,0.08)"
         Draw.CTX.fillRect(0, 0, @width, @height)
-        Draw.CTX.globalCompositeOperation = 'source-over';
 
         for b, i in s.balls
 
