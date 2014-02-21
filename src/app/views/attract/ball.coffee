@@ -5,7 +5,6 @@ module.exports = class Ball extends Circle
 
   x: 0
   y: 0
-  z: 0
   mass: 0
   vx: 0
   vy: 0
