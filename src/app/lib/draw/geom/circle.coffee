@@ -9,14 +9,14 @@ module.exports = class Circle
   x:0
   y:0
 
-  constructor:(@radius, @fill, @stroke)->
+  constructor:(@radius, @fill, @stroke, @strokeWidth = 1)->
 
 
   draw:(@ctx)->
     @ctx = Draw.CTX unless @ctx
     @ctx.globalAlpha = @opacity
     @ctx.fillStyle = @fill
-    @ctx.lineWidth = "1" if @stroke
+    @ctx.lineWidth = @strokeWidth if @stroke
     @ctx.strokeStyle = @stroke if @stroke
     @ctx.beginPath()
     @ctx.arc @x, @y, @radius, 0, Math.PI*2,true

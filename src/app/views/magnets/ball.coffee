@@ -27,3 +27,13 @@ module.exports = class Ball extends Circle
 
     @ax = 0
     @ay = 0
+
+  draw:->
+    super
+
+    @ctx.fillStyle = "#FFF"
+    @ctx.beginPath()
+    @ctx.arc @x, @y, @radius / 10, 0, Math.PI*2,true
+    @ctx.closePath()
+    @ctx.fill()
+    
