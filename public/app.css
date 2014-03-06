@@ -323,16 +323,22 @@ h2 {
   position: relative;
   margin: 0 auto;
   min-height: 600px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 10px solid #fff;
 }
 
-/* line 11 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 15 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 
-/* line 13 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 17 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .header {
   text-align: center;
 }
 
-/* line 16 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 20 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .logo-labs {
   position: relative;
   margin: 0 auto;
@@ -340,7 +346,7 @@ h2 {
   display: block;
 }
 
-/* line 22 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 26 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .bold_line,
 .pages .thin_line {
   display: none;
@@ -352,13 +358,13 @@ h2 {
   background-color: #fff;
 }
 
-/* line 31 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 35 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .thin_line {
   height: 1px;
   margin-top: 15px;
 }
 
-/* line 35 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 39 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .title {
   display: none;
   font-family: "MetaCondBookRoman", sans-serif;
@@ -367,7 +373,7 @@ h2 {
   margin-top: 15px;
 }
 
-/* line 42 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 46 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages #container {
   position: absolute;
 }

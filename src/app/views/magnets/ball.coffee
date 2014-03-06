@@ -12,6 +12,10 @@ module.exports = class Ball extends Circle
   ay: 0
   speed: 1
 
+  constructor:->
+    super
+    @mass = @radius
+
   apply_force:(fx, fy)->
 
     @ax += fx
@@ -21,6 +25,12 @@ module.exports = class Ball extends Circle
 
     @vx += @ax
     @vy += @ay
+
+    if @vx > 1.8
+      @vx = 1.8
+
+    if @vy > 1.8
+      @vy = 1.8
 
     @x += @vx * @speed
     @y += @vy * @speed
