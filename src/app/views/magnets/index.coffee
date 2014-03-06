@@ -34,7 +34,7 @@ module.exports = class Index extends AppView
 
         i = 0
 
-        while i < parseInt($(window).width() / 200)
+        while i < parseInt($(window).width() / 250)
 
           m = new Magnet 25 + (Math.random() * 50), "#FFF"
           m.x = Math.random() * @width
@@ -93,6 +93,7 @@ module.exports = class Index extends AppView
         dist = Calc.dist _.target.x, _.target.y, _.ball.x, _.ball.y
 
         if dist < _.target.radius
+          _.target.mass = 500
           _.ball.vx *= 0.5
           _.ball.vy *= 0.3
 
