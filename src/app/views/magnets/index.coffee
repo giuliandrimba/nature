@@ -11,6 +11,11 @@ module.exports = class Index extends AppView
   dragging: false
   started: false
 
+  destroy:=>
+    @ctx.clear()
+    @ctx.destroy()
+    super
+
   after_render:=>
 
     _ = @

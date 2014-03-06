@@ -26,11 +26,11 @@ module.exports = class Ball extends Circle
     @vx += @ax
     @vy += @ay
 
-    if @vx > 5
-      @vx = 5
+    if @vx > 1.2
+      @vx = 1.2
 
-    if @vy > 5
-      @vy = 5
+    if @vy > 1.2
+      @vy = 1.2
 
     @x += @vx * @speed
     @y += @vy * @speed
