@@ -37,10 +37,8 @@ module.exports = class Ball extends Circle
     @ax = 0
     @ay = 0
 
-    console.log @vx, @vy
-
   draw:->
-    
+
     @x += @vx * @speed
     @y += @vy * @speed
 

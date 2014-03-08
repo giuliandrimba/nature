@@ -57,6 +57,9 @@ module.exports = class Index extends AppView
 
       update:->
 
+        if $("body").css("cursor") is "move"
+          $("body").css "cursor":"default"
+
         is_already_dragging = false
 
         for m in _.magnets
@@ -68,6 +71,9 @@ module.exports = class Index extends AppView
           m.update() 
           if _.started
             m.attract _.ball
+
+
+
           if @is_mouse_over(m) and _.dragging and !is_already_dragging
             m.dragged = true
 
@@ -76,6 +82,8 @@ module.exports = class Index extends AppView
             m.x = @mouse.x
             m.y = @mouse.y
 
+          if @is_mouse_over(m)
+            $("body").css "cursor":"move"
 
         _.target.attract _.ball
 
@@ -93,7 +101,7 @@ module.exports = class Index extends AppView
 
           dist = Calc.dist m.x, m.y, _.ball.x, _.ball.y
 
-          if dist < m.radius
+          if dist < (m.radius + _.ball.radius)
             _.ball.vx = 0
             _.ball.vy = 0
 
@@ -134,7 +142,7 @@ module.exports = class Index extends AppView
       mouseup:->
 
         _.dragging = false
-
-        for m in _.magnets
+        $(document.body).css "cursor":"default"
+        for m in _.magnets  
           m.dragged = false
 
