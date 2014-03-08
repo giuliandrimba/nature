@@ -39,7 +39,7 @@ module.exports = class Index extends AppView
 
         i = 0
 
-        while i < parseInt($(window).width() / 250)
+        while i < parseInt($(window).width() / 100)
 
           m = new Magnet 25 + (Math.random() * 50), "#FFF"
           m.x = Math.random() * @width
@@ -76,7 +76,6 @@ module.exports = class Index extends AppView
             m.x = @mouse.x
             m.y = @mouse.y
 
-        @check_collision()
 
         _.target.attract _.ball
 
@@ -85,6 +84,7 @@ module.exports = class Index extends AppView
 
         _.target.update()
 
+        @check_collision()
         @reached_target()
 
       check_collision:->
@@ -93,14 +93,18 @@ module.exports = class Index extends AppView
 
           dist = Calc.dist m.x, m.y, _.ball.x, _.ball.y
 
+          if dist < m.radius
+            _.ball.vx = 0
+            _.ball.vy = 0
+
       reached_target:->
 
         dist = Calc.dist _.target.x, _.target.y, _.ball.x, _.ball.y
 
         if dist < _.target.radius
           _.target.mass = 500
-          _.ball.vx *= 0.5
-          _.ball.vy *= 0.3
+          _.ball.vx *= 0.9
+          _.ball.vy *= 0.9
 
         if dist < 2
           _.ball.vx = 0

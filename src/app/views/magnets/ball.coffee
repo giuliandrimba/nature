@@ -11,6 +11,7 @@ module.exports = class Ball extends Circle
   ax: 0
   ay: 0
   speed: 1
+  collided: false
 
   constructor:->
     super
@@ -26,19 +27,23 @@ module.exports = class Ball extends Circle
     @vx += @ax
     @vy += @ay
 
-    if @vx > 1.2
-      @vx = 1.2
+    if @vx > 2.4
+      @vx = 2.4
 
-    if @vy > 1.2
-      @vy = 1.2
+    if @vy > 2.4
+      @vy = 2.4
 
-    @x += @vx * @speed
-    @y += @vy * @speed
 
     @ax = 0
     @ay = 0
 
+    console.log @vx, @vy
+
   draw:->
+    
+    @x += @vx * @speed
+    @y += @vy * @speed
+
     super
 
     @ctx.fillStyle = "#FFF"

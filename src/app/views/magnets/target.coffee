@@ -5,7 +5,7 @@ module.exports = class Target extends Circle
 
   constructor:->
     super 50, "#000", "#fff", 1
-    @mass = 100
+    @mass = 500
 
   update:->
 

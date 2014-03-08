@@ -7,7 +7,7 @@ module.exports = class Magnet extends Circle
 
   constructor:->
     super
-    @mass = @radius
+    @mass = @radius * 2
 
   update:->
 
