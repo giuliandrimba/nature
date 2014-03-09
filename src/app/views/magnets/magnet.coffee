@@ -7,6 +7,10 @@ module.exports = class Magnet extends Circle
   dragged: false
   NUM_LINES: 0
   shadow: null
+  vx: 0
+  vy: 0
+  spring: 0.2
+  speed: 0.1
 
   MIN_DIST: 500
 
@@ -17,6 +21,27 @@ module.exports = class Magnet extends Circle
     @shadow = new Circle @radius, "#000"
 
   update:->
+
+    unless @dragged
+
+      @dx = @iddle_x - @x
+      @dy = @iddle_y - @y
+      @ax = @dx * @spring
+      @ay = @dy * @spring
+      @vx += @ax
+      @vy += @ay
+
+      @x += @vx * @speed
+      @y += @vy * @speed
+
+      @ax = 0
+      @ay = 0
+
+  setup:->
+    @initial_x = @x
+    @initial_y = @y
+    @iddle_x = @initial_x + (Math.random() * 10) + (-(Math.random() * 10))
+    @iddle_y = @initial_y + (Math.random() * 10) + (-(Math.random() * 10))
 
   draw:(@ctx)->
     @shadow.x = @x + 2
@@ -95,7 +120,7 @@ module.exports = class Magnet extends Circle
 
     @ctx.fillStyle = "#000"
     @ctx.beginPath()
-    @ctx.arc @x, @y, 1, 0, Math.PI*2, true
+    @ctx.arc @x, @y, 10, 0, Math.PI*2, true
     @ctx.closePath()
     @ctx.fill()
 

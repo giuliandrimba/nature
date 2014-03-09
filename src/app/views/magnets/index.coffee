@@ -35,10 +35,12 @@ module.exports = class Index extends AppView
         i = 0
 
         while i < parseInt($(window).width() / 50)
+        # while i < 1
 
           m = new Magnet 25 + (Math.random() * 35), "#FFF"
           m.x = Math.random() * @width
           m.y = Math.random() * @height - 100
+          m.setup()
           _.magnets.push m
           i++
 
@@ -135,5 +137,6 @@ module.exports = class Index extends AppView
         _.dragging = false
         $(document.body).css "cursor":"default"
         for m in _.magnets  
+          m.setup()
           m.dragged = false
 
