@@ -9,7 +9,7 @@ module.exports = class Index extends AppView
 
   magnets: []
   dragging: false
-  started: false
+  started: true
 
   destroy:=>
     @ctx.clear()
@@ -121,16 +121,6 @@ module.exports = class Index extends AppView
       mousedown:->
 
         _.dragging = true
-
-      keydown:->
-        if !_.started
-          _.started = true
-        else
-          _.started = false
-          _.ball.x = 50
-          _.ball.y = @height / 2
-          _.ball.vx = 0
-          _.ball.vy = 0
 
       mouseup:->
 
