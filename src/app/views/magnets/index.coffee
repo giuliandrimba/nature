@@ -32,16 +32,11 @@ module.exports = class Index extends AppView
         _.ball.x = 50
         _.ball.y = @height / 2
 
-        _.target = new Target
-
-        _.target.y = @height - 150
-        _.target.x = @width - 150
-
         i = 0
 
-        while i < parseInt($(window).width() / 100)
+        while i < parseInt($(window).width() / 50)
 
-          m = new Magnet 25 + (Math.random() * 50), "#FFF"
+          m = new Magnet 25 + (Math.random() * 35), "#FFF"
           m.x = Math.random() * @width
           m.y = Math.random() * @height - 100
           _.magnets.push m
@@ -85,15 +80,11 @@ module.exports = class Index extends AppView
           if @is_mouse_over(m)
             $("body").css "cursor":"move"
 
-        _.target.attract _.ball
-
         if _.started
           _.ball.update()
 
-        _.target.update()
-
-        @check_collision()
-        @reached_target()
+        # @check_collision()
+        # @reached_target()
 
       check_collision:->
 
@@ -119,11 +110,11 @@ module.exports = class Index extends AppView
           _.ball.vy = 0
 
       draw:->
-
-        m.draw() for m in _.magnets
-
-        _.target.draw()
         _.ball.draw()
+
+        for m in _.magnets
+          m.draw_lines_to _.ball
+          m.draw() 
 
       mousedown:->
 
