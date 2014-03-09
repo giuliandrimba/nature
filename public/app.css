@@ -328,17 +328,33 @@ h2 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: 10px solid #fff;
 }
 
-/* line 15 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 14 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+.border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 10px solid #fff;
+  z-index: 10;
+  pointer-events: none;
+}
 
-/* line 17 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 27 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+
+/* line 29 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .header {
   text-align: center;
 }
 
-/* line 20 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 32 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .logo-labs {
   position: relative;
   margin: 0 auto;
@@ -346,7 +362,7 @@ h2 {
   display: block;
 }
 
-/* line 26 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 38 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .bold_line,
 .pages .thin_line {
   display: none;
@@ -358,13 +374,13 @@ h2 {
   background-color: #fff;
 }
 
-/* line 35 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 47 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .thin_line {
   height: 1px;
   margin-top: 15px;
 }
 
-/* line 39 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 51 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages .title {
   display: none;
   font-family: "MetaCondBookRoman", sans-serif;
@@ -373,7 +389,7 @@ h2 {
   margin-top: 15px;
 }
 
-/* line 46 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
+/* line 58 : /Users/giuliandrimba/work/codeman/development/labs/src/styles/pages/index.styl */
 .pages #container {
   position: absolute;
 }

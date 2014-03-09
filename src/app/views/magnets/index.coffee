@@ -39,7 +39,7 @@ module.exports = class Index extends AppView
 
           m = new Magnet 25 + (Math.random() * 35), "#FFF"
           m.x = Math.random() * @width
-          m.y = Math.random() * @height - 100
+          m.y = 100 + (Math.random() * @height - 100)
           m.setup()
           _.magnets.push m
           i++
