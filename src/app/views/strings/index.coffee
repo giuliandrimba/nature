@@ -10,7 +10,7 @@ module.exports = class Index extends AppView
   NUM_ROWS: 10
 
   STRING_DIST: 30
-  GRAVITY: 10
+  GRAVITY: 0.1
   CENTER_X: 0
   CENTER_Y: 0
 

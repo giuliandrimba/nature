@@ -15,8 +15,12 @@ module.exports = class String
     dx = @p2.x - @p1.x
     dy = @p2.y - @p1.y
 
-    fx = -1 * dx * 0.5
-    fy = -1 * dy * 0.5
+    dist = Calc.dist @p2.x, @p2.y, @p1.x, @p1.y
+
+    diff = (30 - dist) / dist
+
+    fx = dx * 0.5 * diff
+    fy = dy * 0.5 * diff
 
     @p2.apply_force fx, fy
 
