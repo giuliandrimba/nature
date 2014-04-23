@@ -10,11 +10,17 @@ module.exports = class Ball extends Circle
   ax: 0
   ay: 0
   speed: 0.1
-  spring: 0.9
+  spring: 0.8
+  _pin: false
+  time_elapsed:1.3
 
   constructor:->
     super 
     @mass = @radius
+
+  pos:(x, y)->
+    @x = x
+    @y = y
 
   apply_force:(fx, fy)->
 
@@ -23,25 +29,23 @@ module.exports = class Ball extends Circle
 
   update:->
 
+    return if @_pin
+
     @vx += @ax
     @vy += @ay
 
-    if @vx > 50
-      @vx = 50
-
-    if @vy > 50
-      @vy = 50
-
-
     @vx *= @spring
     @vy *= @spring
+
+    @x = @x + @vx
+    @y = @y + @vy
 
     @ax = 0
     @ay = 0
 
   draw:->
 
-    @x += @vx * @speed
-    @y += @vy * @speed
-
     super
+
+  pin:->
+    @_pin = true

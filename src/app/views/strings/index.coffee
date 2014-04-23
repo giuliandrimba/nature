@@ -6,16 +6,17 @@ Calc = require "draw/math/calc"
 
 module.exports = class Index extends AppView
 
-  NUM_COLS: 10
-  NUM_ROWS: 10
+  NUM_COLS: 30
+  NUM_ROWS: 30
 
-  STRING_DIST: 30
+  STRING_DIST: 15
   GRAVITY: 0.1
   CENTER_X: 0
   CENTER_Y: 0
 
   points: []
   strings: []
+  balls: []
 
   destroy:=>
     @ctx.clear()
@@ -39,6 +40,13 @@ module.exports = class Index extends AppView
         @build_grid()
 
 
+        _.points[0][0].x -= 100
+        _.points[0][0].pin()
+        _.points[0][_.NUM_COLS - 1].x += 100
+        _.points[0][_.NUM_COLS - 1].pin()
+
+        _.points[0][15].pin()
+
 
       update:->
 
@@ -48,7 +56,8 @@ module.exports = class Index extends AppView
 
         @iterate (ball, row, col)=>
 
-          if row > 0
+          if row > 1
+
             ball.apply_force 0, _.GRAVITY
 
           ball.update()
@@ -74,16 +83,19 @@ module.exports = class Index extends AppView
 
             ball = new Ball 1, "#fff"
 
-            ball.x = _.CENTER_X + _.STRING_DIST * cols
-            ball.y = _.CENTER_Y + _.STRING_DIST * rows
+            ball.pos _.CENTER_X + _.STRING_DIST * cols, _.CENTER_Y + _.STRING_DIST * rows
 
             _.points[rows][cols] = ball
 
             if rows > 0
 
-              string = new String _.points[rows - 1][cols], _.points[rows][cols], _.STRING_DIST
+              string = new String _.points[rows][cols], _.points[rows - 1][cols], _.STRING_DIST
               _.strings.push string
 
+            if cols > 0
+
+              string = new String _.points[rows][cols - 1], _.points[rows][cols], _.STRING_DIST
+              _.strings.push string
 
 
             cols++
