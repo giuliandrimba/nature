@@ -34,9 +34,6 @@ module.exports = class Ball extends Circle
     @vx += @ax
     @vy += @ay
 
-    @vx *= @spring
-    @vy *= @spring
-
     @x = @x + @vx
     @y = @y + @vy
 
