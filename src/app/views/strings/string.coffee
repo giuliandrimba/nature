@@ -6,9 +6,10 @@ module.exports = class String
   p2: {}
   dist: 30
 
-  constructor:(@p1, @p2, @dist)->
+  constructor:(@p1, @p2)->
 
-
+    @dist = Calc.dist @p1.x, @p1.y, @p2.x, @p2.y
+    
 
   update:->
 
@@ -17,13 +18,13 @@ module.exports = class String
 
     dist = Calc.dist @p2.x, @p2.y, @p1.x, @p1.y
 
-    diff = (@dist - dist)
+    diff = (@dist - dist) / dist
 
-    fx = (diff * dx / dist) * 0.5
-    fy = (diff * dy / dist) * 0.5
+    fx = (diff * dx) * 0.5
+    fy = (diff * dy) * 0.5
 
-    @p2.apply_force fx, fy
     @p1.apply_force -fx, -fy
+    @p2.apply_force fx, fy
 
 
 
