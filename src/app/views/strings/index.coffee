@@ -31,6 +31,8 @@ module.exports = class Index extends AppView
 
       container:@el.get(0)
 
+      autoclear:true
+
       setup:->
 
         _.CENTER_X = (@width / 2) - (_.NUM_COLS * _.STRING_DIST / 2)
@@ -41,24 +43,40 @@ module.exports = class Index extends AppView
 
 
         _.points[0][0].pin()
+        _.points[0][10].pin()
         _.points[0][_.NUM_COLS - 1].pin()
 
 
       update:->
 
+        @iterate (ball, row, col)=>
+
+          ball.apply_force 0, _.GRAVITY
+          ball.apply_force -_.GRAVITY, 0
+
+          ball.update()
+
         for s in _.strings
 
           s.update()
 
-        @iterate (ball, row, col)=>
-
-
-          ball.apply_force 0, _.GRAVITY
-
-          ball.update()
-
-
       draw:->
+
+        Draw.CTX.globalAlpha = 0.1
+        Draw.CTX.fillStyle = "#000"
+        Draw.CTX.strokeStyle = '#FFFFFF'
+        Draw.CTX.lineWidth = 1
+        Draw.CTX.beginPath()
+
+        for s in _.strings
+
+          Draw.CTX.moveTo s.p1.x,  s.p1.y
+          Draw.CTX.lineTo s.p2.x,  s.p2.y
+
+        Draw.CTX.closePath()
+        Draw.CTX.fill()
+        Draw.CTX.stroke()
+        Draw.CTX.globalAlpha = 1
 
         @iterate (ball, row, col)=>
 

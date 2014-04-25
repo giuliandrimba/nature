@@ -1,4 +1,5 @@
 Calc = require "draw/math/calc"
+Draw = require "draw/draw"
 
 module.exports = class String
 
@@ -25,6 +26,5 @@ module.exports = class String
 
     @p1.apply_force -fx, -fy
     @p2.apply_force fx, fy
-
 
 
