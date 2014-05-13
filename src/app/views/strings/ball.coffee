@@ -13,8 +13,8 @@ module.exports = class Ball extends Circle
     @mass = @radius
 
   pos:(x, y)->
-    @x = @old_x = x
-    @y = @old_y = y
+    @x = @old_x = @init_x = x
+    @y = @old_y = @init_y = y
 
   apply_force:(fx, fy)->
 
@@ -30,11 +30,13 @@ module.exports = class Ball extends Circle
     tmp_x = @x
     tmp_y = @y
 
-    @x += @x - @old_x
-    @y += @y - @old_y
+    @x += (@x - @old_x) * 0.95
+    @y += (@y - @old_y) * 0.95
 
     @old_x = tmp_x
     @old_y = tmp_y
+
+
 
   draw:->
 
@@ -42,3 +44,6 @@ module.exports = class Ball extends Circle
 
   pin:->
     @_pin = true
+
+  unpin:->
+    @_pin = false

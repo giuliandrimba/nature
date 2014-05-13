@@ -11,6 +11,7 @@ output:
 
 alias:
   theoricus: ./vendors/theoricus/www/src/theoricus
+  dancer: ./vendors/dancer/dancer.js
   app: ./src/app
   templates: ./src/templates
   jquery_spritefy: ./vendors/jquery/jquery.spritefy.js

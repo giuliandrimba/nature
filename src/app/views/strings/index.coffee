@@ -1,8 +1,9 @@
 AppView = require 'app/views/app_view'
 Ball = require "./ball"
-String = require "./string"
+Constraint = require "./constraint"
 Draw = require "draw/draw"
 Calc = require "draw/math/calc"
+Audio = require "./audio"
 
 module.exports = class Index extends AppView
 
@@ -16,7 +17,8 @@ module.exports = class Index extends AppView
 
   points: []
   strings: []
-  balls: []
+
+  audio: {}
 
   destroy:=>
     @ctx.clear()
@@ -42,23 +44,27 @@ module.exports = class Index extends AppView
         @build_grid()
 
 
-        _.points[0][0].pin()
-        _.points[0][10].pin()
-        _.points[0][_.NUM_COLS - 1].pin()
+        @iterate (ball, row, col)=>
+
+          if row is 19
+            _.points[row][col].pin()
 
 
       update:->
 
-        @iterate (ball, row, col)=>
-
-          ball.apply_force 0, _.GRAVITY
-          ball.apply_force -_.GRAVITY, 0
-
-          ball.update()
-
         for s in _.strings
 
-          s.update()
+          s.update(@drag)
+
+
+        if (@drag)
+
+          @drag.x = @mouse.x
+          @drag.y = @mouse.y
+
+        @iterate (ball, row, col)=>
+
+          ball.update()
 
       draw:->
 
@@ -82,8 +88,33 @@ module.exports = class Index extends AppView
 
           ball.draw()
 
+      mousedown:->
+
+        range = 1000
+        dragging_ball = null
+
+        @iterate (ball, row, col)=>
+          dd = Calc.dist ball.x, ball.y, @mouse.x, @mouse.y
+
+          if dd < range
+
+            range = dd
+
+            unless ball._pin
+              dragging_ball = ball
+
+
+        @drag = dragging_ball
+
+      mouseup:->
+
+        @drag = null
 
       build_grid:->
+
+        angle = 0
+        step = 360 / 10
+        dist = 30
 
         rows = 0
         while rows < _.NUM_ROWS
@@ -92,23 +123,32 @@ module.exports = class Index extends AppView
 
           _.points[rows] = []
 
+          dist += 10
+
           while cols < _.NUM_COLS
 
             ball = new Ball 1, "#fff"
 
-            ball.pos _.CENTER_X + _.STRING_DIST * cols, _.CENTER_Y + _.STRING_DIST * rows
+            angle += step
+            rad = Calc.deg2rad angle
+
+
+            x = (@width / 2) + (Math.cos(rad) * dist)
+            y = (@height / 2) + (Math.sin(rad) * dist)
+
+            ball.pos x, y
 
             _.points[rows][cols] = ball
 
 
             if cols > 0
 
-              string = new String _.points[rows][cols - 1], _.points[rows][cols]
+              string = new Constraint _.points[rows][cols - 1], _.points[rows][cols]
               _.strings.push string
 
             if rows > 0
 
-              string = new String _.points[rows][cols], _.points[rows - 1][cols]
+              string = new Constraint _.points[rows][cols], _.points[rows - 1][cols]
               _.strings.push string
 
             cols++
