@@ -16,6 +16,7 @@ module.exports = class Index extends AppView
     @ctx.destroy()
     @ctx = null
     @magnets = []
+    $("body").css "cursor":"default"
     super
 
   after_render:=>
