@@ -29,6 +29,9 @@ module.exports = class Index extends AppView
 
     _ = @
 
+    @points = []
+    @strings = []
+
     @ctx = window.Sketch.create
 
       container:@el.get(0)

@@ -56,9 +56,6 @@ module.exports = class Magnet extends Circle
     rad = Calc.deg2rad deg
     distance = Calc.dist @x, @y, ball.x, ball.y
 
-    if distance > 1000
-      distance = 1000
-
     if distance < 250
       distance = 250
 
@@ -66,8 +63,8 @@ module.exports = class Magnet extends Circle
     fx = Math.cos(rad) * strength
     fy = Math.sin(rad) * strength
 
-    if distance < @MIN_DIST
-      ball.apply_force -fx, -fy
+    # if distance < @MIN_DIST
+    ball.apply_force -fx, -fy
 
   draw_lines_to:(ball)->
     @ctx = Draw.CTX unless @ctx

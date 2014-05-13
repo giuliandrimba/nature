@@ -11,14 +11,19 @@ module.exports = class Index extends AppView
   dragging: false
   started: true
 
-  destroy:=>
+  destroy:->
     @ctx.clear()
     @ctx.destroy()
+    @ctx = null
+    @magnets = []
     super
 
   after_render:=>
 
+
     _ = @
+
+    _.magnets = []
 
     @ctx = window.Sketch.create
 
