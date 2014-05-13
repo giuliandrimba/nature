@@ -59,8 +59,11 @@ module.exports = class Index extends AppView
 
         if (@drag)
 
-          @drag.x = @mouse.x
-          @drag.y = @mouse.y
+          md = Calc.dist @drag.x, @drag.y, @mouse.x, @mouse.y
+
+          if md < 300
+            @drag.x = @mouse.x
+            @drag.y = @mouse.y
 
         @iterate (ball, row, col)=>
 
