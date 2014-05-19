@@ -15,6 +15,12 @@ module.exports = class Routes
       at: "/pages"
       el: "#container"
 
+    '/particles':
+      lab:true
+      to: "particles/index"
+      at: "/pages"
+      el: "#container"
+
     '/magnets':
       lab:true
       to: "magnets/index"
