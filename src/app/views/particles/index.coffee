@@ -1,6 +1,6 @@
 AppView = require 'app/views/app_view'
+System = require "./system"
 Draw = require "draw/draw"
-Calc = require "draw/math/calc"
 
 module.exports = class Index extends AppView
 
@@ -11,9 +11,10 @@ module.exports = class Index extends AppView
 
   after_render:=>
 
-    _ = @
-
     @ctx = window.Sketch.create
+
+      systems: []
+      system: {}
 
       container:@el.get(0)
 
@@ -21,9 +22,17 @@ module.exports = class Index extends AppView
 
       setup:->
 
+        Draw.CTX = $(".sketch").get(0).getContext("2d")
+
       update:->
 
       draw:->
 
+        for s in @systems
+          s.run()
+
       mousedown:->
+
+        s = new System x:@mouse.x, y:@mouse.y
+        @systems.push s
 
