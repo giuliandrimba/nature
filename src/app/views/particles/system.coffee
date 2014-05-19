@@ -3,10 +3,12 @@ Calc = require "draw/math/calc"
 
 module.exports = class System
 
-  NUM_PARTICLES: 25
+  NUM_PARTICLES: 50
   particles: []
   angle_step: 0
   angle: 0
+
+  step: 0
 
   origin: {}
 
@@ -23,6 +25,8 @@ module.exports = class System
 
       p = @particles[i]
 
+      @particles[@step]?.add_force()
+
       p.update()
       p.draw()
 
@@ -31,6 +35,15 @@ module.exports = class System
         @particles.splice i, 1
 
       i--
+
+    @step++
+
+    if @step >= @particles.length
+      @step = 0
+
+  is_dead:->
+
+    return !@particles.length
 
 
   _create_particles:->
@@ -42,6 +55,7 @@ module.exports = class System
 
     i = 0
     while i < @NUM_PARTICLES
+
       @angle += @angle_step
 
       rad = Calc.deg2rad @angle

@@ -28,8 +28,19 @@ module.exports = class Index extends AppView
 
       draw:->
 
-        for s in @systems
+        i = @systems.length - 1
+
+        while i >= 0
+
+          s = @systems[i]
+
           s.run()
+
+          if s.is_dead()
+
+            @systems.splice i, 1
+
+          i--
 
       mousedown:->
 

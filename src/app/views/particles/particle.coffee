@@ -15,6 +15,8 @@ module.exports = class Particle extends Circle
   vy: 0
 
   mag: 5
+  speed: 0.1
+  dir: 1
 
   constructor:(@ox, @oy, @dx, @dy)->
 
@@ -25,22 +27,17 @@ module.exports = class Particle extends Circle
     @vx = 0
     @vy = 0
 
-  apply_direction:->
+  add_force:->
 
-  apply_force:(fx, fy)->
-
-    @ax += fx
-    @ay += fy
+    @ax += @dx
+    @ay += @dy
 
   update:->
 
-    @ax += @dx * 0.1
-    @ay += @dy * 0.1
-
     @vx += @ax
     @vy += @ay
-    @x += @vx
-    @y += @vy
+    @x += @vx * @speed * @dir
+    @y += @vy * @speed * @dir
 
     @ax = 0
     @ay = 0
@@ -49,9 +46,12 @@ module.exports = class Particle extends Circle
 
     dist = Calc.dist @ox, @oy, @x, @y
 
-    if dist > 500
+    if dist < @mag
 
       return true
+
+    if dist > 300
+      @dir = -1
 
     return false
 
