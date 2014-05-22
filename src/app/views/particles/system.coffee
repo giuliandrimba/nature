@@ -1,5 +1,6 @@
 Particle = require "./particle"
 Calc = require "draw/math/calc"
+Draw = require "draw/draw"
 
 module.exports = class System
 
@@ -8,13 +9,13 @@ module.exports = class System
   angle_step: 0
   angle: 0
 
-  step: 0
-
   origin: {}
+  pivot: {}
 
   constructor:(@origin)->
 
     @angle_step = 360 / @NUM_PARTICLES
+    @mouse = @origin.mouse
     @_create_particles()
 
   run:->
@@ -25,9 +26,8 @@ module.exports = class System
 
       p = @particles[i]
 
-      @particles[@step]?.add_force()
-
       p.update()
+
       p.draw()
 
       if p.is_dead()
@@ -36,15 +36,9 @@ module.exports = class System
 
       i--
 
-    @step++
-
-    if @step >= @particles.length
-      @step = 0
-
   is_dead:->
 
     return !@particles.length
-
 
   _create_particles:->
 
@@ -54,6 +48,7 @@ module.exports = class System
     fy = 0
 
     i = 0
+
     while i < @NUM_PARTICLES
 
       @angle += @angle_step
@@ -63,7 +58,9 @@ module.exports = class System
       fx = Math.cos rad
       fy = Math.sin rad
 
-      @particles.push (new Particle @origin.x, @origin.y, fx, fy)
+      p = new Particle @origin.x, @origin.y, fx, fy
+
+      @particles.push p
 
       i++
 
