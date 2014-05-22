@@ -57,6 +57,10 @@ module.exports = class Particle extends Circle
 
     @radius = @dist / 100 * 5
 
+    if @radius > 20
+      @stroke = "#000"
+      @strokeWidth = 1
+
   is_dead:->
 
 
