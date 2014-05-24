@@ -15,9 +15,9 @@ module.exports = class Routes
       at: "/pages"
       el: "#container"
 
-    '/particles':
+    '/hole':
       lab:true
-      to: "particles/index"
+      to: "hole/index"
       at: "/pages"
       el: "#container"
 

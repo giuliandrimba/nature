@@ -1,6 +1,6 @@
 AppModel = require 'app/models/app_model'
 
-module.exports = class Particle extends AppModel
+module.exports = class Hole extends AppModel
 
   ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     MODEL PROPERTIES

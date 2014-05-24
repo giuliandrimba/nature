@@ -1,7 +1,6 @@
 AppController = require 'app/controllers/app_controller'
-Particle = require 'app/models/particle'
 
-module.exports = class Particles extends AppController
+module.exports = class Hole extends AppController
 
   ### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     DEFAULT ACTION BEHAVIOR
