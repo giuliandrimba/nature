@@ -42,7 +42,7 @@ module.exports = class Index extends AppView
 
           p = @pivot
 
-          if @systems.length > 1
+          if @systems.length > 0
             p = @systems[i - 1].pivot
             speed = p.speed
 
