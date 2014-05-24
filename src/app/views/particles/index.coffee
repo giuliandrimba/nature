@@ -27,6 +27,7 @@ module.exports = class Index extends AppView
         Draw.CTX = $(".sketch").get(0).getContext("2d")
         target = (x:@width / 2, y:@height / 2)
         @pivot = new Pivot target
+        @count = 20
 
       mousemove:->
         @pivot.target = @mouse
@@ -35,8 +36,21 @@ module.exports = class Index extends AppView
 
         @pivot.update()
 
-        s = new System x:@pivot.x, y:@pivot.y, mouse:@mouse
-        @systems.push s
+        if @systems.length < 30
+
+          i = @systems.length
+
+          p = @pivot
+
+          if @systems.length > 1
+            p = @systems[i - 1].pivot
+            speed = p.speed
+
+          s = new System x:@pivot.x, y:@pivot.y, follows:p, rad: @count
+          s.mag += 0.5
+          s.setup()
+          @systems.push s
+          @count += 10
 
       draw:->
 
@@ -50,17 +64,5 @@ module.exports = class Index extends AppView
 
           s.run()
 
-          if s.is_dead()
-
-            @systems.splice i, 1
-
           i--
-
-      mouseup:->
-
-        @down = false
-
-      mousedown:->
-
-        @down = true
 

@@ -8,9 +8,11 @@ module.exports = class Pivot extends Circle
   vy: 0
   ax: 0
   ay: 0
-  spring: 0
+  spring: 0.8
   target: {}
   angle: 0
+  rotate: true
+  speed: 0.1
 
   constructor:(@target)->
 
@@ -20,24 +22,29 @@ module.exports = class Pivot extends Circle
 
   update:->
 
+    if @speed < 0
+      @speed = 0.01
+
     @ax = @target.x - @x
     @ay = @target.y - @y
 
     if @ax < 50 or @ay < 50
 
-      rad = Calc.deg2rad @angle
+      if @rotate
 
-      @ax += (Math.cos rad) * 10
-      @ay += (Math.sin rad) * 10
+        rad = Calc.deg2rad @angle
+  
+        @ax += (Math.cos rad) * 30
+        @ay += (Math.sin rad) * 30
+  
+        @angle += 5
 
-      @angle += 10
 
+    @vx += @ax * @speed
+    @vy += @ay * @speed
 
-    @vx += @ax * 0.1
-    @vy += @ay * 0.1
-
-    @vx *= 0.8
-    @vy *= 0.8
+    @vx *= @spring
+    @vy *= @spring
 
     @x += @vx
     @y += @vy

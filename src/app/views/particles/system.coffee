@@ -1,6 +1,7 @@
 Particle = require "./particle"
 Calc = require "draw/math/calc"
 Draw = require "draw/draw"
+Pivot = require "./pivot"
 
 module.exports = class System
 
@@ -11,14 +12,24 @@ module.exports = class System
 
   origin: {}
   pivot: {}
+  mag: 1
 
   constructor:(@origin)->
 
     @angle_step = 360 / @NUM_PARTICLES
     @mouse = @origin.mouse
+    @pivot = new Pivot @origin.follows
+    @pivot.spring = 0.3
+    @pivot.rotate = false
+    @pivot.speed = 0.7
+
+  setup:->
     @_create_particles()
 
   run:->
+
+    @pivot.update()
+    @pivot.draw()
 
     i = @particles.length - 1
 
@@ -30,15 +41,7 @@ module.exports = class System
 
       p.draw()
 
-      if p.is_dead()
-
-        @particles.splice i, 1
-
       i--
-
-  is_dead:->
-
-    return !@particles.length
 
   _create_particles:->
 
@@ -55,10 +58,13 @@ module.exports = class System
 
       rad = Calc.deg2rad @angle
 
-      fx = Math.cos rad
-      fy = Math.sin rad
+      mag = @origin.rad
 
-      p = new Particle @origin.x, @origin.y, fx, fy
+      fx = (Math.cos rad) * mag
+      fy = (Math.sin rad) * mag
+
+      p = new Particle @pivot, fx, fy
+      p.mag = @mag
 
       @particles.push p
 
