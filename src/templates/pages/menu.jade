@@ -6,6 +6,6 @@
 	ul.nav
 		each route, index in labs
 			li  
-				a(href="#{route}")
+				a(href="#{route.url}", id="#{route.name}")
 					.white_dot
 					.dot

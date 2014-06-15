@@ -6,7 +6,7 @@ module.exports = class Menu
 	labs:[]
 	constructor:(at)->
 		for route of Routes.routes
-			@labs.push route.toString() if Routes.routes[route].lab
+			@labs.push(url:route.toString(), name:route.toString().substring(1)) if Routes.routes[route].lab
 		@el = $(Template({labs:@labs}))
 		$(at).append @el
 		@setup()
@@ -20,6 +20,22 @@ module.exports = class Menu
 
 			left: @wrapper.width() / 2 - @menu.width() / 2
 
+	check_active:->
+
+		bts = $("ul.nav a")
+
+		for bt in bts
+			$(bt).removeClass "active"
+			@out_btn $(bt)
+
+		active_btn = $("##{@active_page()}")
+		active_btn.addClass "active"
+		@over_btn active_btn
+
+	active_page:->
+
+		window.location.href.toString().split("/").pop()
+
 	setup:()->
 		@window = $(window)
 		@wrapper = $ ".wrapper"
@@ -28,6 +44,7 @@ module.exports = class Menu
 
 		@on_resize()
 		@events()
+		@check_active()
 
 		@arrow.css
 			top:100
@@ -42,6 +59,9 @@ module.exports = class Menu
 		@menu.find("a").bind "mouseenter", @over
 		@menu.find("a").bind "mouseleave", @out
 
+		History.Adapter.bind window, 'statechange', =>
+			@check_active()
+
 	over:(e)=>
 		bt = $(e.currentTarget)
 
@@ -55,9 +75,17 @@ module.exports = class Menu
 		TweenLite.to bt.find(".white_dot"), 0.15, {css:{width:25, height:25, marginLeft:-(26 / 2), marginTop:-(26/2)}}
 		TweenLite.to bt.find(".dot"), 0.15, {css:{opacity:1}}
 
+	out_btn:(bt)->
+		TweenLite.set bt.find(".white_dot"), {css:{width:25, height:25, marginLeft:-(26 / 2), marginTop:-(26/2)}}
+		TweenLite.set bt.find(".dot"), {css:{opacity:1}}
+
+	over_btn:(bt)->
+		TweenLite.set bt.find(".white_dot"), {css:{width:1, height:1, marginLeft:-1, marginTop:-1}}
+		TweenLite.set bt.find(".dot"), {css:{opacity:0}}
+
 	hide:()=>
 
-		TweenLite.to @arrow, 0.5, {css:{top:20}, ease:Expo.easeOut, delay:0.4}
+		TweenLite.to @arrow, 0.5, {css:{top:10}, ease:Expo.easeOut, delay:0.4}
 
 		amount = @menu.find("li").length
 		total_delay = amount / 2
@@ -70,11 +98,12 @@ module.exports = class Menu
 			@delay_v += 1
 			delay = distance / 500
 			li = $(li)
-			TweenLite.to li, 0.4, {css:{top:150}, ease:Back.easeIn, delay:i * delay}
+			TweenLite.to li, 0.4, {css:{top:250}, ease:Back.easeIn, delay:i * delay}
 
 	show:()=>
 
-		TweenLite.to @arrow, 0.5, {css:{top:150}, ease:Expo.easeOut}
+		TweenLite.killTweensOf @arrow
+		TweenLite.to @arrow, 0.5, {css:{top:250}, ease:Expo.easeOut}
 
 		amount = @menu.find("li").length
 		total_delay = amount / 2
@@ -87,4 +116,4 @@ module.exports = class Menu
 			@delay_v += 1
 			delay = distance / 500
 			li = $(li)
-			TweenLite.to li, 0.4, {css:{top:20}, ease:Back.easeOut, delay:i * delay}
+			TweenLite.to li, 0.4, {css:{top:50}, ease:Back.easeOut, delay:i * delay}

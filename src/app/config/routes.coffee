@@ -45,7 +45,7 @@ module.exports = class Routes
       el: "#container"
 
   # default route
-  @root = '/pages'
+  @root = '/strings'
 
   # not found route
   @notfound = '/404'

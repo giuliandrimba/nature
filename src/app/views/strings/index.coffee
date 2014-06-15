@@ -38,12 +38,23 @@ module.exports = class Index extends AppView
 
       autoclear:true
 
+      resize:->
+
+
+        Draw.CTX.font = "12px LucidaCalligraphyItalic"
+
       setup:->
 
         _.CENTER_X = (@width / 2) - (_.NUM_COLS * _.STRING_DIST / 2)
         _.CENTER_Y = (@height / 2) - (_.NUM_ROWS * _.STRING_DIST / 2)
 
+        @FONT_X = (@width / 2) - 17
+        @FONT_Y = (@height / 2) + 3
+
         Draw.CTX = $(".sketch").get(0).getContext("2d")
+
+        Draw.CTX.font = "12px LucidaCalligraphyItalic"
+
         @build_grid()
 
 
@@ -51,7 +62,6 @@ module.exports = class Index extends AppView
 
           if row is 19
             _.points[row][col].pin()
-
 
       update:->
 
@@ -73,6 +83,8 @@ module.exports = class Index extends AppView
           ball.update()
 
       draw:->
+
+        Draw.CTX.fillText("drag", @FONT_X, @FONT_Y)
 
         Draw.CTX.globalAlpha = 0.1
         Draw.CTX.fillStyle = "#000"
