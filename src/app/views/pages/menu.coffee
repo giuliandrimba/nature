@@ -29,12 +29,19 @@ module.exports = class Menu
 			@out_btn $(bt)
 
 		active_btn = $("##{@active_page()}")
+
 		active_btn.addClass "active"
 		@over_btn active_btn
 
 	active_page:->
 
-		window.location.href.toString().split("/").pop()
+		page = window.location.href.toString().split("/").pop()
+
+		unless page.length
+
+			page = Routes.root.substring(1)
+
+		return page
 
 	setup:()->
 		@window = $(window)
