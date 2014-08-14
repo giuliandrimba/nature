@@ -9,6 +9,12 @@ module.exports = class Routes
       at: null
       el: "body"
 
+    '/agents':
+      lab:true
+      to: "agents/index"
+      at: "/pages"
+      el: "#container"
+
     '/strings':
       lab:true
       to: "strings/index"
