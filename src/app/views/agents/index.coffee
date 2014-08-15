@@ -57,27 +57,3 @@ module.exports = class Index extends AppView
       normalize:(vec)->
 
       path_distance:->
-
-        a =
-          x1: @path.x
-          y1: @path.y
-          x2: @agent.next_pos().x
-          y2: @agent.next_pos().y
-          x: 0
-          y: 0
-
-        b =
-          x1: @path.x + @path.w
-          y1: @path.y
-          x2: 0
-          y2: 0
-
-        a.mag = Calc.dist a.x, a.y, @path.x, @path.y
-        b.mag = Calc.dist a.x, a.y, @path.x, @path.y
-
-        theta = Calc.deg2rad(Calc.ang a.x, a.y, b.x, b.y)
-
-        d = a.mag * Math.cos(theta)
-
-        console.log d
-

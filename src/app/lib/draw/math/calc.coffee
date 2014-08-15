@@ -19,4 +19,4 @@ module.exports = class Calc
     deg * Math.PI / 180
 
   @rad2deg:(rad)->
-    rad * 180 / Math.PI;
+    rad * 180 / Math.PI
