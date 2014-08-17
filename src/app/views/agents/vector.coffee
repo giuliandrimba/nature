@@ -11,7 +11,7 @@ module.exports = class Vector
     m = @mag(vec)
 
     if m != 0 && m != 1
-      return @div m
+      return @div vec, m
 
     vec
 
@@ -32,14 +32,14 @@ module.exports = class Vector
   @add:(vec1, vec2)->
 
     v =
-      x: vec1.x += vec2.x
-      y: vec1.y += vec2.y
+      x: vec1.x + vec2.x
+      y: vec1.y + vec2.y
 
   @sub:(vec1, vec2)->
 
     v =
-      x: vec1.x -= vec2.x
-      y: vec1.y -= vec2.y
+      x: vec1.x - vec2.x
+      y: vec1.y - vec2.y
 
   @mult:(vec1, n)->
 
@@ -56,7 +56,7 @@ module.exports = class Vector
   @dist:(vec1, vec2)->
 
     dx = vec1.x - vec2.x
-    dx = vec1.y - vec2.y
+    dy = vec1.y - vec2.y
 
     Math.sqrt dx * dx + dy * dy
 
@@ -66,10 +66,34 @@ module.exports = class Vector
 
   @limit:(vec1, max)->
 
-    if @maqSq(vec1) > max * max
+    if @magSq(vec1) > max * max
 
-      @normalize vec1
-      @mult max
+      vec1 = @normalize vec1
+      return (@mult vec1, max)
+
+    return vec1
+
+  @angle_between:(vec1, vec2)->
+
+    if vec1.x is 0 and vec1.y is 0
+      return 0
+
+    if vec2.x is 0 and vec2.y is 0
+      return 0
+
+    dot = @dot vec1, vec2
+    vec1_mag = @mag vec1
+    vec2_mag = @mag vec2
+
+    amt = dot / (vec1_mag * vec2_mag)
+
+    if amt < -1
+      return Math.PI
+    else if amt > 1
+      return 0
+
+    return Math.acos(amt)
+
 
 
 
