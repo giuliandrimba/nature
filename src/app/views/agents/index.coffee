@@ -37,13 +37,24 @@ module.exports = class Index extends AppView
         @_x = @width / 2 - (@_w / 2)
         @_y = @height / 2 - (@_h / 2) - 30
 
-        @path = new Bound @_x - 1, (@_y + (@_h / 2 - 15)), @_w + 2, 30, "#000"
-
+        @path = new Bound @_w + 2, 30, "#000"
+        @create_path()
         @agent = new Agent 5, "#fff"
 
-        @agent.x = @path.x
-        @agent.y = @path.y - 100
+        @agent.x = @path.points[0].x
+        @agent.y = @path.points[0].y
 
+      create_path:->
+        i = 0
+        steps = 360 / 10
+
+        while i < 360
+          rad = Calc.deg2rad i
+          x = @width / 2 + (Math.cos(rad) * 300)
+          y = @height / 2 + (Math.sin(rad) * 300)
+
+          @path.add_point x, y
+          i += steps
 
       mousemove:->
 

@@ -20,6 +20,10 @@ module.exports = class Agent extends Circle
     x: 0
     y: 0
 
+  path_distance: 10000
+
+  logged: false
+
   constructor:()->
     @ang = Math.random() * 360
     @rad = Calc.deg2rad @ang
@@ -36,11 +40,17 @@ module.exports = class Agent extends Circle
     predict = Vector.mult predict, 25
     predictLoc = Vector.add @location(), predict
 
-    @ctx.strokeStyle = "#0000ff"
-    @ctx.strokeWidth = 10
-    @ctx.moveTo @x,  @y
-    @ctx.lineTo @target_loc.x, @target_loc.y
-    @ctx.stroke()
+    @ctx.fillStyle = "#fff"
+    @ctx.beginPath()
+    @ctx.arc @target_loc.x, @target_loc.y, 10, 0, Math.PI*2,true
+    @ctx.closePath()
+    @ctx.fill()
+
+    @ctx.fillStyle = "#00ff00"
+    @ctx.beginPath()
+    @ctx.arc predictLoc.x, predictLoc.y, 10, 0, Math.PI*2,true
+    @ctx.closePath()
+    @ctx.fill()
 
   follow:(path)->
 
@@ -48,34 +58,44 @@ module.exports = class Agent extends Circle
     predict = Vector.mult predict, 25
     predictLoc = Vector.add @location(), predict
 
-    path_start = Vector.new()
-    path_start.x = path.x
-    path_start.y = path.y + (25 / 2)
+    for p, i in path.points
 
-    path_end = Vector.new()
-    path_end.x = path.x + path.w
-    path_end.y = path.y + (25 / 2)
+      if i < path.points.length - 1
 
-    a = Vector.sub predictLoc, path_start
-    b = Vector.sub path_end, path_start
+        path_start = p
+        path_end = path.points[i + 1]
+  
+        @normal_point = @_get_normal(predictLoc, path_start, path_end)
 
-    b = Vector.normalize b
-    b = Vector.mult b, Vector.dot(a, b)
+        if @normal_point.x < path_start.x || @normal_point.x > path_end.x
+          @normal_point = path_end
 
-    @normal_point = Vector.add path_start, b
+        distance = Vector.dist predictLoc, @normal_point
 
-    distance = Vector.dist predictLoc, @normal_point
+        if distance < @path_distance
 
-    b = Vector.normalize b
-    b = Vector.mult b, 25
+          @path_distance = distance
 
-    @target_loc = Vector.add @normal_point, b
+          b = Vector.normalize @normal_point
+          b = Vector.mult b, 25
 
+          @target_loc = Vector.add @normal_point, b
+  
     if distance > path.h / 2
-
+      
       @seek @target_loc
 
+    @logged = true
+
   _get_normal:(p, a, b)->
+
+    ap = Vector.sub p, a
+    ab = Vector.sub b, a
+
+    ab = Vector.normalize ab
+    ab = Vector.mult ab, Vector.dot(ap, ab)
+
+    Vector.add a, ab
 
   update:->
 
