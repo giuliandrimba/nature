@@ -24,6 +24,7 @@ module.exports = class Index extends AppView
       bound: {}
       path: {}
       agent: {}
+      agents: []
 
       start: {}
       end: {}
@@ -39,10 +40,18 @@ module.exports = class Index extends AppView
 
         @path = new Bound @_w + 2, 30, "#000"
         @create_path()
-        @agent = new Agent 5, "#fff"
 
-        @agent.x = @path.points[0].x
-        @agent.y = @path.points[0].y
+        i = 0
+
+        while i < 1
+
+          a = new Agent 5, "#fff"
+          a.x = Math.random() * @width
+          a.y = Math.random() * @height
+
+          @agents.push a
+
+          i++
 
       create_path:->
         i = 0
@@ -53,19 +62,28 @@ module.exports = class Index extends AppView
           x = @width / 2 + (Math.cos(rad) * 300)
           y = @height / 2 + (Math.sin(rad) * 300)
 
-          @path.add_point x, y
+          @path.add_point x, y, i
           i += steps
+
+        rad = Calc.deg2rad 0
+        x = @width / 2 + (Math.cos(rad) * 300)
+        y = @height / 2 + (Math.sin(rad) * 300)
+
+        @path.add_point x, y
 
       mousemove:->
 
       update:->
 
-        @agent.update()
-        @agent.follow @path
+        for a in @agents
+          a.update()
+          a.follow @path
 
 
       draw:->
 
         @path.draw()
-        @agent.draw()
+
+        for a in @agents
+          a.draw()
 

@@ -15,11 +15,12 @@ module.exports = class Bound
 
   update:->
 
-  add_point:(x, y)->
+  add_point:(x, y, ang)->
 
     p = Vector.new()
     p.x = x
     p.y = y
+    p.ang= ang
 
     @points.push p
 
@@ -29,12 +30,22 @@ module.exports = class Bound
     @ctx.strokeStyle = "#ff0000"
     @ctx.lineWidth = @h
     @ctx.beginPath()
-    for p, i in @points
+
+    i = 0
+
+
+    while i < @points.length
+
+      p = @points[i]
 
       if i is 0
+        @fx = p.x
+        @fy = p.y
         @ctx.moveTo p.x, p.y
 
       @ctx.lineTo p.x, p.y
+
+      i++
 
     @ctx.stroke()
     @ctx.closePath()

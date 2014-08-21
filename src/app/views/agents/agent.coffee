@@ -36,56 +36,104 @@ module.exports = class Agent extends Circle
   draw:->
     super
 
-    predict = Vector.normalize @vel
-    predict = Vector.mult predict, 25
-    predictLoc = Vector.add @location(), predict
+    # predict = Vector.normalize @vel
+    # predict = Vector.mult predict, 25
+    # predictLoc = Vector.add @location(), predict
 
-    @ctx.fillStyle = "#fff"
-    @ctx.beginPath()
-    @ctx.arc @target_loc.x, @target_loc.y, 10, 0, Math.PI*2,true
-    @ctx.closePath()
-    @ctx.fill()
+    # @ctx.fillStyle = "#fff"
+    # @ctx.beginPath()
+    # @ctx.arc @target_loc.x, @target_loc.y, 10, 0, Math.PI*2,true
+    # @ctx.closePath()
+    # @ctx.fill()
 
     @ctx.fillStyle = "#00ff00"
     @ctx.beginPath()
-    @ctx.arc predictLoc.x, predictLoc.y, 10, 0, Math.PI*2,true
+    @ctx.arc @target_loc.x, @target_loc.y, 4, 0, Math.PI*2,true
     @ctx.closePath()
     @ctx.fill()
 
+    @ctx.fillStyle = "#0000ff"
+    @ctx.beginPath()
+    @ctx.arc @predictLoc.x, @predictLoc.y, 2, 0, Math.PI*2,true
+    @ctx.closePath()
+    @ctx.fill()
+
+  is_in_path:(vector, path_start, path_end)->
+
+    if path_start.x >= path_end.x
+
+      if vector.x > path_start.x || vector.x < path_end.x
+        return false
+
+    else if path_start.x <= path_end.x
+
+      if vector.x < path_start.x || vector.x > path_end.x
+        return false
+
+    if path_start.y >= path_end.y
+
+      if vector.y > path_start.y || vector.y < path_end.y
+        return false
+
+    else if path_start.y <= path_end.y
+
+      if vector.y < path_start.y || vector.y > path_end.y
+        return false
+
+    return true
+
   follow:(path)->
 
-    predict = Vector.normalize @vel
+    v = Vector.copy @vel
+    predict = Vector.normalize v
     predict = Vector.mult predict, 25
     predictLoc = Vector.add @location(), predict
+    @predictLoc = predictLoc
 
-    for p, i in path.points
+    is_in_path = false
 
-      if i < path.points.length - 1
+    i = 0
 
-        path_start = p
-        path_end = path.points[i + 1]
-  
-        @normal_point = @_get_normal(predictLoc, path_start, path_end)
+    @path_distance = 10000
 
-        if @normal_point.x < path_start.x || @normal_point.x > path_end.x
-          @normal_point = path_end
+    while i < 10
 
-        distance = Vector.dist predictLoc, @normal_point
+      if i < (path.points.length - 1)
 
-        if distance < @path_distance
+        path_start = path.points[i + 1]
+        path_end = path.points[i]
 
+        norm = @_get_normal(predictLoc, path_start, path_end)
+        distance = Vector.dist predictLoc, norm.normal
+
+        if @is_in_path(norm.normal, path_start, path_end)
+          is_in_path = true        
+
+        if distance < @path_distance and is_in_path is true
+
+          @normal_point = norm.normal
+          @current_norm = norm
           @path_distance = distance
 
-          b = Vector.normalize @normal_point
-          b = Vector.mult b, 25
+        else
 
-          @target_loc = Vector.add @normal_point, b
-  
+          @normal_point = path_end
+          @current_norm = norm
+          @path_distance = distance
+
+        b = Vector.normalize @current_norm.path
+        b = Vector.mult b, 25
+
+        if is_in_path
+          break
+
+      i++
+
+
+    @target_loc = Vector.add @normal_point, b
+
     if distance > path.h / 2
-      
       @seek @target_loc
-
-    @logged = true
 
   _get_normal:(p, a, b)->
 
@@ -95,12 +143,11 @@ module.exports = class Agent extends Circle
     ab = Vector.normalize ab
     ab = Vector.mult ab, Vector.dot(ap, ab)
 
-    Vector.add a, ab
+    {normal: (Vector.add a, ab), path:ab}
 
   update:->
 
     @vel = Vector.add @vel, @acc
-
     @vel = Vector.limit @vel, @max_speed
 
     @x += @vel.x
