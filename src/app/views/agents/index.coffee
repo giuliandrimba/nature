@@ -39,15 +39,20 @@ module.exports = class Index extends AppView
         @_y = @height / 2 - (@_h / 2) - 30
 
         @path = new Bound @_w + 2, 30, "#000"
-        @create_path()
+
+        @path.add_point 300, 300
+        @path.add_point 700, 450
+        @path.add_point 1000, 300
+
+        # @create_path()
 
         i = 0
 
         while i < 1
 
           a = new Agent 5, "#fff"
-          a.x = Math.random() * @width
-          a.y = Math.random() * @height
+          a.x = 300
+          a.y = 300
 
           @agents.push a
 
