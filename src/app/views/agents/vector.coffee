@@ -66,7 +66,7 @@ module.exports = class Vector
 
   @limit:(vec1, max)->
 
-    if @magSq(vec1) > max * max
+    if @mag(vec1) > max
 
       vec1 = @normalize vec1
       return (@mult vec1, max)

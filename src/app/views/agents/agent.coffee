@@ -13,8 +13,8 @@ module.exports = class Agent extends Circle
     x: 0
     y: 0
 
-  max_speed: 10
-  max_force: 0.5
+  max_speed: 7
+  max_force: 0.2
 
   vel:
     x: 0
@@ -31,16 +31,19 @@ module.exports = class Agent extends Circle
     @vel.x = (Math.cos @rad)
     @vel.y = (Math.sin @rad)
 
+    @max_speed = 6 + (Math.random() * 5)
+    @max_force = Math.random()
+
     super
 
   draw:->
     super
 
-    @ctx.fillStyle = "#fff"
-    @ctx.beginPath()
-    @ctx.arc @target_loc.x, @target_loc.y, 10, 0, Math.PI*2,true
-    @ctx.closePath()
-    @ctx.fill()
+    # @ctx.fillStyle = "#fff"
+    # @ctx.beginPath()
+    # @ctx.arc @target_loc.x, @target_loc.y, 10, 0, Math.PI*2,true
+    # @ctx.closePath()
+    # @ctx.fill()
 
     # @ctx.fillStyle = "#00ff00"
     # @ctx.beginPath()
@@ -120,9 +123,9 @@ module.exports = class Agent extends Circle
       i++
 
 
-    if worldRecord > (path.h / 2)
+    # if worldRecord > (path.h / 2)
 
-      @seek target
+    @seek target
 
   _get_normal:(p, a, b)->
 
@@ -158,7 +161,12 @@ module.exports = class Agent extends Circle
     desired = Vector.mult desired, @max_speed
 
     steer = Vector.sub desired, @vel
+    # console.log "----------------"
+    # console.log steer
+    # console.log "+++++"
     steer = Vector.limit steer, @max_force
+    # console.log steer
+    # console.log "----------------"
 
     @apply_force steer
 
