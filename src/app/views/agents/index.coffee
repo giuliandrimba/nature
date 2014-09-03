@@ -48,7 +48,7 @@ module.exports = class Index extends AppView
 
         i = 0
 
-        while i < 1
+        while i < 100
 
           r = Math.round(Math.random() * 255);
           g = Math.round(Math.random() * 255);

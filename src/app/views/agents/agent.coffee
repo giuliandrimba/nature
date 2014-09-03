@@ -31,8 +31,8 @@ module.exports = class Agent extends Circle
     @vel.x = (Math.cos @rad)
     @vel.y = (Math.sin @rad)
 
-    @max_speed = 6 + (Math.random() * 5)
-    @max_force = 0.05 + Math.random()
+    # @max_speed = 6 + (Math.random() * 5)
+    # @max_force = 0.1 + Math.random()
 
     super
 
