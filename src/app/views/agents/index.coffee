@@ -1,7 +1,7 @@
 AppView = require 'app/views/app_view'
 Draw = require "draw/draw"
 Calc = require "draw/math/calc"
-Bound = require "./bound"
+Path = require "./path"
 Agent = require "./agent"
 Vector = require "./vector"
 Circle = require "draw/geom/circle"
@@ -21,7 +21,6 @@ module.exports = class Index extends AppView
 
       autoclear:true
 
-      bound: {}
       path: {}
       agent: {}
       agents: []
@@ -38,7 +37,7 @@ module.exports = class Index extends AppView
         @_x = @width / 2 - (@_w / 2)
         @_y = @height / 2 - (@_h / 2) - 30
 
-        @path = new Bound @_w + 2, 30, "#000"
+        @path = new Path @_w + 2, 30, "#000"
 
         @path.add_point 100, 200
         @path.add_point 400, 400
@@ -49,9 +48,14 @@ module.exports = class Index extends AppView
 
         i = 0
 
-        while i < 100
+        while i < 1
 
-          a = new Agent 5, "#fff"
+          r = Math.round(Math.random() * 255);
+          g = Math.round(Math.random() * 255);
+          b = Math.round(Math.random() * 255);
+          a = 1
+
+          a = new Agent 5, "rgba(#{r}, #{g}, #{b}, 1)"
           a.x = Math.random() * @width
           a.y = Math.random() * @height
 

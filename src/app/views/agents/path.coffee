@@ -1,7 +1,7 @@
 Draw = require("draw/draw")
 Vector = require "./vector"
 
-module.exports = class Bound
+module.exports = class Path
 
   ctx: {}
   x: 0
@@ -10,6 +10,7 @@ module.exports = class Bound
   w: 0
 
   points: []
+  keypoints: []
 
   constructor:(@w, @h, @fill = "#fff")->
 
@@ -27,7 +28,7 @@ module.exports = class Bound
   draw:(@ctx)->
 
     @ctx = Draw.CTX unless @ctx
-    @ctx.strokeStyle = "#ff0000"
+    @ctx.strokeStyle = "#ffffff"
     @ctx.lineWidth = @h
     @ctx.beginPath()
 
