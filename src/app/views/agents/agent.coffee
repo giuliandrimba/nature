@@ -13,7 +13,7 @@ module.exports = class Agent extends Circle
     x: 0
     y: 0
 
-  max_speed: 7
+  max_speed: 2
   max_force: 0.2
 
   vel:
@@ -23,6 +23,11 @@ module.exports = class Agent extends Circle
   path_distance: 10000
 
   logged: false
+
+  desired_separation: 20
+  sum:
+    x: 0
+    y: 0
 
   constructor:()->
     @ang = Math.random() * 360
@@ -56,6 +61,37 @@ module.exports = class Agent extends Circle
     # @ctx.arc @predictLoc.x, @predictLoc.y, 2, 0, Math.PI*2,true
     # @ctx.closePath()
     # @ctx.fill()
+
+  avoid:(agents)=>
+
+    count = 0
+    @sum = Vector.new()
+    steer = Vector.new()
+
+    for a in agents
+
+      d = Vector.dist @location(), a.location()
+
+      if d > 0 and d < @desired_separation
+
+        diff = Vector.sub @location(), a.location()
+        diff = Vector.normalize diff
+
+        @sum = Vector.add @sum, diff
+        count++
+        # console.log "too damn close"
+
+    if count > 0
+
+      @sum = Vector.div @sum, count
+      @sum = Vector.normalize @sum
+      @sum = Vector.mult @sum, @max_speed
+
+      steer = Vector.sub @sum, @vel
+      steer = Vector.limit steer, @max_force
+      @apply_force steer
+
+
 
   is_in_path:(vector, path_start, path_end)->
 
@@ -164,7 +200,7 @@ module.exports = class Agent extends Circle
     # console.log "----------------"
     # console.log steer
     # console.log "+++++"
-    steer = Vector.limit steer, @max_force
+    steer = Vector.limit steer, 0.15
     # console.log steer
     # console.log "----------------"
 

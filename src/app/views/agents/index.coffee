@@ -87,6 +87,7 @@ module.exports = class Index extends AppView
 
         for a in @agents
           a.update()
+          a.avoid @agents
           a.follow @path
 
 
