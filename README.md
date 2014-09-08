@@ -2,16 +2,16 @@
 
 Beginner steps.
 
-# Installing Theoricus
+# Installing dependencies
 
 ````bash
-npm install -g theoricus
+npm install
 ````
 
 # Starting app
 
 ````bash
-the -s
+make s
 ````
 
 Then visit [http://localhost:11235](http://localhost:11235)
@@ -19,22 +19,7 @@ Then visit [http://localhost:11235](http://localhost:11235)
 # Releasing app
 
 ````bash
-the -r
-````
-
-# Previewing release
-
-````bash
-the -p
-````
-
-# Indexing app to static version
-
-````bash
-the -i output_folder
-the -i output_folder [--snapshooter=-s]
-the -i output_folder [--url localhost:3000 ]
-the -i output_folder [--url localhost:3000 ] [--snapshooter=-s]
+make r
 ````
 
 # Help
@@ -42,7 +27,7 @@ the -i output_folder [--url localhost:3000 ] [--snapshooter=-s]
 For more options, run:
 
 ````bash
-the -h
+make h
 ````
 
 For more help, please drop a msg at the [project group](https://groups.google.com/group/theoricus)
