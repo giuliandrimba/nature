@@ -3666,7 +3666,7 @@ var buf = [];
 require.register('src/templates/pages/index', function(require, module, exports){
 module.exports = function anonymous(locals) {
 var buf = [];
-buf.push("<div class=\"border\"></div><div class=\"wrapper pages\"><div id=\"container\"></div><header class=\"header\"><a href=\"https://github.com/giuliandrimba/labs\" target=\"_blank\" class=\"logo-labs\"></a><div class=\"bold_line\"></div><h2 class=\"title\">Labs</h2><div class=\"thin_line\"></div></header><footer class=\"footer\"></footer></div>");;return buf.join("");
+buf.push("<div class=\"border\"></div><div class=\"wrapper pages\"><div id=\"container\"></div><header class=\"header\"><a href=\"http://github.com/giuliandrimba/labs\" target=\"_blank\" class=\"logo-labs\"></a><div class=\"bold_line\"></div><h2 class=\"title\">Labs</h2><div class=\"thin_line\"></div></header><footer class=\"footer\"></footer></div>");;return buf.join("");
 }
 }, {});
 require.register('src/templates/pages/menu', function(require, module, exports){
