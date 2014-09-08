@@ -20,6 +20,9 @@ module.exports = class Path
 
   update:(@mouse)->
 
+    if $("body").css("cursor") is "move"
+      $("body").css "cursor":"default"
+
     is_already_dragging = false
 
     for k in @keypoints
@@ -38,6 +41,9 @@ module.exports = class Path
         k.y = @mouse.y
         @points[k.index].x = k.x
         @points[k.index].y = k.y
+
+      if @is_mouse_over(k)
+        $("body").css "cursor":"move"
 
 
   add_point:(x, y, ang)->

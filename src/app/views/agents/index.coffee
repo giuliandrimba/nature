@@ -43,9 +43,10 @@ module.exports = class Index extends AppView
         _Y = @height / 2
 
         @path.add_point _X - 450, _Y - 100
-        @path.add_point _X - 150, _Y + 100
-        @path.add_point _X + 150, _Y - 100
-        @path.add_point _X + 450, _Y + 100
+        @path.add_point _X - 200, _Y + 100
+        @path.add_point _X, _Y
+        @path.add_point _X + 200, _Y + 100
+        @path.add_point _X + 450, _Y - 100
 
         # @create_path()
 

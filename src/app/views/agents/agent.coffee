@@ -14,7 +14,7 @@ module.exports = class Agent extends Circle
     y: 0
 
   max_speed: 3
-  max_force: 0.18
+  max_force: 0.2
 
   vel:
     x: 0
