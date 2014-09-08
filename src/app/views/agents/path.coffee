@@ -16,7 +16,8 @@ module.exports = class Path
 
   constructor:(@w, @h)->
 
-    points = []
+    @points = []
+    @keypoints = []
 
   update:(@mouse)->
 
@@ -73,8 +74,9 @@ module.exports = class Path
     @ctx = Draw.CTX unless @ctx
     @ctx.strokeStyle = "rgba(255,255,255,1)"
     @ctx.lineWidth = 1
+    @ctx.strokeWidth = 0
     @ctx.beginPath()
-    @ctx.setLineDash([2, 3])
+    @ctx.setLineDash([3])
 
     i = 0
 
@@ -96,9 +98,23 @@ module.exports = class Path
 
     @ctx.setLineDash([0])
 
+    @ctx.strokeStyle = "#fff"
+    @ctx.strokeWidth = 1
+
     for c in @keypoints
 
       c.draw()
+
+      @ctx.moveTo c.x,  c.y
+      @ctx.lineTo Math.round(c.x - 3), Math.round(c.y - 3)
+      @ctx.moveTo c.x, c.y
+      @ctx.lineTo Math.round(c.x + 3), Math.round(c.y + 3)
+      @ctx.moveTo c.x,  c.y
+      @ctx.lineTo Math.round(c.x + 3), Math.round(c.y - 3)
+      @ctx.moveTo c.x,  c.y
+      @ctx.lineTo Math.round(c.x - 3), Math.round(c.y + 3)
+
+      @ctx.stroke()
 
 
   mousedown:->

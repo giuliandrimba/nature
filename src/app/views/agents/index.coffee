@@ -15,9 +15,14 @@ module.exports = class Index extends AppView
 
   after_render:=>
 
+    _height = $(window).height()
+
     @ctx = window.Sketch.create
 
       container:@el.get(0)
+      fullscreen: false
+      width: 1200
+      height: _height
 
       autoclear:true
 
