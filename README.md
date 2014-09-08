@@ -3,7 +3,11 @@
 # Setup
 
 ````bash
+git submodule init
+git submodule update
+cd vendors/theoricus
 npm install
+cd ../../
 ````
 
 # Starting app
