@@ -485,6 +485,15 @@ h2 {
 /* line 58 : /Users/giuliandrimba/labs/labs/src/styles/pages/index.styl */
 .pages #container {
   position: absolute;
+  width: 100%;
+}
+
+/* line 62 : /Users/giuliandrimba/labs/labs/src/styles/pages/index.styl */
+.pages canvas {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 

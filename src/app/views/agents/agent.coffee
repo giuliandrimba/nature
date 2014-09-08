@@ -116,24 +116,23 @@ module.exports = class Agent extends Circle
     if path_start.x >= path_end.x
 
       if vector.x > path_start.x || vector.x < path_end.x
-        return false
+        vector = path_end
 
     else if path_start.x <= path_end.x
 
       if vector.x < path_start.x || vector.x > path_end.x
-        return false
+        vector = path_start
 
     if path_start.y >= path_end.y
 
       if vector.y > path_start.y || vector.y < path_end.y
-        return false
+        vector = path_end
 
     else if path_start.y <= path_end.y
 
       if vector.y < path_start.y || vector.y > path_end.y
-        return false
+        vector = path_start
 
-    return true
 
   follow:(path)->
 
