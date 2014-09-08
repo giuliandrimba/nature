@@ -13,8 +13,8 @@ module.exports = class Agent extends Circle
     x: 0
     y: 0
 
-  max_speed: 2
-  max_force: 0.2
+  max_speed: 3
+  max_force: 0.18
 
   vel:
     x: 0
@@ -28,6 +28,8 @@ module.exports = class Agent extends Circle
   sum:
     x: 0
     y: 0
+
+  connections: []
 
   constructor:()->
     @ang = Math.random() * 360
@@ -62,11 +64,27 @@ module.exports = class Agent extends Circle
     # @ctx.closePath()
     # @ctx.fill()
 
+    # ++++++++++++++++++++++
+
+    # @ctx.strokeStyle = "rgba(255,255,255,0.1)"
+    # @ctx.lineWidth = 1
+    # @ctx.beginPath()
+
+    # for c in @connections
+
+    #   @ctx.moveTo @x, @y
+    #   @ctx.lineTo c.x, c.y
+
+    # @ctx.stroke()
+    # @ctx.closePath()
+
+
   avoid:(agents)=>
 
     count = 0
     @sum = Vector.new()
     steer = Vector.new()
+    @connections = []
 
     for a in agents
 
@@ -76,7 +94,7 @@ module.exports = class Agent extends Circle
 
         diff = Vector.sub @location(), a.location()
         diff = Vector.normalize diff
-
+        @connections.push a.location()
         @sum = Vector.add @sum, diff
         count++
         # console.log "too damn close"

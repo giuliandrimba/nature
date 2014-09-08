@@ -39,10 +39,13 @@ module.exports = class Index extends AppView
 
         @path = new Path @_w + 2, 30, "#000"
 
-        @path.add_point 100, 200
-        @path.add_point 400, 400
-        @path.add_point 750, 400
-        @path.add_point 1000, 600
+        _X = @width / 2
+        _Y = @height / 2
+
+        @path.add_point _X - 450, _Y - 100
+        @path.add_point _X - 150, _Y + 100
+        @path.add_point _X + 150, _Y - 100
+        @path.add_point _X + 450, _Y + 100
 
         # @create_path()
 
@@ -55,7 +58,7 @@ module.exports = class Index extends AppView
           b = Math.round(Math.random() * 255);
           a = 1
 
-          a = new Agent 5, "rgba(#{r}, #{g}, #{b}, 1)"
+          a = new Agent 2, "rgba(255, 255, 255, 1)"
           a.x = Math.random() * @width
           a.y = Math.random() * @height
 
@@ -81,9 +84,17 @@ module.exports = class Index extends AppView
 
         @path.add_point x, y
 
-      mousemove:->
+      mousedown:->
+
+        @path.mousedown()
+
+      mouseup:->
+
+        @path.mouseup()
 
       update:->
+
+        @path.update @mouse
 
         for a in @agents
           a.update()
