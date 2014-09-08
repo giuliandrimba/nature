@@ -1,8 +1,6 @@
-# Theoricus
+# Labs
 
-Beginner steps.
-
-# Installing dependencies
+# Setup
 
 ````bash
 npm install
