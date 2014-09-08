@@ -51,7 +51,7 @@ module.exports = class Routes
       el: "#container"
 
   # default route
-  @root = '/strings'
+  @root = '/agents'
 
   # not found route
   @notfound = '/404'

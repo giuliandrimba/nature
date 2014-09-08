@@ -39,5 +39,4 @@ module.exports = class Index extends AppView
 	goto:(e)->
 		e.preventDefault()
 		route = $(e.currentTarget).attr "href"
-		console.log route
 		# @navigate route
