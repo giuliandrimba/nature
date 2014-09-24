@@ -1,6 +1,7 @@
 Draw = require("draw/draw")
 Vector = require "./vector"
 Circle = require "draw/geom/circle"
+Rect = require "draw/geom/rect"
 
 module.exports = class Path
 
@@ -37,10 +38,10 @@ module.exports = class Path
 
       if k.dragged
         is_already_dragging = true
-        k.x = @mouse.x
-        k.y = @mouse.y
-        @points[k.index].x = k.x
-        @points[k.index].y = k.y
+        k.x = @mouse.x - (k.radius / 2)
+        k.y = @mouse.y - (k.radius / 2)
+        @points[k.index].x = k.x + 5
+        @points[k.index].y = k.y + 5
 
       if @is_mouse_over(k)
         $("body").css "cursor":"move"
@@ -54,10 +55,11 @@ module.exports = class Path
     p.ang= ang
 
     @points.push p
-    c = new Circle 20, "#000", "rgba(255,255,255,1)", 2
-    c.x = x
-    c.y = y
-    c.radius = 20
+    c = new Rect 14, "#fff"
+    # c.radius = 15
+    # c = new Circle 20, "#000", "rgba(255,255,255,1)", 2
+    c.x = x - (c.radius / 2)
+    c.y = y - (c.radius / 2)
     c.index = @points.length - 1
     @keypoints.push c
 
@@ -99,6 +101,11 @@ module.exports = class Path
     for c in @keypoints
 
       c.draw()
+      @ctx.fillStyle = "#000"
+      @ctx.beginPath()
+      @ctx.arc c.x + (c.radius / 2), c.y + (c.radius / 2), 1, 0, Math.PI*2,true
+      @ctx.closePath()
+      @ctx.fill()
 
 
   mousedown:->
