@@ -112,18 +112,6 @@ module.exports = class Path
       @ctx.closePath()
       @ctx.fill()
 
-      @ctx.moveTo c.x,  c.y
-      @ctx.lineTo Math.round(c.x - 3), Math.round(c.y - 3)
-      @ctx.moveTo c.x, c.y
-      @ctx.lineTo Math.round(c.x + 3), Math.round(c.y + 3)
-      @ctx.moveTo c.x,  c.y
-      @ctx.lineTo Math.round(c.x + 3), Math.round(c.y - 3)
-      @ctx.moveTo c.x,  c.y
-      @ctx.lineTo Math.round(c.x - 3), Math.round(c.y + 3)
-
-      @ctx.stroke()
-
-
   mousedown:->
 
     @dragging = true
