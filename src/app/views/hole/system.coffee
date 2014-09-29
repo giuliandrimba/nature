@@ -5,7 +5,7 @@ Pivot = require "./pivot"
 
 module.exports = class System
 
-  NUM_PARTICLES: 50
+  NUM_PARTICLES: 30
   particles: []
   angle_step: 0
   angle: 0
@@ -63,8 +63,7 @@ module.exports = class System
       fx = (Math.cos rad) * mag
       fy = (Math.sin rad) * mag
 
-      p = new Particle @pivot, fx, fy
-      p.mag = @mag
+      p = new Particle @pivot, fx, fy, @mag
 
       @particles.push p
 
