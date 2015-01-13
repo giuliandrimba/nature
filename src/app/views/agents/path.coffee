@@ -26,7 +26,7 @@ module.exports = class Path
 
   hide:=>
 
-  update:(@mouse)->
+  update:(@mouse, @mouse_moving)->
 
     if $("body").css("cursor") is "move"
       $("body").css "cursor":"default"
@@ -37,7 +37,7 @@ module.exports = class Path
 
     for k in @keypoints
 
-      if @is_mouse_near(k)
+      if @mouse_moving
         @show_path = true
 
       k.update(@mouse)
@@ -53,6 +53,21 @@ module.exports = class Path
     else
 
       @opacity -= 0.05 if @opacity > 0
+
+  update_point:(x, y, ang)->
+
+    p = Vector.new()
+    p.x = x
+    p.y = y
+    p.ang = ang
+
+    @points.push p
+    c = new KeyPoint 5, "#fff"
+    c.x = x
+    c.y = y
+    c.ang = ang
+    c.index = @points.length - 1
+    @keypoints.push c
 
 
   add_point:(x, y, ang)->
@@ -95,27 +110,19 @@ module.exports = class Path
     @ctx.beginPath()
     @ctx.setLineDash([1,20])
 
-    i = 0
-
-    while i < @points.length
-
-      p = @points[i]
+    for c, i in @keypoints
 
       if i is 0
-        @fx = p.x
-        @fy = p.y
-        @ctx.moveTo p.x, p.y
+        @ctx.moveTo c.x, c.y
 
-      @ctx.lineTo p.x, p.y
-
-      i++
+      @ctx.lineTo c.x, c.y
 
     @ctx.stroke()
     @ctx.closePath()
 
-    for c, i in @keypoints
+    # for c, i in @keypoints
 
-      c.draw()
+      # c.draw()
 
   _create_connection:(p1, p2)=>
 

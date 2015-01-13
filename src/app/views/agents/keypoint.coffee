@@ -20,7 +20,7 @@ module.exports = class KeyPoint extends Rect
 
       @target = 0
 
-    vw = (@width - @target) * 0.5
+    vw = (@width - @target) * 0.2
 
     @radius = Math.abs(vw)
     @width = vw

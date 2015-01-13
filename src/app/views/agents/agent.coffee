@@ -9,6 +9,8 @@ module.exports = class Agent extends Circle
   ang: 0
   speed: 0.1
 
+  @FOLLOW_DIST: 50
+
   acc:
     x: 0
     y: 0
@@ -24,7 +26,7 @@ module.exports = class Agent extends Circle
 
   logged: false
 
-  desired_separation: 20
+  desired_separation: 15
   sum:
     x: 0
     y: 0
@@ -46,25 +48,6 @@ module.exports = class Agent extends Circle
   draw:->
     super
 
-    # @ctx.fillStyle = "#fff"
-    # @ctx.beginPath()
-    # @ctx.arc @target_loc.x, @target_loc.y, 10, 0, Math.PI*2,true
-    # @ctx.closePath()
-    # @ctx.fill()
-
-    # @ctx.fillStyle = "#00ff00"
-    # @ctx.beginPath()
-    # @ctx.arc @target_loc.x, @target_loc.y, 4, 0, Math.PI*2,true
-    # @ctx.closePath()
-    # @ctx.fill()
-
-    # @ctx.fillStyle = "#0000ff"
-    # @ctx.beginPath()
-    # @ctx.arc @predictLoc.x, @predictLoc.y, 2, 0, Math.PI*2,true
-    # @ctx.closePath()
-    # @ctx.fill()
-
-    # ++++++++++++++++++++++
 
     @ctx.strokeStyle = "rgba(255,255,255,0.1)"
     @ctx.lineWidth = 1
@@ -135,7 +118,7 @@ module.exports = class Agent extends Circle
 
     predict = Vector.copy @vel
     predict = Vector.normalize predict
-    predict = Vector.mult predict, 50
+    predict = Vector.mult predict, Agent.FOLLOW_DIST
     predictLoc = Vector.add @location(), predict
 
     normal = null
