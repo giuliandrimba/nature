@@ -33,31 +33,12 @@ module.exports = class Path
 
     is_already_dragging = false
 
-    for k in @keypoints
-      if k.dragged
-        is_already_dragging = true
-        break
-
     @show_path = false
 
     for k in @keypoints
 
       if @is_mouse_near(k)
         @show_path = true
-
-      if @is_mouse_over(k) and @dragging and !is_already_dragging
-
-        k.dragged = true
-
-      if k.dragged
-        is_already_dragging = true
-        k.x = @mouse.x
-        k.y = @mouse.y
-        @points[k.index].x = k.x + 5
-        @points[k.index].y = k.y + 5
-
-      if @is_mouse_over(k)
-        $("body").css "cursor":"move"
 
       k.update(@mouse)
 
@@ -85,6 +66,7 @@ module.exports = class Path
     c = new KeyPoint 5, "#fff"
     c.x = x
     c.y = y
+    c.ang = ang
     c.index = @points.length - 1
     @keypoints.push c
 
@@ -131,8 +113,23 @@ module.exports = class Path
     @ctx.stroke()
     @ctx.closePath()
 
-    for c in @keypoints
+    for c, i in @keypoints
+
       c.draw()
+
+  _create_connection:(p1, p2)=>
+
+    @ctx.strokeStyle = "rgba(255,255,255,#{@opacity - 0.5})"
+    @ctx.lineWidth = 1
+    @ctx.beginPath()
+    @ctx.setLineDash([1,10])
+
+    @ctx.moveTo p1.x, p1.y
+    @ctx.lineTo p2.x, p2.y
+
+    @ctx.stroke()
+    @ctx.closePath()
+
 
   mousedown:->
 

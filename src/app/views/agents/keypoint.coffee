@@ -18,7 +18,7 @@ module.exports = class KeyPoint extends Rect
 
     else
 
-      @target = 5
+      @target = 0
 
     vw = (@width - @target) * 0.5
 

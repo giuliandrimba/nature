@@ -97,7 +97,6 @@ module.exports = class Agent extends Circle
         @connections.push a.location()
         @sum = Vector.add @sum, diff
         count++
-        # console.log "too damn close"
 
     if count > 0
 
@@ -108,8 +107,6 @@ module.exports = class Agent extends Circle
       steer = Vector.sub @sum, @vel
       steer = Vector.limit steer, @max_force
       @apply_force steer
-
-
 
   is_in_path:(vector, path_start, path_end)->
 

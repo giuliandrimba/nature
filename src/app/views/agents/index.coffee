@@ -24,6 +24,8 @@ module.exports = class Index extends AppView
       width: 1200
       height: _height
 
+      dragging: false
+
       autoclear:true
 
       path: {}
@@ -32,6 +34,8 @@ module.exports = class Index extends AppView
 
       start: {}
       end: {}
+
+      radius_amout: 3
 
       setup:->
 
@@ -68,33 +72,57 @@ module.exports = class Index extends AppView
 
       create_path:->
         i = 0
-        steps = 360 / 10
+        steps = 360 / 20
 
-        while i < 360
+        @spiral_radius = 25
+
+        while i < 970
+
           rad = Calc.deg2rad i
-          x = @width / 2 + (Math.cos(rad) * 250)
-          y = @height / 2 + (Math.sin(rad) * 250)
+          x = @width / 2 + (Math.cos(rad) * @spiral_radius)
+          y = @height / 2 + (Math.sin(rad) * @spiral_radius)
 
           @path.add_point x, y, i
+          @spiral_radius += @radius_amout
           i += steps
 
-        rad = Calc.deg2rad 0
-        x = @width / 2 + (Math.cos(rad) * 250)
-        y = @height / 2 + (Math.sin(rad) * 250)
+      calc_spiral_radius:=>
 
-        @path.add_point x, y
+        i = 0
+        steps = 360 / 20
+
+        @spiral_radius = 25
+
+        while i < 970
+
+          rad = Calc.deg2rad i
+          x = @width / 2 + (Math.cos(rad) * @spiral_radius)
+          y = @height / 2 + (Math.sin(rad) * @spiral_radius)
+
+          @spiral_radius += @radius_amout
+          i += steps
 
       mousedown:->
 
         @path.mousedown()
+        @dragging = true
 
       mouseup:->
 
         @path.mouseup()
 
+      mousemove:->
+
+        if @dragging
+
+          dist = Calc.dist @mouse.x, @mouse.y, @width / 2, @height / 2
+
+          @radius_amout = dist * 0.1
+
+
       update:->
 
-        @path.update @mouse
+        @path.update @mouse, @spiral_radius
 
         for a in @agents
           a.update()
