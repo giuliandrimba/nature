@@ -11,6 +11,7 @@ module.exports = class Rect
 
   constructor:(@radius, @fill, @stroke, @strokeWidth = 1)->
 
+    @width = @height = @radius
 
   draw:(@ctx)->
     @ctx = Draw.CTX unless @ctx
@@ -19,7 +20,7 @@ module.exports = class Rect
     # @ctx.lineWidth = @strokeWidth if @stroke
     # @ctx.strokeStyle = @stroke if @stroke
     @ctx.beginPath()
-    @ctx.rect @x, @y, @radius, @radius
+    @ctx.rect @x - @width / 2, @y - @height / 2 , @width, @height
     @ctx.closePath()
     @ctx.fill()
     # @ctx.stroke() if @stroke

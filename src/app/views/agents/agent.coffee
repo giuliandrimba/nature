@@ -66,17 +66,17 @@ module.exports = class Agent extends Circle
 
     # ++++++++++++++++++++++
 
-    # @ctx.strokeStyle = "rgba(255,255,255,0.1)"
-    # @ctx.lineWidth = 1
-    # @ctx.beginPath()
+    @ctx.strokeStyle = "rgba(255,255,255,0.1)"
+    @ctx.lineWidth = 1
+    @ctx.beginPath()
 
-    # for c in @connections
+    for c in @connections
 
-    #   @ctx.moveTo @x, @y
-    #   @ctx.lineTo c.x, c.y
+      @ctx.moveTo @x, @y
+      @ctx.lineTo c.x, c.y
 
-    # @ctx.stroke()
-    # @ctx.closePath()
+    @ctx.stroke()
+    @ctx.closePath()
 
 
   avoid:(agents)=>

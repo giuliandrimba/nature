@@ -1,7 +1,8 @@
 Draw = require("draw/draw")
 Vector = require "./vector"
 Circle = require "draw/geom/circle"
-Rect = require "draw/geom/rect"
+KeyPoint = require "./keypoint"
+Calc = require "draw/math/calc"
 
 module.exports = class Path
 
@@ -14,11 +15,16 @@ module.exports = class Path
   points: []
   keypoints: []
   dragging: false
+  opacity:0
 
   constructor:(@w, @h)->
 
     @points = []
     @keypoints = []
+
+  show:=>
+
+  hide:=>
 
   update:(@mouse)->
 
@@ -32,20 +38,40 @@ module.exports = class Path
         is_already_dragging = true
         break
 
+    @show_path = false
+
     for k in @keypoints
 
+      if @is_mouse_near(k)
+        @show_path = true
+
       if @is_mouse_over(k) and @dragging and !is_already_dragging
+
         k.dragged = true
 
       if k.dragged
         is_already_dragging = true
-        k.x = @mouse.x - (k.radius / 2)
-        k.y = @mouse.y - (k.radius / 2)
+        k.x = @mouse.x
+        k.y = @mouse.y
         @points[k.index].x = k.x + 5
         @points[k.index].y = k.y + 5
 
       if @is_mouse_over(k)
         $("body").css "cursor":"move"
+
+      k.update(@mouse)
+
+    @show_hide_path()
+
+  show_hide_path:=>
+
+    if @show_path
+
+      @opacity += 0.05 if @opacity < 1
+
+    else
+
+      @opacity -= 0.05 if @opacity > 0
 
 
   add_point:(x, y, ang)->
@@ -53,32 +79,39 @@ module.exports = class Path
     p = Vector.new()
     p.x = x
     p.y = y
-    p.ang= ang
+    p.ang = ang
 
     @points.push p
-    c = new Rect 14, "#fff"
-    # c.radius = 15
-    # c = new Circle 20, "#000", "rgba(255,255,255,1)", 2
-    c.x = x - (c.radius / 2)
-    c.y = y - (c.radius / 2)
+    c = new KeyPoint 5, "#fff"
+    c.x = x
+    c.y = y
     c.index = @points.length - 1
     @keypoints.push c
+
+  is_mouse_near:(circle)->
+
+    dist = Calc.dist @mouse.x, @mouse.y, circle.x, circle.y
+
+    if dist < 250
+      return true
+
+    return false
 
   is_mouse_over:(circle)->
 
     if @mouse.x > (circle.x - circle.radius) and @mouse.x < (circle.x + circle.radius) and @mouse.y > (circle.y - circle.radius) and @mouse.y < (circle.y + circle.radius)
-        return true
+      return true
 
     return false
 
   draw:(@ctx)->
 
     @ctx = Draw.CTX unless @ctx
-    @ctx.strokeStyle = "rgba(255,255,255,1)"
+    @ctx.strokeStyle = "rgba(255,255,255,#{@opacity})"
     @ctx.lineWidth = 1
-    @ctx.strokeWidth = 0
+    @ctx.strokeWidth = 3
     @ctx.beginPath()
-    @ctx.setLineDash([3])
+    @ctx.setLineDash([1,20])
 
     i = 0
 
@@ -98,19 +131,8 @@ module.exports = class Path
     @ctx.stroke()
     @ctx.closePath()
 
-    @ctx.setLineDash([0])
-
-    @ctx.strokeStyle = "#fff"
-    @ctx.strokeWidth = 1
-
     for c in @keypoints
-
       c.draw()
-      @ctx.fillStyle = "#000"
-      @ctx.beginPath()
-      @ctx.arc c.x + (c.radius / 2), c.y + (c.radius / 2), 1, 0, Math.PI*2,true
-      @ctx.closePath()
-      @ctx.fill()
 
   mousedown:->
 

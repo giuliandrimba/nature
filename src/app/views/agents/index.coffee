@@ -47,13 +47,7 @@ module.exports = class Index extends AppView
         _X = @width / 2
         _Y = @height / 2
 
-        @path.add_point _X - 450, _Y - 100
-        @path.add_point _X - 200, _Y + 100
-        @path.add_point _X, _Y
-        @path.add_point _X + 200, _Y + 100
-        @path.add_point _X + 450, _Y - 100
-
-        # @create_path()
+        @create_path()
 
         i = 0
 
@@ -78,15 +72,15 @@ module.exports = class Index extends AppView
 
         while i < 360
           rad = Calc.deg2rad i
-          x = @width / 2 + (Math.cos(rad) * 300)
-          y = @height / 2 + (Math.sin(rad) * 300)
+          x = @width / 2 + (Math.cos(rad) * 250)
+          y = @height / 2 + (Math.sin(rad) * 250)
 
           @path.add_point x, y, i
           i += steps
 
         rad = Calc.deg2rad 0
-        x = @width / 2 + (Math.cos(rad) * 300)
-        y = @height / 2 + (Math.sin(rad) * 300)
+        x = @width / 2 + (Math.cos(rad) * 250)
+        y = @height / 2 + (Math.sin(rad) * 250)
 
         @path.add_point x, y
 
