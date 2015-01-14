@@ -11,7 +11,9 @@ module.exports = class Ball extends Circle
   ax: 0
   ay: 0
   speed: 1
+  spring: 0.9
   collided: false
+  dragging: false
 
   constructor:->
     super
@@ -27,11 +29,18 @@ module.exports = class Ball extends Circle
     @vx += @ax
     @vy += @ay
 
-    if @vx > 2.4
-      @vx = 2.4
+    if !@dragging
 
-    if @vy > 2.4
-      @vy = 2.4
+      if @vx > 5
+        @vx = 5
+
+      if @vy > 5
+        @vy = 5
+
+    else
+
+      @vx *= @spring
+      @vy *= @spring
 
 
     @ax = 0
@@ -44,9 +53,3 @@ module.exports = class Ball extends Circle
 
     super
 
-    @ctx.fillStyle = "#FFF"
-    @ctx.beginPath()
-    @ctx.arc @x, @y, @radius / 10, 0, Math.PI*2,true
-    @ctx.closePath()
-    @ctx.fill()
-    

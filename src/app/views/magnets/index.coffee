@@ -8,7 +8,6 @@ Calc = require "draw/math/calc"
 module.exports = class Index extends AppView
 
   magnets: []
-  dragging: false
   started: true
 
   destroy:->
@@ -34,29 +33,21 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
-        _.ball = new Ball 20, "#000", "#fff", 4
+        _.ball = new Ball 5, "#000"
         _.ball.x = 50
         _.ball.y = @height / 2
 
         i = 0
 
-        while i < parseInt($(window).width() / 50)
+        while i < parseInt($(window).width() / 15)
         # while i < 1
 
-          m = new Magnet 25 + (Math.random() * 35), "#FFF"
+          m = new Magnet 5 + (Math.random() * 30), "#000"
           m.x = Math.random() * @width
           m.y = 100 + (Math.random() * @height - 100)
           m.setup()
           _.magnets.push m
           i++
-
-
-      is_mouse_over:(magnet)->
-
-        if @mouse.x > (magnet.x - magnet.radius) and @mouse.x < (magnet.x + magnet.radius) and @mouse.y > (magnet.y - magnet.radius) and @mouse.y < (magnet.y + magnet.radius)
-          return true
-
-        return false
 
       update:->
 
@@ -65,74 +56,57 @@ module.exports = class Index extends AppView
 
         is_already_dragging = false
 
-        for m in _.magnets
-          if m.dragged
-            is_already_dragging = true
-            break
+        if _.ball.dragging
+
+          @follow_mouse()
 
         for m in _.magnets
-          m.update() 
-          if _.started
+          m.update()
+          if _.started and !_.ball.dragging
             m.attract _.ball
 
-
-
-          if @is_mouse_over(m) and _.dragging and !is_already_dragging
-            m.dragged = true
-
-          if m.dragged
-            is_already_dragging = true
-            m.x = @mouse.x
-            m.y = @mouse.y
-
-          if @is_mouse_over(m)
-            $("body").css "cursor":"move"
+        @check_bounds()
 
         if _.started
           _.ball.update()
 
-        # @check_collision()
-        # @reached_target()
+      check_bounds:->
 
-      check_collision:->
+        if _.ball.x >= @width or _.ball.x <= 0
 
-        for m in _.magnets
+          _.ball.vx *= -1
+          _.ball.vx *= 0.7
 
-          dist = Calc.dist m.x, m.y, _.ball.x, _.ball.y
+        if _.ball.y >= @height or _.ball.y <= 0
 
-          if dist < (m.radius + _.ball.radius)
-            _.ball.vx = 0
-            _.ball.vy = 0
+          _.ball.vy *= -1
+          _.ball.vy *= 0.7
 
-      reached_target:->
 
-        dist = Calc.dist _.target.x, _.target.y, _.ball.x, _.ball.y
+      follow_mouse:->
 
-        if dist < _.target.radius
-          _.target.mass = 500
-          _.ball.vx *= 0.9
-          _.ball.vy *= 0.9
+        deg = Calc.ang _.ball.x, _.ball.y, @mouse.x, @mouse.y
+        rad = Calc.deg2rad deg
 
-        if dist < 2
-          _.ball.vx = 0
-          _.ball.vy = 0
+        fx = Math.cos(rad) * 2
+        fy = Math.sin(rad) * 2
+
+        _.ball.apply_force fx, fy
 
       draw:->
+
         _.ball.draw()
 
         for m in _.magnets
           m.draw_lines_to _.ball
-          m.draw() 
+          m.draw()
 
       mousedown:->
 
-        _.dragging = true
+        _.ball.dragging = true
 
       mouseup:->
 
-        _.dragging = false
-        $(document.body).css "cursor":"default"
-        for m in _.magnets  
-          m.setup()
-          m.dragged = false
+        _.ball.dragging = false
+
 

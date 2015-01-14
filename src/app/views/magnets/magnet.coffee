@@ -9,8 +9,8 @@ module.exports = class Magnet extends Circle
   shadow: null
   vx: 0
   vy: 0
-  spring: 0.2
-  speed: 0.1
+  spring: 0.3
+  speed: 0.01
 
   MIN_DIST: 500
 
@@ -18,7 +18,7 @@ module.exports = class Magnet extends Circle
     super
     @mass = @radius * 2
     @NUM_LINES = @radius / 5
-    @shadow = new Circle @radius, "#000"
+    @shadow = new Circle @radius + 5, "#000"
 
   update:->
 
@@ -48,7 +48,6 @@ module.exports = class Magnet extends Circle
     @shadow.y = @y + 2
     @shadow.draw(@ctx)
     super
-    @draw_dot()
 
   attract:(ball)->
 
@@ -60,8 +59,8 @@ module.exports = class Magnet extends Circle
       distance = 250
 
     strength = (@mass * ball.mass) / (distance * distance)
-    fx = Math.cos(rad) * strength
-    fy = Math.sin(rad) * strength
+    fx = Math.cos(rad) * strength * 2
+    fy = Math.sin(rad) * strength * 2
 
     # if distance < @MIN_DIST
     ball.apply_force -fx, -fy
@@ -76,19 +75,19 @@ module.exports = class Magnet extends Circle
     if dist > @MIN_DIST
       return
     else
-      opacity = 1 - (dist/@MIN_DIST)
+      opacity = 0.8 - (dist/@MIN_DIST)
 
     target_angle = Calc.ang @x, @y, ball.x, ball.y
 
     line_angle = target_angle + 90
     line_rad = Calc.deg2rad line_angle
 
-    _radius = @radius * 0.9
+    _radius = @radius * 0.8
 
     @ctx.globalCompositeOperation = "destination-over"
     @ctx.strokeStyle = "rgba(255,255,255,#{opacity})"
     @ctx.lineWidth = 1
-    
+
     while i < (@NUM_LINES * 1.9)
 
       init_x = @x + (Math.cos line_rad) * _radius
@@ -100,7 +99,7 @@ module.exports = class Magnet extends Circle
 
       _x = init_x + (Math.cos target_rad) * line_dist
       _y = init_y + (Math.sin target_rad) * line_dist
-      
+
       @ctx.moveTo init_x, init_y
       @ctx.lineTo _x, _y
 
