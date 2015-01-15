@@ -13,10 +13,11 @@ module.exports = class Ball extends Circle
   speed: 1
   spring: 0.9
   MAX_SPEED : 50
+  opacity: 0.2
 
   constructor:->
     super
-    @mass = @radius
+    @mass = @radius * 5
 
   apply_force:(fx, fy)->
 

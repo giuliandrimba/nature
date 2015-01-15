@@ -5,7 +5,7 @@ Ball = require "./ball"
 
 module.exports = class Index extends AppView
 
-  NUM_BALLS = 200
+  NUM_BALLS = 500
 
   ball: null
   target: null
@@ -44,11 +44,14 @@ module.exports = class Index extends AppView
 
         while i < NUM_BALLS
 
-          radius = 5
-          ball = new Ball radius, "#fff", "#000"
-          ball.speed = 0.1
+          radius = 1
+          ball = new Ball radius, "#fff"
+          ball.speed = Math.random() / 2
+          ball.opacity = Math.random() / 2
           ball.x = (@width / 2) + (-(Math.random() * @width) + (Math.random() * @width))
+          ball.init_x = ball.x
           ball.y = (@height / 2) + (-(Math.random() * @height) + (Math.random() * @height))
+          ball.init_y = ball.y
           ball.z = Math.random() * radius
           s.balls.push ball
           i++
@@ -66,23 +69,32 @@ module.exports = class Index extends AppView
           ang = Calc.ang b.x, b.y, mouse.x, mouse.y
           rad = Calc.deg2rad ang
           dist = Calc.dist b.x, b.y, mouse.x, mouse.y
+          total_dist = Calc.dist b.init_x, b.init_y, mouse.x, mouse.y
+
+          # b.opacity = Math.abs(((dist * 100 / total_dist) / 100))
+          # b.speed = (b.opacity) / 10
+
+          rndx = (Math.random() * 50)
+          rndy = (Math.random() * 30)
 
           fx = (Math.cos rad) * 10
           fy = (Math.sin rad) * 10
 
+          min_dist = 30
+
           if s.down
-            fx *= -1
-            fy *= -1
+            min_dist = 100
 
-          else if dist < 50
-            fx *= -1
-            fx *= 10
-            fy *= -1
-            fy *= 5
+          if dist < min_dist + rndx
 
-          if Math.abs(b.vx) > 50
+            b.vx = 0
+            b.vy = 0
+            b.x = b.init_x = Math.random() * @width
+            b.y = b.init_y = Math.random() * @height
+
+          if Math.abs(b.vx) > 30
             b.vx *= 0.9
-          if Math.abs(b.vy) > 50
+          if Math.abs(b.vy) > 30
             b.vy *= 0.9
 
           b.apply_force fx, fy
