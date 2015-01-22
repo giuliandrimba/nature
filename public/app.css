@@ -5,8 +5,22 @@
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
+  pointer-events: none;
 }
-.pages .automata canvas {
+#lab-automata {
+  text-align: center;
+}
+#lab-automata p {
+  font-family: 'CourierRegular';
+  color: #fff;
+  font-size: 11px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -541px;
+}
+#lab-automata canvas {
   position: absolute;
   z-index: 1000;
   top: 0;
@@ -145,6 +159,13 @@ table {
   font-family: "MetaCondBookRoman";
   src: url("fonts/metacondbook-roman-webfont.eot");
   src: url("fonts/metacondbook-roman-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/metacondbook-roman-webfont.woff") format("woff"), url("fonts/metacondbook-roman-webfont.ttf") format("truetype"), url("fonts/metacondbook-roman-webfont.svg#metacondbookroman") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CourierRegular';
+  src: url("fonts/courier-webfont.eot");
+  src: url("fonts/courier-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/courier-webfont.woff2") format('woff2'), url("fonts/courier-webfont.woff") format('woff'), url("fonts/courier-webfont.ttf") format('truetype'), url("fonts/courier-webfont.svg#courierregular") format('svg');
   font-weight: normal;
   font-style: normal;
 }

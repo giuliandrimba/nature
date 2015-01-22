@@ -41,7 +41,7 @@ module.exports = class Index extends AppView
       resize:->
 
 
-        Draw.CTX.font = "12px LucidaCalligraphyItalic"
+        Draw.CTX.font = "11px CourierRegular"
 
       setup:->
 
@@ -53,7 +53,7 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d")
 
-        Draw.CTX.font = "12px LucidaCalligraphyItalic"
+        Draw.CTX.font = "11px CourierRegular"
 
         @build_grid()
 
@@ -170,7 +170,7 @@ module.exports = class Index extends AppView
               _.strings.push string
 
             cols++
-          
+
 
           rows++
 

@@ -35,7 +35,7 @@ module.exports = class Cell
 
     @offsetX = $("canvas").offset().left
     @offsetY = $("canvas").offset().top
-    @img1 = document.getElementById "automata-img"
+    @img1 = img
 
 
   draw:(ctx, img, sketch)->

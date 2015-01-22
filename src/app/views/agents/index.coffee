@@ -15,6 +15,8 @@ module.exports = class Index extends AppView
 
   after_render:=>
 
+    console.log "render"
+
     _height = $(window).height()
 
     @ctx = window.Sketch.create

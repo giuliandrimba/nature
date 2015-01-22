@@ -57,7 +57,7 @@ module.exports = class Routes
       el: "#container"
 
   # default route
-  @root = '/agents'
+  @root = '/automata'
 
   # not found route
   @notfound = '/404'

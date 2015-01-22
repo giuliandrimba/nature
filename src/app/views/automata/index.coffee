@@ -5,25 +5,32 @@ Cell = require "./cell"
 module.exports = class Index extends AppView
 
   destroy:=>
-    @ctx.clear()
-    @ctx.destroy()
+    @ctx?.clear()
+    @ctx?.destroy()
     super
 
   after_render:=>
 
     img = new Image
-    img.id = "automata-img"
-    @el.append img
-    @el.addClass "automata"
+
+    FileReaderJS.setupDrop document.getElementById('lab-automata'),
+      on:
+        loadend:(e, file)=>
+          img.src = e.currentTarget.result
 
     img.onload = =>
+
+      @ctx?.clear()
+      @ctx?.destroy()
 
       w = $(window).width() - 300
       h = $(window).height() - 300
 
+      @el.find("#lab-automata").find("canvas").remove()
+
       @ctx = window.Sketch.create
 
-        container:@el.get(0)
+        container:@el.find("#lab-automata").get(0)
         fullscreen: false
         width: w
         height: h
