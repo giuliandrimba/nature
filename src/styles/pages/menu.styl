@@ -1,93 +1,94 @@
 .menu
-	
-	height 120px
-	position absolute
-	overflow hidden
-	width 1150px
 
-	.open
-		position absolute
-		width 100%
-		top 40px
+  height 120px
+  position absolute
+  overflow hidden
+  width 1150px
+  z-index 1000
 
-	.open .arrow
-		width 22px
-		height 15px
-		background url("img/arrow-down.png") no-repeat top left
-		left 50%
-		margin-left -(@width / 2)
-		position absolute
-		top 10px
-		cursor pointer
+  .open
+    position absolute
+    width 100%
+    top 40px
 
-	ul.nav
-		display block
-		position absolute
+  .open .arrow
+    width 22px
+    height 15px
+    background url("img/arrow-down.png") no-repeat top left
+    left 50%
+    margin-left -(@width / 2)
+    position absolute
+    top 10px
+    cursor pointer
+
+  ul.nav
+    display block
+    position absolute
 
 
-	ul li
-		float left
-		margin-right 10px
-		width 25px
-		height 25px
+  ul li
+    float left
+    margin-right 10px
+    width 25px
+    height 25px
 
-	ul li a
-		font-family Arial
-		font-weight bold
-		font-size 12px
-		height 19px
-		border-radius 20px
-		text-align center
-		padding-top 6px
-		text-decoration none
-		color #000
-		width 25px
-		display block
-		position relative
-		top 250px
+  ul li a
+    font-family Arial
+    font-weight bold
+    font-size 12px
+    height 19px
+    border-radius 20px
+    text-align center
+    padding-top 6px
+    text-decoration none
+    color #000
+    width 25px
+    display block
+    position relative
+    top 250px
 
-	ul li a .dot
-		width 1px
-		height 1px
-		border-radius 25px
-		background-color #000
-		position absolute
-		top 50%
-		left 50%
-		margin-left -(@width / 2)
-		margin-top -(@height / 2)
+  ul li a .dot
+    width 1px
+    height 1px
+    border-radius 25px
+    background-color #000
+    position absolute
+    top 50%
+    left 50%
+    margin-left -(@width / 2)
+    margin-top -(@height / 2)
 
-	ul li a .white_dot
-		width 25px
-		height 25px
-		border-radius 25px
-		background-color #fff
-		position absolute
-		top 50%
-		left 50%
-		margin-left -(@width / 2)
-		margin-top -(@height / 2)
+  ul li a .white_dot
+    width 25px
+    height 25px
+    border-radius 25px
+    background-color #fff
+    position absolute
+    top 50%
+    left 50%
+    margin-left -(@width / 2)
+    margin-top -(@height / 2)
 
-	ul li a.active .white_dot
-		width 1px
-		height 1px
-		border-radius 25px
-		background-color #fff
-		position absolute
-		top 50%
-		left 50%
-		margin-left -1px
-		margin-top -1px
+  ul li a.active .white_dot
+    width 1px
+    height 1px
+    border-radius 25px
+    background-color #fff
+    position absolute
+    top 50%
+    left 50%
+    margin-left -1px
+    margin-top -1px
 
-	ul li a.active .dot
-		opacity 0
+  ul li a.active .dot
+    opacity 0
 
 
 .blur
-	-webkit-transition: filter 1s ease-in-out;
-	-moz-transition: filter 1s ease-in-out;
-	-o-transition: filter 1s ease-in-out;
-	-ms-transition: filter 1s ease-in-out;
-	transition: filter 1s ease-in-out;
-	-webkit-filter: blur(3px);
+  -webkit-transition: filter 1s ease-in-out;
+  -moz-transition: filter 1s ease-in-out;
+  -o-transition: filter 1s ease-in-out;
+  -ms-transition: filter 1s ease-in-out;
+  transition: filter 1s ease-in-out;
+  -webkit-filter: blur(3px);
 

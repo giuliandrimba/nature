@@ -47,7 +47,7 @@ module.exports = class Ball extends Circle
     if @mouse_dist < 150
       @speed = 0.2
       @spring=0.3
-      mouse_angle = Calc.ang mouseX, mouseY, @iddle_x, @iddle_y 
+      mouse_angle = Calc.ang mouseX, mouseY, @iddle_x, @iddle_y
       mouse_angle = Calc.deg2rad mouse_angle
       dx = Math.cos mouse_angle
       dy = Math.sin mouse_angle

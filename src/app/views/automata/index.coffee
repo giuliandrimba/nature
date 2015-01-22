@@ -14,26 +14,39 @@ module.exports = class Index extends AppView
     img = new Image
     img.id = "automata-img"
     @el.append img
+    @el.addClass "automata"
 
     img.onload = =>
+
+      w = $(window).width() - 300
+      h = $(window).height() - 300
 
       @ctx = window.Sketch.create
 
         container:@el.get(0)
+        fullscreen: false
+        width: w
+        height: h
         cells: []
         next_cells: []
-        w: 20
+        w: 22
+        clicked: false
+
+        frame_rate: 2
+        frame: 0
 
 
         setup:->
 
           Draw.CTX = $(".sketch").get(0).getContext("2d")
-          @columns = @width / @w
+          @columns = (@width - 20) / @w
           @rows = (@height - 20) / @w
 
           @init()
 
         init:->
+
+          @cells = []
 
           x = 0
 
@@ -61,6 +74,7 @@ module.exports = class Index extends AppView
 
               @set_state x, y, @cells.length - 1, c.length - 1
 
+
         set_state:(x, y, total_columns, total_rows)->
 
           neighbors = 0
@@ -87,19 +101,28 @@ module.exports = class Index extends AppView
 
             neighbors -= cell.state
 
-
           if cell.previous is 1 and neighbors < 2
             cell.state = 0
           else if cell.previous is 1 and neighbors > 3
             cell.state = 0
           else if cell.previous is 0 and neighbors is 3
-            cell.state = 1
 
+            cell.state = 1
 
 
         update:->
 
-          @generate()
+          @frame++
+
+          if @frame > @frame_rate
+
+            @frame = 0
+
+            @generate()
+
+        mousedown:->
+
+          @init()
 
         draw:->
 
