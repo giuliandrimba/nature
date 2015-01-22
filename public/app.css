@@ -133,6 +133,11 @@
 
 /* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
 
+/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
+#automata-img {
+  display: none;
+}
+
 
 /* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
 
