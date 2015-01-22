@@ -13,6 +13,8 @@ module.exports = class Index extends AppView
 
     img = new Image
 
+    $("#lab-automata").find("p").css marginTop:-(($(window).height() - 300) / 2)
+
     FileReaderJS.setupDrop document.getElementById('lab-automata'),
       on:
         loadend:(e, file)=>
