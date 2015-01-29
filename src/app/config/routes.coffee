@@ -9,6 +9,12 @@ module.exports = class Routes
       at: null
       el: "body"
 
+    '/fractal':
+      lab:true
+      to: "fractal/index"
+      at: "/pages"
+      el: "#container"
+
     '/automata':
       lab:true
       to: "automata/index"
