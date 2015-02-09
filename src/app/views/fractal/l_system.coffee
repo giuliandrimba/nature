@@ -3,10 +3,12 @@ module.exports = class LSystem
 	sentence: ""
 	ruleset: []
 	generation: 0
+	sentences: []
 
 	constructor:(axiom, r)->
 
 		@sentence = axiom
+		@sentences.push @sentence
 		@ruleset = r
 
 	generate:->
@@ -29,9 +31,11 @@ module.exports = class LSystem
 
 			nextgen += replace
 
+		@sentences.push nextgen
+
 		@sentence = nextgen
-		@generation++
-
-	get_sentence:->
-
 		@sentence
+
+	get_sentences:->
+
+		@sentences

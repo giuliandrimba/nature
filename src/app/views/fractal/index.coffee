@@ -6,50 +6,50 @@ Rule = require "./rule"
 
 module.exports = class Index extends AppView
 
-  destroy:=>
-    @ctx?.clear()
-    @ctx?.destroy()
-    super
+	destroy:=>
+		@ctx?.clear()
+		@ctx?.destroy()
+		super
 
-  after_render:=>
+	after_render:=>
 
-    @ctx?.clear()
-    @ctx?.destroy()
+		@ctx?.clear()
+		@ctx?.destroy()
 
-    @ctx = window.Sketch.create
+		@ctx = window.Sketch.create
 
-      container:@el.get(0)
-      lsys: undefined
-      turtle: undefined
-      ruleset: []
+			container:@el.get(0)
+			lsys: undefined
+			turtle: undefined
+			ruleset: []
 
-      pressing: false
+			pressing: false
 
-      setup:->
+			setup:->
 
-        Draw.CTX = $(".sketch").get(0).getContext("2d")
+				Draw.CTX = $(".sketch").get(0).getContext("2d")
 
-        @ruleset[0] = new Rule "A", "ABA"
-        @ruleset[1] = new Rule "B", "BBB"
-        @lsys = new LSystem "A", @ruleset
-        @turtle = new Turtle @lsys.get_sentence(), 100, 25
+				@ruleset[0] = new Rule "A", "ABA"
+				@ruleset[1] = new Rule "B", "BBB"
+				@lsys = new LSystem "A", @ruleset
 
-
-      update:->
-
-      mouseup:->
-
-      mousedown:->
-
-      	@lsys.generate()
-      	@turtle.set_todo @lsys.get_sentence()
-      	@turtle.change_len 0.5
-      	console.log @lsys.get_sentence()
+				@turtle = new Turtle @lsys.sentence, 600, 25
 
 
-      draw:->
-      	Draw.CTX.save()
-      	Draw.CTX.translate 300, @height / 2 + @lsys.generation * 10
-      	@turtle.draw Draw.CTX
-      	Draw.CTX.restore()
+			update:->
+
+			mouseup:->
+
+				@generate()
+
+			generate:->
+
+				@turtle.set_todo @lsys.generate(), (@turtle.len / 3)
+
+
+			draw:->
+				Draw.CTX.save()
+				Draw.CTX.translate 200, 200
+				@turtle.draw Draw.CTX
+				Draw.CTX.restore()
 
