@@ -29,11 +29,10 @@ module.exports = class Index extends AppView
 
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
 
-				@ruleset[0] = new Rule "A", "ABA"
-				@ruleset[1] = new Rule "B", "BBB"
-				@lsys = new LSystem "A", @ruleset
+				@ruleset[0] = new Rule "F", "FF+[+F-F-F]-[-F+F+F]"
+				@lsys = new LSystem "F", @ruleset
 
-				@turtle = new Turtle @lsys.sentence, 600, 25
+				@turtle = new Turtle @lsys.sentence, 100, 25
 
 
 			update:->
@@ -49,7 +48,8 @@ module.exports = class Index extends AppView
 
 			draw:->
 				Draw.CTX.save()
-				Draw.CTX.translate 200, 200
+				Draw.CTX.translate @width/2, @height - 80
+				Draw.CTX.rotate -Math.PI/2
 				@turtle.draw Draw.CTX
 				Draw.CTX.restore()
 

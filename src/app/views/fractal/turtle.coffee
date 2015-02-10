@@ -8,7 +8,7 @@ module.exports = class Turtle
 	theta: 0
 	y:0
 
-	constructor:(todo, @len, theta)->
+	constructor:(todo, @len, @theta)->
 
 		@set_todo todo, @len
 		@theta = Calc.deg2rad theta
@@ -17,26 +17,25 @@ module.exports = class Turtle
 
 		ctx.beginPath()
 		ctx.moveTo 0, 0
-		x = 0
-		y = 0
 
 		$.map @todos, (todo, i)=>
 
-			y = i * 30
-			x = 0
-			ctx.moveTo x, y
-
 			for c, i in todo.s
 
-				if c is "A"
-					ctx.lineTo x + todo.l, y
-					x += todo.l
-				else if c is "B"
-					x += todo.l
-					ctx.moveTo x, y
+				if c is "F" or c is "G"
+					ctx.lineTo 0, 0, todo.l, 0
+					ctx.translate todo.l, 0
+				else if c is "+"
+					ctx.rotate @theta
+				else if c is "-"
+					ctx.rotate -@theta
+				else if c is "["
+					ctx.save()
+				else if c is "]"
+					ctx.restore()
 
 		ctx.strokeStyle = "#ffffff";
-		ctx.lineWidth = 10;
+		ctx.lineWidth = 1;
 		ctx.stroke()
 		ctx.closePath()
 
