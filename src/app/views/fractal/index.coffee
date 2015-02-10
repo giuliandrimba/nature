@@ -30,9 +30,9 @@ module.exports = class Index extends AppView
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
 
 				@ruleset[0] = new Rule "F", "FF+[+F-F-F]-[-F+F+F]"
-				@lsys = new LSystem "F", @ruleset
+				@lsys = new LSystem "F-F+", @ruleset
 
-				@turtle = new Turtle @lsys.sentence, 100, 25
+				@turtle = new Turtle @lsys.sentence, 100, 15
 
 
 			update:->
