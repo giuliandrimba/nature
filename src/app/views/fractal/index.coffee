@@ -3,6 +3,7 @@ Draw = require "draw/draw"
 LSystem = require "./l_system"
 Turtle = require "./turtle"
 Rule = require "./rule"
+systems = require "./systems"
 
 module.exports = class Index extends AppView
 
@@ -29,13 +30,17 @@ module.exports = class Index extends AppView
 
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
 
-				@ruleset[0] = new Rule "F", "FF+[+F-F-F]-[-F+F+F]"
-				@lsys = new LSystem "F-F+", @ruleset
+				@create_sys()
 
-				@turtle = new Turtle @lsys.sentence, 100, 15
-
+			create_sys:->
+				@sys = systems.get_sys()
+				@ruleset[0] = new Rule "F", @sys.rule
+				@lsys = new LSystem @sys.axiom, @ruleset
+				@turtle = new Turtle @lsys, @sys.len, @sys.theta, @sys.n
 
 			update:->
+
+				@turtle.update()
 
 			mouseup:->
 
@@ -43,12 +48,10 @@ module.exports = class Index extends AppView
 
 			generate:->
 
-				@turtle.set_todo @lsys.generate(), (@turtle.len / 3)
-
 
 			draw:->
 				Draw.CTX.save()
-				Draw.CTX.translate @width/2, @height - 80
+				Draw.CTX.translate @width/2 + @sys.x, @height/2 + @sys.y
 				Draw.CTX.rotate -Math.PI/2
 				@turtle.draw Draw.CTX
 				Draw.CTX.restore()

@@ -8,10 +8,24 @@ module.exports = class Turtle
 	theta: 0
 	y:0
 
-	constructor:(todo, @len, @theta)->
+	constructor:(@lsys, @len, @theta, @iterations)->
 
-		@set_todo todo, @len
 		@theta = Calc.deg2rad theta
+		console.log @iterations
+		@run()
+
+	run:->
+
+		i = 0
+
+		while i < @iterations
+
+			@set_todo @lsys.generate(), (@len / 1.1)
+			i++
+
+	update:->
+
+		# @theta += 0.01
 
 	draw:(ctx)->
 
@@ -41,5 +55,6 @@ module.exports = class Turtle
 
 	set_todo:(todo, length)->
 		@len = length
+		@todos = []
 		@todos.push s:todo, l:@len
 
