@@ -5,11 +5,15 @@ module.exports = class LSystem
 	generation: 0
 	sentences: []
 
-	constructor:(axiom, r)->
+	constructor:(@axiom, r)->
 
-		@sentence = axiom
+		@sentence = @axiom
 		@sentences.push @sentence
 		@ruleset = r
+
+	reset:->
+		@sentences = []
+		@sentence = @axiom
 
 	generate:->
 
