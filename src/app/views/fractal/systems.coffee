@@ -1,87 +1,85 @@
 sys = []
 
+index = 0
+
 sys.push
-	n: 5
-	len: 2
-	theta: 25.7
-	axiom: "F"
-	rule: "F[+F]F[-F]F"
-	x: 0
-	y: 0
+	n: 4
+	len: 6
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "FF-F-F-F-F-F+F"
+	x: 250
+	y: -120
 
-# sys.push
-# 	n: 5
-# 	len: 5
-# 	theta: 20
-# 	axiom: "F"
-# 	rule: "F[+F]F[-F][F]"
-# 	x: 0
-# 	y: 0
+sys.push
+	n: 3
+	len: 7
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "F-F+F+FF-F-F+F"
+	x: 150
+	y: 200
 
-# sys.push
-# 	n: 4
-# 	len: 7
-# 	theta: 22.5
-# 	axiom: "F"
-# 	rule: "FF-[-F+F+F]+[+F-F-F]"
-# 	x: 0
-# 	y: 0
+sys.push
+	n: 3
+	len: 30
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "FF-F+F-F-FF"
+	x: -50
+	y: -150
 
-# sys.push
-# 	n: 4
-# 	len: 3
-# 	theta: 90
-# 	axiom: "F-F-F-F"
-# 	rule: "FF-F-F-F-F-F+F"
-# 	x: 0
-# 	y: 0
+sys.push
+	n: 4
+	len: 8
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "FF-F-F-F-FF"
+	x: 225
+	y: 250
 
-# sys.push
-# 	n: 4
-# 	len: 7
-# 	theta: 90
-# 	axiom: "F-F-F-F"
-# 	rule: "FF-F-F-F-FF"
-# 	x: 0
-# 	y: 0
+sys.push
+	n: 4
+	len: 8
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "FF-F--F-F"
+	x: 220
+	y: 220
 
-# sys.push
-# 	n: 3
-# 	len: 14
-# 	theta: 90
-# 	axiom: "F-F-F-F"
-# 	rule: "FF-F+F-F-FF"
-# 	x: 0
-# 	y: 0
+sys.push
+	n: 4
+	len: 25
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "F-F+F-F-F"
+	x: 200
+	y: 200
 
-# sys.push
-# 	n: 4
-# 	len: 7
-# 	theta: 90
-# 	axiom: "F-F-F-F"
-# 	rule: "FF-F--F-F"
-# 	x: 0
-# 	y: 0
+sys.push
+	n: 4
+	len: 23
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "F-FF--F-F"
+	x: 150
+	y: -230
 
-# sys.push
-# 	n: 4
-# 	len: 14
-# 	theta: 90
-# 	axiom: "F-F-F-F"
-# 	rule: "F-FF--F-F"
-# 	x: 0
-# 	y: 0
+sys.push
+	n: 4
+	len: 23
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "F-F+F-F-F"
+	x: 200
+	y: 200
 
-# sys.push
-# 	n: 4
-# 	len: 15
-# 	theta: 90
-# 	axiom: "F-F-F-F"
-# 	rule: "F-F+F-F-F"
-# 	x: 0
-# 	y: 0
 
 exports.get_sys = ()->
+	rule = sys[index]
+	index++
 
-	last = sys.length - 1
-	sys[last]
+	if index > sys.length - 1
+		index = 0
+
+	rule

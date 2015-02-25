@@ -26,48 +26,34 @@ module.exports = class Index extends AppView
 			ruleset: []
 			theta: 90
 
-			turtles: []
+			turtle: undefined
 
 			pressing: false
 
 			setup:->
 
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
-
 				@create_sys()
 
 			create_sys:->
 				@sys = systems.get_sys()
 				@ruleset[0] = new Rule "F", @sys.rule
 				@lsys = new LSystem @sys.axiom, @ruleset
-				theta = @sys.theta
-				@turtles.push new Turtle @lsys, @sys.len, @sys.theta, @sys.n
-				# @turtles.push new Turtle @lsys, @sys.len, @sys.theta, @sys.n
-				# @turtles.push new Turtle @lsys, @sys.len, @sys.theta, @sys.n
-				# @turtles.push new Turtle @lsys, @sys.len, @sys.theta, @sys.n
+				@turtle = new Turtle @lsys, @sys.len, @sys.theta, @sys.n
 
 			update:->
 
-				# @theta += 0.1
-
-				for t in @turtles
-					t.update()
+				@turtle.update()
 
 			mouseup:->
 
-				@generate()
-
-			generate:->
-
+				@create_sys()
 
 			draw:->
 				rad = Calc.deg2rad @theta
-				count = 1
 				Draw.CTX.save()
 				Draw.CTX.translate @width/2 + @sys.x, @height/2 + @sys.y
-				for t, i in @turtles
-					Draw.CTX.rotate -rad * count
-					t.draw Draw.CTX
-					count++
+				Draw.CTX.rotate -rad
+				@turtle.draw Draw.CTX
 				Draw.CTX.restore()
 

@@ -13,11 +13,23 @@ module.exports = class Turtle
 	y: 0
 	x: 0
 	points: []
+	position: []
+	new_points: []
 
 	constructor:(@lsys, @len, @theta, @iterations)->
 
-		@todos = []
+		@todo = {}
 		@y = 0
+		@points = []
+		@position = []
+		@new_points = []
+		@run()
+
+	start:(@lsys, @len, @theta, @iterations)=>
+		@todo = {}
+		@y = 0
+		@position = []
+		@points = []
 		@run()
 
 	run:->
@@ -31,6 +43,51 @@ module.exports = class Turtle
 			@set_todo @lsys.generate(), (@len / 1.1)
 			i++
 
+		@get_position()
+		@animate_points()
+
+	animate_points:=>
+
+		for p,i in @points
+			pos = @position[i]
+			TweenMax.to p, 2, x:pos.x, y:pos.y, ease: Bounce.easeOut
+
+	get_position:=>
+
+		@ang = 0
+		@x = 0
+		@y = 0
+
+		for c, i in @todo.s
+
+			if c is "F" or c is "G"
+
+				rad = Calc.deg2rad @ang
+				@x += (Math.cos(rad) * @todo.l)
+				@y += (Math.sin(rad) * @todo.l)
+
+				@position.push
+					x:@x
+					y:@y
+
+				@points.push
+					x: -(Math.random() * 1000) + (Math.random() * 1000)
+					y: -(Math.random() * 1000) + (Math.random() * 1000)
+
+			else if c is "+"
+				@ang += @theta
+			else if c is "-"
+				@ang -= @theta
+
+	has_point:(_p)=>
+
+		for p in @position
+			if Math.floor(p.x) is Math.floor(_p.x) and Math.floor(p.y) is Math.floor(_p.y)
+				return true
+				break
+
+		return false
+
 	update:->
 
 		# @theta += 0.01
@@ -39,39 +96,13 @@ module.exports = class Turtle
 
 		ctx.beginPath()
 		ctx.moveTo 0, 0
-		@ang = 0
-		@x = 0
-		@y = 0
-		@old_x = 0
-		@old_y = 0
 
-		$.map @todos, (todo, i)=>
+		for p,i in @points
+			pos = @position[i]
+			dist = Calc.dist p.x, p.y, pos.x, pos.y
 
-			for c, i in todo.s
-
-				if c is "F" or c is "G"
-					@points.push
-						x:@x
-						y:@y
-					ctx.lineTo @x, @y
-				else if c is "+"
-					@ang += @theta
-					rad = Calc.deg2rad @ang
-					@old_x = @x
-					@old_y = @y
-					@x += (Math.cos(rad) * todo.l)
-					@y += (Math.sin(rad) * todo.l)
-				else if c is "-"
-					@ang -= @theta
-					rad = Calc.deg2rad @ang
-					@old_x = @x
-					@old_y = @y
-					@x = @x + (Math.cos(rad) * todo.l)
-					@y = @y + (Math.sin(rad) * todo.l)
-				else if c is "["
-					@ang += @theta
-				else if c is "]"
-					@ang -= @theta
+			if dist < 10
+				ctx.lineTo p.x, p.y
 
 		ctx.strokeStyle = "#ffffff";
 		ctx.lineWidth = 2;
@@ -80,6 +111,5 @@ module.exports = class Turtle
 
 	set_todo:(todo, length)->
 		@len = length
-		@todos = []
-		@todos.push s:todo, l:@len
+		@todo = s:todo, l:@len
 
