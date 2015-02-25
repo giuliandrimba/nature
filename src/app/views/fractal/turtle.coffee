@@ -29,7 +29,6 @@ module.exports = class Turtle
 		@todo = {}
 		@y = 0
 		@position = []
-		@points = []
 		@run()
 
 	run:->
@@ -51,6 +50,7 @@ module.exports = class Turtle
 		for p,i in @points
 			pos = @position[i]
 			TweenMax.to p, 2, x:pos.x, y:pos.y, ease: Bounce.easeOut
+			# TweenMax.to p, 5, x:pos.x, y:pos.y
 
 	get_position:=>
 
@@ -70,27 +70,25 @@ module.exports = class Turtle
 					x:@x
 					y:@y
 
-				@points.push
-					x: -(Math.random() * 1000) + (Math.random() * 1000)
-					y: -(Math.random() * 1000) + (Math.random() * 1000)
+				if i > @points.length
+
+					# @points.push
+					# 	x: -(Math.random() * 1000) + (Math.random() * 1000)
+					# 	y: -(Math.random() * 1000) + (Math.random() * 1000)
+
+					@points.push
+						x: @x + (-(Math.random() * 1000) + (Math.random() * 1000))
+						y: @y + (-(Math.random() * 1000) + (Math.random() * 1000))
 
 			else if c is "+"
 				@ang += @theta
 			else if c is "-"
 				@ang -= @theta
 
-	has_point:(_p)=>
-
-		for p in @position
-			if Math.floor(p.x) is Math.floor(_p.x) and Math.floor(p.y) is Math.floor(_p.y)
-				return true
-				break
-
-		return false
+		while @points.length > @position.length
+			@points.pop()
 
 	update:->
-
-		# @theta += 0.01
 
 	draw:(ctx)->
 
