@@ -2,14 +2,6 @@ sys = []
 
 index = 0
 
-# sys.push
-# 	n: 4
-# 	len: 6
-# 	theta: 90
-# 	axiom: "F-F-F-F"
-# 	rule: "FF-F-F-F-F-F+F"
-# 	x: 250
-# 	y: -120
 
 sys.push
 	n: 3
@@ -28,6 +20,15 @@ sys.push
 	rule: "FF-F+F-F-FF"
 	x: -50
 	y: -150
+
+sys.push
+	n: 4
+	len: 6
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "FF-F-F-F-F-F+F"
+	x: 250
+	y: -120
 
 sys.push
 	n: 4

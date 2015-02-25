@@ -63,7 +63,7 @@ module.exports = class Routes
       el: "#container"
 
   # default route
-  @root = '/automata'
+  @root = '/fractal'
 
   # not found route
   @notfound = '/404'
