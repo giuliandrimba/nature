@@ -46,7 +46,7 @@ module.exports = class Cell
     ctx.beginPath()
 
     if @state is 0
-      ctx.fillStyle = "#111"
+      ctx.fillStyle = "#000"
 
     ctx.rect(@x, @y, @radius, @radius);
 
