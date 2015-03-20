@@ -22,8 +22,7 @@ module.exports = class Index extends AppView
     @ctx = window.Sketch.create
 
       container:@el.get(0)
-      fullscreen: false
-      width: 1200
+      fullscreen: true
       height: _height
 
       dragging: false

@@ -38,15 +38,14 @@ module.exports = class Index extends AppView
 
       autoclear:true
       fullscreen: true
-      retina: true
+      retina: false
 
       resize:->
 
+        _.STRING_DIST = (15 * 100) / @width
+
         _.CENTER_X = (@width / 2) - (_.NUM_COLS * _.STRING_DIST / 2)
         _.CENTER_Y = (@height / 2) - (_.NUM_ROWS * _.STRING_DIST / 2) - 400
-
-        @FONT_X = (@width / 2) - 17
-        @FONT_Y = (@height / 2) + 3
 
         @build_grid()
 
@@ -54,6 +53,7 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d")
         @resize()
+
 
         @iterate (ball, row, col)=>
 
@@ -127,7 +127,8 @@ module.exports = class Index extends AppView
 
         angle = 0
         step = 360 / 10
-        dist = 30
+        dist = @width / 50
+        dist_step = @width / 100
 
         _.points = []
         _.strings = []
@@ -139,7 +140,7 @@ module.exports = class Index extends AppView
 
           _.points[rows] = []
 
-          dist += 10
+          dist += dist_step
 
           while cols < _.NUM_COLS
 
