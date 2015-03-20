@@ -92,19 +92,4 @@ module.exports = class Ball extends Circle
   draw:()->
     super
 
-    if @radius > 5
-      @ctx.strokeStyle = "#000000"
-      @ctx.strokeWidth = 1
-      @ctx.moveTo @x,  @y
-      @ctx.lineTo Math.round(@x - 3), Math.round(@y - 3)
-      @ctx.moveTo @x,  @y
-      @ctx.lineTo Math.round(@x + 3), Math.round(@y + 3)
-      @ctx.moveTo @x,  @y
-      @ctx.lineTo Math.round(@x + 3), Math.round(@y - 3)
-      @ctx.moveTo @x,  @y
-      @ctx.lineTo Math.round(@x - 3), Math.round(@y + 3)
-      @ctx.stroke()
-
-
-
 

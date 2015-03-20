@@ -577,7 +577,6 @@ h2 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: 2px solid #fff;
   z-index: 10;
   pointer-events: none;
   left: 0;
@@ -587,14 +586,14 @@ h2 {
   margin: auto;
 }
 
-/* line 30 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 29 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 
-/* line 32 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 31 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .header {
   text-align: center;
 }
 
-/* line 35 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 34 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .logo-labs {
   position: relative;
   margin: 0 auto;
@@ -603,7 +602,7 @@ h2 {
   z-index: 1000;
 }
 
-/* line 42 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 41 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .bold_line,
 .pages .thin_line {
   display: none;
@@ -615,19 +614,19 @@ h2 {
   background-color: #fff;
 }
 
-/* line 51 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 50 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .thin_line {
   height: 1px;
   margin-top: 15px;
 }
 
-/* line 55 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 54 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .title,
 .pages .description {
   display: block;
   font-family: 'CourierRegular';
   color: #fff;
-  font-size: 11px;
+  font-size: 10px;
   text-align: center;
   bottom: 180px;
   position: absolute;
@@ -640,6 +639,7 @@ h2 {
   line-height: 150%;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  z-index: 2;
 }
 
 /* line 69 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
@@ -714,16 +714,17 @@ h2 {
   overflow: hidden;
   width: 1150px;
   z-index: 1000;
+  display: none;
 }
 
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .open {
   position: absolute;
   width: 100%;
   top: 40px;
 }
 
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 15 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .open .arrow {
   width: 22px;
   height: 15px;
@@ -735,13 +736,13 @@ h2 {
   cursor: pointer;
 }
 
-/* line 24 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 25 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu ul.nav {
   display: block;
   position: absolute;
 }
 
-/* line 29 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 30 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu ul li {
   float: left;
   margin-right: 10px;
@@ -749,7 +750,7 @@ h2 {
   height: 25px;
 }
 
-/* line 35 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 36 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu ul li a {
   font-family: Arial;
   font-weight: bold;
@@ -767,7 +768,7 @@ h2 {
   top: 250px;
 }
 
-/* line 50 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 51 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu ul li a .dot {
   width: 1px;
   height: 1px;
@@ -781,7 +782,7 @@ h2 {
   margin-top: -0.5px;
 }
 
-/* line 61 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 62 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu ul li a .white_dot {
   width: 25px;
   height: 25px;
@@ -795,7 +796,7 @@ h2 {
   margin-top: -12.5px;
 }
 
-/* line 72 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 73 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu ul li a.active .white_dot {
   width: 1px;
   height: 1px;
@@ -809,14 +810,14 @@ h2 {
   margin-top: -1px;
 }
 
-/* line 83 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 84 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu ul li a.active .dot {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }
 
-/* line 87 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 88 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .blur {
   -webkit-transition: filter 1s ease-in-out;
   -moz-transition: filter 1s ease-in-out;
