@@ -41,7 +41,6 @@ module.exports = class Index extends AppView
         next_cells: []
         w: 22
         clicked: false
-
         frame_rate: 2
         frame: 0
 

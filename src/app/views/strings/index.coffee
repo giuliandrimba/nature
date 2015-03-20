@@ -37,26 +37,23 @@ module.exports = class Index extends AppView
       container:@el.get(0)
 
       autoclear:true
+      fullscreen: true
+      retina: true
 
       resize:->
 
-
-        Draw.CTX.font = "11px CourierRegular"
-
-      setup:->
-
         _.CENTER_X = (@width / 2) - (_.NUM_COLS * _.STRING_DIST / 2)
-        _.CENTER_Y = (@height / 2) - (_.NUM_ROWS * _.STRING_DIST / 2)
+        _.CENTER_Y = (@height / 2) - (_.NUM_ROWS * _.STRING_DIST / 2) - 400
 
         @FONT_X = (@width / 2) - 17
         @FONT_Y = (@height / 2) + 3
 
-        Draw.CTX = $(".sketch").get(0).getContext("2d")
-
-        Draw.CTX.font = "11px CourierRegular"
-
         @build_grid()
 
+      setup:->
+
+        Draw.CTX = $(".sketch").get(0).getContext("2d")
+        @resize()
 
         @iterate (ball, row, col)=>
 
@@ -83,8 +80,6 @@ module.exports = class Index extends AppView
           ball.update()
 
       draw:->
-
-        Draw.CTX.fillText("drag", @FONT_X, @FONT_Y)
 
         Draw.CTX.globalAlpha = 0.1
         Draw.CTX.fillStyle = "#000"
@@ -134,6 +129,9 @@ module.exports = class Index extends AppView
         step = 360 / 10
         dist = 30
 
+        _.points = []
+        _.strings = []
+
         rows = 0
         while rows < _.NUM_ROWS
 
@@ -152,7 +150,7 @@ module.exports = class Index extends AppView
 
 
             x = (@width / 2) + (Math.cos(rad) * dist)
-            y = (@height / 2) + (Math.sin(rad) * dist)
+            y = (@height / 2) - 100 + (Math.sin(rad) * dist)
 
             ball.pos x, y
 

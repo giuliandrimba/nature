@@ -32,12 +32,11 @@
   .header
     text-align center
 
-
   .logo-labs
     position relative
     margin 0 auto
     top 50px
-    display block
+    display none
     z-index 1000
 
   .bold_line, .thin_line
@@ -53,12 +52,22 @@
     height 1px
     margin-top 15px
 
-  .title
-    display none
-    font-family font_cond_book
+  .title, .description
+    display block
+    font-family 'CourierRegular'
     color main_color
+    font-size 11px
+    text-align center
+    bottom 180px
+    position absolute
+    left 50%
+    transform translateX(-50%)
+    line-height 150%
     text-transform uppercase
-    margin-top 15px
+    letter-spacing 0.5px
+
+  .description
+    bottom 130px
 
   #container
     position absolute
