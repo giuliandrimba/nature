@@ -13,3 +13,8 @@ module.exports = class AppView extends View
       $( item ).click ( event ) =>
         @navigate $( event.delegateTarget ).attr 'href'
         return off
+
+  in:->
+    super()
+    @el.css "opacity": 0
+    @el.animate {opacity: 1}, 1000
