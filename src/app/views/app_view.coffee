@@ -6,7 +6,7 @@ module.exports = class AppView extends View
   set_triggers: ->
     super()
 
-    window.navigate = @navigate
+    window.navigate = (url)=> @navigate(url)
 
     # automagically route links starting with "/"
     @el.find( 'a.bt-menu[href*="/"]' ).each ( index, item ) =>
