@@ -4,7 +4,7 @@ index = 0
 
 sys.push
   n: 3
-  len: 11
+  len: 50
   theta: 90
   axiom: "F-F-F-F"
   rule: "FF----F+FFF-F++F-FF"
@@ -12,63 +12,63 @@ sys.push
   y: 50
 
 sys.push
-  n: 3
-  len: 10
+  n: 4
+  len: 50
   theta: 10
   axiom: "F-F+F-F+F"
   rule: "FF-F-F+FF"
-  x: 250
+  x: 500
   y: 50
 
 sys.push
-  n: 3
-  len: 80
+  n: 4
+  len: 300
   theta: 120
   axiom: "F-F-F-F"
   rule: "F-F+F-F"
-  x: 60
-  y: 150
-
-sys.push
-	n: 3
-	len: 7
-	theta: 90
-	axiom: "F-F-F-F"
-	rule: "F-F+F+FF-F-F+F"
-	x: 150
-	y: 200
+  x: 250
+  y: 500
 
 sys.push
 	n: 3
 	len: 30
 	theta: 90
 	axiom: "F-F-F-F"
-	rule: "FF-F+F-F-FF"
-	x: -50
-	y: -150
+	rule: "F-F+F+FF-F-F+F"
+	x: 500
+	y: 200
 
 sys.push
-	n: 4
-	len: 6
+	n: 3
+	len: 200
+	theta: 90
+	axiom: "F-F-F-F"
+	rule: "FF-F+F-F-FF"
+	x: -50
+	y: -300
+
+sys.push
+	n: 3
+	len: 55
 	theta: 90
 	axiom: "F-F-F-F"
 	rule: "FF-F-F-F-F-F+F"
-	x: 250
-	y: -120
+	x: 450
+	y: 600
 
 sys.push
-	n: 4
-	len: 8
+	n: 3
+	len: 100
 	theta: 90
 	axiom: "F-F-F-F"
 	rule: "FF-F-F-F-FF"
-	x: 225
-	y: 250
+	x: 1000
+	y: 1000
 
 sys.push
 	n: 4
-	len: 8
-	theta: 90
+	len: 400
+	theta: 60
 	axiom: "F-F-F-F"
 	rule: "FF-F--F-F"
 	x: 220
@@ -76,8 +76,8 @@ sys.push
 
 sys.push
 	n: 4
-	len: 25
-	theta: 90
+	len: 250
+	theta: 100
 	axiom: "F-F-F-F"
 	rule: "F-F+F-F-F"
 	x: 200
@@ -85,21 +85,21 @@ sys.push
 
 sys.push
 	n: 4
-	len: 23
+	len: 100
 	theta: 90
 	axiom: "F-F-F-F"
 	rule: "F-FF--F-F"
-	x: 150
-	y: -230
+	x: 350
+	y: -1000
 
 sys.push
-	n: 4
-	len: 23
-	theta: 90
+	n: 3
+	len: 900
+	theta: 150
 	axiom: "F-F-F-F"
 	rule: "F-F+F-F-F"
-	x: 200
-	y: 200
+	x: -200
+	y: -500
 
 
 exports.get_sys = ()->
