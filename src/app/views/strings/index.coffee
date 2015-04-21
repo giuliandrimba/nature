@@ -45,7 +45,7 @@ module.exports = class Index extends AppView
         _.STRING_DIST = (15 * 100) / @width
 
         _.CENTER_X = (@width / 2) - (_.NUM_COLS * _.STRING_DIST / 2)
-        _.CENTER_Y = (@height / 2) - (_.NUM_ROWS * _.STRING_DIST / 2) - 400
+        _.CENTER_Y = (@height / 2) - (_.NUM_ROWS * _.STRING_DIST / 2)
 
         @build_grid()
 
@@ -151,7 +151,7 @@ module.exports = class Index extends AppView
 
 
             x = (@width / 2) + (Math.cos(rad) * dist)
-            y = (@height / 2) - 100 + (Math.sin(rad) * dist)
+            y = (@height / 2) + (Math.sin(rad) * dist)
 
             ball.pos x, y
 

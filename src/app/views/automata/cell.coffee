@@ -9,7 +9,7 @@ module.exports = class Cell
   previous: 0
   color: "#fff"
 
-  radius: 20
+  radius: 40
 
   drawed: false
 
