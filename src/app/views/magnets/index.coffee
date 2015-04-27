@@ -27,13 +27,13 @@ module.exports = class Index extends AppView
 
     @ctx = window.Sketch.create
 
-      container:@el.get(0)
+      container:@el.find(".lab").get(0)
 
       setup:->
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
-        _.ball = new Ball 5, "#000"
+        _.ball = new Ball 5, "#1A1F2B"
         _.ball.x = 50
         _.ball.y = @height / 2
 
@@ -42,7 +42,7 @@ module.exports = class Index extends AppView
         while i < parseInt($(window).width() / 15)
         # while i < 1
 
-          m = new Magnet 5 + (Math.random() * 30), "#000"
+          m = new Magnet 5 + (Math.random() * 30), "#1A1F2B"
           m.x = Math.random() * @width
           m.y = 100 + (Math.random() * @height - 100)
           m.setup()

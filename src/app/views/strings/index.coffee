@@ -34,7 +34,7 @@ module.exports = class Index extends AppView
 
     @ctx = window.Sketch.create
 
-      container:@el.get(0)
+      container:@el.find(".lab").get(0)
 
       autoclear:true
       fullscreen: true

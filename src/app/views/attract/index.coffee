@@ -33,7 +33,7 @@ module.exports = class Index extends AppView
 
     @ctx = window.Sketch.create
 
-      container: @el.get(0)
+      container: @el.find(".lab").get(0)
       autoclear: false
 
       setup:()->
@@ -106,7 +106,7 @@ module.exports = class Index extends AppView
 
 
       draw:()->
-        Draw.CTX.fillStyle = "rgba(0,0,0,0.08)"
+        Draw.CTX.fillStyle = "rgba(0,0,0,0.05)"
         Draw.CTX.fillRect(0, 0, @width, @height)
 
         for b, i in s.balls

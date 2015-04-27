@@ -95,6 +95,13 @@
 
 /* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
 
+/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/attract/index.styl */
+.attract {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
 
 /* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -279,6 +286,13 @@
 
 /* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
 
+/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/hole/index.styl */
+.hole {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
 
 /* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -323,6 +337,13 @@
 /* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
 
 /* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
+
+/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/magnets/index.styl */
+.magnets {
+  width: 100%;
+  height: 100%;
+  background-color: #1a1f2b;
+}
 
 
 /* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
@@ -920,6 +941,13 @@ h2 {
 
 /* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
 
+/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/repulse/index.styl */
+.repulse.lab {
+  width: 100%;
+  height: 100%;
+  background-color: #a7c520;
+}
+
 
 /* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -964,3 +992,10 @@ h2 {
 /* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
 
 /* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
+
+/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/strings/index.styl */
+.strings {
+  width: 100%;
+  height: 100%;
+  background-color: #3b3b3b;
+}

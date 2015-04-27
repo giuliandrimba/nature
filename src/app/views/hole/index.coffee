@@ -17,7 +17,7 @@ module.exports = class Index extends AppView
       system: {}
       pivot: {}
 
-      container:@el.get(0)
+      container:@el.find(".lab").get(0)
 
       autoclear:true
 

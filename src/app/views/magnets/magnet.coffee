@@ -18,7 +18,7 @@ module.exports = class Magnet extends Circle
     super
     @mass = @radius * 2
     @NUM_LINES = @radius / 5
-    @shadow = new Circle @radius + 5, "#000"
+    @shadow = new Circle @radius + 5, "#1A1F2B"
 
   update:->
 
@@ -114,7 +114,7 @@ module.exports = class Magnet extends Circle
 
   draw_dot:->
 
-    @ctx.fillStyle = "#000"
+    @ctx.fillStyle = "#1A1F2B"
     @ctx.beginPath()
     @ctx.arc @x, @y, 10, 0, Math.PI*2, true
     @ctx.closePath()

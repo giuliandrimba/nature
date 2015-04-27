@@ -34,7 +34,7 @@ module.exports = class Ball extends Circle
     @iddle_y = @init_y + Math.random() * 10
     @target_x = @iddle_x
     @target_y = @iddle_y
-    @max_rad = 15 + Math.random() * 40
+    @max_rad = 30 + Math.random() * 40
     # @angle = Calc.ang @x,@y,@iddle_x,@iddle_y
 
   update:(@mouseX, @mouseY)->
@@ -67,10 +67,10 @@ module.exports = class Ball extends Circle
       @radius = (@mouse_dist * 100) / 230
       @radius = @max_rad - (@radius * @max_rad) / 100
     else
-      @radius = 1
+      @radius = 2
 
-    if @radius < 1
-      @radius = 1
+    if @radius < 2
+      @radius = 2
 
 
     @dx = @target_x - @x
