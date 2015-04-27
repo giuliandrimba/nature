@@ -17,10 +17,10 @@ module.exports = class AppView extends View
 
   in:->
     super()
-    @anim_title = new AnimText @el.find(".title")
+    @anim_title = new AnimText @el.find(".title"), 500
     @animate_description()
     @el.css "opacity": 0
-    @el.animate {opacity: 1}, 1000
+    @el.animate {opacity: 1}, 500
     @anim_title.start()
 
   animate_description:=>
@@ -33,7 +33,7 @@ module.exports = class AppView extends View
       span = $("<div></div>")
       span.text(t)
       description.append span
-      anim = new AnimText span, 500
+      anim = new AnimText span, 750
       anim.start()
 
 

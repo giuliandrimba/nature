@@ -11,132 +11,128 @@ module.exports = class Index extends AppView
 
   after_render:=>
 
-    img = new Image
+    @ctx?.clear()
+    @ctx?.destroy()
 
-    FileReaderJS.setupDrop document.getElementById('lab-automata'),
-      on:
-        loadend:(e, file)=>
-          img.src = e.currentTarget.result
+    w = $(window).width()
+    h = $(window).height()
 
-    img.onload = =>
+    @el.find("#lab-automata").find("canvas").remove()
 
-      @ctx?.clear()
-      @ctx?.destroy()
+    @ctx = window.Sketch.create
 
-      w = $(window).width() - 300
-      h = $(window).height() - 300
+      container:@el.find("#lab-automata").get(0)
+      fullscreen: false
+      width: w
+      height: h
+      cells: []
+      next_cells: []
+      w: 20
+      clicked: false
+      frame_rate: 2
+      frame: 0
+      autoclear: false
 
-      @el.find("#lab-automata").find("canvas").remove()
+      setup:->
 
-      @ctx = window.Sketch.create
+        Draw.CTX = $(".sketch").get(0).getContext("2d")
 
-        container:@el.find("#lab-automata").get(0)
-        fullscreen: false
-        width: w
-        height: h
-        cells: []
-        next_cells: []
-        w: 20
-        clicked: false
-        frame_rate: 2
-        frame: 0
+        Draw.CTX.fillStyle = "rgba(0,0,0,1)";
+        Draw.CTX.fillRect(0, 0, @width, @height);
 
+        @columns = (@width) / @w
+        @rows = (@height) / @w
 
-        setup:->
+        @init()
 
-          Draw.CTX = $(".sketch").get(0).getContext("2d")
-          @columns = (@width - 20) / @w
-          @rows = (@height - 20) / @w
+      init:->
 
-          @init()
+        @cells = []
 
-        init:->
+        x = 0
 
-          @cells = []
+        while x < @columns - 1
 
-          x = 0
+          y = 0
 
-          while x < @columns - 1
+          @cells[x] = []
 
-            y = 0
+          while y < @rows - 1
 
-            @cells[x] = []
+            state = Math.round(Math.random(2))
 
-            while y < @rows - 1
+            @cells[x][y] = new Cell state, 20 + x * @w, 20 + y * @w
 
-              state = Math.round(Math.random(2))
+            y++
 
-              @cells[x][y] = new Cell state, 25 + x * @w, 25 + y * @w, img
+          x++
 
-              y++
+      generate:->
 
-            x++
+        for c, x in @cells
 
-        generate:->
+          for r, y in c
 
-          for c, x in @cells
-
-            for r, y in c
-
-              @set_state x, y, @cells.length - 1, c.length - 1
+            @set_state x, y, @cells.length - 1, c.length - 1
 
 
-        set_state:(x, y, total_columns, total_rows)->
+      set_state:(x, y, total_columns, total_rows)->
 
-          neighbors = 0
-          cell = @cells[x][y]
-          cell.previous = cell.state
+        neighbors = 0
+        cell = @cells[x][y]
+        cell.previous = cell.state
 
-          i = - 1
+        i = - 1
 
-          while i <= 1
+        while i <= 1
 
-            j = - 1
+          j = - 1
 
-            while j <= 1
+          while j <= 1
 
-              if x > 0 and y > 0 and x < total_columns and y < total_rows
+            if x > 0 and y > 0 and x < total_columns and y < total_rows
 
-                neighbors += @cells[x + i][y + j].previous
+              neighbors += @cells[x + i][y + j].previous
 
-              j++
+            j++
 
-            i++
+          i++
 
-          if cell.state is 1 and neighbors > 0
+        if cell.state is 1 and neighbors > 0
 
-            neighbors -= cell.state
+          neighbors -= cell.state
 
-          if cell.previous is 1 and neighbors < 2
-            cell.state = 0
-          else if cell.previous is 1 and neighbors > 3
-            cell.state = 0
-          else if cell.previous is 0 and neighbors is 3
+        if cell.previous is 1 and neighbors < 2
+          cell.state = 0
+        else if cell.previous is 1 and neighbors > 3
+          cell.state = 0
+        else if cell.previous is 0 and neighbors is 3
 
-            cell.state = 1
+          cell.state = 1
 
 
-        update:->
+      update:->
 
-          @frame++
+        @frame++
 
-          if @frame > @frame_rate
+        if @frame > @frame_rate
 
-            @frame = 0
+          @frame = 0
 
-            @generate()
+          @generate()
 
-        mousedown:->
+      mousedown:->
 
-          @init()
+        @init()
 
-        draw:->
+      draw:->
 
-          for row in @cells
+        Draw.CTX.fillStyle = "rgba(0,0,0,0.08)"
+        Draw.CTX.fillRect(0, 0, @width, @height)
 
-            for c in row
+        for row in @cells
 
-              c.draw Draw.CTX, img, @
+          for c in row
 
-    img.src = "/img/automata.jpg"
+            c.draw Draw.CTX, @
 

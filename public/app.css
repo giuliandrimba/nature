@@ -143,26 +143,10 @@
 }
 
 /* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
-#lab-automata {
-  text-align: center;
-}
 
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
-#lab-automata p {
-  font-family: 'CourierRegular';
-  color: #fff;
-  font-size: 11px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -250px;
-  margin-left: -541px;
-}
-
-/* line 23 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
+/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
 #lab-automata canvas {
   position: absolute;
-  z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
@@ -218,6 +202,8 @@
 /* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/fractal/index.styl */
 .fractals {
   background-color: #ccc;
+  width: 100%;
+  height: 100%;
 }
 
 

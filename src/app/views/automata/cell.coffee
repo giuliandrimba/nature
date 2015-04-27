@@ -1,7 +1,8 @@
 scale = require "app/lib/scale"
 Calc = require "draw/math/calc"
+Circle = require "draw/geom/circle"
 
-module.exports = class Cell
+module.exports = class Cell extends Circle
 
   x:0
   y:0
@@ -24,46 +25,30 @@ module.exports = class Cell
   speed:0.2
   friction:0.9
 
-  constructor:(@state, @x, @y, img)->
+  constructor:(@state, @x, @y)->
     @iddle_x = @x
     @iddle_y = @y
     @previous = @state
 
-    @size = scale img.width, img.height, $(window).width(), $(window).height()
-    img.width = @size.width
-    img.height = @size.height
-
     @offsetX = $("canvas").offset().left
     @offsetY = $("canvas").offset().top
-    @img1 = img
+
+    super 1, "#fff"
 
 
-  draw:(ctx, img, sketch)->
-
-    ctx.save()
-
-
-    ctx.beginPath()
+  draw:(ctx, sketch)->
 
     if @state is 0
-      ctx.fillStyle = "#000"
-
-    ctx.rect(@x, @y, @radius, @radius);
-
-    if @state is 0
-      ctx.fill()
-
-    ctx.closePath()
-    ctx.clip()
-
-    if !@drawed
-
-      @drawed = true
+      @opacity = 0
+      @radius -= 0.001
+      if @radius <= 1
+        @radius = 1
 
     if @state is 1
-      ctx.drawImage @img1, -@offsetX, -@offsetY, @img1.width, @img1.height
+      @opacity = 1
+      @radius = 3
 
-    ctx.restore()
+    super
 
 
 
