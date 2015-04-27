@@ -43,6 +43,13 @@
 
 /* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
 
+/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/agents/index.styl */
+.agents {
+  width: 100%;
+  height: 100%;
+  background-color: #002aff;
+}
+
 
 /* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
 
@@ -143,8 +150,14 @@
 }
 
 /* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
+#lab-automata {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
+/* line 15 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
 #lab-automata canvas {
   position: absolute;
   top: 0;
@@ -152,6 +165,21 @@
   right: 0;
   bottom: 0;
   margin: auto;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+
+/* line 24 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
+#lab-automata canvas.tween {
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  -ms-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 
 
@@ -661,6 +689,21 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+
+/* line 92 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+.pages canvas.tween {
+  -webkit-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 
 

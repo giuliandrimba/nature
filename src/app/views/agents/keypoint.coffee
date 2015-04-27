@@ -8,13 +8,13 @@ module.exports = class KeyPoint extends Rect
   vw: 0.1
   target: 0
 
-  update:(mouse)=>
+  update:(mouse, radius)=>
 
     dist = Calc.dist mouse.x, mouse.y, @x, @y
 
     if dist < 300
 
-      @target = 10 * ((300 - dist) / 100)
+      @target = (radius * 0.05) * ((300 - dist) / 100)
 
     else
 

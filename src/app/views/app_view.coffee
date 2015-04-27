@@ -23,6 +23,16 @@ module.exports = class AppView extends View
     @el.animate {opacity: 1}, 500
     @anim_title.start()
 
+    setTimeout ()=>
+      @el.find("canvas").addClass("tween")
+    ,
+      1500
+
+    setTimeout ()=>
+      $("body").css("background-color", @el.find(".lab").css("background-color"))
+    ,
+      2000
+
   animate_description:=>
 
     description = @el.find(".description")

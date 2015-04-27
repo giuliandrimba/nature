@@ -14,14 +14,15 @@ module.exports = class Index extends AppView
     super
 
   after_render:=>
+    setTimeout @init, 1500
 
-    console.log "render"
+  init:=>
 
     _height = $(window).height()
 
     @ctx = window.Sketch.create
 
-      container:@el.get(0)
+      container:@el.find(".agents").get(0)
       fullscreen: true
       height: _height
 
@@ -43,7 +44,6 @@ module.exports = class Index extends AppView
       radius_amout: 3
 
       setup:->
-
         Draw.CTX = $(".sketch").get(0).getContext("2d")
 
         @_w = 800
@@ -77,11 +77,11 @@ module.exports = class Index extends AppView
 
       create_path:->
         i = 0
-        steps = 360 / 50
+        steps = 360 / 20
 
-        @spiral_radius = 25
+        @spiral_radius = 10
 
-        while i < 970
+        while i < 1940
 
           rad = Calc.deg2rad i
           x = @width / 2 + (Math.cos(rad) * @spiral_radius)
@@ -137,7 +137,7 @@ module.exports = class Index extends AppView
       update:->
 
         @calc_spiral_radius()
-        @path.update @mouse, @dragging
+        @path.update @mouse, @dragging, @spiral_radius
 
         for a in @agents
           a.update()

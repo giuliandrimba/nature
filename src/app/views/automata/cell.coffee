@@ -39,14 +39,16 @@ module.exports = class Cell extends Circle
   draw:(ctx, sketch)->
 
     if @state is 0
-      @opacity = 0
+      @opacity -= 0.01
+      if @opacity <=0
+        @opacity = 0
       @radius = 1
 
     if @state is 1
       @opacity = 1
       @radius += 0.1
-      if @radius > 3
-        @radius = 3
+      if @radius > 5
+        @radius = 5
 
     super
 

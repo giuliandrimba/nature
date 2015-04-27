@@ -10,14 +10,18 @@ module.exports = class Index extends AppView
     super
 
   after_render:=>
+    setTimeout @init, 1500
+
+  init:=>
 
     @ctx?.clear()
     @ctx?.destroy()
 
+
     w = $(window).width()
     h = $(window).height()
-
-    @el.find("#lab-automata").find("canvas").remove()
+    @canvas = @el.find("#lab-automata").find("canvas")
+    @canvas.remove()
 
     @ctx = window.Sketch.create
 
@@ -34,10 +38,10 @@ module.exports = class Index extends AppView
       autoclear: false
 
       setup:->
-
+        setTimeout (()=> $(@container).find("canvas").addClass("tween")), 0
         Draw.CTX = $(".sketch").get(0).getContext("2d")
 
-        Draw.CTX.fillStyle = "rgba(0,0,0,1)";
+        Draw.CTX.fillStyle = "rgba(0,0,0,0.08)"
         Draw.CTX.fillRect(0, 0, @width, @height);
 
         @columns = (@width) / @w

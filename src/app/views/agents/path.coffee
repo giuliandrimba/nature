@@ -15,7 +15,7 @@ module.exports = class Path
   points: []
   keypoints: []
   dragging: false
-  opacity:0
+  opacity:1
 
   constructor:(@w, @h)->
 
@@ -26,33 +26,16 @@ module.exports = class Path
 
   hide:=>
 
-  update:(@mouse, @mouse_moving)->
+  update:(@mouse, @mouse_moving, @radius)->
 
     if $("body").css("cursor") is "move"
       $("body").css "cursor":"default"
 
     is_already_dragging = false
 
-    @show_path = false
-
     for k in @keypoints
 
-      if @mouse_moving
-        @show_path = true
-
-      k.update(@mouse)
-
-    @show_hide_path()
-
-  show_hide_path:=>
-
-    if @show_path
-
-      @opacity += 0.05 if @opacity < 1
-
-    else
-
-      @opacity -= 0.05 if @opacity > 0
+      k.update(@mouse, @radius)
 
   update_point:(x, y, ang)->
 
@@ -78,35 +61,19 @@ module.exports = class Path
     p.ang = ang
 
     @points.push p
-    c = new KeyPoint 5, "#fff"
+    c = new KeyPoint 10, "#fff"
     c.x = x
     c.y = y
     c.ang = ang
     c.index = @points.length - 1
     @keypoints.push c
 
-  is_mouse_near:(circle)->
-
-    dist = Calc.dist @mouse.x, @mouse.y, circle.x, circle.y
-
-    if dist < 250
-      return true
-
-    return false
-
-  is_mouse_over:(circle)->
-
-    if @mouse.x > (circle.x - circle.radius) and @mouse.x < (circle.x + circle.radius) and @mouse.y > (circle.y - circle.radius) and @mouse.y < (circle.y + circle.radius)
-      return true
-
-    return false
-
   draw:(@ctx)->
 
     @ctx = Draw.CTX unless @ctx
     @ctx.strokeStyle = "rgba(255,255,255,#{@opacity})"
     @ctx.lineWidth = 1
-    @ctx.strokeWidth = 3
+    @ctx.strokeWidth = 1
     @ctx.beginPath()
     @ctx.setLineDash([1,20])
 
@@ -120,22 +87,9 @@ module.exports = class Path
     @ctx.stroke()
     @ctx.closePath()
 
-    # for c, i in @keypoints
+    for c, i in @keypoints
 
-      # c.draw()
-
-  _create_connection:(p1, p2)=>
-
-    @ctx.strokeStyle = "rgba(255,255,255,#{@opacity - 0.5})"
-    @ctx.lineWidth = 1
-    @ctx.beginPath()
-    @ctx.setLineDash([1,10])
-
-    @ctx.moveTo p1.x, p1.y
-    @ctx.lineTo p2.x, p2.y
-
-    @ctx.stroke()
-    @ctx.closePath()
+      c.draw()
 
 
   mousedown:->

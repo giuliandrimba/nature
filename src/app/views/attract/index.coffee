@@ -18,7 +18,10 @@ module.exports = class Index extends AppView
     @ctx.destroy()
     super
 
-  after_render:()=>
+  after_render:=>
+    setTimeout @init, 1500
+
+  init:()=>
 
     s = @
     dir = {}
