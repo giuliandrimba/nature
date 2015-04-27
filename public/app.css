@@ -645,30 +645,31 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   z-index: 2;
-  max-width: 170px;
+  max-width: 180px;
+  word-break: break-word;
 }
 
-/* line 70 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 71 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .description {
   bottom: 130px;
   height: 30px;
 }
 
-/* line 74 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 75 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages #container {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-/* line 79 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 80 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages #transition {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-/* line 84 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
+/* line 85 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages canvas {
   position: relative;
   margin-left: auto;

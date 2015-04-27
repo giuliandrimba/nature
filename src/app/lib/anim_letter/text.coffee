@@ -26,14 +26,14 @@ class AnimText
     @text.css("opacity", 0)
     setTimeout (=>
       @text.css("opacity", 1)
-      @tween(true)
+      @tween(10, true)
     ), @delay
 
-  tween:(init)->
-    @anim_letters[@current].tween(10, init).on_complete = =>
+  tween:(delay,init)->
+    @anim_letters[@current].tween(delay, init).on_complete = =>
       @current++
       if @current < @total
-        @tween()
+        @tween(delay - 1)
         return
 
 module.exports = AnimText

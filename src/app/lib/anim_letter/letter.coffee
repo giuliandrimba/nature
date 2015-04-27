@@ -13,26 +13,24 @@ class AnimLetter
     @txt = text
 
   tween:(delay, init)->
+
     @_delay = delay
     @txt.text("") if init is true
     @txt.text(@txt.text() + @letter)
     @txt_letters = @txt.text().split("")
     @last_pos = @txt_letters.length - 1
-    @txt_letters[@last_pos] = @letter
 
     @tick = =>
 
-      window.requestAnimationFrame @tick
       if @_iteration >= 1 and !@_completed
         @_completed = true
         @on_complete()
-        window.cancelAnimationFrame @tick
 
       if @_iteration >= @_alphabet.length
-        @txt_letters = @txt.text().split("")
-        @txt_letters[@last_pos] = @letter
-        @txt.text(@txt_letters.join("").toUpperCase())
+        @change true
         return
+      else
+        window.requestAnimationFrame @tick
 
       @change()
 
@@ -40,10 +38,17 @@ class AnimLetter
 
     @
 
-  change:->
+  change:(finish=false)->
     @txt_letters = @txt.text().split("")
-    @txt_letters[@last_pos] = @_alphabet[ @random_letter() ]
-    @txt.text(@txt_letters.join("").toUpperCase())
+
+    if finish
+      @txt_letters[@last_pos] = @letter
+    else
+      @txt_letters[@last_pos] = @_alphabet[ @random_letter() ]
+
+    text = @txt_letters.join("")
+
+    @txt.text(text)
     @_iteration++
 
   random_letter:->

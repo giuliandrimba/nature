@@ -17,10 +17,24 @@ module.exports = class AppView extends View
 
   in:->
     super()
-    @anim_description = new AnimText @el.find(".description"), 500
-    @anim_description.start()
     @anim_title = new AnimText @el.find(".title")
+    @animate_description()
     @el.css "opacity": 0
     @el.animate {opacity: 1}, 1000
     @anim_title.start()
+
+  animate_description:=>
+
+    description = @el.find(".description")
+    texts = description.html().split("<br>")
+    description.empty()
+
+    for t in texts
+      span = $("<div></div>")
+      span.text(t)
+      description.append span
+      anim = new AnimText span, 500
+      anim.start()
+
+
 
