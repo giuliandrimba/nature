@@ -20,7 +20,7 @@ module.exports = class Index extends AppView
 
     @ctx = window.Sketch.create
 
-      container: @el.get(0)
+      container: @el.find(".fractals").get(0)
       lsys: undefined
       turtle: undefined
       ruleset: []

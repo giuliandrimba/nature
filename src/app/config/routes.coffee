@@ -12,12 +12,14 @@ module.exports = class Routes
     '/fractal':
       lab:true
       to: "fractal/index"
+      color: "#ccc"
       at: "/pages"
       el: "#container"
 
     '/automata':
       lab:true
       to: "automata/index"
+      color: "#000"
       at: "/pages"
       el: "#container"
 
@@ -63,7 +65,7 @@ module.exports = class Routes
       el: "#container"
 
   # default route
-  @root = '/fractal'
+  @root = '/hole'
 
   # not found route
   @notfound = '/404'

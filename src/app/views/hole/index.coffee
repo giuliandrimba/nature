@@ -11,7 +11,6 @@ module.exports = class Index extends AppView
     super
 
   after_render:=>
-
     @ctx = window.Sketch.create
 
       systems: []
