@@ -40,13 +40,13 @@ module.exports = class Cell extends Circle
 
     if @state is 0
       @opacity = 0
-      @radius -= 0.001
-      if @radius <= 1
-        @radius = 1
+      @radius = 1
 
     if @state is 1
       @opacity = 1
-      @radius = 3
+      @radius += 0.1
+      if @radius > 3
+        @radius = 3
 
     super
 
