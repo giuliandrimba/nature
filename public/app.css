@@ -357,7 +357,7 @@ h2 {
   overflow: hidden;
   width: 1150px;
   z-index: 1000;
-  display: block;
+  display: none;
 }
 .menu .open {
   position: absolute;
