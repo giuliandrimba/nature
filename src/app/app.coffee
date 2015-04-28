@@ -13,4 +13,4 @@ module.exports = class App extends Theoricus
 # initialize your app
 new App Settings, Routes
 
-document.domain = "localhost"
+document.domain = "doublepi.me"
