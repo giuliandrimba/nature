@@ -102,7 +102,7 @@ module.exports = class Turtle
 			if dist < 10
 				ctx.lineTo p.x, p.y
 
-		ctx.strokeStyle = "#FFFFFF";
+		ctx.strokeStyle = "#000";
 		ctx.lineWidth = 2;
 		ctx.stroke()
 		ctx.closePath()

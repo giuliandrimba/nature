@@ -42,7 +42,7 @@ module.exports = class Index extends AppView
 
       resize:->
 
-        _.STRING_DIST = (15 * 100) / @width
+        _.STRING_DIST = (15 * 200) / @width
 
         _.CENTER_X = (@width / 2) - (_.NUM_COLS * _.STRING_DIST / 2)
         _.CENTER_Y = (@height / 2) - (_.NUM_ROWS * _.STRING_DIST / 2)
@@ -71,9 +71,8 @@ module.exports = class Index extends AppView
 
           md = Calc.dist @drag.x, @drag.y, @mouse.x, @mouse.y
 
-          if md < 300
-            @drag.x = @mouse.x
-            @drag.y = @mouse.y
+          @drag.x = @mouse.x
+          @drag.y = @mouse.y
 
         @iterate (ball, row, col)=>
 
@@ -127,8 +126,8 @@ module.exports = class Index extends AppView
 
         angle = 0
         step = 360 / 10
-        dist = @width / 50
-        dist_step = @width / 100
+        dist = @width / 75
+        dist_step = @width / 150
 
         _.points = []
         _.strings = []

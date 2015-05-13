@@ -58,7 +58,7 @@ sys.push
 
 sys.push
 	n: 3
-	len: 100
+	len: 75
 	theta: 90
 	axiom: "F-F-F-F"
 	rule: "FF-F-F-F-FF"
