@@ -7,6 +7,8 @@ module.exports = class AppView extends View
   set_triggers: ->
     super()
 
+    document.domain = "doublepi.me"
+
     window.navigate = (url)=> @navigate(url)
 
     # automagically route links starting with "/"
