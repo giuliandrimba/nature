@@ -31,17 +31,21 @@ module.exports = class Index extends AppView
 
   in:(done)->
     @before_in()
-    # TweenLite.to @logo, 0, {css:{opacity:1}, delay:0.1}
-    # @logo.spritefy "logo-labs",
-      # duration:1
-      # count:1
-      # onComplete:()=>
+
+    if !@in_iframe()
+      @menu.visible()
+
     @menu.in ()=>
       @after_in?()
-
-    # @logo.animation.play()
 
   goto:(e)->
     e.preventDefault()
     route = $(e.currentTarget).attr "href"
-    # @navigate route
+    @navigate route
+
+  in_iframe: ->
+    try
+      return window.self != window.top
+    catch e
+      return true
+    return
