@@ -244,7 +244,7 @@ h2 {
   letter-spacing: 10px;
 }
 .wrapper {
-  width: 1150px;
+  width: 1024px;
   position: relative;
   margin: 0 auto;
   min-height: 600px;
@@ -356,7 +356,7 @@ h2 {
   height: 120px;
   position: absolute;
   overflow: hidden;
-  width: 1150px;
+  width: 1024px;
   z-index: 1000;
   display: none;
 }
