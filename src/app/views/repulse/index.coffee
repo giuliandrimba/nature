@@ -8,8 +8,8 @@ module.exports = class Index extends AppView
   NUM_BALLS= 1
 
   destroy:=>
-    @ctx.clear()
-    @ctx.destroy()
+    @ctx?.clear()
+    @ctx?.destroy()
     super
 
   after_render:()->

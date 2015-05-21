@@ -8,13 +8,16 @@ Circle = require "draw/geom/circle"
 
 module.exports = class Index extends AppView
 
+  interval: undefined
+
   destroy:=>
-    @ctx.clear()
-    @ctx.destroy()
+    clearTimeout @interval
+    @ctx?.clear()
+    @ctx?.destroy()
     super
 
   after_render:=>
-    setTimeout @init, 1500
+    @interval = setTimeout @init, 1500
 
   init:=>
 

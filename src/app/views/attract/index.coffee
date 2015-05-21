@@ -6,6 +6,7 @@ Ball = require "./ball"
 module.exports = class Index extends AppView
 
   NUM_BALLS = 500
+  interval: undefined
 
   ball: null
   target: null
@@ -14,12 +15,13 @@ module.exports = class Index extends AppView
   center: null
 
   destroy:=>
-    @ctx.clear()
-    @ctx.destroy()
+    clearTimeout @interval
+    @ctx?.clear()
+    @ctx?.destroy()
     super
 
   after_render:=>
-    setTimeout @init, 1500
+    @interval = setTimeout @init, 1500
 
   init:()=>
 
