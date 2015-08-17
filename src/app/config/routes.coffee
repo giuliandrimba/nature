@@ -9,6 +9,13 @@ module.exports = class Routes
       at: null
       el: "body"
 
+    '/ga':
+      lab:true
+      to: "ga/index"
+      color: "#000"
+      at: "/pages"
+      el: "#container"
+
     '/fractal':
       lab:true
       to: "fractal/index"
