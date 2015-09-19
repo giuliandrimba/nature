@@ -1,101 +1,105 @@
 DNA = require "./dna"
 Calc = require "draw/math/calc"
+Circle = require "draw/geom/circle"
+Draw = require "draw/draw"
 _ = require "underscore"
 
 module.exports = class Letter
 
-  dna: undefined
-  points: undefined
-  MAX_FITNESS: undefined
-  fitness_score: undefined
-  el: undefined
-  hit_area: undefined
+	dna: undefined
+	points: undefined
+	MAX_FITNESS: undefined
+	fitness_score: undefined
+	el: undefined
+	hit_area: undefined
 
-  constructor:(@two, @x, @y, @form)->
-    @dna = DNA.generate()
-    @points = []
-    @children = []
-    @el = @two.makeGroup()
-    @MAX_FITNESS = Calc.dist(0,0,70,140) * 5
-    @fitness_score = 0
-    @hit_area = @two.makeRectangle(0,0,70,140)
-    @el.add(@hit_area)
-    @hit_area.opacity = 0
-    @el.translation.set(@x,@y)
+	constructor:(@x, @y, @form)->
+		@dna = DNA.generate()
+		@points = @dna
+		@lines = []
+		@circles = []
+		@MAX_FITNESS = Calc.dist(0,0,70,140) * 5
+		@fitness_score = 0
 
-    @draw()
+		@draw()
 
-  update:->
+	update:->
 
-  draw:=>
+		for p, i in @points
+			TweenMax.to p, 0.5, x:@dna[i].x, y:@dna[i].y,
 
-    @el.remove(@children)
+	draw:=>
 
-    for point, i in @dna
-      circle = @two.makeCircle point.x, point.y, 2
-      circle.fill = '#FF8800'
-      circle.noStroke()
-      @el.add circle
-      @children.push circle
+		for point, i in @points
 
-      if i > 0 and i < @dna.length - 2
-        prev = @dna[i - 1]
-        line = @two.makeLine prev.x, prev.y, point.x, point.y
-        @children.push line
-        @el.add line
+			# circle = new Circle 2, '#FF8800'
+			# circle.x = point.x
+			# circle.y = point.y
+			# @circles.push circle
 
-      if i > @dna.length - 2
-        prev = @dna[i - 1]
-        line = @two.makeLine prev.x, prev.y, point.x, point.y
-        @children.push line
-        @el.add line
+			Draw.CTX.strokeStyle = '#000'
+			Draw.CTX.lineWidth = 1
 
-  fitness:=>
+			if i > 0 and i < @dna.length - 2
+				prev = @dna[i - 1]
+				Draw.CTX.beginPath()
+				Draw.CTX.moveTo @x + prev.x, @y + prev.y
+				Draw.CTX.lineTo @x + point.x, @y + point.y
+				Draw.CTX.stroke()
 
-    count = 0
+			if i > @dna.length - 2
+				prev = @dna[i - 1]
+				Draw.CTX.beginPath()
+				Draw.CTX.moveTo @x + prev.x, @y + prev.y
+				Draw.CTX.lineTo @x + point.x, @y + point.y
+				Draw.CTX.stroke()
 
-    for p, i in @dna
-      dist = Calc.dist @form[i].x, @form[i].y, p.x, p.y
-      vel = 15 - (dist / 10)
+	fitness:=>
 
-      if dist < 30
-        vel *= 2
+		count = 0
 
-      if dist < 20
-        vel *= 3
+		for p, i in @dna
+			dist = Calc.dist @form[i].x, @form[i].y, p.x, p.y
+			vel = 15 - (dist / 10)
 
-      if dist < 10
-        vel *= 5
+			if dist < 30
+				vel *= 2
 
-      if dist < 5
-        vel *= 8
+			if dist < 20
+				vel *= 3
 
-      if dist > 50
-        vel *= 0.1
+			if dist < 10
+				vel *= 5
 
-      count += vel
+			if dist < 5
+				vel *= 8
 
-    @fitness_score = count
-    @fitness_score
+			if dist > 50
+				vel *= 0.1
 
-  evolve:(new_dna, index)=>
+			count += vel
 
-    @dna = _.clone(new_dna)
+		@fitness_score = count
+		@fitness_score
 
-    if (Math.random() * 10) < 0.1
-      rnd_pos = Math.floor(Math.abs(Math.random() * @dna.length - 1))
-      form_el = @form[rnd_pos]
-      dist = Calc.dist(form_el.x, form_el.y, @dna[rnd_pos].x, @dna[rnd_pos].y)
+	evolve:(new_dna, index)=>
 
-      if dist > 50
-        @dna[rnd_pos].x = Math.random() * 70
-        @dna[rnd_pos].y = Math.random() * 140
+		@dna = _.clone(new_dna)
 
-      else if dist > 30
-        @dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 10)) + Math.random() * 10;
-        @dna[rnd_pos].y = (@dna[rnd_pos].y - (Math.random() * 10)) + Math.random() * 10;
+		if (Math.random() * 10) < 1
+			rnd_pos = Math.floor(Math.abs(Math.random() * @dna.length - 1))
+			form_el = @form[rnd_pos]
+			dist = Calc.dist(form_el.x, form_el.y, @dna[rnd_pos].x, @dna[rnd_pos].y)
 
-    @fitness_score = 0
+			if dist > 50
+				@dna[rnd_pos].x = Math.random() * 70
+				@dna[rnd_pos].y = Math.random() * 140
+
+			else if dist > 30
+				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 10)) + Math.random() * 10;
+				@dna[rnd_pos].y = (@dna[rnd_pos].y - (Math.random() * 10)) + Math.random() * 10;
+
+		@fitness_score = 0
 
 
 

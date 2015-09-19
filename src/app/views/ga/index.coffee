@@ -6,109 +6,121 @@ Letter = require "./letter"
 
 module.exports = class Index extends AppView
 
-  letters: []
-  TOTAL_LETTERS: 40
-  mating_pool: []
-  counter: 0
+	destroy:->
+		super
+
+	after_render:=>
+
+		@ctx = window.Sketch.create
+
+			container: @el.find(".lab").get(0)
+			fullscreen: true
+			autoclear:true
+			total: 5
+			line: 0
+			column: 0
+			letters: []
+			TOTAL_LETTERS: 18
+			mating_pool: []
+			counter: 0
 
 
-  destroy:->
-    super
+			setup:->
 
-  after_render:=>
+				Draw.CTX = $(".sketch").get(0).getContext("2d")
 
-    params =
-      width: $(window).width()
-      height: $(window).height()
+				total_width = 120 * @total
+				total_height = (@TOTAL_LETTERS / (@total + 1)) * 170
+				init_x = (@width / 2) - (total_width / 2)
+				init_y = (@height / 2) - (total_height / 2)
 
-    @two = new Two(params).appendTo @el.find(".lab").get(0)
+				i = 0
 
-    @total = $(window).width() / 120
-    @line = 0
-    @column = 0
+				while i < @TOTAL_LETTERS
 
-    @A = new Letter @two, 0, 20, alphabet.A
-    @A.dna = alphabet.A
-    # @A.draw()
+					l = new Letter init_x + (@column * 120), init_y + (@line * 170), alphabet.A
+					@column++
 
-    i = 0
+					if @column > @total
+						@line++
+						@column = 0
 
-    while i < @TOTAL_LETTERS
+					@letters.push l
 
-      l = new Letter @two, @column * 120, @line * 120, alphabet.A
-      @column++
+					i++
 
-      if @column > @total
-        @line++
-        @column = 0
+			update:->
 
-      @letters.push l
+			mousedown:->
+				@evolve()
 
-      i++
+			mouseup:->
 
-    @two.bind("update", @update).play()
-    $("body").bind "mousedown", @evolve
+			draw:->
+				# Draw.CTX.fillStyle = "rgba(255,255,255,0.05)"
+				# Draw.CTX.fillRect(0, 0, @width, @height)
 
-  update:=>
+				for l in @letters
+					l.draw()
 
-  selection:=>
+			selection:->
 
-    @mating_pool = []
+				@mating_pool = []
 
-    for letter in @letters
-      letter.fitness()
+				for letter in @letters
+					letter.fitness()
 
-    for letter in @letters
-      fit = Math.abs(Math.floor(letter.fitness_score))
-      j = 0
-      while j < fit
-        @mating_pool.push letter.dna
-        j++
+				for letter in @letters
+					fit = Math.abs(Math.floor(letter.fitness_score))
+					j = 0
+					while j < fit
+						@mating_pool.push letter.dna
+						j++
 
-  reproduce:=>
+			reproduce:->
 
-  evolve:=>
+			evolve:->
 
-    @selection()
+				@selection()
 
-    for letter, i in @letters
-      rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
-      dna_A = @mating_pool[rnd_dna]
-      rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
-      dna_B = @mating_pool[rnd_dna]
+				for letter, i in @letters
+					rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
+					dna_A = @mating_pool[rnd_dna]
+					rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
+					dna_B = @mating_pool[rnd_dna]
 
-      new_dna = @crossover dna_A, dna_B
+					new_dna = @crossover dna_A, dna_B
 
-      if new_dna
-        letter.evolve new_dna, i
-        letter.draw()
+					if new_dna
+						letter.evolve new_dna, i
+						letter.update()
 
-    @selection()
+				@selection()
 
-  crossover:(a, b)=>
+			crossover:(a, b)->
 
-    new_dna = []
-    parents = [a,b]
+				new_dna = []
+				parents = [a,b]
 
-    i = 0
-    while i < alphabet.A.length
+				i = 0
+				while i < alphabet.A.length
 
-      dist_a = Calc.dist a[i].x, a[i].y, alphabet.A[i].x, alphabet.A[i].y
-      dist_b = Calc.dist b[i].x, b[i].y, alphabet.A[i].x, alphabet.A[i].y
-      index = Math.floor(Math.random() * 2)
+					dist_a = Calc.dist a[i].x, a[i].y, alphabet.A[i].x, alphabet.A[i].y
+					dist_b = Calc.dist b[i].x, b[i].y, alphabet.A[i].x, alphabet.A[i].y
+					index = Math.floor(Math.random() * 2)
 
-      if dist_a < 10
-        index = 0
-      else if dist_b < 10
-        index = 1
-      else if (dist_a < dist_b && dist_b < 10 && dist_a < 10)
-        index = 0
+					if dist_a < 10
+						index = 0
+					else if dist_b < 10
+						index = 1
+					else if (dist_a < dist_b && dist_b < 10 && dist_a < 10)
+						index = 0
 
-      new_dna.push parents[index][i]
+					new_dna.push parents[index][i]
 
-      i++
+					i++
 
-    new_dna
+				new_dna
 
 
 
