@@ -57,8 +57,8 @@ module.exports = class Index extends AppView
 			mouseup:->
 
 			draw:->
-				# Draw.CTX.fillStyle = "rgba(255,255,255,0.05)"
-				# Draw.CTX.fillRect(0, 0, @width, @height)
+				Draw.CTX.fillStyle = "rgba(255,255,255,0.05)"
+				Draw.CTX.fillRect(0, 0, @width, @height)
 
 				for l in @letters
 					l.draw()
@@ -84,16 +84,12 @@ module.exports = class Index extends AppView
 				@selection()
 
 				for letter, i in @letters
+
 					rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
 					dna_A = @mating_pool[rnd_dna]
-					rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
-					dna_B = @mating_pool[rnd_dna]
 
-					new_dna = @crossover dna_A, dna_B
-
-					if new_dna
-						letter.evolve new_dna, i
-						letter.update()
+					letter.evolve dna_A, i
+					letter.update()
 
 				@selection()
 

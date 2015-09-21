@@ -26,29 +26,30 @@ module.exports = class Letter
 	update:->
 
 		for p, i in @points
-			TweenMax.to p, 0.5, x:@dna[i].x, y:@dna[i].y,
+			TweenMax.to p, 0.25, x:@dna[i].x, y:@dna[i].y, override:true
 
 	draw:=>
 
 		for point, i in @points
 
-			# circle = new Circle 2, '#FF8800'
-			# circle.x = point.x
-			# circle.y = point.y
-			# @circles.push circle
+	    # Draw.CTX.fillStyle = '#FF8800'
+	    # Draw.CTX.beginPath()
+	    # Draw.CTX.arc @x + point.x, @y + point.y, 2, 0, Math.PI*2,true
+	    # Draw.CTX.closePath()
+	    # Draw.CTX.fill()
 
 			Draw.CTX.strokeStyle = '#000'
 			Draw.CTX.lineWidth = 1
 
-			if i > 0 and i < @dna.length - 2
-				prev = @dna[i - 1]
+			if i > 0 and i < @points.length - 2
+				prev = @points[i - 1]
 				Draw.CTX.beginPath()
 				Draw.CTX.moveTo @x + prev.x, @y + prev.y
 				Draw.CTX.lineTo @x + point.x, @y + point.y
 				Draw.CTX.stroke()
 
-			if i > @dna.length - 2
-				prev = @dna[i - 1]
+			if i > @points.length - 2
+				prev = @points[i - 1]
 				Draw.CTX.beginPath()
 				Draw.CTX.moveTo @x + prev.x, @y + prev.y
 				Draw.CTX.lineTo @x + point.x, @y + point.y
@@ -87,15 +88,22 @@ module.exports = class Letter
 		@dna = _.clone(new_dna)
 
 		if (Math.random() * 10) < 1
+
+
 			rnd_pos = Math.floor(Math.abs(Math.random() * @dna.length - 1))
 			form_el = @form[rnd_pos]
 			dist = Calc.dist(form_el.x, form_el.y, @dna[rnd_pos].x, @dna[rnd_pos].y)
+
+			console.log "MUTATE", rnd_pos, dist
 
 			if dist > 50
 				@dna[rnd_pos].x = Math.random() * 70
 				@dna[rnd_pos].y = Math.random() * 140
 
-			else if dist > 30
+			else if dist > 15
+				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 50)) + Math.random() * 50;
+				@dna[rnd_pos].y = (@dna[rnd_pos].y - (Math.random() * 50)) + Math.random() * 50;
+			else
 				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 10)) + Math.random() * 10;
 				@dna[rnd_pos].y = (@dna[rnd_pos].y - (Math.random() * 10)) + Math.random() * 10;
 
