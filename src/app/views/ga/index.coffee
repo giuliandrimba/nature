@@ -15,12 +15,12 @@ module.exports = class Index extends AppView
 
 			container: @el.find(".lab").get(0)
 			fullscreen: true
-			autoclear:true
+			autoclear:false
 			total: 5
 			line: 0
 			column: 0
 			letters: []
-			TOTAL_LETTERS: 18
+			TOTAL_LETTERS: 30
 			mating_pool: []
 			counter: 0
 
@@ -28,6 +28,10 @@ module.exports = class Index extends AppView
 			setup:->
 
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
+
+				@total = Math.round(@width / 70)
+				@TOTAL_LETTERS = Math.round(@height / 140) * @total
+				console.log @TOTAL_LETTERS
 
 				total_width = 120 * @total
 				total_height = (@TOTAL_LETTERS / (@total + 1)) * 170
@@ -57,7 +61,7 @@ module.exports = class Index extends AppView
 			mouseup:->
 
 			draw:->
-				Draw.CTX.fillStyle = "rgba(255,255,255,0.05)"
+				Draw.CTX.fillStyle = "rgba(0,0,0,0.05)"
 				Draw.CTX.fillRect(0, 0, @width, @height)
 
 				for l in @letters
@@ -67,7 +71,8 @@ module.exports = class Index extends AppView
 
 				@mating_pool = []
 
-				for letter in @letters
+				for letter, i in @letters
+
 					letter.fitness()
 
 				for letter in @letters
@@ -90,8 +95,6 @@ module.exports = class Index extends AppView
 
 					letter.evolve dna_A, i
 					letter.update()
-
-				@selection()
 
 			crossover:(a, b)->
 

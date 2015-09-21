@@ -38,7 +38,7 @@ module.exports = class Letter
 	    # Draw.CTX.closePath()
 	    # Draw.CTX.fill()
 
-			Draw.CTX.strokeStyle = '#000'
+			Draw.CTX.strokeStyle = '#ccc'
 			Draw.CTX.lineWidth = 1
 
 			if i > 0 and i < @points.length - 2
@@ -64,10 +64,10 @@ module.exports = class Letter
 			vel = 15 - (dist / 10)
 
 			if dist < 30
-				vel *= 2
+				vel *= 1.5
 
 			if dist < 20
-				vel *= 3
+				vel *= 2
 
 			if dist < 10
 				vel *= 5
@@ -89,23 +89,20 @@ module.exports = class Letter
 
 		if (Math.random() * 10) < 1
 
-
 			rnd_pos = Math.floor(Math.abs(Math.random() * @dna.length - 1))
 			form_el = @form[rnd_pos]
 			dist = Calc.dist(form_el.x, form_el.y, @dna[rnd_pos].x, @dna[rnd_pos].y)
 
-			console.log "MUTATE", rnd_pos, dist
-
 			if dist > 50
-				@dna[rnd_pos].x = Math.random() * 70
-				@dna[rnd_pos].y = Math.random() * 140
+				@dna[rnd_pos].x = 35 + Math.random() * 35
+				@dna[rnd_pos].y = 70 + Math.random() * 70
 
-			else if dist > 15
+			else if dist > 30
 				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 50)) + Math.random() * 50;
 				@dna[rnd_pos].y = (@dna[rnd_pos].y - (Math.random() * 50)) + Math.random() * 50;
 			else
 				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 10)) + Math.random() * 10;
-				@dna[rnd_pos].y = (@dna[rnd_pos].y - (Math.random() * 10)) + Math.random() * 10;
+				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 10)) + Math.random() * 10;
 
 		@fitness_score = 0
 
