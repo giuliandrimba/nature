@@ -24,9 +24,14 @@ module.exports = class Index extends AppView
 			mating_pool: []
 			counter: 0
 			finished: 0
+			done: false
+
+			time: undefined
 
 
 			setup:->
+
+				@time = Date.now()
 
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
 				@generation = 1
@@ -38,7 +43,7 @@ module.exports = class Index extends AppView
 				i = 0
 
 				while i < @TOTAL_LETTERS
-					l = new Letter (@column * 120), (@line * 170), alphabet.A
+					l = new Letter (20 + @column * 120), (20 + @line * 170), alphabet.A
 					@column++
 
 					if @column > @total
@@ -53,8 +58,14 @@ module.exports = class Index extends AppView
 
 			update:->
 
+				current = Date.now()
+
+				if current > @time + 1000
+					@time = current
+					@evolve()
+
 			mousedown:->
-				@evolve()
+				# @evolve()
 
 			mouseup:->
 
@@ -65,18 +76,18 @@ module.exports = class Index extends AppView
 				for l, i in @letters
 					l.l.draw()
 
-					prev_point = l.l.points[l.i]
+					# prev_point = l.l.points[l.i]
 
-					if i > 0
-						prev_l = @letters[i - 1]
-						point = l.l.points[l.i]
+					# if i > 0
+					# 	prev_l = @letters[i - 1]
+					# 	point = l.l.points[l.i]
 
-						Draw.CTX.globalAlpha = 0.1
-						Draw.CTX.beginPath()
-						Draw.CTX.moveTo prev_l.l.x + prev_point.x, prev_l.l.y + prev_point.y
-						Draw.CTX.lineTo l.l.x + point.x, l.l.y + point.y
-						Draw.CTX.stroke()
-						Draw.CTX.globalAlpha = 1
+					# 	Draw.CTX.globalAlpha = 0.1
+					# 	Draw.CTX.beginPath()
+					# 	Draw.CTX.moveTo prev_l.l.x + prev_point.x, prev_l.l.y + prev_point.y
+					# 	Draw.CTX.lineTo l.l.x + point.x, l.l.y + point.y
+					# 	Draw.CTX.stroke()
+					# 	Draw.CTX.globalAlpha = 1
 
 			selection:->
 
@@ -97,6 +108,8 @@ module.exports = class Index extends AppView
 
 			evolve:->
 
+				return if @done
+
 				@generation++
 
 				if @generation < 10
@@ -112,6 +125,7 @@ module.exports = class Index extends AppView
 						@finished++
 
 						if @finished >= @TOTAL_LETTERS
+							@done = true
 							@generation_text.addClass("done")
 
 					else
