@@ -10943,7 +10943,7 @@ jade.debug.unshift({ lineno: 7, filename: jade.debug[0].filename });
 buf.push("<p class=\"title\">");
 jade.debug.unshift({ lineno: undefined, filename: jade.debug[0].filename });
 jade.debug.unshift({ lineno: 7, filename: jade.debug[0].filename });
-buf.push("Evolution of code");
+buf.push("Evolution of form");
 jade.debug.shift();
 jade.debug.shift();
 buf.push("</p>");
@@ -10952,7 +10952,7 @@ jade.debug.unshift({ lineno: 8, filename: jade.debug[0].filename });
 buf.push("<p class=\"description\">");
 jade.debug.unshift({ lineno: undefined, filename: jade.debug[0].filename });
 jade.debug.unshift({ lineno: 8, filename: jade.debug[0].filename });
-buf.push("Create the letter \"A\" using<br> genetic algorithm");
+buf.push("Generate the letter \"A\" using<br> genetic algorithm");
 jade.debug.shift();
 jade.debug.shift();
 buf.push("</p>");
@@ -10962,7 +10962,7 @@ buf.push("</div>");
 jade.debug.shift();
 jade.debug.shift();;return buf.join("");
 } catch (err) {
-  jade.rethrow(err, jade.debug[0].filename, jade.debug[0].lineno,"#lab-ga.lab\n\n  .label\n    p.label-title generation:\n    h1.generation 01\n\n  p.title Evolution of code\n  p.description Create the letter \"A\" using<br> genetic algorithm\n");
+  jade.rethrow(err, jade.debug[0].filename, jade.debug[0].lineno,"#lab-ga.lab\n\n  .label\n    p.label-title generation:\n    h1.generation 01\n\n  p.title Evolution of form\n  p.description Generate the letter \"A\" using<br> genetic algorithm\n");
 }
 }
 }, {});
