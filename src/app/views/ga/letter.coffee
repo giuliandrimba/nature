@@ -32,14 +32,14 @@ module.exports = class Letter
 
 		for point, i in @points
 
-	    # Draw.CTX.fillStyle = '#FF8800'
-	    # Draw.CTX.beginPath()
-	    # Draw.CTX.arc @x + point.x, @y + point.y, 2, 0, Math.PI*2,true
-	    # Draw.CTX.closePath()
-	    # Draw.CTX.fill()
-
 			Draw.CTX.strokeStyle = '#ccc'
 			Draw.CTX.lineWidth = 1
+			Draw.CTX.fillStyle = '#FF8800'
+			Draw.CTX.beginPath()
+			Draw.CTX.arc @x + point.x, @y + point.y, 5, 0, Math.PI*2,true
+			Draw.CTX.closePath()
+			Draw.CTX.fill()
+
 
 			if i > 0 and i < @points.length - 2
 				prev = @points[i - 1]
@@ -89,22 +89,31 @@ module.exports = class Letter
 
 		if (Math.random() * 10) < 1
 
-			rnd_pos = Math.floor(Math.abs(Math.random() * @dna.length - 1))
-			form_el = @form[rnd_pos]
-			dist = Calc.dist(form_el.x, form_el.y, @dna[rnd_pos].x, @dna[rnd_pos].y)
+			farther_point = @get_lowest_point()
 
-			if dist > 50
-				@dna[rnd_pos].x = 35 + Math.random() * 35
-				@dna[rnd_pos].y = 70 + Math.random() * 70
+			if farther_point.dist > 10
+				form_el = @form[farther_point.i]
+				dist = Calc.dist(form_el.x, form_el.y, @dna[farther_point.i].x, @dna[farther_point.i].y)
 
-			else if dist > 30
-				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 50)) + Math.random() * 50;
-				@dna[rnd_pos].y = (@dna[rnd_pos].y - (Math.random() * 50)) + Math.random() * 50;
-			else
-				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 10)) + Math.random() * 10;
-				@dna[rnd_pos].x = (@dna[rnd_pos].x - (Math.random() * 10)) + Math.random() * 10;
+				@dna[farther_point.i].x = Math.random() * 70
+				@dna[farther_point.i].y = Math.random() * 140
 
 		@fitness_score = 0
+
+	get_lowest_point:=>
+
+		larger_dist = 0
+		index = undefined
+
+		for d, i in @dna
+
+			dist = Calc.dist(@form[i].x, @form[i].y, d.x, d.y)
+			if dist > larger_dist
+				larger_dist = dist
+				index = i
+
+		return {i:index, dist:larger_dist}
+
 
 
 

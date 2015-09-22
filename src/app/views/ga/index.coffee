@@ -31,7 +31,6 @@ module.exports = class Index extends AppView
 
 				@total = Math.round(@width / 70)
 				@TOTAL_LETTERS = Math.round(@height / 140) * @total
-				console.log @TOTAL_LETTERS
 
 				total_width = 120 * @total
 				total_height = (@TOTAL_LETTERS / (@total + 1)) * 170
@@ -95,31 +94,6 @@ module.exports = class Index extends AppView
 
 					letter.evolve dna_A, i
 					letter.update()
-
-			crossover:(a, b)->
-
-				new_dna = []
-				parents = [a,b]
-
-				i = 0
-				while i < alphabet.A.length
-
-					dist_a = Calc.dist a[i].x, a[i].y, alphabet.A[i].x, alphabet.A[i].y
-					dist_b = Calc.dist b[i].x, b[i].y, alphabet.A[i].x, alphabet.A[i].y
-					index = Math.floor(Math.random() * 2)
-
-					if dist_a < 10
-						index = 0
-					else if dist_b < 10
-						index = 1
-					else if (dist_a < dist_b && dist_b < 10 && dist_a < 10)
-						index = 0
-
-					new_dna.push parents[index][i]
-
-					i++
-
-				new_dna
 
 
 
