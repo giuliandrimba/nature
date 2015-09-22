@@ -293,6 +293,65 @@
   background-color: #000;
 }
 
+/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+#lab-ga .label {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+#lab-ga .label p,
+#lab-ga .label h1 {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+/* line 18 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+#lab-ga .label p {
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 300;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  display: inline-block;
+}
+
+/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+#lab-ga .label h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 70px;
+  -webkit-transform: translateY(5px);
+  -moz-transform: translateY(5px);
+  -o-transform: translateY(5px);
+  -ms-transform: translateY(5px);
+  transform: translateY(5px);
+}
+
+/* line 34 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+#lab-ga .label h1.done {
+  -webkit-transition: color 1s;
+  -moz-transition: color 1s;
+  -o-transition: color 1s;
+  -ms-transition: color 1s;
+  transition: color 1s;
+  color: #00ff24;
+}
+
 
 /* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
 

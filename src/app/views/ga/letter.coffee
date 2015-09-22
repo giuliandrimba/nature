@@ -12,6 +12,7 @@ module.exports = class Letter
 	fitness_score: undefined
 	el: undefined
 	hit_area: undefined
+	done: false
 
 	constructor:(@x, @y, @form)->
 		@dna = DNA.generate()
@@ -97,6 +98,9 @@ module.exports = class Letter
 
 				@dna[farther_point.i].x = Math.random() * 70
 				@dna[farther_point.i].y = Math.random() * 140
+
+			else
+				@done = true
 
 		@fitness_score = 0
 

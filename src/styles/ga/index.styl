@@ -2,3 +2,35 @@
   width 100%
   height 100%
   background-color #000
+
+  .label
+  	position absolute
+  	top 100px
+  	left 50%
+  	transform translateX(-50%)
+  	z-index 10
+
+  .label p, .label h1
+  	color #fff
+  	font-family: 'Open Sans', sans-serif;
+  	font-size 12px
+
+  .label p
+  	letter-spacing 2px
+  	position relative
+  	font-weight: 300;
+  	left 50%
+  	transform translateX(-50%)
+  	display inline-block
+
+  .label h1
+  	font-family: 'Open Sans', sans-serif;
+  	font-weight: 800;
+  	color #fff
+  	letter-spacing 1px
+  	font-size 70px
+  	transform translateY(5px)
+
+  .label h1.done
+  	transition color 1s
+  	color #00ff24

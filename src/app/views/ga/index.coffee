@@ -23,11 +23,14 @@ module.exports = class Index extends AppView
 			TOTAL_LETTERS: 30
 			mating_pool: []
 			counter: 0
+			finished: 0
 
 
 			setup:->
 
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
+				@generation = 1
+				@generation_text = $(".label").find("h1")
 
 				@total = Math.round(@width / 70)
 				@TOTAL_LETTERS = Math.round(@height / 140) * @total
@@ -40,7 +43,6 @@ module.exports = class Index extends AppView
 
 					if @column > @total
 						@line++
-						console.log @line
 						@column = 0
 
 					index = Math.floor(Math.random() * 3)
@@ -95,15 +97,30 @@ module.exports = class Index extends AppView
 
 			evolve:->
 
+				@generation++
+
+				if @generation < 10
+					@generation_text.text("0#{@generation}")
+				else
+					@generation_text.text("#{@generation}")
+
 				@selection()
 
 				for letter, i in @letters
 
-					rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
-					dna_A = @mating_pool[rnd_dna]
+					if letter.l.done
+						@finished++
 
-					letter.l.evolve dna_A, i
-					letter.l.update()
+						if @finished >= @TOTAL_LETTERS
+							@generation_text.addClass("done")
+
+					else
+
+						rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
+						dna_A = @mating_pool[rnd_dna]
+
+						letter.l.evolve dna_A, i
+						letter.l.update()
 
 
 
