@@ -26,7 +26,7 @@ module.exports = class Letter
 	update:->
 
 		for p, i in @points
-			TweenMax.to p, 0.25, x:@dna[i].x, y:@dna[i].y, override:true
+			TweenMax.to p, 0.15, x:@dna[i].x, y:@dna[i].y, override:true
 
 	draw:=>
 
@@ -34,9 +34,9 @@ module.exports = class Letter
 
 			Draw.CTX.strokeStyle = '#ccc'
 			Draw.CTX.lineWidth = 1
-			Draw.CTX.fillStyle = '#FF8800'
+			Draw.CTX.fillStyle = '#ccc'
 			Draw.CTX.beginPath()
-			Draw.CTX.arc @x + point.x, @y + point.y, 5, 0, Math.PI*2,true
+			Draw.CTX.arc @x + point.x, @y + point.y, 2, 0, Math.PI*2,true
 			Draw.CTX.closePath()
 			Draw.CTX.fill()
 
@@ -91,7 +91,7 @@ module.exports = class Letter
 
 			farther_point = @get_lowest_point()
 
-			if farther_point.dist > 10
+			if farther_point.dist > 20
 				form_el = @form[farther_point.i]
 				dist = Calc.dist(form_el.x, form_el.y, @dna[farther_point.i].x, @dna[farther_point.i].y)
 

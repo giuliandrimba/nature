@@ -32,23 +32,20 @@ module.exports = class Index extends AppView
 				@total = Math.round(@width / 70)
 				@TOTAL_LETTERS = Math.round(@height / 140) * @total
 
-				total_width = 120 * @total
-				total_height = (@TOTAL_LETTERS / (@total + 1)) * 170
-				init_x = (@width / 2) - (total_width / 2)
-				init_y = (@height / 2) - (total_height / 2)
-
 				i = 0
 
 				while i < @TOTAL_LETTERS
-
-					l = new Letter init_x + (@column * 120), init_y + (@line * 170), alphabet.A
+					l = new Letter (@column * 120), (@line * 170), alphabet.A
 					@column++
 
 					if @column > @total
 						@line++
+						console.log @line
 						@column = 0
 
-					@letters.push l
+					index = Math.floor(Math.random() * 3)
+					index2 = Math.floor(Math.random() * l.dna.length)
+					@letters.push l:l, i: index, i2:index2
 
 					i++
 
@@ -60,11 +57,24 @@ module.exports = class Index extends AppView
 			mouseup:->
 
 			draw:->
-				Draw.CTX.fillStyle = "rgba(0,0,0,0.05)"
+				Draw.CTX.fillStyle = "rgba(0,0,0,0.1)"
 				Draw.CTX.fillRect(0, 0, @width, @height)
 
-				for l in @letters
-					l.draw()
+				for l, i in @letters
+					l.l.draw()
+
+					prev_point = l.l.points[l.i]
+
+					if i > 0
+						prev_l = @letters[i - 1]
+						point = l.l.points[l.i]
+
+						Draw.CTX.globalAlpha = 0.1
+						Draw.CTX.beginPath()
+						Draw.CTX.moveTo prev_l.l.x + prev_point.x, prev_l.l.y + prev_point.y
+						Draw.CTX.lineTo l.l.x + point.x, l.l.y + point.y
+						Draw.CTX.stroke()
+						Draw.CTX.globalAlpha = 1
 
 			selection:->
 
@@ -72,13 +82,13 @@ module.exports = class Index extends AppView
 
 				for letter, i in @letters
 
-					letter.fitness()
+					letter.l.fitness()
 
 				for letter in @letters
-					fit = Math.abs(Math.floor(letter.fitness_score))
+					fit = Math.abs(Math.floor(letter.l.fitness_score))
 					j = 0
 					while j < fit
-						@mating_pool.push letter.dna
+						@mating_pool.push letter.l.dna
 						j++
 
 			reproduce:->
@@ -92,8 +102,8 @@ module.exports = class Index extends AppView
 					rnd_dna =  Math.abs(Math.floor(Math.random() * (@mating_pool.length - 1)))
 					dna_A = @mating_pool[rnd_dna]
 
-					letter.evolve dna_A, i
-					letter.update()
+					letter.l.evolve dna_A, i
+					letter.l.update()
 
 
 
