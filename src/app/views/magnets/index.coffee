@@ -19,8 +19,6 @@ module.exports = class Index extends AppView
     super
 
   after_render:=>
-
-
     _ = @
 
     _.magnets = []
@@ -37,10 +35,20 @@ module.exports = class Index extends AppView
         _.ball.x = 50
         _.ball.y = @height / 2
 
+        @reset()
+
+      resize:->
+        @reset()
+        @draw()
+        @update()
+
+      reset:->
+
+        _.magnets = []
+
         i = 0
 
-        while i < parseInt($(window).width() / 15)
-        # while i < 1
+        while i < parseInt(@width / 15)
 
           m = new Magnet 5 + (Math.random() * 30), "#1A1F2B"
           m.x = Math.random() * @width

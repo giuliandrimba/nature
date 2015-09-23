@@ -61,6 +61,9 @@ module.exports = class Index extends AppView
           s.balls.push ball
           i++
 
+      resize:->
+        @update()
+        @draw()
 
       update:()->
 
@@ -75,9 +78,6 @@ module.exports = class Index extends AppView
           rad = Calc.deg2rad ang
           dist = Calc.dist b.x, b.y, mouse.x, mouse.y
           total_dist = Calc.dist b.init_x, b.init_y, mouse.x, mouse.y
-
-          # b.opacity = Math.abs(((dist * 100 / total_dist) / 100))
-          # b.speed = (b.opacity) / 10
 
           rndx = (Math.random() * 50)
           rndy = (Math.random() * 30)
