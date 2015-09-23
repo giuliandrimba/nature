@@ -22,7 +22,15 @@ module.exports = class Letter
 		@MAX_FITNESS = Calc.dist(0,0,70,140) * 5
 		@fitness_score = 0
 
-		@draw()
+	reset:=>
+
+		@dna = DNA.generate()
+		@points = @dna
+		@lines = []
+		@circles = []
+		@MAX_FITNESS = Calc.dist(0,0,70,140) * 5
+		@fitness_score = 0
+		@done = false
 
 	update:->
 
@@ -31,20 +39,23 @@ module.exports = class Letter
 
 	draw:=>
 
+		Draw.CTX.strokeStyle = '#fff'
+		Draw.CTX.lineWidth = 4
+		Draw.CTX.fillStyle = '#fff'
+
+		Draw.CTX.beginPath()
+		Draw.CTX.arc @x + 115, @y + 70, 1, 0, Math.PI*2,true
+		Draw.CTX.closePath()
+		Draw.CTX.fill()
+
 		for point, i in @points
 
-			Draw.CTX.strokeStyle = '#ccc'
-			Draw.CTX.lineWidth = 1
-			Draw.CTX.fillStyle = '#ccc'
-			Draw.CTX.beginPath()
-			Draw.CTX.arc @x + point.x, @y + point.y, 2, 0, Math.PI*2,true
-			Draw.CTX.closePath()
-			Draw.CTX.fill()
 
 
 			if i > 0 and i < @points.length - 2
 				prev = @points[i - 1]
 				Draw.CTX.beginPath()
+				Draw.CTX.lineJoin = "round"
 				Draw.CTX.moveTo @x + prev.x, @y + prev.y
 				Draw.CTX.lineTo @x + point.x, @y + point.y
 				Draw.CTX.stroke()
@@ -97,7 +108,7 @@ module.exports = class Letter
 				dist = Calc.dist(form_el.x, form_el.y, @dna[farther_point.i].x, @dna[farther_point.i].y)
 
 				@dna[farther_point.i].x = Math.random() * 70
-				@dna[farther_point.i].y = Math.random() * 140
+				@dna[farther_point.i].y = Math.random() * 100
 
 			else
 				@done = true

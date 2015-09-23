@@ -7,6 +7,8 @@ Letter = require "./letter"
 module.exports = class Index extends AppView
 
 	destroy:->
+		@ctx?.clear()
+		@ctx?.destroy()
 		super
 
 	after_render:=>
@@ -27,9 +29,14 @@ module.exports = class Index extends AppView
 			done: false
 
 			time: undefined
+			loop : []
+			sound_index: 0
 
 
 			setup:->
+
+				@sound = new Howl
+  				urls: ['audio/bip.wav']
 
 				@time = Date.now()
 
@@ -37,13 +44,13 @@ module.exports = class Index extends AppView
 				@generation = 1
 				@generation_text = $(".label").find("h1")
 
-				@total = Math.round(@width / 70)
-				@TOTAL_LETTERS = Math.round(@height / 140) * @total
+				@total = Math.ceil(@width / 160)
+				@TOTAL_LETTERS = Math.ceil(@height / 170) * @total
 
 				i = 0
 
-				while i < @TOTAL_LETTERS
-					l = new Letter (20 + @column * 120), (20 + @line * 170), alphabet.A
+				while i < 45
+					l = new Letter (30 + @column * 160), (30 + @line * 170), alphabet.A
 					@column++
 
 					if @column > @total
@@ -65,7 +72,14 @@ module.exports = class Index extends AppView
 					@evolve()
 
 			mousedown:->
-				# @evolve()
+				@generation = 1
+				@generation_text.text("0#{@generation}")
+				@generation_text.removeClass("done")
+				for l in @letters
+					l.l.reset()
+
+				@done = false
+				@time = Date.now()
 
 			mouseup:->
 
@@ -76,18 +90,7 @@ module.exports = class Index extends AppView
 				for l, i in @letters
 					l.l.draw()
 
-					# prev_point = l.l.points[l.i]
-
-					# if i > 0
-					# 	prev_l = @letters[i - 1]
-					# 	point = l.l.points[l.i]
-
-					# 	Draw.CTX.globalAlpha = 0.1
-					# 	Draw.CTX.beginPath()
-					# 	Draw.CTX.moveTo prev_l.l.x + prev_point.x, prev_l.l.y + prev_point.y
-					# 	Draw.CTX.lineTo l.l.x + point.x, l.l.y + point.y
-					# 	Draw.CTX.stroke()
-					# 	Draw.CTX.globalAlpha = 1
+					Draw.CTX.lineWidth = 1
 
 			selection:->
 
@@ -109,6 +112,7 @@ module.exports = class Index extends AppView
 			evolve:->
 
 				return if @done
+				@sound.play()
 
 				@generation++
 
