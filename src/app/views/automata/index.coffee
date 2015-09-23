@@ -17,25 +17,28 @@ module.exports = class Index extends AppView
     @ctx?.clear()
     @ctx?.destroy()
 
-
-    w = $(window).width()
-    h = $(window).height()
     @canvas = @el.find("#lab-automata").find("canvas")
     @canvas.remove()
 
     @ctx = window.Sketch.create
 
       container:@el.find("#lab-automata").get(0)
-      fullscreen: false
-      width: w
-      height: h
       cells: []
+      fullscreen: true
       next_cells: []
       w: 20
       clicked: false
       frame_rate: 2
       frame: 0
       autoclear: false
+
+      resize:->
+
+        @columns = (@width) / @w
+        @rows = (@height) / @w
+
+        @init()
+        @draw()
 
       setup:->
         setTimeout (()=> $(@container).find("canvas").addClass("tween")), 0

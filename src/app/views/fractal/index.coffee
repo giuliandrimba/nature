@@ -34,6 +34,9 @@ module.exports = class Index extends AppView
       pressing: false
       fullscreen: true
 
+      resize:->
+      	@draw()
+
       setup:->
 
         Draw.CTX = $(".sketch").get(0).getContext("2d")
@@ -55,9 +58,11 @@ module.exports = class Index extends AppView
 
       draw:->
         rad = Calc.deg2rad @theta
+
         Draw.CTX.save()
         Draw.CTX.translate @width/2 + @sys.x, (@height/2) - 120 + @sys.y
         Draw.CTX.rotate -rad
         @turtle.draw Draw.CTX
         Draw.CTX.restore()
+        console.log "DRAW"
 
