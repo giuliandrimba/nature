@@ -21,13 +21,10 @@ module.exports = class Index extends AppView
 
   init:=>
 
-    _height = $(window).height()
-
     @ctx = window.Sketch.create
 
       container:@el.find(".agents").get(0)
       fullscreen: true
-      height: _height
 
       dragging: false
 
@@ -77,6 +74,9 @@ module.exports = class Index extends AppView
           @agents.push a
 
           i++
+
+      resize:->
+        @draw()
 
       create_path:->
         i = 0
