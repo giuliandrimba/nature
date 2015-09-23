@@ -23,11 +23,13 @@ module.exports = class Index extends AppView
     @ctx = window.Sketch.create
 
       container:@el.find(".lab").get(0)
-
       setup:()->
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
+        @reset()
+
+      reset:->
         @balls = []
         i = 0
 
@@ -39,8 +41,12 @@ module.exports = class Index extends AppView
           @balls.push ball
           i++
 
-      mousedown:()->
+        @resized = true
 
+      resize:->
+      	@reset()
+      	@update()
+      	@draw()
 
       update:()->
         ball.update(@mouse.x, @mouse.y) for ball in @balls
