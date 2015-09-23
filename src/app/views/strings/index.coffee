@@ -48,6 +48,7 @@ module.exports = class Index extends AppView
         _.CENTER_Y = (@height / 2) - (_.NUM_ROWS * _.STRING_DIST / 2)
 
         @build_grid()
+        @draw()
 
       setup:->
 
