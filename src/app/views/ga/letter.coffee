@@ -43,14 +43,7 @@ module.exports = class Letter
 		Draw.CTX.lineWidth = 4
 		Draw.CTX.fillStyle = '#fff'
 
-		Draw.CTX.beginPath()
-		Draw.CTX.arc @x + 115, @y + 70, 1, 0, Math.PI*2,true
-		Draw.CTX.closePath()
-		Draw.CTX.fill()
-
 		for point, i in @points
-
-
 
 			if i > 0 and i < @points.length - 2
 				prev = @points[i - 1]

@@ -44,16 +44,19 @@ module.exports = class Index extends AppView
 				@generation = 1
 				@generation_text = $(".label").find("h1")
 
-				@total = Math.ceil(@width / 160)
-				@TOTAL_LETTERS = Math.ceil(@height / 170) * @total
+				@total_columns = Math.ceil(@width / 150) - 1
+				@total_lines = Math.ceil((@height) / 170) - 1
+				@line_spacing = (@height - (@total_lines * 140)) / @total_lines
+				@column_spacing = ((@width / 2) - (@total_columns * 150) / 2) + 40
+				@TOTAL_LETTERS = @total_columns * (@total_lines)
 
 				i = 0
 
-				while i < 45
-					l = new Letter (30 + @column * 160), (30 + @line * 170), alphabet.A
+				while i < @TOTAL_LETTERS
+					l = new Letter (@column_spacing + @column * 150), (@line_spacing + @line * 170), alphabet.A
 					@column++
 
-					if @column > @total
+					if @column > @total_columns - 1
 						@line++
 						@column = 0
 
@@ -62,6 +65,12 @@ module.exports = class Index extends AppView
 					@letters.push l:l, i: index, i2:index2
 
 					i++
+
+			draw_point:(letter)->
+				Draw.CTX.beginPath()
+				Draw.CTX.arc letter.x + 115, letter.y + 70, 1, 0, Math.PI*2,true
+				Draw.CTX.closePath()
+				Draw.CTX.fill()
 
 			update:->
 
@@ -89,6 +98,9 @@ module.exports = class Index extends AppView
 
 				for l, i in @letters
 					l.l.draw()
+
+					unless (i + 1) % @total_columns is 0
+						@draw_point(l.l)
 
 					Draw.CTX.lineWidth = 1
 
