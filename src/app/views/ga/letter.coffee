@@ -40,7 +40,7 @@ module.exports = class Letter
 	draw:=>
 
 		Draw.CTX.strokeStyle = '#fff'
-		Draw.CTX.lineWidth = 4
+		Draw.CTX.lineWidth = 2
 		Draw.CTX.fillStyle = '#fff'
 
 		for point, i in @points
