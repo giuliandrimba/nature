@@ -304,9 +304,24 @@
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   z-index: 10;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -o-transition: opacity 0.5s ease-in;
+  -ms-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
 }
 
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+/* line 15 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+#lab-ga .label.tween {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+
+/* line 18 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label p,
 #lab-ga .label h1 {
   color: #fff;
@@ -314,7 +329,7 @@
   font-size: 12px;
 }
 
-/* line 18 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+/* line 23 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label p {
   letter-spacing: 2px;
   position: relative;
@@ -328,7 +343,7 @@
   display: inline-block;
 }
 
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+/* line 31 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label h1 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 800;
@@ -342,7 +357,7 @@
   transform: translateY(5px);
 }
 
-/* line 34 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
+/* line 39 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label h1.done {
   -webkit-transition: color 1s;
   -moz-transition: color 1s;

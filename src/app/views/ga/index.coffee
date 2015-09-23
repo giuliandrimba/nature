@@ -13,12 +13,19 @@ module.exports = class Index extends AppView
 
 	after_render:=>
 
+		setTimeout @start, 1200
+
+	start:=>
+
+		$(".label").addClass "tween"
+
 		@ctx = window.Sketch.create
 
 			container: @el.find(".lab").get(0)
 			fullscreen: true
 			autoclear:false
-			total: 5
+			total_columns: 0
+			total_lines: 0
 			line: 0
 			column: 0
 			letters: []
@@ -32,23 +39,20 @@ module.exports = class Index extends AppView
 			loop : []
 			sound_index: 0
 
-
-			setup:->
-
-				@sound = new Howl
-  				urls: ['audio/bip.wav']
+			reset:->
 
 				@time = Date.now()
-
-				Draw.CTX = $(".sketch").get(0).getContext("2d")
 				@generation = 1
-				@generation_text = $(".label").find("h1")
-
+				@generation_text.text("0#{@generation}")
 				@total_columns = Math.ceil(@width / 150) - 1
 				@total_lines = Math.ceil((@height) / 170) - 1
 				@line_spacing = (@height - (@total_lines * 140)) / @total_lines
 				@column_spacing = ((@width / 2) - (@total_columns * 150) / 2) + 40
 				@TOTAL_LETTERS = @total_columns * (@total_lines)
+
+				@letters = []
+				@column = 0
+				@line = 0
 
 				i = 0
 
@@ -66,6 +70,14 @@ module.exports = class Index extends AppView
 
 					i++
 
+			setup:->
+
+				@sound = new Howl
+  				urls: ['audio/bip.wav']
+
+				Draw.CTX = $(".sketch").get(0).getContext("2d")
+				@generation_text = $(".label").find("h1")
+
 			draw_point:(letter)->
 				Draw.CTX.beginPath()
 				Draw.CTX.arc letter.x + 115, letter.y + 70, 1, 0, Math.PI*2,true
@@ -80,6 +92,10 @@ module.exports = class Index extends AppView
 					@time = current
 					@evolve()
 
+			resize:->
+
+				@reset()
+
 			mousedown:->
 				@generation = 1
 				@generation_text.text("0#{@generation}")
@@ -89,8 +105,6 @@ module.exports = class Index extends AppView
 
 				@done = false
 				@time = Date.now()
-
-			mouseup:->
 
 			draw:->
 				Draw.CTX.fillStyle = "rgba(0,0,0,0.1)"
@@ -118,8 +132,6 @@ module.exports = class Index extends AppView
 					while j < fit
 						@mating_pool.push letter.l.dna
 						j++
-
-			reproduce:->
 
 			evolve:->
 
