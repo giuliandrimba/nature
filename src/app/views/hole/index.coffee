@@ -28,6 +28,9 @@ module.exports = class Index extends AppView
         @pivot = new Pivot target
         @count = 20
 
+      resize:->
+        @update()
+
       mousemove:->
         @pivot.target = @mouse
 
