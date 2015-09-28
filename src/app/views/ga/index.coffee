@@ -74,6 +74,7 @@ module.exports = class Index extends AppView
 
 				@sound = new Howl
   				urls: ['audio/bip.wav']
+  				volume: 0.5
 
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
 				@generation_text = $(".label").find("h1")

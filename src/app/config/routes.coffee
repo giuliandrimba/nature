@@ -72,7 +72,7 @@ module.exports = class Routes
       el: "#container"
 
   # default route
-  @root = '/hole'
+  @root = '/ga'
 
   # not found route
   @notfound = '/404'
