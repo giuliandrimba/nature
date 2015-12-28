@@ -9,6 +9,13 @@ module.exports = class Routes
       at: null
       el: "body"
 
+    '/neural':
+      lab:true
+      to: "neural/index"
+      color: "#000"
+      at: "/pages"
+      el: "#container"
+
     '/ga':
       lab:true
       to: "ga/index"
