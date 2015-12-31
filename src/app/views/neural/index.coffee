@@ -28,6 +28,8 @@ module.exports = class Index extends AppView
       autoclear: false
 
       resize:->
+        @network.location.x = @width / 2
+        @network.location.y = @height / 2
         @draw()
 
       setup:->
