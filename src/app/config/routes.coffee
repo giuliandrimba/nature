@@ -79,7 +79,7 @@ module.exports = class Routes
       el: "#container"
 
   # default route
-  @root = '/ga'
+  @root = '/neural'
 
   # not found route
   @notfound = '/404'
