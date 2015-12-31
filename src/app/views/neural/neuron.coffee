@@ -6,13 +6,13 @@ module.exports = class Neuron
 
   sum: 0
 
-  radius: 32
+  radius: 5
   location: {}
   index: undefined
 
   constructor:(x, y)->
     @connections = []
-    @radius = 32
+    @radius = 5
     @sum = 0
     @location = {}
     @location.x = x
@@ -29,7 +29,7 @@ module.exports = class Neuron
       @sum = 0
 
   fire:->
-    @radius = 64
+    @radius = 10
 
     for c in @connections
       c.feedforward @sum
@@ -45,7 +45,4 @@ module.exports = class Neuron
     ctx.fill()
     ctx.stroke()
 
-    if @index is 1
-      console.log color
-
-    @radius = Calc.lerp(@radius, 32, 0.1)
+    @radius = Calc.lerp(@radius, 5, 0.1)

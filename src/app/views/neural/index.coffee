@@ -22,6 +22,7 @@ module.exports = class Index extends AppView
 
       container: @el.find(".neural").get(0)
       network: undefined
+      neurons: []
       frame_count:0
 
       resize:->
@@ -33,26 +34,44 @@ module.exports = class Index extends AppView
         @network = new Network @width / 2, @height / 2
         @frame_count = 0
 
-        a = new Neuron -275, 0
-        b = new Neuron -150, 0
-        c = new Neuron 0, 75
-        d = new Neuron 0, -75
-        e = new Neuron 150, 0
-        f = new Neuron 275, 0
+        @create_neurons()
 
-        @network.connect a, b, 1
-        @network.connect b, c, Math.random()
-        @network.connect b, d, Math.random()
-        @network.connect c, e, Math.random()
-        @network.connect d, e, Math.random()
-        @network.connect e, f, 1
+      create_neurons:->
 
-        @network.add_neuron a
-        @network.add_neuron b
-        @network.add_neuron c
-        @network.add_neuron d
-        @network.add_neuron e
-        @network.add_neuron f
+        i = 0
+        total = 50
+
+        while i < total
+          x =  Math.random() * (300 - (-300)) + (-300);
+          y =  Math.random() * (300 - (-300)) + (-300);
+          a = new Neuron x, y
+          @neurons.push a
+          i++
+
+        i = 0
+        while i < total
+          a = @neurons[i]
+          rndB = Math.round(Math.random() * (@neurons.length - 1))
+
+          if rndB is i and rndB < total
+            rndB++
+          if rndB is i and rndB > 0
+            rndB--
+          rndC = Math.round(Math.random() * (@neurons.length - 1))
+          if rndC is i and rndC < total
+            rndC++
+          if rndC is i and rndC > 0
+            rndC--
+
+          b = @neurons[rndB]
+          c = @neurons[rndC]
+          @network.connect a, b, Math.random()
+          @network.connect a, c, Math.random()
+
+          @network.add_neuron a
+          i++
+
+
 
       update:->
 

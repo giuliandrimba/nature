@@ -36,17 +36,17 @@ module.exports = class Connection
         @sending = false
 
   draw:(ctx)=>
-    ctx.strokeStyle = "#ffffff"
-    ctx.lineWidth = 1+@weight*4
-    ctx.moveTo @a.location.x, @a.location.y
-    ctx.lineTo @b.location.x, @b.location.y
-    ctx.stroke()
+    # ctx.strokeStyle = "#ffffff"
+    # ctx.lineWidth = 1+@weight
+    # ctx.moveTo @a.location.x, @a.location.y
+    # ctx.lineTo @b.location.x, @b.location.y
+    # ctx.stroke()
 
     if @sending
       ctx.fillStyle = "#fff"
       ctx.lineWidth = 1
       ctx.beginPath()
-      ctx.arc @sender.x, @sender.y, 10, 0, Math.PI*2,true
+      ctx.arc @sender.x, @sender.y, 5, 0, Math.PI*2,true
       ctx.closePath()
       ctx.fill()
 
