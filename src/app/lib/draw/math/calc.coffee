@@ -20,3 +20,11 @@ module.exports = class Calc
 
   @rad2deg:(rad)->
     rad * 180 / Math.PI
+
+  @lerp:(start, stop, amt)->
+    amt*(stop-start)+start;
+
+  @map: (n, start1, stop1, start2, stop2)->
+    ((n-start1)/(stop1-start1))*(stop2-start2)+start2
+
+
