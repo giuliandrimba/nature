@@ -9,7 +9,7 @@ module.exports = class Routes
       at: null
       el: "body"
 
-    '/neural':
+    '/noise':
       lab:true
       to: "neural/index"
       color: "#000"
@@ -79,7 +79,7 @@ module.exports = class Routes
       el: "#container"
 
   # default route
-  @root = '/neural'
+  @root = '/noise'
 
   # not found route
   @notfound = '/404'
