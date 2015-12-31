@@ -53,12 +53,12 @@ module.exports = class Network
     for c in @connections
       c.draw(ctx)
 
-    ctx.strokeStyle = "rgba(255,255,255,0.4)"
-    ctx.lineWidth = 1
-    for c in @connections
-      ctx.moveTo c.a.location.x, c.a.location.y
-      ctx.lineTo c.b.location.x, c.b.location.y
+    # ctx.strokeStyle = "rgba(255,255,255,0.4)"
+    # ctx.lineWidth = 1
+    # for c in @connections
+    #   ctx.moveTo c.a.location.x, c.a.location.y
+    #   ctx.lineTo c.b.location.x, c.b.location.y
 
-    ctx.stroke()
+    # ctx.stroke()
     ctx.restore()
 
