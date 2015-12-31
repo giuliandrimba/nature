@@ -19,6 +19,7 @@
     "url": "https://github.com/<gh-user>/<repo-name>"
   },
   "dependencies": {
+    "timbre": "^14.11.25",
     "underscore": "^1.8.3"
   }
 }

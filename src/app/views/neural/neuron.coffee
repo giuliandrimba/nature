@@ -9,14 +9,16 @@ module.exports = class Neuron
   radius: 5
   location: {}
   index: undefined
+  audio_code: 0
 
-  constructor:(x, y)->
+  constructor:(x, y, audio_code)->
     @connections = []
     @radius = 5
     @sum = 0
     @location = {}
     @location.x = x
     @location.y = y
+    @audio_code = audio_code
 
   add_connection:(c)->
     @connections.push c
@@ -30,6 +32,7 @@ module.exports = class Neuron
 
   fire:->
     @radius = 10
+    window.T.soundfont.play(@audio_code);
 
     for c in @connections
       c.feedforward @sum

@@ -12,8 +12,17 @@ module.exports = class Network
     @location.y = y
     @neurons = []
     @connections = []
+    @midis = []
+    _ = @
+
+    @synth = window.T("OscGen", {wave:"saw", mul:0.25}).play();
+    midicps = window.T("midicps");
+    # window.T("interval", {interval:"L4", timeout:"5sec"}, ()->
+      # _.synth.noteOn 64, 40
+    # ).set({buddies:@synth}).start()
 
   add_neuron:(n)=>
+    n.audio = @synth
     @neurons.push n
     n.index = @neurons.length
 
@@ -25,6 +34,8 @@ module.exports = class Network
   feedforward:(input)=>
     start = @neurons[0]
     start.feedforward input
+
+  get_audio:->
 
   update:()=>
 
@@ -38,8 +49,16 @@ module.exports = class Network
     for n in @neurons
       n.draw(ctx)
 
+
     for c in @connections
       c.draw(ctx)
 
+    ctx.strokeStyle = "rgba(255,255,255,0.4)"
+    ctx.lineWidth = 1
+    for c in @connections
+      ctx.moveTo c.a.location.x, c.a.location.y
+      ctx.lineTo c.b.location.x, c.b.location.y
+
+    ctx.stroke()
     ctx.restore()
 

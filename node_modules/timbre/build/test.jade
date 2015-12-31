@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title #{name}
+    link(rel="stylesheet", href="/timbre.js/misc/css/mocha.css", type="text/css")
+    script(src="/timbre.js/timbre.debug.js")
+    script(src="/timbre.js/misc/js/jquery.js")
+    script(src="/timbre.js/misc/js/mocha.js")
+    script(src="/timbre.js/misc/js/chai.js")
+    script
+        mocha.setup("bdd");
+        var require = function(name) {
+             return window[name] || timbre;
+         };
+    script
+        !{testcode}
+    script
+      $(function() {
+        mocha.globals(["hasCert"]).run();
+      });
+  body
+    #mocha

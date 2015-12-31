@@ -2,6 +2,7 @@ AppView = require 'app/views/app_view'
 Draw = require "draw/draw"
 Network = require "./network"
 Neuron = require "./neuron"
+Calc = require("app/lib/draw/math/calc")
 
 module.exports = class Index extends AppView
 
@@ -34,18 +35,21 @@ module.exports = class Index extends AppView
         Draw.CTX = $(".sketch").get(0).getContext("2d")
         @network = new Network @width / 2, @height / 2
         @frame_count = 0
+        window.T.soundfont.setInstrument(5);
 
         @create_neurons()
 
       create_neurons:->
 
         i = 0
-        total = 50
+        total = 127
 
         while i < total
-          x =  Math.random() * (300 - (-300)) + (-300);
-          y =  Math.random() * (300 - (-300)) + (-300);
-          a = new Neuron x, y
+          ang = Math.random() * 360
+          rad = Calc.deg2rad ang
+          x =  Math.sin(rad) * (100 + (Math.random() * 150))
+          y =  Math.cos(rad) * (100 + (Math.random() * 150))
+          a = new Neuron x, y, Math.round(Math.random() * total)
           @neurons.push a
           i++
 
@@ -54,7 +58,7 @@ module.exports = class Index extends AppView
           if i > 0
             a = @neurons[i - 1]
             b = @neurons[i]
-            if i < total
+            if i < total - 1
               c = @neurons[i + 1]
               @network.connect a, c, Math.random()
             @network.connect a, b, Math.random()
@@ -72,11 +76,13 @@ module.exports = class Index extends AppView
 
         if @frame_count % 60 is 0
           @frame_count = 0
-          @network.feedforward Math.random()
+          @network.feedforward 1
 
 
 
       mouseup:->
+        window.T.soundfont.setInstrument(Math.round(Math.random() * 127));
+
 
       draw:->
         Draw.CTX.fillStyle = "rgba(0,0,0,1)"
