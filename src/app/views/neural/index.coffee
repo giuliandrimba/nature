@@ -24,6 +24,7 @@ module.exports = class Index extends AppView
       network: undefined
       neurons: []
       frame_count:0
+      autoclear: false
 
       resize:->
         @draw()
@@ -50,25 +51,15 @@ module.exports = class Index extends AppView
 
         i = 0
         while i < total
-          a = @neurons[i]
-          rndB = Math.round(Math.random() * (@neurons.length - 1))
+          if i > 0
+            a = @neurons[i - 1]
+            b = @neurons[i]
+            if i < total
+              c = @neurons[i + 1]
+              @network.connect a, c, Math.random()
+            @network.connect a, b, Math.random()
 
-          if rndB is i and rndB < total
-            rndB++
-          if rndB is i and rndB > 0
-            rndB--
-          rndC = Math.round(Math.random() * (@neurons.length - 1))
-          if rndC is i and rndC < total
-            rndC++
-          if rndC is i and rndC > 0
-            rndC--
-
-          b = @neurons[rndB]
-          c = @neurons[rndC]
-          @network.connect a, b, Math.random()
-          @network.connect a, c, Math.random()
-
-          @network.add_neuron a
+            @network.add_neuron a
           i++
 
 
@@ -88,5 +79,7 @@ module.exports = class Index extends AppView
       mouseup:->
 
       draw:->
+        Draw.CTX.fillStyle = "rgba(0,0,0,1)"
+        Draw.CTX.fillRect(0, 0, @width, @height)
         @network.draw(Draw.CTX)
 
