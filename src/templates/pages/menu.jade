@@ -1,11 +1,6 @@
 .menu
 
-	.open
-		.arrow
+  a(href="", class="bt-prev bt-menu") Prev
+  a(href="/info", class="bt-info bt-menu") i
+  a(href="", class="bt-next bt-menu") Next
 
-	ul.nav
-		each route, index in labs
-			li
-				a(href="#{route.url}", class="bt-menu", id="#{route.name}")
-					.white_dot
-					.dot
