@@ -17,6 +17,7 @@ module.exports = class AppView extends View
 
   in:->
     super()
+    return if @el.find(".title").length is 0
     @anim_title = new AnimText @el.find(".title"), 500
     @animate_description()
     @el.css "opacity": 0

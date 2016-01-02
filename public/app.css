@@ -468,7 +468,66 @@
 .info {
   width: 100%;
   height: 100%;
+  background-color: #fff;
+  position: absolute;
+  text-align: center;
+}
+
+/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
+.info .content {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+}
+
+/* line 15 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
+.info h1 {
+  text-transform: uppercase;
+  font-family: 'GothamThin';
+  font-size: 30px;
+  letter-spacing: 5px;
+  margin-bottom: 44px;
+}
+
+/* line 22 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
+.info p {
+  font-family: 'CourierRegular';
+  font-size: 11px;
+  line-height: 150%;
+  margin-bottom: 44px;
+}
+
+/* line 28 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
+.info .line {
+  width: 27px;
+  height: 1px;
   background-color: #000;
+  margin: 0 auto;
+  margin-bottom: 44px;
+}
+
+/* line 36 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
+.info ul li {
+  margin-bottom: 5px;
+}
+
+/* line 39 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
+.info ul li a {
+  font-family: 'GothamLight';
+  font-size: 12px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* line 45 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
+.info ul li a:hover,
+.info ul li a.active {
+  text-decoration: line-through;
 }
 
 
