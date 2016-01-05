@@ -1120,29 +1120,139 @@ h2 {
 /* line 25 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-prev {
   background: #fff url("/img/arrow-left.png") no-repeat top left;
-  -webkit-background-size: 7px;
-  -moz-background-size: 7px;
-  background-size: 7px;
+  -webkit-background-size: 14px;
+  -moz-background-size: 14px;
+  background-size: 14px;
   background-position: 15px 10px;
 }
 
 /* line 30 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-next {
-  background-image: url("/img/arrow-right.png");
-  background-repeat: no-repeat;
-  -webkit-background-size: 7px;
-  -moz-background-size: 7px;
-  background-size: 7px;
-  background-position: 15px 10px;
+  position: relative;
 }
 
-/* line 36 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 33 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu .out,
+.menu .bt-menu .over {
+  position: absolute;
+  width: 38px;
+  height: 33px;
+  overflow: hidden;
+}
+
+/* line 39 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu .out .icon,
+.menu .bt-menu .over .icon {
+  background-image: url("/img/arrow-right.png");
+  background-repeat: no-repeat;
+  -webkit-background-size: 14px;
+  -moz-background-size: 14px;
+  background-size: 14px;
+  background-position: 0 0;
+  position: absolute;
+  width: 14px;
+  height: 27px;
+  top: 50%;
+  left: 50%;
+  margin-top: -6.5px;
+  margin-left: -3px;
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: -moz-transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: -o-transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  -ms-transition: -ms-transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* line 53 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -o-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/* line 59 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu .over .bg {
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: -moz-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: -o-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -ms-transition: -ms-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* line 63 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu .over .icon {
+  background-position: -7px 0;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -ms-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* line 68 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu .over p {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -ms-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* line 72 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+
+/* line 74 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu:hover .over .bg {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 77 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu:hover .over .icon,
+.menu .bt-menu:hover .over p {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+
+/* line 80 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-prev .out .icon,
+.menu .bt-prev .over .icon {
+  background-image: url("/img/arrow-left.png");
+}
+
+/* line 83 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu .over .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #000;
+}
+
+/* line 89 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-info {
   text-align: center;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
-  padding-top: 10px;
-  height: 23px;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  height: 33px;
   font-family: "GothamLight";
   font-size: 18px;
   color: #000;
@@ -1153,7 +1263,15 @@ h2 {
   transition-delay: 0.05s;
 }
 
-/* line 47 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 99 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-info .over p {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  color: #fff;
+}
+
+/* line 103 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-next {
   -webkit-transition-delay: 0.07s;
   -moz-transition-delay: 0.07s;
@@ -1162,7 +1280,7 @@ h2 {
   transition-delay: 0.07s;
 }
 
-/* line 50 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 107 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .blur {
   -webkit-transition: filter 1s ease-in-out;
   -moz-transition: filter 1s ease-in-out;
@@ -1176,9 +1294,9 @@ h2 {
   -webkit-filter: blur(3px);
 }
 
-/* line 58 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 115 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 
-/* line 59 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+/* line 116 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu.in .bt-menu {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);

@@ -24,28 +24,85 @@
 
   .bt-prev
     background #fff url("/img/arrow-left.png") no-repeat top left
-    background-size 7px
+    background-size 14px
     background-position 15px 10px
 
   .bt-next
+    position relative
+
+  .bt-menu .out, .bt-menu .over
+    position absolute
+    width 38px
+    height 33px
+    overflow hidden
+
+  .bt-menu .out .icon, .bt-menu .over .icon
     background-image url("/img/arrow-right.png")
     background-repeat no-repeat
-    background-size 7px
-    background-position 15px 10px
+    background-size 14px
+    background-position 0 0
+    position absolute
+    width 14px
+    height 27px
+    top 50%
+    left 50%
+    margin-top -6.5px
+    margin-left -3px
+    transition transform 1s cubic-bezier(0.19, 1, 0.22, 1)
+
+  .bt-menu p
+    position absolute
+    top 50%
+    left 50%
+    transform translate3d(-50%,-50%,0)
+
+  .bt-menu .over .bg
+    transform translate3d(0,100%,0)
+    transition transform 0.5s cubic-bezier(0.19, 1, 0.22, 1)
+
+  .bt-menu .over .icon
+    background-position -7px 0
+    opacity 0
+    transition opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)
+
+  .bt-menu .over p
+    opacity 0
+    transition opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)
+
+  .bt-menu:hover
+
+    .over .bg
+      transform translate3d(0,0,0)
+
+    .over .icon, .over p
+      opacity 1
+
+  .bt-prev .out .icon, .bt-prev .over .icon
+    background-image url("/img/arrow-left.png")
+
+  .bt-menu .over .bg
+    width 100%
+    height 100%
+    position absolute
+    background-color #000
 
   .bt-info
     text-align center
-    border-left 1px solid #aaa
-    border-right 1px solid #aaa
-    padding-top 10px
-    height 23px
+    border-left 1px solid #000
+    border-right 1px solid #000
+    height 33px
     font-family "GothamLight"
     font-size 18px
     color #000
     transition-delay 0.05s
 
+  .bt-info .over p
+    opacity 0
+    color #fff
+
   .bt-next
     transition-delay 0.07s
+
 
 .blur
   -webkit-transition: filter 1s ease-in-out;
