@@ -489,9 +489,9 @@
 .info h1 {
   text-transform: uppercase;
   font-family: 'GothamThin';
-  font-size: 30px;
-  letter-spacing: 5px;
   margin-bottom: 44px;
+  font-size: 40px;
+  letter-spacing: 9px;
 }
 
 /* line 22 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */

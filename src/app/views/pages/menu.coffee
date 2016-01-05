@@ -30,15 +30,24 @@ module.exports = class Menu
     @events()
 
   in:(cb)->
+    unless @active_page() is "info"
+      @show()
+    cb?()
+
+  hide:=>
+    @el.removeClass "in"
+
+  show:=>
     setTimeout ()=>
       @el.addClass "in"
     ,
       0
 
-    cb?()
-
   events:()->
     History.Adapter.bind window, 'statechange', =>
-      @update()
+      if @active_page() is "info"
+        @hide()
+      else
+        @show()
 
   update:=>
