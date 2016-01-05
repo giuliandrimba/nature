@@ -33,6 +33,20 @@
     margin-bottom 44px
 
 
+  .bt-close
+    width 14px
+    height 14px
+    display block
+    position absolute
+    background url('img/close.png') no-repeat top left
+    background-size 13.5px
+    text-indent -9999px
+    left 50%
+    transform translateX(-50%) translateY(300px)
+    transition transform 0.75s cubic-bezier(0.19, 1, 0.22, 1)
+    bottom 50px
+
+
   ul li
     margin-bottom 5px
 
@@ -45,4 +59,8 @@
   ul li a:hover, ul li a.active
     text-decoration: line-through;
 
+.info.animate-in
+  .bt-close
+    transform translateX(-50%) translateY(0)
+    transition-delay 1s
 

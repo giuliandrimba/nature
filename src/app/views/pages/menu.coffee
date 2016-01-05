@@ -1,27 +1,20 @@
 Template = require 'templates/pages/menu'
 Routes = require 'app/config/routes'
+View = require 'theoricus/mvc/view'
 
-module.exports = class Menu
+module.exports = class Menu extends View
 
   constructor:(at)->
     @el = $(Template())
     $(at).append @el
+    window.currentPage = "/"
+    window.prevPage = "/"
     @setup()
 
   visible:=>
     @el.css("display","block")
 
   on_resize:()=>
-
-  active_page:->
-
-    page = window.location.href.toString().split("/").pop()
-
-    unless page.length
-
-      page = Routes.root.substring(1)
-
-    return page
 
   setup:()->
     @window = $(window)
@@ -30,7 +23,7 @@ module.exports = class Menu
     @events()
 
   in:(cb)->
-    unless @active_page() is "info"
+    unless Routes.active_page() is "info"
       @show()
     cb?()
 
@@ -44,8 +37,11 @@ module.exports = class Menu
       0
 
   events:()->
+
     History.Adapter.bind window, 'statechange', =>
-      if @active_page() is "info"
+      window.prevPage = window.currentPage
+      window.currentPage = Routes.active_page()
+      if Routes.active_page() is "info"
         @hide()
       else
         @show()

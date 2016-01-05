@@ -1,5 +1,6 @@
 AppView = require 'app/views/app_view'
 Menu = require 'app/views/pages/menu'
+Routes = require "app/config/routes"
 
 module.exports = class Index extends AppView
 
@@ -13,6 +14,7 @@ module.exports = class Index extends AppView
     @border = $(".border")
     @menu = new Menu ".footer"
     @logo = @el.find ".logo-labs"
+    @events()
 
   before_in:()->
     @logo.css {opacity:0}
@@ -37,6 +39,18 @@ module.exports = class Index extends AppView
 
     @menu.in ()=>
       @after_in?()
+
+  events:=>
+
+    @el.find(".bt-prev").bind "click", (e)=>
+      e.preventDefault()
+      route = Routes.get_prev "/"+Routes.active_page()
+      @navigate route
+
+    @el.find(".bt-next").bind "click", (e)=>
+      e.preventDefault()
+      route = Routes.get_next "/"+Routes.active_page()
+      @navigate route
 
   goto:(e)->
     e.preventDefault()
