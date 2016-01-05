@@ -6,6 +6,8 @@ Letter = require "./letter"
 
 module.exports = class Index extends AppView
 
+	title: "Natura : Evolution of Form"
+
 	destroy:->
 		@ctx?.clear()
 		@ctx?.destroy()
@@ -73,8 +75,8 @@ module.exports = class Index extends AppView
 			setup:->
 
 				@sound = new Howl
-  				urls: ['audio/bip.wav']
-  				volume: 0.5
+					urls: ['audio/bip.wav']
+					volume: 0.5
 
 				Draw.CTX = $(".sketch").get(0).getContext("2d")
 				@generation_text = $(".label").find("h1")

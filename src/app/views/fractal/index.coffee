@@ -8,6 +8,8 @@ Calc = require "app/lib/draw/math/calc"
 
 module.exports = class Index extends AppView
 
+  title: "Natura : Chaotic Shapes"
+
   destroy:=>
     @ctx?.clear()
     @ctx?.destroy()

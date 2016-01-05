@@ -7,6 +7,8 @@ Audio = require "./audio"
 
 module.exports = class Index extends AppView
 
+  title: "Natura : Strings & Dots"
+
   NUM_COLS: 20
   NUM_ROWS: 20
 

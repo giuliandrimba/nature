@@ -9,28 +9,28 @@ module.exports = class Routes
       at: null
       el: "body"
 
-    '/neural_noise':
+    '/neural-noise':
       index:9
       to: "neural/index"
       color: "#000"
       at: "/pages"
       el: "#container"
 
-    '/evolution_of_form':
+    '/evolution-of-form':
       index:8
       to: "ga/index"
       color: "#000"
       at: "/pages"
       el: "#container"
 
-    '/chaotic_shapes':
+    '/chaotic-shapes':
       index:7
       to: "fractal/index"
       color: "#ccc"
       at: "/pages"
       el: "#container"
 
-    '/game_of_life':
+    '/game-of-life':
       index:6
       to: "automata/index"
       color: "#000"
@@ -43,7 +43,7 @@ module.exports = class Routes
       at: "/pages"
       el: "#container"
 
-    '/springs_and_dots':
+    '/springs-and-dots':
       index:4
       to: "strings/index"
       at: "/pages"
@@ -93,7 +93,7 @@ module.exports = class Routes
         at: null
         el: "body"
 
-      '/neural_noise':
+      '/neural-noise':
         index:9
         to: "neural/index"
         color: "#000"

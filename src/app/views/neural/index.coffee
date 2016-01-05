@@ -6,6 +6,8 @@ Calc = require("app/lib/draw/math/calc")
 
 module.exports = class Index extends AppView
 
+  title: "Natura : Neural Noise"
+
   destroy:=>
     @ctx?.clear()
     @ctx?.destroy()

@@ -10,6 +10,8 @@ module.exports = class Index extends AppView
   magnets: []
   started: true
 
+  title: "Natura : Invisible Force"
+
   destroy:->
     @ctx.clear()
     @ctx.destroy()

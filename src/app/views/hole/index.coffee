@@ -5,6 +5,8 @@ Pivot = require "./pivot"
 
 module.exports = class Index extends AppView
 
+  title: "Natura : Spiral Hypnosis"
+
   destroy:=>
     @ctx.clear()
     @ctx.destroy()

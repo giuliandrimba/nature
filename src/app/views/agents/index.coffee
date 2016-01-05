@@ -8,6 +8,8 @@ Circle = require "draw/geom/circle"
 
 module.exports = class Index extends AppView
 
+  title: "Natura : Walkers"
+
   interval: undefined
 
   destroy:=>
