@@ -9,16 +9,45 @@ module.exports = class Routes
       at: null
       el: "body"
 
-    '/neural-noise':
-      index:9
-      to: "neural/index"
-      color: "#000"
+    '/opposite-forces':
+      index:0
+      to: "repulse/index"
       at: "/pages"
       el: "#container"
 
-    '/evolution-of-form':
-      index:8
-      to: "ga/index"
+    '/black-hole':
+      index:1
+      to: "attract/index"
+      at: "/pages"
+      el: "#container"
+
+    '/invisible-force':
+      index:2
+      to: "magnets/index"
+      at: "/pages"
+      el: "#container"
+
+    '/spiral-hypnosis':
+      index:3
+      to: "hole/index"
+      at: "/pages"
+      el: "#container"
+
+    '/springs-and-dots':
+      index:4
+      to: "strings/index"
+      at: "/pages"
+      el: "#container"
+
+    '/walkers':
+      index:5
+      to: "agents/index"
+      at: "/pages"
+      el: "#container"
+
+    '/game-of-life':
+      index:6
+      to: "automata/index"
       color: "#000"
       at: "/pages"
       el: "#container"
@@ -30,46 +59,17 @@ module.exports = class Routes
       at: "/pages"
       el: "#container"
 
-    '/game-of-life':
-      index:6
-      to: "automata/index"
+    '/evolution-of-form':
+      index:8
+      to: "ga/index"
       color: "#000"
       at: "/pages"
       el: "#container"
 
-    '/walkers':
-      index:5
-      to: "agents/index"
-      at: "/pages"
-      el: "#container"
-
-    '/springs-and-dots':
-      index:4
-      to: "strings/index"
-      at: "/pages"
-      el: "#container"
-
-    '/spiral-hypnosis':
-      index:3
-      to: "hole/index"
-      at: "/pages"
-      el: "#container"
-
-    '/invisible-force':
-      index:2
-      to: "magnets/index"
-      at: "/pages"
-      el: "#container"
-
-    '/black-hole':
-      index:1
-      to: "attract/index"
-      at: "/pages"
-      el: "#container"
-
-    '/opposite-forces':
-      index:0
-      to: "repulse/index"
+    '/neural-noise':
+      index:9
+      to: "neural/index"
+      color: "#000"
       at: "/pages"
       el: "#container"
 
