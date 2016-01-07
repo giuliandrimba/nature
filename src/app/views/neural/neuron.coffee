@@ -53,10 +53,13 @@ module.exports = class Neuron
       c.feedforward @sum
 
   change_position:=>
+    sr = (100 * $(window).width()) / 1440
+    r = (150 * $(window).width()) / 1440
+
     ang = Math.random() * 360
     rad = Calc.deg2rad ang
-    @x =  Math.sin(rad) * (100 + (Math.random() * 150))
-    @y =  Math.cos(rad) * (100 + (Math.random() * 150))
+    @x =  Math.sin(rad) * (sr + (Math.random() * r))
+    @y =  Math.cos(rad) * (sr + (Math.random() * r))
     @animating = true
 
   draw:(ctx)->

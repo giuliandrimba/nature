@@ -57,11 +57,14 @@ module.exports = class Index extends AppView
         i = 0
         total = 127
 
+        sr = (100 * $(window).width()) / 1440
+        r = (150 * $(window).width()) / 1440
+
         while i < total
           ang = Math.random() * 360
           rad = Calc.deg2rad ang
-          x =  Math.sin(rad) * (100 + (Math.random() * 150))
-          y =  Math.cos(rad) * (100 + (Math.random() * 150))
+          x =  Math.sin(rad) * (sr + (Math.random() * r))
+          y =  Math.cos(rad) * (sr + (Math.random() * r))
           note = Math.round(Math.random() * total)
           a = new Neuron x, y, note
           @notes.push note

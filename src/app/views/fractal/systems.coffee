@@ -4,94 +4,94 @@ index = 0
 
 sys.push
   n: 3
-  len: 18
+  len: (18 * $(window).width()) / 1440
   theta: 90
   axiom: "F-F-F-F"
   rule: "FF-F-F-F-F-F+F"
-  x: 300
-  y: 50
+  x: (300 * $(window).width()) / 1440
+  y: (50 * $(window).width()) / 1440
 
 sys.push
   n: 3
-  len: 27
+  len: (27 * $(window).width()) / 1440
   theta: 90
   axiom: "F-F-F-F"
   rule: "FF-F-F-F-FF"
-  x: 275
-  y: 355
+  x: (275 * $(window).width()) / 1440
+  y: (355 * $(window).width()) / 1440
 
 sys.push
   n: 3
-  len: 35
+  len: (35 * $(window).width()) / 1440
   theta: 90
   axiom: "F-F-F-F"
   rule: "FF-F+F-F-FF"
-  x: -70
-  y: -130
+  x: (-70 * $(window).width()) / 1440
+  y: (-130 * $(window).width()) / 1440
 
 sys.push
   n: 3
-  len: 7.5
+  len: (7.5 * $(window).width())/1440
   theta: 90
   axiom: "F-F-F-F"
   rule: "F-F+F+FF-F-F+F"
-  x: 170
-  y: 270
+  x: (170 * $(window).width()) / 1440
+  y: (270 * $(window).width()) / 1440
 
 
 sys.push
   n: 4
-  len: 70
+  len: (70 * $(window).width()) / 1440
   theta: 120
   axiom: "F-F-F-F"
   rule: "F-F+F-F"
-  x: 120
-  y: 300
+  x: (120 * $(window).width()) / 1440
+  y: (300 * $(window).width()) / 1440
 
 sys.push
   n: 4
-  len: 10
+  len: (10 * $(window).width()) / 1440
   theta: 10
   axiom: "F-F+F-F+F"
   rule: "FF-F-F+FF"
-  x: 250
-  y: 150
+  x: (250 * $(window).width()) / 1440
+  y: (150 * $(window).width()) / 1440
 
 sys.push
   n: 3
-  len: 10
+  len: (10 * $(window).width()) / 1440
   theta: 90
   axiom: "F-F-F-F"
   rule: "FF----F+FFF-F++F-FF"
-  x: -10
-  y: 50
+  x: (-10 * $(window).width()) / 1440
+  y: (50 * $(window).width()) / 1440
 
 sys.push
 	n: 4
-	len: 50
+	len: (50 * $(window).width()) / 1440
 	theta: 60
 	axiom: "F-F-F-F"
 	rule: "FF-F--F-F"
-	x: 120
-	y: 190
+	x: (120 * $(window).width()) / 1440
+	y: (190 * $(window).width()) / 1440
 
 sys.push
 	n: 4
-	len: 26
+	len: (26 * $(window).width()) / 1440
 	theta: 90
 	axiom: "F-F-F-F"
 	rule: "F-FF--F-F"
-	x: 170
-	y: -200
+	x: (170 * $(window).width()) / 1440
+	y: (-200 * $(window).width()) / 1440
 
 sys.push
 	n: 3
-	len: 150
+	len: (150 * $(window).width()) / 1440
 	theta: 130
 	axiom: "F-F-F-F"
 	rule: "F-F+F-F-F"
-	x: 40
-	y: 70
+	x: (40 * $(window).width()) / 1440
+	y: (70 * $(window).width()) / 1440
 
 
 exports.get_sys = ()->
