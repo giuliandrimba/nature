@@ -155,12 +155,21 @@
   line-height: 150%;
   margin-bottom: 44px;
 }
+.info a {
+  font-family: 'CourierRegular';
+  font-size: 11px;
+  color: #000;
+}
 .info .line {
   width: 27px;
   height: 1px;
   background-color: #000;
   margin: 0 auto;
   margin-bottom: 44px;
+}
+.info .by {
+  font-size: 10px;
+  margin-top: 64px;
 }
 .info .bt-close {
   width: 14px;
