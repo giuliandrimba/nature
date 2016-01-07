@@ -33,7 +33,7 @@ module.exports = class Index extends AppView
 
         Draw.CTX = $(".sketch").get(0).getContext("2d");
 
-        _.ball = new Ball 5, "#1A1F2B"
+        _.ball = new Ball 5, "#000"
         _.ball.x = 50
         _.ball.y = @height / 2
 
@@ -52,7 +52,7 @@ module.exports = class Index extends AppView
 
         while i < parseInt(@width / 15)
 
-          m = new Magnet 5 + (Math.random() * 30), "#1A1F2B"
+          m = new Magnet 5 + (Math.random() * 30), "#000"
           m.x = Math.random() * @width
           m.y = 100 + (Math.random() * @height - 100)
           m.setup()

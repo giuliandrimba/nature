@@ -72,10 +72,6 @@ module.exports = class Turtle
 
 				if i > @points.length
 
-					# @points.push
-					# 	x: -(Math.random() * 1000) + (Math.random() * 1000)
-					# 	y: -(Math.random() * 1000) + (Math.random() * 1000)
-
 					@points.push
 						x: @x + (-(Math.random() * 1000) + (Math.random() * 1000))
 						y: @y + (-(Math.random() * 1000) + (Math.random() * 1000))
@@ -102,7 +98,7 @@ module.exports = class Turtle
 			if dist < 10
 				ctx.lineTo p.x, p.y
 
-		ctx.strokeStyle = "#000";
+		ctx.strokeStyle = "#fff";
 		ctx.lineWidth = 2;
 		ctx.stroke()
 		ctx.closePath()

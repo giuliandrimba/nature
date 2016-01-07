@@ -47,7 +47,7 @@
 .agents {
   width: 100%;
   height: 100%;
-  background-color: #002aff;
+  background-color: #000;
 }
 
 
@@ -236,7 +236,7 @@
 
 /* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/fractal/index.styl */
 .fractals {
-  background-color: #ccc;
+  background-color: #000;
   width: 100%;
   height: 100%;
 }
@@ -620,7 +620,6 @@
 .magnets {
   width: 100%;
   height: 100%;
-  background-color: #1a1f2b;
 }
 
 
@@ -927,7 +926,7 @@ table {
 
 /* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_global.styl */
 body {
-  background-color: #070707;
+  background-color: #000;
   overflow: hidden;
 }
 
@@ -994,7 +993,7 @@ h2 {
   position: relative;
   margin: 0 auto;
   margin-top: 20px;
-  background-color: #fff;
+  background-color: #000;
 }
 
 /* line 50 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
@@ -1395,7 +1394,6 @@ h2 {
 .repulse.lab {
   width: 100%;
   height: 100%;
-  background-color: #a7c520;
 }
 
 
@@ -1447,5 +1445,4 @@ h2 {
 .strings {
   width: 100%;
   height: 100%;
-  background-color: #3b3b3b;
 }

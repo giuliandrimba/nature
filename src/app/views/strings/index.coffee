@@ -9,8 +9,8 @@ module.exports = class Index extends AppView
 
   title: "Natura : Strings & Dots"
 
-  NUM_COLS: 20
-  NUM_ROWS: 20
+  NUM_COLS: 24
+  NUM_ROWS: 24
 
   STRING_DIST: 15
   GRAVITY: 0.05
@@ -60,7 +60,7 @@ module.exports = class Index extends AppView
 
         @iterate (ball, row, col)=>
 
-          if row is 19
+          if row is 29
             _.points[row][col].pin()
 
       update:->
@@ -128,7 +128,7 @@ module.exports = class Index extends AppView
       build_grid:->
 
         angle = 0
-        step = 360 / 10
+        step = 360 / 20
         dist = @width / 75
         dist_step = @width / 150
 

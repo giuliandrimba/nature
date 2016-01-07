@@ -66,5 +66,4 @@ module.exports = class Index extends AppView
         Draw.CTX.rotate -rad
         @turtle.draw Draw.CTX
         Draw.CTX.restore()
-        console.log "DRAW"
 

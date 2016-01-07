@@ -1,7 +1,7 @@
-Rect = require "draw/geom/rect"
+Circle = require "draw/geom/circle"
 Calc = require "draw/math/calc"
 
-module.exports = class KeyPoint extends Rect
+module.exports = class KeyPoint extends Circle
 
   mouse: undefined
   over: true
@@ -23,5 +23,3 @@ module.exports = class KeyPoint extends Rect
     vw = (@width - @target) * 0.2
 
     @radius = Math.abs(vw)
-    @width = vw
-    @height = vw

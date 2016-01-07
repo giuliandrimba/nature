@@ -29,11 +29,6 @@ module.exports = class AppView extends View
     ,
       1500
 
-    setTimeout ()=>
-      $("body").css("background-color", @el.find(".lab").css("background-color"))
-    ,
-      2000
-
   animate_description:=>
 
     description = @el.find(".description")
