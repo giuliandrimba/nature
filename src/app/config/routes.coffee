@@ -193,7 +193,6 @@ module.exports = class Routes
     i = @routes[route].index
     if i < 9
       id = @get_route_id i+1
-      console.log id,i
     else
       id = @get_route_id 0
     return id
