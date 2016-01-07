@@ -45,7 +45,7 @@ module.exports = class Index extends AppView
         Draw.CTX = $(".sketch").get(0).getContext("2d")
         @network = new Network @width / 2, @height / 2
         @frame_count = 0
-        window.T.soundfont.setUrlTemplate "http://localhost:11235/free-midi/channel/0/instrument/{instrument}/{note}.js?_callback=soundfont_0_{instrument}_{note}"
+        window.T.soundfont.setUrlTemplate "http://#{window.location.hostname.toString()}/free-midi/channel/0/instrument/{instrument}/{note}.js?_callback=soundfont_0_{instrument}_{note}"
         window.T.soundfont.setInstrument(5);
 
         @create_neurons()
