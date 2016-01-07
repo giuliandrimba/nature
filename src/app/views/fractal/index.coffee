@@ -8,7 +8,7 @@ Calc = require "app/lib/draw/math/calc"
 
 module.exports = class Index extends AppView
 
-  title: "Natura : Chaotic Shapes"
+  title: "Nature : Chaotic Shapes"
 
   destroy:=>
     @ctx?.clear()

@@ -6,7 +6,7 @@ Letter = require "./letter"
 
 module.exports = class Index extends AppView
 
-	title: "Natura : Evolution of Form"
+	title: "Nature : Evolution of Form"
 
 	destroy:->
 		@ctx?.clear()

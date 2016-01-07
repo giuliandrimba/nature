@@ -14,7 +14,7 @@ module.exports = class Index extends AppView
   balls: []
   center: null
 
-  title: "Natura : Black Hole"
+  title: "Nature : Black Hole"
 
   destroy:=>
     clearTimeout @interval

@@ -4,7 +4,7 @@ Cell = require "./cell"
 
 module.exports = class Index extends AppView
 
-  title: "Natura : Game of Life"
+  title: "Nature : Game of Life"
 
   destroy:=>
     @ctx?.clear()

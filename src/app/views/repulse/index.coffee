@@ -6,7 +6,7 @@ Target = require "./target"
 module.exports = class Index extends AppView
 
   NUM_BALLS= 1
-  title: "Natura : Opposite Forces"
+  title: "Nature : Opposite Forces"
 
   destroy:=>
     @ctx?.clear()
