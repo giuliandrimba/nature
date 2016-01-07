@@ -52,19 +52,34 @@ module.exports = class Neuron
     for c in @connections
       c.feedforward @sum
 
+  change_position:=>
+    ang = Math.random() * 360
+    rad = Calc.deg2rad ang
+    @x =  Math.sin(rad) * (100 + (Math.random() * 150))
+    @y =  Math.cos(rad) * (100 + (Math.random() * 150))
+    @animating = true
+
   draw:(ctx)->
 
-    @dx = @x - @location.x
-    @dy = @y - @location.y
+    if @animating
+      @location.x += (@x - @location.x) * 0.2
+      @location.y += (@y - @location.y) * 0.2
 
-    @ax = @dx * @spring
-    @ay = @dy * @spring
+      if Math.round(@location.x) is Math.round(@x) and Math.round(@location.y) is Math.round(@y)
+        @animating = false
+    else
 
-    @vx += @ax
-    @vy += @ay
+      @dx = @x - @location.x
+      @dy = @y - @location.y
 
-    @location.x += @vx * @speed
-    @location.y += @vy * @speed
+      @ax = @dx * @spring
+      @ay = @dy * @spring
+
+      @vx += @ax
+      @vy += @ay
+
+      @location.x += @vx * @speed
+      @location.y += @vy * @speed
 
 
     color = Math.round(Calc.map(@sum, 0, 1, 0, 255))

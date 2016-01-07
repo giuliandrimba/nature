@@ -1,153 +1,15 @@
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/agents/index.styl */
 .agents {
   width: 100%;
   height: 100%;
   background-color: #000;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/attract/index.styl */
 .attract {
   width: 100%;
   height: 100%;
   background-color: #000;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
 #automata-img {
   position: absolute;
   opacity: 0;
@@ -155,16 +17,12 @@
   filter: alpha(opacity=0);
   pointer-events: none;
 }
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
 #lab-automata {
   background-color: #000;
   width: 100%;
   height: 100%;
   position: absolute;
 }
-
-/* line 15 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
 #lab-automata canvas {
   position: absolute;
   top: 0;
@@ -176,8 +34,6 @@
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }
-
-/* line 24 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/automata/index.styl */
 #lab-automata canvas.tween {
   -webkit-transition: opacity 0.5s linear;
   -moz-transition: opacity 0.5s linear;
@@ -189,111 +45,17 @@
   filter: none;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/fractal/index.styl */
 .fractals {
   background-color: #000;
   width: 100%;
   height: 100%;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga {
   width: 100%;
   height: 100%;
   background-color: #000;
 }
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label {
   position: absolute;
   top: 100px;
@@ -313,23 +75,17 @@
   -ms-transition: opacity 0.5s ease-in;
   transition: opacity 0.5s ease-in;
 }
-
-/* line 15 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label.tween {
   opacity: 1;
   -ms-filter: none;
   filter: none;
 }
-
-/* line 18 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label p,
 #lab-ga .label h1 {
   color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
 }
-
-/* line 23 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label p {
   letter-spacing: 2px;
   position: relative;
@@ -342,8 +98,6 @@
   transform: translateX(-50%);
   display: inline-block;
 }
-
-/* line 31 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label h1 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 800;
@@ -356,8 +110,6 @@
   -ms-transform: translateY(5px);
   transform: translateY(5px);
 }
-
-/* line 39 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/ga/index.styl */
 #lab-ga .label h1.done {
   -webkit-transition: color 1s;
   -moz-transition: color 1s;
@@ -367,104 +119,12 @@
   color: #00ff24;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/hole/index.styl */
 .hole {
   width: 100%;
   height: 100%;
   background-color: #000;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info {
   width: 100%;
   height: 100%;
@@ -472,8 +132,6 @@
   position: absolute;
   text-align: center;
 }
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info .content {
   top: 50%;
   left: 50%;
@@ -484,8 +142,6 @@
   transform: translateY(-50%) translateX(-50%);
   position: absolute;
 }
-
-/* line 15 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info h1 {
   text-transform: uppercase;
   font-family: 'GothamThin';
@@ -493,16 +149,12 @@
   font-size: 40px;
   letter-spacing: 9px;
 }
-
-/* line 22 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info p {
   font-family: 'CourierRegular';
   font-size: 11px;
   line-height: 150%;
   margin-bottom: 44px;
 }
-
-/* line 28 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info .line {
   width: 27px;
   height: 1px;
@@ -510,8 +162,6 @@
   margin: 0 auto;
   margin-bottom: 44px;
 }
-
-/* line 36 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info .bt-close {
   width: 14px;
   height: 14px;
@@ -535,29 +185,19 @@
   transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1);
   bottom: 50px;
 }
-
-/* line 50 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info ul li {
   margin-bottom: 5px;
 }
-
-/* line 53 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info ul li a {
   font-family: 'GothamLight';
   font-size: 12px;
   text-decoration: none;
   color: #000;
 }
-
-/* line 59 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info ul li a:hover,
 .info ul li a.active {
   text-decoration: line-through;
 }
-
-/* line 62 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
-
-/* line 63 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/info/index.styl */
 .info.animate-in .bt-close {
   -webkit-transform: translateX(-50%) translateY(0);
   -moz-transform: translateX(-50%) translateY(0);
@@ -571,157 +211,17 @@
   transition-delay: 1s;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/magnets/index.styl */
 .magnets {
   width: 100%;
   height: 100%;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/neural/index.styl */
 .neural {
   width: 100%;
   height: 100%;
   background-color: #000;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 29 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_reset.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_reset.styl */
 html,
 body,
 div,
@@ -810,8 +310,6 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_reset.styl */
 article,
 aside,
 details,
@@ -825,25 +323,17 @@ nav,
 section {
   display: block;
 }
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_reset.styl */
 body {
   line-height: 1;
 }
-
-/* line 15 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_reset.styl */
 ol,
 ul {
   list-style: none;
 }
-
-/* line 18 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_reset.styl */
 blockquote,
 q {
   quotes: none;
 }
-
-/* line 21 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_reset.styl */
 blockquote:before,
 blockquote:after,
 q:before,
@@ -851,14 +341,10 @@ q:after {
   content: "";
   content: none;
 }
-
-/* line 25 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_reset.styl */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_fonts.styl */
 @font-face {
   font-family: "MetaCondBookRoman";
   src: url("fonts/metacondbook-roman-webfont.eot");
@@ -921,22 +407,14 @@ table {
   font-weight: normal;
   font-style: normal;
 }
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_global.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_global.styl */
 body {
   background-color: #000;
   overflow: hidden;
 }
-
-/* line 7 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/shared/_global.styl */
 h2 {
   font-size: 17px;
   letter-spacing: 10px;
 }
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .wrapper {
   width: 1024px;
   position: relative;
@@ -948,8 +426,6 @@ h2 {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .border {
   position: absolute;
   width: 100%;
@@ -967,15 +443,9 @@ h2 {
   top: 0;
   margin: auto;
 }
-
-/* line 29 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
-
-/* line 31 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .header {
   text-align: center;
 }
-
-/* line 34 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .logo-labs {
   position: relative;
   margin: 0 auto;
@@ -983,8 +453,6 @@ h2 {
   display: none;
   z-index: 1000;
 }
-
-/* line 41 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .bold_line,
 .pages .thin_line {
   display: none;
@@ -995,14 +463,10 @@ h2 {
   margin-top: 20px;
   background-color: #000;
 }
-
-/* line 50 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .thin_line {
   height: 1px;
   margin-top: 15px;
 }
-
-/* line 54 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .title,
 .pages .description {
   display: block;
@@ -1026,28 +490,20 @@ h2 {
   line-height: 1.636;
   max-width: 200px;
 }
-
-/* line 72 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages .description {
   bottom: 170px;
   height: 30px;
 }
-
-/* line 76 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages #container {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-
-/* line 81 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages #transition {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-
-/* line 86 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages canvas {
   position: relative;
   margin-left: auto;
@@ -1057,8 +513,6 @@ h2 {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }
-
-/* line 93 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/index.styl */
 .pages canvas.tween {
   -webkit-transition: opacity 0.5s;
   -moz-transition: opacity 0.5s;
@@ -1070,52 +524,6 @@ h2 {
   filter: none;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu {
   height: 33px;
   position: absolute;
@@ -1130,8 +538,6 @@ h2 {
   transform: translateX(-50%);
   bottom: 0;
 }
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu {
   width: 38px;
   height: 33px;
@@ -1150,19 +556,13 @@ h2 {
   -ms-transition: -ms-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
-
-/* line 22 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-prev,
 .menu .bt-next {
   text-indent: -9999px;
 }
-
-/* line 25 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-next {
   position: relative;
 }
-
-/* line 28 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu .out,
 .menu .bt-menu .over {
   position: absolute;
@@ -1170,8 +570,6 @@ h2 {
   height: 33px;
   overflow: hidden;
 }
-
-/* line 34 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu .out .icon,
 .menu .bt-menu .over .icon {
   background-image: url("/img/arrow-right.png");
@@ -1193,8 +591,6 @@ h2 {
   -ms-transition: -ms-transform 1s cubic-bezier(0.19, 1, 0.22, 1);
   transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
-
-/* line 48 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu p {
   position: absolute;
   top: 50%;
@@ -1205,8 +601,6 @@ h2 {
   -ms-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0);
 }
-
-/* line 54 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu .over .bg {
   -webkit-transform: translate3d(0, 100%, 0);
   -moz-transform: translate3d(0, 100%, 0);
@@ -1219,8 +613,6 @@ h2 {
   -ms-transition: -ms-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
-
-/* line 58 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu .over .icon {
   background-position: -7px 0;
   opacity: 0;
@@ -1232,8 +624,6 @@ h2 {
   -ms-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
-
-/* line 63 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu .over p {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -1244,10 +634,6 @@ h2 {
   -ms-transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
-
-/* line 67 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
-
-/* line 69 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu:hover .over .bg {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -1255,22 +641,16 @@ h2 {
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-
-/* line 72 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu:hover .over .icon,
 .menu .bt-menu:hover .over p {
   opacity: 1;
   -ms-filter: none;
   filter: none;
 }
-
-/* line 75 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-prev .out .icon,
 .menu .bt-prev .over .icon {
   background-image: url("/img/arrow-left.png");
 }
-
-/* line 78 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-info .menu {
   width: 20px;
   height: 13px;
@@ -1284,35 +664,25 @@ h2 {
   transform: translate3d(-50%, -50%, 0);
   display: block;
 }
-
-/* line 87 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-info .menu .line {
   width: 100%;
   height: 1px;
   background-color: #999;
 }
-
-/* line 92 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-info .menu .line.two {
   position: absolute;
   top: 6px;
 }
-
-/* line 96 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-info .menu .line.three {
   position: absolute;
   top: 12px;
 }
-
-/* line 100 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-menu .over .bg {
   width: 100%;
   height: 100%;
   position: absolute;
   background-color: #000;
 }
-
-/* line 106 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-info {
   text-align: center;
   border-left: 1px solid #000;
@@ -1327,16 +697,12 @@ h2 {
   -ms-transition-delay: 0.05s;
   transition-delay: 0.05s;
 }
-
-/* line 116 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-info .over p {
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   color: #fff;
 }
-
-/* line 120 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu .bt-next {
   -webkit-transition-delay: 0.07s;
   -moz-transition-delay: 0.07s;
@@ -1344,8 +710,41 @@ h2 {
   -ms-transition-delay: 0.07s;
   transition-delay: 0.07s;
 }
-
-/* line 124 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
+.menu .bt-menu .disabled {
+  display: block;
+  width: 38px;
+  height: 33px;
+  position: absolute;
+  background-color: #ccc;
+  -webkit-transform: translate3d(0, 100%, 0);
+  -moz-transform: translate3d(0, 100%, 0);
+  -o-transform: translate3d(0, 100%, 0);
+  -ms-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: -moz-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: -o-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  -ms-transition: -ms-transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.menu .bt-menu.disabled .disabled {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.menu .bt-menu.disabled {
+  pointer-events: none;
+}
+.menu .bt-menu .disabled .dot {
+  width: 1px;
+  height: 1px;
+  background-color: #000;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
 .blur {
   -webkit-transition: filter 1s ease-in-out;
   -moz-transition: filter 1s ease-in-out;
@@ -1358,10 +757,6 @@ h2 {
   transition: filter 1s ease-in-out;
   -webkit-filter: blur(3px);
 }
-
-/* line 132 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
-
-/* line 133 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/pages/menu.styl */
 .menu.in .bt-menu {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -1370,103 +765,11 @@ h2 {
   transform: translate3d(0, 0, 0);
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/repulse/index.styl */
 .repulse.lab {
   width: 100%;
   height: 100%;
 }
 
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/index.styl */
-
-/* line 14 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/border.styl */
-
-/* line 11 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/clearfix.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/color-image.styl */
-
-/* line 5 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/flex.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/gradients.styl */
-
-/* line 91 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/iconic.styl */
-
-/* line 8 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/image.styl */
-
-/* line 26 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/overflow.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/positions.styl */
-
-/* line 3 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/reset.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/index.styl */
-
-/* line 6 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/aliases.styl */
-
-/* line 13 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/ellipsis.styl */
-
-/* line 10 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/hide-text.styl */
-
-/* line 9 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/replace-text.styl */
-
-/* line 1 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/text/shadow-stroke.styl */
-
-/* line undefined : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/vendor.styl */
-
-/* line 578 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/config.styl */
-
-/* line 12 : /Users/giuliandrimba/workspace/codeman/development/labs/vendors/theoricus/node_modules/polvo/node_modules/polvo-stylus/node_modules/nib/lib/nib/size.styl */
-
-/* line 2 : /Users/giuliandrimba/workspace/codeman/development/labs/src/styles/strings/index.styl */
 .strings {
   width: 100%;
   height: 100%;

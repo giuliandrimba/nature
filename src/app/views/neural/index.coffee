@@ -99,6 +99,11 @@ module.exports = class Index extends AppView
         window.T.soundfont.preload [@notes[0]]
         window.T.soundfont.setInstrument(Math.round(Math.random() * 127));
 
+        console.log @neurons
+
+        for n in @neurons
+          n.change_position()
+
 
       draw:->
         Draw.CTX.fillStyle = "rgba(0,0,0,1)"
