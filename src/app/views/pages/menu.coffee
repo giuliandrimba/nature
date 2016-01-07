@@ -7,8 +7,8 @@ module.exports = class Menu extends View
   constructor:(at)->
     @el = $(Template())
     $(at).append @el
-    window.currentPage = "/"
-    window.prevPage = "/"
+    window.currentPage = Routes.active_page()
+    window.prevPage = Routes.active_page()
     @setup()
 
   visible:=>
