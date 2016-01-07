@@ -67,6 +67,8 @@ module.exports = class Neuron
 
       if Math.round(@location.x) is Math.round(@x) and Math.round(@location.y) is Math.round(@y)
         @animating = false
+        @x = @x + Math.random() * 10
+        @y = @y + Math.random() * 10
     else
 
       @dx = @x - @location.x
