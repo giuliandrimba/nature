@@ -49,8 +49,7 @@ module.exports = class Turtle
 
 		for p,i in @points
 			pos = @position[i]
-			TweenMax.to p, 2, x:pos.x, y:pos.y, ease: Bounce.easeOut
-			# TweenMax.to p, 5, x:pos.x, y:pos.y
+			TweenMax.to p, 0.75, x:pos.x, y:pos.y
 
 	get_position:=>
 
@@ -95,7 +94,7 @@ module.exports = class Turtle
 			pos = @position[i]
 			dist = Calc.dist p.x, p.y, pos.x, pos.y
 
-			if dist < 10
+			if dist < 15
 				ctx.lineTo p.x, p.y
 
 		ctx.strokeStyle = "#fff";
