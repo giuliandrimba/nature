@@ -23,6 +23,7 @@ module.exports = class Connection
     @sender.x = @a.location.x
     @sender.y = @a.location.y
     @sending = true
+    @b.preload_sound()
 
   update:=>
     if @sending

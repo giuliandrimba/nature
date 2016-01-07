@@ -35,6 +35,9 @@ module.exports = class Neuron
   add_connection:(c)->
     @connections.push c
 
+  preload_sound:=>
+    window.T.soundfont.preload [@audio_code]
+
   feedforward:(input)->
     @sum += input
 

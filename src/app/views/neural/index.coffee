@@ -26,6 +26,7 @@ module.exports = class Index extends AppView
       container: @el.find(".neural").get(0)
       network: undefined
       neurons: []
+      notes: []
       frame_count:0
       autoclear: false
 
@@ -36,12 +37,20 @@ module.exports = class Index extends AppView
 
       setup:->
 
+        @network = undefined
+        @neurons = []
+        @notes = []
+        @frame_count = 0
+
         Draw.CTX = $(".sketch").get(0).getContext("2d")
         @network = new Network @width / 2, @height / 2
         @frame_count = 0
+        window.T.soundfont.setUrlTemplate "http://localhost:11235/free-midi/channel/0/instrument/{instrument}/{note}.js?_callback=soundfont_0_{instrument}_{note}"
         window.T.soundfont.setInstrument(5);
 
         @create_neurons()
+
+        window.T.soundfont.preload [@notes[0]]
 
       create_neurons:->
 
@@ -53,7 +62,9 @@ module.exports = class Index extends AppView
           rad = Calc.deg2rad ang
           x =  Math.sin(rad) * (100 + (Math.random() * 150))
           y =  Math.cos(rad) * (100 + (Math.random() * 150))
-          a = new Neuron x, y, Math.round(Math.random() * total)
+          note = Math.round(Math.random() * total)
+          a = new Neuron x, y, note
+          @notes.push note
           @neurons.push a
           i++
 
@@ -85,6 +96,7 @@ module.exports = class Index extends AppView
 
 
       mouseup:->
+        window.T.soundfont.preload [@notes[0]]
         window.T.soundfont.setInstrument(Math.round(Math.random() * 127));
 
 
