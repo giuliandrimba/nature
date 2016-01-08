@@ -4,6 +4,7 @@ Routes = require "app/config/routes"
 
 module.exports = class Index extends AppView
 
+  animating_current_view: false
   after_render:()->
     @setup()
     @set_triggers()
@@ -44,13 +45,25 @@ module.exports = class Index extends AppView
 
     @el.find(".bt-prev").bind "click", (e)=>
       e.preventDefault()
+      return if @animating_current_view
+      @animating_current_view = true
       route = Routes.get_prev "/"+Routes.active_page()
       @navigate route
+      setTimeout ()=>
+        @animating_current_view = false
+      ,
+        1500
 
     @el.find(".bt-next").bind "click", (e)=>
       e.preventDefault()
+      return if @animating_current_view
+      @animating_current_view = true
       route = Routes.get_next "/"+Routes.active_page()
       @navigate route
+      setTimeout ()=>
+        @animating_current_view = false
+      ,
+        1500
 
   goto:(e)->
     e.preventDefault()
