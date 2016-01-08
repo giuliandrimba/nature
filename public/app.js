@@ -7589,7 +7589,7 @@ require.register('src/templates/automata/index', function(require, module, expor
 module.exports = function anonymous(locals
 /**/) {
 var buf = [];
-buf.push("<div id=\"lab-automata\" class=\"lab\"><p class=\"title\">Game of Life</p><p class=\"description\">cellular automata<br> system implementation</p></div>");;return buf.join("");
+buf.push("<div id=\"lab-automata\" class=\"lab\"><p class=\"title\">Game of Life</p><p class=\"description\">cellular automata<br> system implementation<br>(click to reset)</p></div>");;return buf.join("");
 }
 }, {});
 require.register('src/templates/fractal/index', function(require, module, exports){
