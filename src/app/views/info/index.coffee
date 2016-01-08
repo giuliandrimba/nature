@@ -3,6 +3,8 @@ Routes = require "app/config/routes"
 
 module.exports = class Index extends AppView
 
+  title: "Nature : Info"
+
   destroy:->
     super
 
@@ -22,4 +24,7 @@ module.exports = class Index extends AppView
 
     @el.find(".bt-close").bind "click", (e)=>
       e.preventDefault()
-      @navigate window.prevPage
+      page = window.prevPage
+      if window.prevPage is "info"
+        page = "/"
+      @navigate page
