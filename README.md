@@ -1,4 +1,4 @@
-# Labs
+![Nature](/public/img/social.jpg)
 
 # Setup
 
