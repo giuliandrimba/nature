@@ -61,6 +61,8 @@ module.exports = class Menu extends View
     @windowH = @window.height()
 
   onMouseMove:(e)=>
+    if Routes.active_page() is "info"
+      return
     if e.screenY > @windowH - 100
       @show()
 
