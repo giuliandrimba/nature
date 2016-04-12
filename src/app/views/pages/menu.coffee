@@ -9,6 +9,7 @@ module.exports = class Menu extends View
     $(at).append @el
     window.currentPage = Routes.active_page()
     window.prevPage = Routes.active_page()
+    @hideTimeout = undefined
     @setup()
 
   visible:=>
@@ -18,6 +19,7 @@ module.exports = class Menu extends View
 
   setup:()->
     @window = $(window)
+    @windowH = @window.height()
     @wrapper = $ ".wrapper"
     @on_resize()
     @events()
@@ -36,7 +38,13 @@ module.exports = class Menu extends View
     ,
       0
 
+    window.clearTimeout @hideTimeout
+    @hideTimeout = setTimeout @hide, 4000
+
   events:()->
+
+    $(document.body).bind "mousemove", @onMouseMove
+    $(window).bind "resize", @onResize
 
     History.Adapter.bind window, 'statechange', =>
       window.prevPage = window.currentPage
@@ -48,6 +56,13 @@ module.exports = class Menu extends View
         @show()
 
     @check_nav()
+
+  onResize:=>
+    @windowH = @window.height()
+
+  onMouseMove:(e)=>
+    if e.screenY > @windowH - 100
+      @show()
 
   check_nav:=>
     route = Routes.routes["/"+Routes.active_page()]

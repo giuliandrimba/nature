@@ -10,11 +10,13 @@ module.exports = class Index extends AppView
     @set_triggers()
 
   setup:()->
+    @windowH = $(window).height()
     @wrapper = $(@el).find ".wrapper"
     @window = $ window
     @border = $(".border")
     @menu = new Menu ".footer"
     @logo = @el.find ".logo-labs"
+    @hideDescriptionTimeout = undefined
     @events()
 
   before_in:()->
@@ -43,6 +45,10 @@ module.exports = class Index extends AppView
 
   events:=>
 
+    $(document.body).bind "mousemove", @onMouseMove
+    $(window).bind "resize", @onResize
+    @showDescription()
+
     @el.find(".bt-prev").bind "click", (e)=>
       e.preventDefault()
       return if @animating_current_view
@@ -64,6 +70,34 @@ module.exports = class Index extends AppView
         @animating_current_view = false
       ,
         1500
+
+  onMouseMove:(e)=>
+    if e.screenY > @windowH - 100
+      @showDescription()
+
+  showDescription:=>
+
+    TweenMax.killTweensOf $(".title")
+    TweenMax.killTweensOf $(".description")
+
+    TweenMax.to $(".title"), .5, opacity: 1
+    TweenMax.to $(".description"), .5, opacity: 1
+
+    window.clearTimeout @hideDescriptionTimeout
+    @hideDescriptionTimeout = window.setTimeout @hideDescription, 4000
+
+  hideDescription:=>
+
+    TweenMax.killTweensOf $(".title")
+    TweenMax.killTweensOf $(".description")
+
+    TweenMax.to $(".title"), .5, opacity:0
+    TweenMax.to $(".description"), .5, opacity:0
+
+    @descHidden = true
+
+  onResize:=>
+    @windowH = $(window).height()
 
   goto:(e)->
     e.preventDefault()
