@@ -24,10 +24,15 @@ module.exports = class AppView extends View
     @el.animate {opacity: 1}, 1000
     @anim_title.start()
 
+    if !@in_iframe()
+      delay = 1500
+    else
+      delay = 0
+
     setTimeout ()=>
       @el.find("canvas").addClass("tween")
     ,
-      1500
+      delay
 
   animate_description:=>
 
@@ -41,6 +46,13 @@ module.exports = class AppView extends View
       description.append span
       anim = new AnimText span, 750
       anim.start()
+
+  in_iframe: ->
+    try
+      return window.self != window.top
+    catch e
+      return true
+    return
 
 
 
