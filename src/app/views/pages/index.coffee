@@ -39,6 +39,10 @@ module.exports = class Index extends AppView
 
     if !@in_iframe()
       @menu.visible()
+      $("body").removeClass("in-iframe");
+    else
+      $("body").addClass("in-iframe");
+
 
     @menu.in ()=>
       @after_in?()

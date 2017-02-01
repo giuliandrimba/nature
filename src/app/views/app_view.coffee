@@ -21,7 +21,7 @@ module.exports = class AppView extends View
     @anim_title = new AnimText @el.find(".title"), 500
     @animate_description()
     @el.css "opacity": 0
-    @el.animate {opacity: 1}, 500
+    @el.animate {opacity: 1}, 1000
     @anim_title.start()
 
     setTimeout ()=>
